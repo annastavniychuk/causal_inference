@@ -1,0 +1,219 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(sandwich)
+library(mvtnorm)
+library(nlme)
+```
+
+
+```{r}
+gen_cluster_mixtape <- function(param = c(.1, .5), n = 1000, n_cluster = 50, rho = .5) {
+  # Function to generate clustered data
+  # Required package: mvtnorm
+  
+  # individual level
+  Sigma_i <- matrix(c(1, 0, 0, 1 - rho), ncol = 2)
+  values_i <- rmvnorm(n = n, sigma = Sigma_i)
+  
+  # cluster level
+  cluster_name <- rep(1:n_cluster, each = n / n_cluster)
+  Sigma_cl <- matrix(c(1, 0, 0, rho), ncol = 2)
+  values_cl <- rmvnorm(n = n_cluster, sigma = Sigma_cl)
+  
+  # predictor var consists of individual- and cluster-level components
+  x <- values_i[ , 1] + rep(values_cl[ , 1], each = n / n_cluster)
+  
+  # error consists of individual- and cluster-level components
+  error <- values_i[ , 2] + rep(values_cl[ , 2], each = n / n_cluster)
+  
+  # data generating process
+  y <- param[1] + param[2]*x + error
+  
+  df <- data.frame(x, y, cluster = cluster_name)
+  return(df)
+}
+
+
+sample_clusters <- function(n_cl, n_in_cl) {
+  clusters <- data.frame()
+  cl <- rpois(n_cl, n_in_cl)
+  tr <- 1 - 2 * rbinom(n_cl, 1, 0.5)
+  for (x in 1:n_cl) {
+    tr_effect <- rep(tr[x], cl[x])
+    clusters <- rbind(clusters, data.frame(tr_effect=tr_effect, cl=x))
+  }
+  return(clusters)
+}
+
+
+sample_units <- function(clusters) {
+  clusters$Y0 <- rnorm(nrow(clusters), 0, 1)
+  clusters$Y1 <- clusters$Y0 + clusters$tr_effect
+  clusters
+}
+
+```
+
+
+```{r}
+true_effect <- 0.5
+results <- c()
+results1 <- c()
+for (i in 1:1000) {
+  clusters <- gen_cluster_mixtape()
+  model <- lm(y ~ x, clusters)
+  model1 <- lm(y ~ x + as.factor(cluster), clusters)
+  results <- c(results, model$coefficients[2])
+  results1 <- c(results1, model1$coefficients[2])
+}
+
+#sim_results <- c(
+#  sqrt(vcovCL(model, cluster = ~ cluster, type='HC1')[2,2]),
+#  sd(results),
+#  sqrt(mean((results - true_effect) ** 2)),
+#  summary(model)$coefficients[2, 2]
+#  )
+
+print('Без Fixed Effects')
+
+sqrt(vcovCL(model, cluster = ~ cluster, type='HC1')[2,2])
+sd(results)
+sqrt(mean((results - true_effect) ** 2))
+summary(model)$coefficients[2, 2]
+
+print('С Fixed Effects')
+
+sqrt(vcovCL(model1, cluster = ~ cluster, type='HC1')[2,2])
+sd(results1)
+sqrt(mean((results1 - true_effect) ** 2))
+summary(model1)$coefficients[2, 2]
+```
+
+
+```{r}
+true_effect <- 0
+results <- c()
+results1 <- c()
+for (i in 1:1000) {
+  clusters <- sample_clusters(30, 100)
+  clusters <- sample_units(clusters)
+  clusters$W <- rbinom(nrow(clusters), 1, 0.5)
+  clusters$Y <- clusters$Y0 + clusters$W * (clusters$Y1 - clusters$Y0)
+  model <- lm(Y ~ W, clusters)
+  model1 <- lm(Y ~ W + as.factor(cl), clusters)
+  results <- c(results, model$coefficients[2])
+  results1 <- c(results1, model1$coefficients[2])
+}
+
+print('Без Fixed Effects')
+
+sqrt(vcovCL(model, cluster = ~ cl, type='HC1')[2,2])
+sd(results)
+sqrt(mean(results ** 2))
+summary(model)$coefficients[2, 2]
+
+print('С Fixed Effects')
+
+sqrt(vcovCL(model1, cluster = ~ cl, type='HC1')[2,2])
+sd(results1)
+sqrt(mean(results1 ** 2))
+summary(model1)$coefficients[2, 2]
+```
+
+
+```{r}
+clusters <- sample_clusters(30, 100)
+true_effect <- 0
+results <- c()
+results1 <- c()
+for (i in 1:1000) {
+  clusters <- sample_units(clusters)
+  clusters$W <- rbinom(nrow(clusters), 1, 0.5)
+  clusters$Y <- clusters$Y0 + clusters$W * (clusters$Y1 - clusters$Y0)
+  model <- lm(Y ~ W, clusters)
+  model1 <- lm(Y ~ W + as.factor(cl), clusters)
+  results <- c(results, model$coefficients[2])
+  results1 <- c(results1, model1$coefficients[2])
+}
+
+print('Без Fixed Effects')
+
+sqrt(vcovCL(model, cluster = ~ cl, type='HC1')[2,2])
+sd(results)
+sqrt(mean(results ** 2))
+summary(model)$coefficients[2, 2]
+
+print('С Fixed Effects')
+
+sqrt(vcovCL(model1, cluster = ~ cl, type='HC1')[2,2])
+sd(results1)
+sqrt(mean(results1 ** 2))
+summary(model1)$coefficients[2, 2]
+```
+
+
+```{r}
+true_effect <- 0
+results <- c()
+results1 <- c()
+for (i in 1:1000) {
+  clusters <- sample_clusters(30, 100)
+  clusters <- sample_units(clusters)
+  clusters <- clusters %>% group_by(cl) %>% mutate(W=rbinom(1, 1, 0.5))
+  clusters$Y <- clusters$Y0 + clusters$W * (clusters$Y1 - clusters$Y0)
+  model <- lm(Y ~ W, clusters)
+  model1 <- lm(Y ~ W + as.factor(cl), clusters)
+  results <- c(results, model$coefficients[2])
+  results1 <- c(results1, model1$coefficients[2])
+}
+
+print('Без Fixed Effects')
+
+sqrt(vcovCL(model, cluster = ~ cl, type='HC1')[2,2])
+sd(results)
+sqrt(mean(results ** 2))
+summary(model)$coefficients[2, 2]
+
+print('С Fixed Effects')
+
+sqrt(vcovCL(model1, cluster = ~ cl, type='HC1')[2,2])
+sd(results1)
+sqrt(mean(results1 ** 2))
+summary(model1)$coefficients[2, 2]
+```
+
+
+```{r}
+true_effect <- 0
+results <- c()
+results1 <- c()
+clusters <- sample_clusters(30, 100)
+for (i in 1:1000) {
+  clusters <- sample_units(clusters)
+  clusters <- clusters %>% group_by(cl) %>% mutate(W=rbinom(1, 1, 0.5))
+  clusters$Y <- clusters$Y0 + clusters$W * (clusters$Y1 - clusters$Y0)
+  model <- lm(Y ~ W, clusters)
+  model1 <- lm(Y ~ W + as.factor(cl), clusters)
+  results <- c(results, model$coefficients[2])
+  results1 <- c(results1, model1$coefficients[2])
+}
+
+print('Без Fixed Effects')
+
+sqrt(vcovCL(model, cluster = ~ cl, type='HC1')[2,2])
+sd(results)
+sqrt(mean(results ** 2))
+summary(model)$coefficients[2, 2]
+
+print('С Fixed Effects')
+
+sqrt(vcovCL(model1, cluster = ~ cl, type='HC1')[2,2])
+sd(results1)
+sqrt(mean(results1 ** 2))
+summary(model1)$coefficients[2, 2]
+```

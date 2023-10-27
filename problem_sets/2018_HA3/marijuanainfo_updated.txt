@@ -1,0 +1,39 @@
+"Marijuana legalization and crime in the US" dataset description
+
+timeline.csv: Timeline of marijuana legalization across the states, data collected by hand from various sources. 
+Data for 50 states across 21 years (1996-2016). No data for DC. 
+
+Variable definitions:
+stateName -		name of the state from state.name command
+stateAbb - 		abbreviarion of the state name from state.abb command
+year - 			year
+violent_crime - 	nymber of violent crimes reported in this state on this year
+homicide -		nymber of homicides reported in this state on this year
+rape_legacy -		nymber of rapes reported in this state on this year [difference between legacy and revised rape definitions noted here: https://ucr.fbi.gov/crime-in-the-u.s/2016/crime-in-the-u.s.-2016/tables/table-1/table-1.xls/@@template-layout-view?override-view=data-declaration. Using legacy definition since revised definition is not available for the whole time period]
+robbery -		nymber of robberies reported in this state on this year
+aggravated_assault - 	nymber of aggravated assaults reported in this state on this year
+property_crime -	nymber of property crimes reported in this state on this year
+burglary -		nymber of burglaries reported in this state on this year
+larceny -		nymber of larceny cases reported in this state on this year
+motor_vehicle_theft -	nymber of auto thefts reported in this state on this year
+Данные о преступленях приведены в расчёте на 100 000 населения.
+unemploymentRate - 	необходимо вытащить эти данные из файла https://www.bls.gov/lau/staadata.txt, показатель % of labour force
+income -		average household income in this state on this year
+stateColor - 		share of votes received by the Democratic Presidential Candidate in the 2012 Presidental elections (second time Obama was elected) [the larger the number, the bluer the state]
+
+	Binary variables
+minorChange - 		there was a minor change to the cannabis laws (for example, "Alaska passes legislation to further decrease penalties for cannabis")
+prohibited - 		marijuana status in this state on this year is "Prohibited": severe punishments for posession/use/... of marijuana, such as imprisonment and large fines
+decriminalized- 	marijuana status in this state on this year is "Decriminalized": less severe punishments than when "Prohibited" though marijuana is still illegal
+medicalNoTHC- 		marijuana status in this state on this year is "Medical without THC": some forms of medicine with cannabis extracts are allowed, but only if they don't contain THC - the psychoactive component of cannabis
+medical - 		marijuana status in this state on this year is "Medical": marijuana use is allowed in medical purposes.
+Recreational - 		marijuana status in this state on this year is "Recreational": marijuana use is allowed in recreational purposes
+RecreationalAndMedical-	marijuana status in this state on this year is "Recreational and Medical": marijuana use is allowed in medical and recreational purposes
+VotersNoChange - 	no law changes was made during this year in this state in terms of marijuana legalization 
+VotersStateLegislature -the law change in terms of marijuana legalization was made by government representatives during this year in this state 
+VotersBallotMeasure -	the law change in terms of marijuana legalization was made by the people by ballot voting during this year in this state 
+VotersNoInfo -		no information on whether it was the population or the government representatives who voted on the law change in terms of marijuana legalization
+
+Please contact aregmanvelyan@gmail.com with questions
+
+

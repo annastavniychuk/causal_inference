@@ -1,0 +1,30 @@
+row 
+location          Town of Survey
+treatmdollar      Dollar pay for survey
+treatmmin         Duration of survey 
+treatflyer        Flyer treatment: No Flyer (Nw), Flyer (W), Flyer Election (We), Opt Out (Oo), Op
+treatinfo         Incentive to say did not vote (V) or no incentive (No)
+treatv            Incentive to say did not vote (V) or no incentive (No)  
+solicitor         Name of surveyor
+voterin2010       Household of all-voters in 2010 (1) or all-non-voters (0)
+hour              Hour of survey
+nosolsign         No-solicitor sign on door -- hence do not contact
+toeliminate       Eliminate from sample because could not contact or other reason
+dnd               Checked Do-not-disturb box in Oo or OOe treatments
+votedin2010       Self-reported voting in the 2010 congressional election
+votedin2008       Self-reported voting in the 2008 presidential election 
+friendsask2010    Self-reported number of times asked about voting by friends in the 2010 congress
+relativesask2010  Self-reported number of times asked about voting by relatives in the 2010 congre
+coworkersask2010  Self-reported number of times asked about voting by coworkers in the 2010 congre
+peopleask2010     Self-reported number of times asked about voting by people in the 2010 congressi
+friendsask2008    Self-reported number of times asked about voting by friends in the 2008 presiden
+relativesask2008  Self-reported number of times asked about voting by relatives in the 2008 presid
+treatment         Summary of survey flyer/dollar/minute treatment
+saidyes           Agreed to complete the survey
+coworkersask2008  Self-reported number of times asked about voting by coworkers in the 2008 presid
+peopleask2008     Self-reported number of times asked about voting by people in the 2008 president
+charity           Charity
+date              Date of survey
+year              Year of survey
+answer            Answered the door
+dhhRep, dhhDem - если в домохозяйстве кто-то голосовал когда-либо раньше либо за демократа, либо за республиканца

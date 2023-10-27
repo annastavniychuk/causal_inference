@@ -1,0 +1,4 @@
+
+[submodule "seminars"]
+	path = all_seminars/seminars
+	url = git@github.com:annastavniychuk/AppliedEconometricsMSU.git
