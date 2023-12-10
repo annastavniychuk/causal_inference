@@ -2,7 +2,7 @@
 
 # General info
 
-Experimentation is an industury standard for informing product design and business management changes. In this course we cover methods for conducting sensetive and efficient experiments, managing sequential experiments, drawing inference and review quasi-experimental methods, where conducting a full scale experiment is either expensive or completely infeasible.
+Experimentation is an industury standard for informing product design and business management changes. In this course we cover methods for conducting sensitive and efficient experiments, managing sequential experiments, drawing inference and review quasi-experimental methods, where conducting a full scale experiment is either expensive or completely infeasible.
 
 The course features a theoretical part presented in lectures and practical hands-on part discussed on seminars. Student's comprehension of the methods is enforced through home assignments based on simulations and analysis of applied datasets.
 
