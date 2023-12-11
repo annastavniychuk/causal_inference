@@ -60,6 +60,16 @@ This course is based on a successful Causal Inference course held at the departm
   - Seminar: [synthetic control](https://annastavniychuk.github.io/AppliedEconometricsMSU/synthetic_control.html)
   - Homework:
 
+# Additional recommended resources
+
+* [Causal Inference for The Brave and True (Matheus Facure)](https://matheusfacure.github.io/python-causality-handbook/landing-page.html)
+* [Introduction to Causal Inference (Brady Neal)](https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf)
+* [Causal Inference: The Mixtape (Scott Cunningham)](https://mixtape.scunning.com/)
+* [Causal Inference: What If (Miguel Hernan, Jamie Robins)](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
+* [The Effect: An Introduction to Research Design and Causality (Nick Huntington-Klein)](https://theeffectbook.net/)
+
+More resources can be found [here](https://github.com/annastavniychuk/econometrics_library)
+
 # Contributors & course staff
 
 Course materials (lectures, seminars, homeworks) and teaching performed by
