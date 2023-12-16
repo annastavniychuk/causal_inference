@@ -28,7 +28,7 @@ This course is based on a successful Causal Inference course held at the departm
   - Lecture:
   - Seminar:
   - Homework:
-- week05 **Cluster errors and bootstrap. Heteroskedasticity?**
+- week05 **Cluster errors, Heteroskedasticity and bootstrap**
   - Lecture:
   - Seminar:
   - Homework:
