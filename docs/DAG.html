@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; DAG и причинные механизмы – Causal Inference</title>
+<title>3&nbsp; DAG и причинные механизмы – Causal Inference</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="prev">
+<link href="./multiple_testing.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -143,7 +143,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./DAG.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">DAG и причинные механизмы</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./DAG.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">DAG и причинные механизмы</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -182,8 +182,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./multiple_testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Множественное тестирование гипотез</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./DAG.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">DAG и причинные механизмы</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">DAG и причинные механизмы</span></span></a>
   </div>
 </li>
     </ul>
@@ -196,41 +202,41 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#постановка-задачи" id="toc-постановка-задачи" class="nav-link active" data-scroll-target="#постановка-задачи"><span class="header-section-number">2.1</span> Постановка задачи</a></li>
-  <li><a href="#часть-1.-dag-качественная-карта-допущений" id="toc-часть-1.-dag-качественная-карта-допущений" class="nav-link" data-scroll-target="#часть-1.-dag-качественная-карта-допущений"><span class="header-section-number">2.2</span> Часть 1. DAG: качественная карта допущений</a>
+  <li><a href="#постановка-задачи" id="toc-постановка-задачи" class="nav-link active" data-scroll-target="#постановка-задачи"><span class="header-section-number">3.1</span> Постановка задачи</a></li>
+  <li><a href="#часть-1.-dag-качественная-карта-допущений" id="toc-часть-1.-dag-качественная-карта-допущений" class="nav-link" data-scroll-target="#часть-1.-dag-качественная-карта-допущений"><span class="header-section-number">3.2</span> Часть 1. DAG: качественная карта допущений</a>
   <ul class="collapse">
-  <li><a href="#задание-графа" id="toc-задание-графа" class="nav-link" data-scroll-target="#задание-графа"><span class="header-section-number">2.2.1</span> Задание графа</a></li>
-  <li><a href="#базовая-визуализация" id="toc-базовая-визуализация" class="nav-link" data-scroll-target="#базовая-визуализация"><span class="header-section-number">2.2.2</span> Базовая визуализация</a></li>
-  <li><a href="#все-пути-от-t-к-y" id="toc-все-пути-от-t-к-y" class="nav-link" data-scroll-target="#все-пути-от-t-к-y"><span class="header-section-number">2.2.3</span> Все пути от <span class="math inline">\(T\)</span> к <span class="math inline">\(Y\)</span></a></li>
+  <li><a href="#задание-графа" id="toc-задание-графа" class="nav-link" data-scroll-target="#задание-графа"><span class="header-section-number">3.2.1</span> Задание графа</a></li>
+  <li><a href="#базовая-визуализация" id="toc-базовая-визуализация" class="nav-link" data-scroll-target="#базовая-визуализация"><span class="header-section-number">3.2.2</span> Базовая визуализация</a></li>
+  <li><a href="#все-пути-от-t-к-y" id="toc-все-пути-от-t-к-y" class="nav-link" data-scroll-target="#все-пути-от-t-к-y"><span class="header-section-number">3.2.3</span> Все пути от <span class="math inline">\(T\)</span> к <span class="math inline">\(Y\)</span></a></li>
   </ul></li>
-  <li><a href="#множество-поправки" id="toc-множество-поправки" class="nav-link" data-scroll-target="#множество-поправки"><span class="header-section-number">2.3</span> Множество поправки</a>
+  <li><a href="#множество-поправки" id="toc-множество-поправки" class="nav-link" data-scroll-target="#множество-поправки"><span class="header-section-number">3.3</span> Множество поправки</a>
   <ul class="collapse">
-  <li><a href="#что-меняется-когда-мы-условились-на-k-m" id="toc-что-меняется-когда-мы-условились-на-k-m" class="nav-link" data-scroll-target="#что-меняется-когда-мы-условились-на-k-m"><span class="header-section-number">2.3.1</span> Что меняется, когда мы условились на <span class="math inline">\(\{K, M\}\)</span></a></li>
+  <li><a href="#что-меняется-когда-мы-условились-на-k-m" id="toc-что-меняется-когда-мы-условились-на-k-m" class="nav-link" data-scroll-target="#что-меняется-когда-мы-условились-на-k-m"><span class="header-section-number">3.3.1</span> Что меняется, когда мы условились на <span class="math inline">\(\{K, M\}\)</span></a></li>
   </ul></li>
-  <li><a href="#часть-2.-симуляция-данных" id="toc-часть-2.-симуляция-данных" class="nav-link" data-scroll-target="#часть-2.-симуляция-данных"><span class="header-section-number">2.4</span> Часть 2. Симуляция данных</a></li>
-  <li><a href="#часть-3.-оценка-общего-эффекта-te" id="toc-часть-3.-оценка-общего-эффекта-te" class="nav-link" data-scroll-target="#часть-3.-оценка-общего-эффекта-te"><span class="header-section-number">2.5</span> Часть 3. Оценка общего эффекта (TE)</a>
+  <li><a href="#часть-2.-симуляция-данных" id="toc-часть-2.-симуляция-данных" class="nav-link" data-scroll-target="#часть-2.-симуляция-данных"><span class="header-section-number">3.4</span> Часть 2. Симуляция данных</a></li>
+  <li><a href="#часть-3.-оценка-общего-эффекта-te" id="toc-часть-3.-оценка-общего-эффекта-te" class="nav-link" data-scroll-target="#часть-3.-оценка-общего-эффекта-te"><span class="header-section-number">3.5</span> Часть 3. Оценка общего эффекта (TE)</a>
   <ul class="collapse">
-  <li><a href="#наивная-регрессия-без-контролей" id="toc-наивная-регрессия-без-контролей" class="nav-link" data-scroll-target="#наивная-регрессия-без-контролей"><span class="header-section-number">2.5.1</span> Наивная регрессия без контролей</a></li>
-  <li><a href="#регрессия-с-adjustment-set-k-m" id="toc-регрессия-с-adjustment-set-k-m" class="nav-link" data-scroll-target="#регрессия-с-adjustment-set-k-m"><span class="header-section-number">2.5.2</span> Регрессия с adjustment set <span class="math inline">\(\{K, M\}\)</span></a></li>
-  <li><a href="#что-произойдёт-если-контролировать-всё-подряд" id="toc-что-произойдёт-если-контролировать-всё-подряд" class="nav-link" data-scroll-target="#что-произойдёт-если-контролировать-всё-подряд"><span class="header-section-number">2.5.3</span> Что произойдёт, если контролировать «всё подряд»</a></li>
+  <li><a href="#наивная-регрессия-без-контролей" id="toc-наивная-регрессия-без-контролей" class="nav-link" data-scroll-target="#наивная-регрессия-без-контролей"><span class="header-section-number">3.5.1</span> Наивная регрессия без контролей</a></li>
+  <li><a href="#регрессия-с-adjustment-set-k-m" id="toc-регрессия-с-adjustment-set-k-m" class="nav-link" data-scroll-target="#регрессия-с-adjustment-set-k-m"><span class="header-section-number">3.5.2</span> Регрессия с adjustment set <span class="math inline">\(\{K, M\}\)</span></a></li>
+  <li><a href="#что-произойдёт-если-контролировать-всё-подряд" id="toc-что-произойдёт-если-контролировать-всё-подряд" class="nav-link" data-scroll-target="#что-произойдёт-если-контролировать-всё-подряд"><span class="header-section-number">3.5.3</span> Что произойдёт, если контролировать «всё подряд»</a></li>
   </ul></li>
-  <li><a href="#часть-4.-модерация-для-кого-прогулы-вреднее" id="toc-часть-4.-модерация-для-кого-прогулы-вреднее" class="nav-link" data-scroll-target="#часть-4.-модерация-для-кого-прогулы-вреднее"><span class="header-section-number">2.6</span> Часть 4. Модерация: для кого прогулы вреднее?</a>
+  <li><a href="#часть-4.-модерация-для-кого-прогулы-вреднее" id="toc-часть-4.-модерация-для-кого-прогулы-вреднее" class="nav-link" data-scroll-target="#часть-4.-модерация-для-кого-прогулы-вреднее"><span class="header-section-number">3.6</span> Часть 4. Модерация: для кого прогулы вреднее?</a>
   <ul class="collapse">
-  <li><a href="#логика" id="toc-логика" class="nav-link" data-scroll-target="#логика"><span class="header-section-number">2.6.1</span> Логика</a></li>
-  <li><a href="#линейная-модерация-по-k" id="toc-линейная-модерация-по-k" class="nav-link" data-scroll-target="#линейная-модерация-по-k"><span class="header-section-number">2.6.2</span> Линейная модерация по <span class="math inline">\(K\)</span></a></li>
-  <li><a href="#условный-ate-на-сетке-k" id="toc-условный-ate-на-сетке-k" class="nav-link" data-scroll-target="#условный-ate-на-сетке-k"><span class="header-section-number">2.6.3</span> Условный ATE на сетке <span class="math inline">\(K\)</span></a></li>
-  <li><a href="#модерация-по-нескольким-переменным-сразу" id="toc-модерация-по-нескольким-переменным-сразу" class="nav-link" data-scroll-target="#модерация-по-нескольким-переменным-сразу"><span class="header-section-number">2.6.4</span> Модерация по нескольким переменным сразу</a></li>
+  <li><a href="#логика" id="toc-логика" class="nav-link" data-scroll-target="#логика"><span class="header-section-number">3.6.1</span> Логика</a></li>
+  <li><a href="#линейная-модерация-по-k" id="toc-линейная-модерация-по-k" class="nav-link" data-scroll-target="#линейная-модерация-по-k"><span class="header-section-number">3.6.2</span> Линейная модерация по <span class="math inline">\(K\)</span></a></li>
+  <li><a href="#условный-ate-на-сетке-k" id="toc-условный-ate-на-сетке-k" class="nav-link" data-scroll-target="#условный-ate-на-сетке-k"><span class="header-section-number">3.6.3</span> Условный ATE на сетке <span class="math inline">\(K\)</span></a></li>
+  <li><a href="#модерация-по-нескольким-переменным-сразу" id="toc-модерация-по-нескольким-переменным-сразу" class="nav-link" data-scroll-target="#модерация-по-нескольким-переменным-сразу"><span class="header-section-number">3.6.4</span> Модерация по нескольким переменным сразу</a></li>
   </ul></li>
-  <li><a href="#часть-5.-медиация-через-какие-каналы-работают-прогулы" id="toc-часть-5.-медиация-через-какие-каналы-работают-прогулы" class="nav-link" data-scroll-target="#часть-5.-медиация-через-какие-каналы-работают-прогулы"><span class="header-section-number">2.7</span> Часть 5. Медиация: через какие каналы работают прогулы</a>
+  <li><a href="#часть-5.-медиация-через-какие-каналы-работают-прогулы" id="toc-часть-5.-медиация-через-какие-каналы-работают-прогулы" class="nav-link" data-scroll-target="#часть-5.-медиация-через-какие-каналы-работают-прогулы"><span class="header-section-number">3.7</span> Часть 5. Медиация: через какие каналы работают прогулы</a>
   <ul class="collapse">
-  <li><a href="#логика-1" id="toc-логика-1" class="nav-link" data-scroll-target="#логика-1"><span class="header-section-number">2.7.1</span> Логика</a></li>
-  <li><a href="#допущения" id="toc-допущения" class="nav-link" data-scroll-target="#допущения"><span class="header-section-number">2.7.2</span> Допущения</a></li>
-  <li><a href="#две-регрессии" id="toc-две-регрессии" class="nav-link" data-scroll-target="#две-регрессии"><span class="header-section-number">2.7.3</span> Две регрессии</a></li>
-  <li><a href="#sensitivity-к-нарушению-sequential-ignorability" id="toc-sensitivity-к-нарушению-sequential-ignorability" class="nav-link" data-scroll-target="#sensitivity-к-нарушению-sequential-ignorability"><span class="header-section-number">2.7.4</span> Sensitivity к нарушению sequential ignorability</a></li>
+  <li><a href="#логика-1" id="toc-логика-1" class="nav-link" data-scroll-target="#логика-1"><span class="header-section-number">3.7.1</span> Логика</a></li>
+  <li><a href="#допущения" id="toc-допущения" class="nav-link" data-scroll-target="#допущения"><span class="header-section-number">3.7.2</span> Допущения</a></li>
+  <li><a href="#две-регрессии" id="toc-две-регрессии" class="nav-link" data-scroll-target="#две-регрессии"><span class="header-section-number">3.7.3</span> Две регрессии</a></li>
+  <li><a href="#sensitivity-к-нарушению-sequential-ignorability" id="toc-sensitivity-к-нарушению-sequential-ignorability" class="nav-link" data-scroll-target="#sensitivity-к-нарушению-sequential-ignorability"><span class="header-section-number">3.7.4</span> Sensitivity к нарушению sequential ignorability</a></li>
   </ul></li>
-  <li><a href="#часть-6.-сводка" id="toc-часть-6.-сводка" class="nav-link" data-scroll-target="#часть-6.-сводка"><span class="header-section-number">2.8</span> Часть 6. Сводка</a>
+  <li><a href="#часть-6.-сводка" id="toc-часть-6.-сводка" class="nav-link" data-scroll-target="#часть-6.-сводка"><span class="header-section-number">3.8</span> Часть 6. Сводка</a>
   <ul class="collapse">
-  <li><a href="#что-мы-поняли-на-этом-примере" id="toc-что-мы-поняли-на-этом-примере" class="nav-link" data-scroll-target="#что-мы-поняли-на-этом-примере"><span class="header-section-number">2.8.1</span> Что мы поняли на этом примере</a></li>
+  <li><a href="#что-мы-поняли-на-этом-примере" id="toc-что-мы-поняли-на-этом-примере" class="nav-link" data-scroll-target="#что-мы-поняли-на-этом-примере"><span class="header-section-number">3.8.1</span> Что мы поняли на этом примере</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -240,7 +246,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">DAG и причинные механизмы</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">DAG и причинные механизмы</span></h1>
 </div>
 
 
@@ -257,8 +263,8 @@ window.Quarto = {
 </header>
 
 
-<section id="постановка-задачи" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="постановка-задачи"><span class="header-section-number">2.1</span> Постановка задачи</h2>
+<section id="постановка-задачи" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="постановка-задачи"><span class="header-section-number">3.1</span> Постановка задачи</h2>
 <p>Преподаватели эконометрики хотят изучить, как <strong>прогулы лекций</strong> (<span class="math inline">\(T\)</span>) влияют на <strong>качество освоения дисциплин</strong> (<span class="math inline">\(Y\)</span>).</p>
 <ul>
 <li><span class="math inline">\(T\)</span> — бинарная: <span class="math inline">\(T_i=1\)</span>, если студент пропустил более половины лекций.</li>
@@ -285,10 +291,10 @@ window.Quarto = {
 </div>
 <hr>
 </section>
-<section id="часть-1.-dag-качественная-карта-допущений" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="часть-1.-dag-качественная-карта-допущений"><span class="header-section-number">2.2</span> Часть 1. DAG: качественная карта допущений</h2>
-<section id="задание-графа" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="задание-графа"><span class="header-section-number">2.2.1</span> Задание графа</h3>
+<section id="часть-1.-dag-качественная-карта-допущений" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="часть-1.-dag-качественная-карта-допущений"><span class="header-section-number">3.2</span> Часть 1. DAG: качественная карта допущений</h2>
+<section id="задание-графа" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="задание-графа"><span class="header-section-number">3.2.1</span> Задание графа</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dag_lectures <span class="ot">&lt;-</span> <span class="fu">dagify</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  Y <span class="sc">~</span> T <span class="sc">+</span> S <span class="sc">+</span> K <span class="sc">+</span> M,</span>
@@ -308,8 +314,8 @@ window.Quarto = {
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="базовая-визуализация" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="базовая-визуализация"><span class="header-section-number">2.2.2</span> Базовая визуализация</h3>
+<section id="базовая-визуализация" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="базовая-визуализация"><span class="header-section-number">3.2.2</span> Базовая визуализация</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdag</span>(dag_lectures, <span class="at">text =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">theme_dag</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -330,8 +336,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="все-пути-от-t-к-y" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="все-пути-от-t-к-y"><span class="header-section-number">2.2.3</span> Все пути от <span class="math inline">\(T\)</span> к <span class="math inline">\(Y\)</span></h3>
+<section id="все-пути-от-t-к-y" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="все-пути-от-t-к-y"><span class="header-section-number">3.2.3</span> Все пути от <span class="math inline">\(T\)</span> к <span class="math inline">\(Y\)</span></h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdag_paths</span>(dag_lectures, <span class="at">from =</span> <span class="st">"T"</span>, <span class="at">to =</span> <span class="st">"Y"</span>,</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">text =</span> <span class="cn">FALSE</span>, <span class="at">use_labels =</span> <span class="st">"label"</span>, <span class="at">shadow =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
@@ -373,8 +379,8 @@ $open
 </ul>
 </section>
 </section>
-<section id="множество-поправки" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="множество-поправки"><span class="header-section-number">2.3</span> Множество поправки</h2>
+<section id="множество-поправки" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="множество-поправки"><span class="header-section-number">3.3</span> Множество поправки</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">adjustmentSets</span>(dag_lectures, <span class="at">exposure =</span> <span class="st">"T"</span>, <span class="at">outcome =</span> <span class="st">"Y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -394,8 +400,8 @@ $open
 </div>
 </div>
 <p>Минимальное adjustment set: <span class="math inline">\(\{K, M\}\)</span>. Контроль на <span class="math inline">\(S\)</span> закрыл бы каузальный путь <span class="math inline">\(T \to S \to Y\)</span> (overcontrol bias); контроль на <span class="math inline">\(A\)</span> открыл бы коллайдер-путь <span class="math inline">\(T \to A \leftarrow Y\)</span> (collider bias).</p>
-<section id="что-меняется-когда-мы-условились-на-k-m" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="что-меняется-когда-мы-условились-на-k-m"><span class="header-section-number">2.3.1</span> Что меняется, когда мы условились на <span class="math inline">\(\{K, M\}\)</span></h3>
+<section id="что-меняется-когда-мы-условились-на-k-m" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="что-меняется-когда-мы-условились-на-k-m"><span class="header-section-number">3.3.1</span> Что меняется, когда мы условились на <span class="math inline">\(\{K, M\}\)</span></h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdag_adjust</span>(dag_lectures, <span class="at">var =</span> <span class="fu">c</span>(<span class="st">"K"</span>, <span class="st">"M"</span>),</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">text =</span> <span class="cn">FALSE</span>, <span class="at">use_labels =</span> <span class="st">"label"</span>,</span>
@@ -430,8 +436,8 @@ $open
 <hr>
 </section>
 </section>
-<section id="часть-2.-симуляция-данных" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="часть-2.-симуляция-данных"><span class="header-section-number">2.4</span> Часть 2. Симуляция данных</h2>
+<section id="часть-2.-симуляция-данных" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="часть-2.-симуляция-данных"><span class="header-section-number">3.4</span> Часть 2. Симуляция данных</h2>
 <p>Чтобы все шаги были воспроизводимы, сгенерируем данные, согласованные с DAG.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
@@ -480,10 +486,10 @@ $open
 </div>
 <hr>
 </section>
-<section id="часть-3.-оценка-общего-эффекта-te" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="часть-3.-оценка-общего-эффекта-te"><span class="header-section-number">2.5</span> Часть 3. Оценка общего эффекта (TE)</h2>
-<section id="наивная-регрессия-без-контролей" class="level3" data-number="2.5.1">
-<h3 data-number="2.5.1" class="anchored" data-anchor-id="наивная-регрессия-без-контролей"><span class="header-section-number">2.5.1</span> Наивная регрессия без контролей</h3>
+<section id="часть-3.-оценка-общего-эффекта-te" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="часть-3.-оценка-общего-эффекта-te"><span class="header-section-number">3.5</span> Часть 3. Оценка общего эффекта (TE)</h2>
+<section id="наивная-регрессия-без-контролей" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="наивная-регрессия-без-контролей"><span class="header-section-number">3.5.1</span> Наивная регрессия без контролей</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>m_naive <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T, <span class="at">data =</span> d)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(m_naive, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -497,8 +503,8 @@ $open
 </div>
 <p>Коэффициент при <span class="math inline">\(T\)</span> смещён: он смешивает причинный эффект и обратную связь через <span class="math inline">\(K\)</span> и <span class="math inline">\(M\)</span>.</p>
 </section>
-<section id="регрессия-с-adjustment-set-k-m" class="level3" data-number="2.5.2">
-<h3 data-number="2.5.2" class="anchored" data-anchor-id="регрессия-с-adjustment-set-k-m"><span class="header-section-number">2.5.2</span> Регрессия с adjustment set <span class="math inline">\(\{K, M\}\)</span></h3>
+<section id="регрессия-с-adjustment-set-k-m" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="регрессия-с-adjustment-set-k-m"><span class="header-section-number">3.5.2</span> Регрессия с adjustment set <span class="math inline">\(\{K, M\}\)</span></h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>m_te <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T <span class="sc">+</span> K <span class="sc">+</span> M, <span class="at">data =</span> d)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(m_te, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -514,8 +520,8 @@ $open
 </div>
 <p><strong>Интерпретация.</strong> Коэффициент при <code>T1</code> — это оценка <span class="math inline">\(\E[Y(1)-Y(0)]\)</span> при условии корректности DAG: контроль на <span class="math inline">\(\{K,M\}\)</span> закрывает оба back-door пути, путь <span class="math inline">\(T\to A\leftarrow Y\)</span> закрыт сам собой, а каузальные пути <span class="math inline">\(T\to Y\)</span> и <span class="math inline">\(T\to S\to Y\)</span> остаются открытыми. Полученная оценка должна быть близка к <span class="math inline">\(-6.5\)</span> баллам.</p>
 </section>
-<section id="что-произойдёт-если-контролировать-всё-подряд" class="level3" data-number="2.5.3">
-<h3 data-number="2.5.3" class="anchored" data-anchor-id="что-произойдёт-если-контролировать-всё-подряд"><span class="header-section-number">2.5.3</span> Что произойдёт, если контролировать «всё подряд»</h3>
+<section id="что-произойдёт-если-контролировать-всё-подряд" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="что-произойдёт-если-контролировать-всё-подряд"><span class="header-section-number">3.5.3</span> Что произойдёт, если контролировать «всё подряд»</h3>
 <p>Иллюстрация overcontrol (через медиатор <span class="math inline">\(S\)</span>) и collider bias (через <span class="math inline">\(A\)</span>):</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>m_bad_S  <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T <span class="sc">+</span> K <span class="sc">+</span> M <span class="sc">+</span> S, <span class="at">data =</span> d)         <span class="co"># overcontrol: закрыли T→S→Y</span></span>
@@ -544,14 +550,14 @@ $open
 <hr>
 </section>
 </section>
-<section id="часть-4.-модерация-для-кого-прогулы-вреднее" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="часть-4.-модерация-для-кого-прогулы-вреднее"><span class="header-section-number">2.6</span> Часть 4. Модерация: для кого прогулы вреднее?</h2>
-<section id="логика" class="level3" data-number="2.6.1">
-<h3 data-number="2.6.1" class="anchored" data-anchor-id="логика"><span class="header-section-number">2.6.1</span> Логика</h3>
+<section id="часть-4.-модерация-для-кого-прогулы-вреднее" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="часть-4.-модерация-для-кого-прогулы-вреднее"><span class="header-section-number">3.6</span> Часть 4. Модерация: для кого прогулы вреднее?</h2>
+<section id="логика" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="логика"><span class="header-section-number">3.6.1</span> Логика</h3>
 <p>Хотим увидеть, <strong>гетерогенен</strong> ли эффект <span class="math inline">\(T\)</span> по предварительным знаниям <span class="math inline">\(K\)</span> и мотивации <span class="math inline">\(M\)</span>. Модерацию делаем <strong>поверх правильного adjustment set</strong> — то есть всегда контролируем <span class="math inline">\(\{K, M\}\)</span>, но добавляем взаимодействия с <span class="math inline">\(T\)</span>.</p>
 </section>
-<section id="линейная-модерация-по-k" class="level3" data-number="2.6.2">
-<h3 data-number="2.6.2" class="anchored" data-anchor-id="линейная-модерация-по-k"><span class="header-section-number">2.6.2</span> Линейная модерация по <span class="math inline">\(K\)</span></h3>
+<section id="линейная-модерация-по-k" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="линейная-модерация-по-k"><span class="header-section-number">3.6.2</span> Линейная модерация по <span class="math inline">\(K\)</span></h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>m_modK <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T<span class="sc">*</span>K <span class="sc">+</span> M, <span class="at">data =</span> d)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(m_modK, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -568,8 +574,8 @@ $open
 </div>
 <p>Коэффициент при <code>T1:K</code> — насколько эффект прогулов меняется при росте <span class="math inline">\(K\)</span> на одно стандартное отклонение. Знак отрицательный: прогулы <strong>сильнее</strong> бьют по успеваемости у студентов с высокой базой (что согласуется с заложенными <span class="math inline">\(-1.5\cdot T\cdot K\)</span>).</p>
 </section>
-<section id="условный-ate-на-сетке-k" class="level3" data-number="2.6.3">
-<h3 data-number="2.6.3" class="anchored" data-anchor-id="условный-ate-на-сетке-k"><span class="header-section-number">2.6.3</span> Условный ATE на сетке <span class="math inline">\(K\)</span></h3>
+<section id="условный-ate-на-сетке-k" class="level3" data-number="3.6.3">
+<h3 data-number="3.6.3" class="anchored" data-anchor-id="условный-ate-на-сетке-k"><span class="header-section-number">3.6.3</span> Условный ATE на сетке <span class="math inline">\(K\)</span></h3>
 <p>Посчитаем CATE(K) = <span class="math inline">\(\widehat E[Y \mid T{=}1, K, M{=}0] - \widehat E[Y \mid T{=}0, K, M{=}0]\)</span> вручную через <code>predict()</code></p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>K_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="at">by =</span> <span class="fl">0.25</span>)</span>
@@ -622,8 +628,8 @@ $open
 </div>
 <p>Чем выше <span class="math inline">\(K\)</span>, тем отрицательнее эффект прогулов — у сильных студентов прогулы вредят больше (как и заложено в симуляции: взаимодействие <span class="math inline">\(-1.5\,T\cdot K\)</span>).</p>
 </section>
-<section id="модерация-по-нескольким-переменным-сразу" class="level3" data-number="2.6.4">
-<h3 data-number="2.6.4" class="anchored" data-anchor-id="модерация-по-нескольким-переменным-сразу"><span class="header-section-number">2.6.4</span> Модерация по нескольким переменным сразу</h3>
+<section id="модерация-по-нескольким-переменным-сразу" class="level3" data-number="3.6.4">
+<h3 data-number="3.6.4" class="anchored" data-anchor-id="модерация-по-нескольким-переменным-сразу"><span class="header-section-number">3.6.4</span> Модерация по нескольким переменным сразу</h3>
 <p>Удобно описать гетерогенность одной интерпретируемой моделью BLP — best linear projection — на ковариаты с помощью causal forest:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Опционально: causal forest даёт непараметрическую оценку CATE</span></span>
@@ -639,18 +645,18 @@ $open
 <hr>
 </section>
 </section>
-<section id="часть-5.-медиация-через-какие-каналы-работают-прогулы" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="часть-5.-медиация-через-какие-каналы-работают-прогулы"><span class="header-section-number">2.7</span> Часть 5. Медиация: через какие каналы работают прогулы</h2>
-<section id="логика-1" class="level3" data-number="2.7.1">
-<h3 data-number="2.7.1" class="anchored" data-anchor-id="логика-1"><span class="header-section-number">2.7.1</span> Логика</h3>
+<section id="часть-5.-медиация-через-какие-каналы-работают-прогулы" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="часть-5.-медиация-через-какие-каналы-работают-прогулы"><span class="header-section-number">3.7</span> Часть 5. Медиация: через какие каналы работают прогулы</h2>
+<section id="логика-1" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="логика-1"><span class="header-section-number">3.7.1</span> Логика</h3>
 <p>DAG говорит: <span class="math inline">\(T \to Y\)</span> напрямую и <span class="math inline">\(T \to S \to Y\)</span> через самоподготовку. Хотим разложить совокупный эффект:</p>
 <p><span class="math display">\[
 \text{TE} = \underbrace{\text{ADE}}_{T\to Y \text{ напрямую}} + \underbrace{\text{ACME}}_{T\to S \to Y}.
 \]</span></p>
 <p>Здесь <span class="math inline">\(S\)</span> — outcome второй модели, <strong>не</strong> контроль.</p>
 </section>
-<section id="допущения" class="level3" data-number="2.7.2">
-<h3 data-number="2.7.2" class="anchored" data-anchor-id="допущения"><span class="header-section-number">2.7.2</span> Допущения</h3>
+<section id="допущения" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="допущения"><span class="header-section-number">3.7.2</span> Допущения</h3>
 <p>Sequential ignorability в этом DAG выполнена при контроле на <span class="math inline">\(\{K, M\}\)</span>:</p>
 <ul>
 <li><span class="math inline">\(T \perp\!\!\!\perp \{Y(t,s), S(t)\} \mid K, M\)</span> (нет нескомпенсированных back-door путей в <span class="math inline">\(T\)</span>);</li>
@@ -658,8 +664,8 @@ $open
 </ul>
 <p>Это сильное непроверяемое предположение — позже сделаем sensitivity analysis (<code>medsens</code>).</p>
 </section>
-<section id="две-регрессии" class="level3" data-number="2.7.3">
-<h3 data-number="2.7.3" class="anchored" data-anchor-id="две-регрессии"><span class="header-section-number">2.7.3</span> Две регрессии</h3>
+<section id="две-регрессии" class="level3" data-number="3.7.3">
+<h3 data-number="3.7.3" class="anchored" data-anchor-id="две-регрессии"><span class="header-section-number">3.7.3</span> Две регрессии</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Модель медиатора: S как функция T и конфаундеров</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>m_med <span class="ot">&lt;-</span> <span class="fu">lm</span>(S <span class="sc">~</span> T <span class="sc">+</span> K <span class="sc">+</span> M, <span class="at">data =</span> d)</span>
@@ -726,8 +732,8 @@ Simulations: 500 </code></pre>
 </ul>
 <p>Заметим: <code>ACME ≈ a*b</code> здесь оправдано, потому что в модели нет взаимодействия <span class="math inline">\(T \times S\)</span>. В общем случае нужно использовать саму функцию <code>mediate()</code>, а не произведение коэффициентов.</p>
 </section>
-<section id="sensitivity-к-нарушению-sequential-ignorability" class="level3" data-number="2.7.4">
-<h3 data-number="2.7.4" class="anchored" data-anchor-id="sensitivity-к-нарушению-sequential-ignorability"><span class="header-section-number">2.7.4</span> Sensitivity к нарушению sequential ignorability</h3>
+<section id="sensitivity-к-нарушению-sequential-ignorability" class="level3" data-number="3.7.4">
+<h3 data-number="3.7.4" class="anchored" data-anchor-id="sensitivity-к-нарушению-sequential-ignorability"><span class="header-section-number">3.7.4</span> Sensitivity к нарушению sequential ignorability</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>sens <span class="ot">&lt;-</span> <span class="fu">medsens</span>(med_fit, <span class="at">rho.by =</span> <span class="fl">0.05</span>, <span class="at">effect.type =</span> <span class="st">"indirect"</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sens)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -757,8 +763,8 @@ R^2_M~R^2_Y~ at which ACME = 0: 0.0223 </code></pre>
 <hr>
 </section>
 </section>
-<section id="часть-6.-сводка" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="часть-6.-сводка"><span class="header-section-number">2.8</span> Часть 6. Сводка</h2>
+<section id="часть-6.-сводка" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="часть-6.-сводка"><span class="header-section-number">3.8</span> Часть 6. Сводка</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Эффект,                   <span class="sc">~</span>Источник,                                                      <span class="sc">~</span>Оценка,</span>
@@ -780,8 +786,8 @@ R^2_M~R^2_Y~ at which ACME = 0: 0.0223 </code></pre>
 5 Доля через S            mediate(): n0             0.535</code></pre>
 </div>
 </div>
-<section id="что-мы-поняли-на-этом-примере" class="level3" data-number="2.8.1">
-<h3 data-number="2.8.1" class="anchored" data-anchor-id="что-мы-поняли-на-этом-примере"><span class="header-section-number">2.8.1</span> Что мы поняли на этом примере</h3>
+<section id="что-мы-поняли-на-этом-примере" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="что-мы-поняли-на-этом-примере"><span class="header-section-number">3.8.1</span> Что мы поняли на этом примере</h3>
 <ol type="1">
 <li><strong>DAG</strong> превратил «список факторов» в проверяемую карту допущений и сразу подсказал adjustment set — <span class="math inline">\(\{K, M\}\)</span> (а не «всё подряд»).</li>
 <li><strong><code>ggdag_paths</code></strong> показал все 5 путей и помог увидеть, что путь через коллайдер <span class="math inline">\(A\)</span> уже закрыт — его не надо «помогать» закрывать.</li>
@@ -1219,8 +1225,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./intro.html" class="pagination-link" aria-label="Введение в эксперименты">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Введение в эксперименты</span></span>
+      <a href="./multiple_testing.html" class="pagination-link" aria-label="Множественное тестирование гипотез">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Множественное тестирование гипотез</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

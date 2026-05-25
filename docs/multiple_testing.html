@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Множественное тестирование гипотез – Causal Inference</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./DAG.html" rel="next">
+<link href="./intro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./multiple_testing.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Множественное тестирование гипотез</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Causal Inference</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Введение в эксперименты</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./multiple_testing.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Множественное тестирование гипотез</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./DAG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">DAG и причинные механизмы</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#почему-множественное-тестирование-проблема" id="toc-почему-множественное-тестирование-проблема" class="nav-link active" data-scroll-target="#почему-множественное-тестирование-проблема"><span class="header-section-number">2.1</span> Почему множественное тестирование — проблема?</a>
+  <ul class="collapse">
+  <li><a href="#как-быстро-растёт-fwer" id="toc-как-быстро-растёт-fwer" class="nav-link" data-scroll-target="#как-быстро-растёт-fwer"><span class="header-section-number">2.1.1</span> Как быстро растёт FWER?</a></li>
+  </ul></li>
+  <li><a href="#часть-i.-базовый-анализ-желейные-бобы" id="toc-часть-i.-базовый-анализ-желейные-бобы" class="nav-link" data-scroll-target="#часть-i.-базовый-анализ-желейные-бобы"><span class="header-section-number">2.2</span> Часть I. Базовый анализ (желейные бобы)</a>
+  <ul class="collapse">
+  <li><a href="#sec-data" id="toc-sec-data" class="nav-link" data-scroll-target="#sec-data"><span class="header-section-number">2.2.1</span> 1.1 Генерация данных</a></li>
+  <li><a href="#визуальный-анализ" id="toc-визуальный-анализ" class="nav-link" data-scroll-target="#визуальный-анализ"><span class="header-section-number">2.2.2</span> 1.2 Визуальный анализ</a></li>
+  <li><a href="#t-тест-общий-эффект" id="toc-t-тест-общий-эффект" class="nav-link" data-scroll-target="#t-тест-общий-эффект"><span class="header-section-number">2.2.3</span> 1.3 t-тест: общий эффект</a></li>
+  </ul></li>
+  <li><a href="#часть-ii.-гетерогенный-эффект-по-цвету" id="toc-часть-ii.-гетерогенный-эффект-по-цвету" class="nav-link" data-scroll-target="#часть-ii.-гетерогенный-эффект-по-цвету"><span class="header-section-number">2.3</span> Часть II. Гетерогенный эффект по цвету</a>
+  <ul class="collapse">
+  <li><a href="#добавляем-цвет-желейных-бобов" id="toc-добавляем-цвет-желейных-бобов" class="nav-link" data-scroll-target="#добавляем-цвет-желейных-бобов"><span class="header-section-number">2.3.1</span> 2.1 Добавляем цвет желейных бобов</a></li>
+  <li><a href="#боксплот-по-цветам" id="toc-боксплот-по-цветам" class="nav-link" data-scroll-target="#боксплот-по-цветам"><span class="header-section-number">2.3.2</span> 2.2 Боксплот по цветам</a></li>
+  <li><a href="#отдельные-t-тесты-для-каждого-цвета" id="toc-отдельные-t-тесты-для-каждого-цвета" class="nav-link" data-scroll-target="#отдельные-t-тесты-для-каждого-цвета"><span class="header-section-number">2.3.3</span> 2.3 Отдельные t-тесты для каждого цвета</a></li>
+  </ul></li>
+  <li><a href="#часть-iii.-коррекция-p-значений" id="toc-часть-iii.-коррекция-p-значений" class="nav-link" data-scroll-target="#часть-iii.-коррекция-p-значений"><span class="header-section-number">2.4</span> Часть III. Коррекция p-значений</a>
+  <ul class="collapse">
+  <li><a href="#методы-коррекции" id="toc-методы-коррекции" class="nav-link" data-scroll-target="#методы-коррекции"><span class="header-section-number">2.4.1</span> 3.1 Методы коррекции</a></li>
+  <li><a href="#сравнение-результатов" id="toc-сравнение-результатов" class="nav-link" data-scroll-target="#сравнение-результатов"><span class="header-section-number">2.4.2</span> 3.2 Сравнение результатов</a></li>
+  </ul></li>
+  <li><a href="#часть-iv.-anova-глобальный-тест" id="toc-часть-iv.-anova-глобальный-тест" class="nav-link" data-scroll-target="#часть-iv.-anova-глобальный-тест"><span class="header-section-number">2.5</span> Часть IV. ANOVA — глобальный тест</a>
+  <ul class="collapse">
+  <li><a href="#проверка-предпосылок-anova" id="toc-проверка-предпосылок-anova" class="nav-link" data-scroll-target="#проверка-предпосылок-anova"><span class="header-section-number">2.5.1</span> 4.1 Проверка предпосылок ANOVA</a></li>
+  <li><a href="#one-way-anova" id="toc-one-way-anova" class="nav-link" data-scroll-target="#one-way-anova"><span class="header-section-number">2.5.2</span> 4.2 One-way ANOVA</a></li>
+  <li><a href="#anova-как-частный-случай-ols-регрессии" id="toc-anova-как-частный-случай-ols-регрессии" class="nav-link" data-scroll-target="#anova-как-частный-случай-ols-регрессии"><span class="header-section-number">2.5.3</span> 4.3 ANOVA как частный случай OLS-регрессии</a></li>
+  <li><a href="#welch-anova-на-случай-нарушения-гомоскедастичности" id="toc-welch-anova-на-случай-нарушения-гомоскедастичности" class="nav-link" data-scroll-target="#welch-anova-на-случай-нарушения-гомоскедастичности"><span class="header-section-number">2.5.4</span> 4.4 Welch ANOVA (на случай нарушения гомоскедастичности)</a></li>
+  </ul></li>
+  <li><a href="#часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса" id="toc-часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса" class="nav-link" data-scroll-target="#часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса"><span class="header-section-number">2.6</span> Часть V. Непараметрическая альтернатива: тест Краскела–Уоллиса</a></li>
+  <li><a href="#часть-vi.-пост-хок-тесты" id="toc-часть-vi.-пост-хок-тесты" class="nav-link" data-scroll-target="#часть-vi.-пост-хок-тесты"><span class="header-section-number">2.7</span> Часть VI. Пост-хок тесты</a>
+  <ul class="collapse">
+  <li><a href="#tukey-hsd-все-попарные-сравнения-контроль-fwer" id="toc-tukey-hsd-все-попарные-сравнения-контроль-fwer" class="nav-link" data-scroll-target="#tukey-hsd-все-попарные-сравнения-контроль-fwer"><span class="header-section-number">2.7.1</span> 6.1 Tukey HSD (все попарные сравнения, контроль FWER)</a></li>
+  <li><a href="#тест-данна-пост-хок-после-краскелауоллиса-ранговый" id="toc-тест-данна-пост-хок-после-краскелауоллиса-ранговый" class="nav-link" data-scroll-target="#тест-данна-пост-хок-после-краскелауоллиса-ранговый"><span class="header-section-number">2.7.2</span> 6.2 Тест Данна (пост-хок после Краскела–Уоллиса, ранговый)</a></li>
+  </ul></li>
+  <li><a href="#сводка-как-выбирать-тест" id="toc-сводка-как-выбирать-тест" class="nav-link" data-scroll-target="#сводка-как-выбирать-тест"><span class="header-section-number">2.8</span> Сводка: как выбирать тест</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Множественное тестирование гипотез</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="почему-множественное-тестирование-проблема" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="почему-множественное-тестирование-проблема"><span class="header-section-number">2.1</span> Почему множественное тестирование — проблема?</h2>
+<p>Прежде чем перейти к примеру, посмотрим, насколько быстро растёт групповая вероятность ошибки первого рода (FWER), когда мы сравниваем сразу несколько групп.</p>
+<section id="как-быстро-растёт-fwer" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="как-быстро-растёт-fwer"><span class="header-section-number">2.1.1</span> Как быстро растёт FWER?</h3>
+<p>При <span class="math inline">\(g\)</span> группах и уровне значимости <span class="math inline">\(\alpha = 0.05\)</span> число попарных сравнений равно <span class="math inline">\(\binom{g}{2} = g(g-1)/2\)</span>. Если проводить каждый тест независимо, то FWER = <span class="math inline">\(1 - (1 - \alpha)^m\)</span>, где <span class="math inline">\(m\)</span> — число тестов.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Построим таблицу: для каждого числа групп g считаем число попарных гипотез</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># и соответствующий FWER при alpha = 0.05</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">n_group =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">30</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Число попарных сравнений: C(g, 2) = g! / (2! * (g-2)!)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_hyp      =</span> <span class="fu">factorial</span>(n_group) <span class="sc">/</span> (<span class="fu">factorial</span>(n_group <span class="sc">-</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="fu">factorial</span>(<span class="dv">2</span>)),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># FWER при независимых тестах: 1 - (1 - 0.05)^m</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">error_rate =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.95</span><span class="sc">^</span>n_hyp</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># ── График 1: FWER от числа групп ────────────────────────────────────────────</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> n_group, <span class="at">y =</span> error_rate)) <span class="sc">+</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Горизонтальная линия: номинальный уровень 5%</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.05</span>, <span class="at">color =</span> <span class="st">"red"</span>,  <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Вертикальная линия: уже при 8 группах FWER перевалил за 5%</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">8</span>,    <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">8.3</span>, <span class="at">y =</span> <span class="fl">0.1</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"g = 8: FWER &gt; 5%"</span>, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">2.2</span>, <span class="at">y =</span> <span class="fl">0.07</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"α = 5%"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Рост FWER с числом групп для сравнения"</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Независимые t-тесты, α = 0.05 для каждого"</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Число групп (g)"</span>,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"FWER = 1 − (1 − α)^m"</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="multiple_testing_files/figure-html/fwer-growth-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── График 2: FWER от числа гипотез ──────────────────────────────────────────</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Иногда удобнее смотреть непосредственно на число тестов, а не групп</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> n_hyp, <span class="at">y =</span> error_rate)) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.05</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">y =</span> <span class="fl">0.07</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"α = 5%"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"FWER от числа одновременно проверяемых гипотез"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Число гипотез (m)"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"FWER"</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="multiple_testing_files/figure-html/fwer-by-nhyp-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Вывод.</strong> Даже при <span class="math inline">\(g = 8\)</span> группах мы получаем 28 попарных сравнений, и FWER уже превышает 5%. При <span class="math inline">\(g = 20\)</span> (именно столько цветов в примере ниже) FWER стремится к 100%. Значит, хотя бы одна «ложная» значимая находка практически гарантирована — даже если никакого эффекта нет.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="часть-i.-базовый-анализ-желейные-бобы" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="часть-i.-базовый-анализ-желейные-бобы"><span class="header-section-number">2.2</span> Часть I. Базовый анализ (желейные бобы)</h2>
+<p><em>Первоисточник примера: <a href="https://datascience.stanford.edu/news/data-snooping" class="uri">https://datascience.stanford.edu/news/data-snooping</a></em></p>
+<section id="sec-data" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="sec-data"><span class="header-section-number">2.2.1</span> 1.1 Генерация данных</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Параметры эксперимента ────────────────────────────────────────────────────</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1000 испытуемых; 90% из них регулярно едят желейные бобы.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Состояние акне распределено равномерно на [0, 1] — тритмент экзогенен:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># никакого истинного эффекта в данные не заложено.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>people            <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>p_eat_jelly_bean  <span class="ot">&lt;-</span> <span class="fl">0.9</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>acne_condition <span class="ot">&lt;-</span> <span class="fu">runif</span>(people)   <span class="co"># acne_condition ~ U(0,1)</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>eating <span class="ot">&lt;-</span> <span class="fu">sample</span>(</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"едят"</span>, <span class="st">"не едят"</span>),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  people,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">prob    =</span> <span class="fu">c</span>(p_eat_jelly_bean, <span class="dv">1</span> <span class="sc">-</span> p_eat_jelly_bean)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Собираем в датафрейм</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">acne_condition =</span> acne_condition,</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">eating         =</span> eating</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  acne_condition  eating
+1      0.2655087    едят
+2      0.3721239    едят
+3      0.5728534    едят
+4      0.9082078 не едят
+5      0.2016819    едят
+6      0.8983897    едят</code></pre>
+</div>
+</div>
+</section>
+<section id="визуальный-анализ" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="визуальный-анализ"><span class="header-section-number">2.2.2</span> 1.2 Визуальный анализ</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Боксплот: распределение acne_condition по группам еды</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> eating, <span class="at">y =</span> acne_condition, <span class="at">fill =</span> eating)) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"едят"</span>, <span class="st">"не едят"</span>),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"grey80"</span>, <span class="st">"white"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Употребление желейных бобов"</span>) <span class="sc">+</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Качество кожи"</span>) <span class="sc">+</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Распределение качества кожи в зависимости</span><span class="sc">\n</span><span class="st">от употребления желейных бобов"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="multiple_testing_files/figure-html/boxplot-eating-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="t-тест-общий-эффект" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="t-тест-общий-эффект"><span class="header-section-number">2.2.3</span> 1.3 t-тест: общий эффект</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># H₀: употребление желейных бобов не влияет на качество кожи</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Двухвыборочный t-тест Велча (не предполагает равенства дисперсий)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(acne_condition <span class="sc">~</span> eating, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  acne_condition by eating
+t = -56.571, df = 993.62, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means between group едят and group не едят is not equal to 0
+95 percent confidence interval:
+ -0.5242963 -0.4891417
+sample estimates:
+   mean in group едят mean in group не едят 
+            0.4439526             0.9506716 </code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>p-value высокое → не отвергаем H₀. Нет оснований считать, что желейные бобы вызывают акне.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="часть-ii.-гетерогенный-эффект-по-цвету" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="часть-ii.-гетерогенный-эффект-по-цвету"><span class="header-section-number">2.3</span> Часть II. Гетерогенный эффект по цвету</h2>
+<section id="добавляем-цвет-желейных-бобов" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="добавляем-цвет-желейных-бобов"><span class="header-section-number">2.3.1</span> 2.1 Добавляем цвет желейных бобов</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Генерируем 20 случайных цветов из палитры R</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">colors</span>(), <span class="dv">20</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Присваиваем каждому испытуемому цвет желейных бобов</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>jelly_bean_color <span class="ot">&lt;-</span> <span class="fu">sample</span>(colors, people, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Те, кто не ест бобы, получают NA вместо цвета</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">jelly_bean_color =</span> <span class="fu">ifelse</span>(eating <span class="sc">==</span> <span class="st">"не едят"</span>, <span class="cn">NA</span>, jelly_bean_color))</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  acne_condition  eating jelly_bean_color
+1      0.2655087    едят           grey38
+2      0.3721239    едят           grey46
+3      0.5728534    едят      dodgerblue1
+4      0.9082078 не едят             &lt;NA&gt;
+5      0.2016819    едят           grey69
+6      0.8983897    едят    darkseagreen3</code></pre>
+</div>
+</div>
+</section>
+<section id="боксплот-по-цветам" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="боксплот-по-цветам"><span class="header-section-number">2.3.2</span> 2.2 Боксплот по цветам</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(jelly_bean_color))) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> jelly_bean_color, <span class="at">y =</span> acne_condition, <span class="at">fill =</span> jelly_bean_color)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">breaks =</span> colors, <span class="at">values =</span> colors) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Цвет желейных бобов"</span>) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Состояние кожи"</span>) <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="multiple_testing_files/figure-html/boxplot-colors-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="отдельные-t-тесты-для-каждого-цвета" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="отдельные-t-тесты-для-каждого-цвета"><span class="header-section-number">2.3.3</span> 2.3 Отдельные t-тесты для каждого цвета</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Функция: t-тест для одного цвета (цвет vs «не ел»)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>test_color <span class="ot">&lt;-</span> <span class="cf">function</span>(color) {</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  subset_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(jelly_bean_color <span class="sc">==</span> color <span class="sc">|</span> <span class="fu">is.na</span>(jelly_bean_color))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  pval <span class="ot">&lt;-</span> <span class="fu">t.test</span>(acne_condition <span class="sc">~</span> eating, <span class="at">data =</span> subset_data)<span class="sc">$</span>p.value</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pval)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Проверяем первые три цвета вручную</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"p-value для цвета 1:"</span>, <span class="fu">test_color</span>(colors[<span class="dv">1</span>]), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>p-value для цвета 1: 5.597485e-21 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"p-value для цвета 2:"</span>, <span class="fu">test_color</span>(colors[<span class="dv">2</span>]), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>p-value для цвета 2: 2.204699e-15 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"p-value для цвета 3:"</span>, <span class="fu">test_color</span>(colors[<span class="dv">3</span>]), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>p-value для цвета 3: 6.215338e-16 </code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Запускаем для всех 20 цветов</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>ttest_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">color =</span> colors,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">pval  =</span> <span class="fu">sapply</span>(colors, test_color)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Рассеянный график p-значений</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ttest_data) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> color, <span class="at">y =</span> pval, <span class="at">color =</span> color), <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">breaks =</span> colors, <span class="at">values =</span> colors) <span class="sc">+</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fl">0.05</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="fl">0.07</span>, <span class="at">label =</span> <span class="st">"α = 0.05"</span>,</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Цвет желейных бобов"</span>) <span class="sc">+</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"p-value"</span>) <span class="sc">+</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"p-значения для 20 цветов без коррекции"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="multiple_testing_files/figure-html/ttest-all-colors-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Один цвет оказался «значимым» — но это случайность!</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"p-value для цвета 5 (</span><span class="sc">\"</span><span class="st">значимый</span><span class="sc">\"</span><span class="st">):"</span>, <span class="fu">test_color</span>(colors[<span class="dv">5</span>]), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>p-value для цвета 5 ("значимый"): 3.261665e-17 </code></pre>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="часть-iii.-коррекция-p-значений" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="часть-iii.-коррекция-p-значений"><span class="header-section-number">2.4</span> Часть III. Коррекция p-значений</h2>
+<section id="методы-коррекции" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="методы-коррекции"><span class="header-section-number">2.4.1</span> 3.1 Методы коррекции</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Добавляем все четыре стандартных коррекции</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>ttest_data<span class="sc">$</span>bonferroni <span class="ot">&lt;-</span> <span class="fu">p.adjust</span>(ttest_data<span class="sc">$</span>pval, <span class="at">method =</span> <span class="st">"bonferroni"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>ttest_data<span class="sc">$</span>holm       <span class="ot">&lt;-</span> <span class="fu">p.adjust</span>(ttest_data<span class="sc">$</span>pval, <span class="at">method =</span> <span class="st">"holm"</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>ttest_data<span class="sc">$</span>bh         <span class="ot">&lt;-</span> <span class="fu">p.adjust</span>(ttest_data<span class="sc">$</span>pval, <span class="at">method =</span> <span class="st">"BH"</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>ttest_data<span class="sc">$</span>by         <span class="ot">&lt;-</span> <span class="fu">p.adjust</span>(ttest_data<span class="sc">$</span>pval, <span class="at">method =</span> <span class="st">"BY"</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ttest_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      color         pval   bonferroni         holm           bh
+dodgerblue1     dodgerblue1 5.597485e-21 1.119497e-19 1.119497e-19 1.119497e-19
+orchid1             orchid1 2.204699e-15 4.409398e-14 1.322819e-14 2.939599e-15
+mediumpurple4 mediumpurple4 6.215338e-16 1.243068e-14 4.972271e-15 9.562059e-16
+grey38               grey38 1.170204e-18 2.340408e-17 1.872326e-17 4.680816e-18
+grey9                 grey9 3.261665e-17 6.523329e-16 3.951959e-16 7.248144e-17
+gray34               gray34 1.439034e-16 2.878068e-15 1.295131e-15 2.398390e-16
+                        by
+dodgerblue1   4.027659e-19
+orchid1       1.057591e-14
+mediumpurple4 3.440180e-15
+grey38        1.684036e-17
+grey9         2.607693e-16
+gray34        8.628784e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="сравнение-результатов" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="сравнение-результатов"><span class="header-section-number">2.4.2</span> 3.2 Сравнение результатов</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Переводим в длинный формат через tidyr::pivot_longer</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># (надёжнее data.table::melt, которая игнорирует variable.name)</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>long_ttest_data <span class="ot">&lt;-</span> ttest_data <span class="sc">%&gt;%</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>color) <span class="sc">%&gt;%</span>                          <span class="co"># убираем столбец с цветом</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols           =</span> <span class="sc">-</span>pval,</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to       =</span> <span class="st">"correction_type"</span>,</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to      =</span> <span class="st">"adj_pval"</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co"># График: скорректированные p-значения vs исходные</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(long_ttest_data, <span class="fu">aes</span>(<span class="at">x =</span> pval, <span class="at">y =</span> adj_pval, <span class="at">colour =</span> correction_type)) <span class="sc">+</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.05</span>, <span class="at">colour =</span> <span class="st">"red"</span>,  <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">0.05</span>, <span class="at">colour =</span> <span class="st">"red"</span>,  <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">0.06</span>, <span class="at">y =</span> <span class="fl">0.05</span>, <span class="at">label =</span> <span class="st">"p = 5%"</span>,</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>           <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title  =</span> <span class="st">"Исходные vs скорректированные p-значения"</span>,</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x      =</span> <span class="st">"Исходное p-value"</span>,</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y      =</span> <span class="st">"Скорректированное p-value"</span>,</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"Метод коррекции"</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="multiple_testing_files/figure-html/corrections-plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Таблица: разворачиваем обратно в широкий формат для удобного просмотра</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>wide_ttest_data <span class="ot">&lt;-</span> long_ttest_data <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"correction_type"</span>, <span class="at">values_from =</span> <span class="st">"adj_pval"</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>wide_ttest_data <span class="sc">%&gt;%</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(pval) <span class="sc">%&gt;%</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 5
+       pval bonferroni     holm       bh       by
+      &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+ 1 5.60e-21   1.12e-19 1.12e-19 1.12e-19 4.03e-19
+ 2 5.08e-20   1.02e-18 9.64e-19 3.17e-19 1.14e-18
+ 3 5.11e-20   1.02e-18 9.64e-19 3.17e-19 1.14e-18
+ 4 6.33e-20   1.27e-18 1.08e-18 3.17e-19 1.14e-18
+ 5 1.17e-18   2.34e-17 1.87e-17 4.68e-18 1.68e-17
+ 6 4.00e-18   8.01e-17 6.01e-17 1.29e-17 4.64e-17
+ 7 4.51e-18   9.03e-17 6.32e-17 1.29e-17 4.64e-17
+ 8 3.04e-17   6.08e-16 3.95e-16 7.25e-17 2.61e-16
+ 9 3.26e-17   6.52e-16 3.95e-16 7.25e-17 2.61e-16
+10 5.61e-17   1.12e-15 6.17e-16 1.12e-16 4.04e-16</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Вывод.</strong> После любой коррекции (Bonferroni, Holm, BH, BY) ни один цвет не даёт значимого результата — как и должно быть, ведь никакого истинного эффекта в данных нет.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="часть-iv.-anova-глобальный-тест" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="часть-iv.-anova-глобальный-тест"><span class="header-section-number">2.5</span> Часть IV. ANOVA — глобальный тест</h2>
+<p>До сих пор мы тестировали каждый цвет отдельно с помощью t-тестов. Более правильный подход — сначала задать <strong>глобальный</strong> вопрос: различаются ли средние значения акне хотя бы для одной пары цветов? Для этого используется <strong>дисперсионный анализ (ANOVA)</strong>.</p>
+<section id="проверка-предпосылок-anova" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="проверка-предпосылок-anova"><span class="header-section-number">2.5.1</span> 4.1 Проверка предпосылок ANOVA</h3>
+<p>One-way ANOVA требует трёх условий:</p>
+<ol type="1">
+<li><strong>Нормальность</strong> ошибок внутри каждой группы (тест Шапиро–Уилка, QQ-plot).</li>
+<li><strong>Гомоскедастичность</strong>: дисперсии одинаковы во всех группах (тест Левена / Бартлетта).</li>
+<li><strong>Независимость</strong> наблюдений — обеспечивается рандомизацией.</li>
+</ol>
+<section id="нормальность-тест-шапироуилка" class="level4" data-number="2.5.1.1">
+<h4 data-number="2.5.1.1" class="anchored" data-anchor-id="нормальность-тест-шапироуилка"><span class="header-section-number">2.5.1.1</span> Нормальность: тест Шапиро–Уилка</h4>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Проверяем нормальность внутри каждой цветовой группы.</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># shapiro.test() требует не менее 3 и не более 5000 наблюдений.</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>shapiro_results <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(jelly_bean_color)) <span class="sc">%&gt;%</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(jelly_bean_color) <span class="sc">%&gt;%</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">n      =</span> <span class="fu">n</span>(),</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">W_stat =</span> <span class="fu">shapiro.test</span>(acne_condition)<span class="sc">$</span>statistic,</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_val  =</span> <span class="fu">shapiro.test</span>(acne_condition)<span class="sc">$</span>p.value,</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>shapiro_results <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(p_val)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 4
+   jelly_bean_color     n W_stat   p_val
+   &lt;chr&gt;            &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+ 1 burlywood           42  0.909 0.00265
+ 2 khaki               48  0.924 0.00417
+ 3 mediumpurple4       43  0.925 0.00783
+ 4 darkseagreen3       49  0.934 0.00838
+ 5 grey38              45  0.935 0.0136 
+ 6 skyblue2            44  0.938 0.0199 
+ 7 grey16              50  0.945 0.0213 
+ 8 gray34              48  0.943 0.0216 
+ 9 slategray2          41  0.937 0.0242 
+10 olivedrab1          50  0.950 0.0345 
+11 navajowhite         37  0.936 0.0352 
+12 wheat1              48  0.953 0.0548 
+13 grey65              30  0.933 0.0576 
+14 grey9               46  0.953 0.0603 
+15 red2                50  0.960 0.0885 
+16 slateblue3          46  0.957 0.0890 
+17 orchid1             42  0.954 0.0936 
+18 grey69              34  0.953 0.153  
+19 grey46              44  0.962 0.161  
+20 dodgerblue1         53  0.969 0.190  </code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># QQ-plot для визуальной проверки нормальности остатков</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Строим residuals из линейной модели (ANOVA как OLS)</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>aov_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(acne_condition <span class="sc">~</span> jelly_bean_color,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(jelly_bean_color)))</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co"># QQ-plot остатков</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(aov_model), <span class="at">main =</span> <span class="st">"Normal Q-Q Plot (остатки ANOVA)"</span>)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(<span class="fu">residuals</span>(aov_model), <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="multiple_testing_files/figure-html/qq-plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Поскольку <span class="math inline">\(acne\_condition \sim U(0,1)\)</span>, нормальность нарушена теоретически, но при достаточно большом числе наблюдений в каждой группе CLT смягчает это нарушение. Тест Шапиро–Уилка сигнализирует о нарушении для некоторых групп → это повод применить непараметрический тест Краскела–Уоллиса.</p>
+</blockquote>
+</section>
+<section id="гомоскедастичность-тест-левена-и-тест-бартлетта" class="level4" data-number="2.5.1.2">
+<h4 data-number="2.5.1.2" class="anchored" data-anchor-id="гомоскедастичность-тест-левена-и-тест-бартлетта"><span class="header-section-number">2.5.1.2</span> Гомоскедастичность: тест Левена и тест Бартлетта</h4>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)  <span class="co"># для leveneTest()</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>eating_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(jelly_bean_color))</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Тест Левена: устойчив к нарушениям нормальности</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(acne_condition <span class="sc">~</span> jelly_bean_color, <span class="at">data =</span> eating_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+       Df F value Pr(&gt;F)
+group  19  0.7174 0.8033
+      870               </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Тест Бартлетта: более мощный, но чувствителен к ненормальности</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(acne_condition <span class="sc">~</span> jelly_bean_color, <span class="at">data =</span> eating_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Bartlett test of homogeneity of variances
+
+data:  acne_condition by jelly_bean_color
+Bartlett's K-squared = 6.4383, df = 19, p-value = 0.9967</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Интерпретация.</strong> Если p-value тестов Левена и Бартлетта высокое (&gt; 0.05), гомоскедастичность не нарушена → можно проводить стандартную ANOVA. При значимом результате переходим к <strong>Welch ANOVA</strong>.</p>
+</blockquote>
+</section>
+</section>
+<section id="one-way-anova" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="one-way-anova"><span class="header-section-number">2.5.2</span> 4.2 One-way ANOVA</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># H₀: средние значения acne_condition одинаковы для всех 20 цветов</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># H₁: хотя бы одно среднее отличается</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(acne_condition <span class="sc">~</span> jelly_bean_color, <span class="at">data =</span> eating_data)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                  Df Sum Sq Mean Sq F value Pr(&gt;F)
+jelly_bean_color  19   1.04 0.05452   0.835  0.666
+Residuals        870  56.83 0.06532               </code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Показываем таблицу ANOVA аккуратно</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>anova_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">summary</span>(anova_result)[[<span class="dv">1</span>]])</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(anova_df, <span class="at">digits =</span> <span class="dv">4</span>,</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">caption =</span> <span class="st">"Таблица дисперсионного анализа (One-way ANOVA)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Таблица дисперсионного анализа (One-way ANOVA)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Df</th>
+<th style="text-align: right;">Sum Sq</th>
+<th style="text-align: right;">Mean Sq</th>
+<th style="text-align: right;">F value</th>
+<th style="text-align: right;">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">jelly_bean_color</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">1.0359</td>
+<td style="text-align: right;">0.0545</td>
+<td style="text-align: right;">0.8347</td>
+<td style="text-align: right;">0.6659</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Residuals</td>
+<td style="text-align: right;">870</td>
+<td style="text-align: right;">56.8257</td>
+<td style="text-align: right;">0.0653</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Интерпретация.</strong> Незначимый F-тест (p &gt; 0.05) означает: нет оснований отвергнуть H₀ о равенстве всех средних. Ни один цвет желейных бобов не оказывает значимого влияния на состояние кожи — и это правильный ответ, ведь эффект в данные не заложен.</p>
+</blockquote>
+</section>
+<section id="anova-как-частный-случай-ols-регрессии" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="anova-как-частный-случай-ols-регрессии"><span class="header-section-number">2.5.3</span> 4.3 ANOVA как частный случай OLS-регрессии</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-way ANOVA ≡ линейная регрессия с (g-1) дамми-переменными.</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># lm() и aov() дают одинаковые F-статистику и p-value.</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>lm_result <span class="ot">&lt;-</span> <span class="fu">lm</span>(acne_condition <span class="sc">~</span> jelly_bean_color, <span class="at">data =</span> eating_data)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co"># F-тест на совместную значимость всех цветовых коэффициентов</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(lm_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: acne_condition
+                  Df Sum Sq  Mean Sq F value Pr(&gt;F)
+jelly_bean_color  19  1.036 0.054521  0.8347 0.6659
+Residuals        870 56.826 0.065317               </code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Сравните F-статистику и p-value с результатом <code>aov()</code> выше — они идентичны. Регрессионный фреймворк удобнее: к нему легко добавить ковариаты (ANCOVA), кластерные стандартные ошибки и т.д.</p>
+</blockquote>
+</section>
+<section id="welch-anova-на-случай-нарушения-гомоскедастичности" class="level3" data-number="2.5.4">
+<h3 data-number="2.5.4" class="anchored" data-anchor-id="welch-anova-на-случай-нарушения-гомоскедастичности"><span class="header-section-number">2.5.4</span> 4.4 Welch ANOVA (на случай нарушения гомоскедастичности)</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Если тест Левена/Бартлетта значим → используем Welch ANOVA,</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># которая не предполагает равенства дисперсий.</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># В R: oneway.test(..., var.equal = FALSE)</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(acne_condition <span class="sc">~</span> jelly_bean_color,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">data      =</span> eating_data,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">var.equal =</span> <span class="cn">FALSE</span>)   <span class="co"># Welch ANOVA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One-way analysis of means (not assuming equal variances)
+
+data:  acne_condition and jelly_bean_color
+F = 0.87091, num df = 19.00, denom df = 313.44, p-value = 0.6198</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Welch ANOVA — безопасный выбор по умолчанию при неравных дисперсиях. Она жертвует небольшим количеством мощности, зато не требует гомоскедастичности.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса"><span class="header-section-number">2.6</span> Часть V. Непараметрическая альтернатива: тест Краскела–Уоллиса</h2>
+<p>Если нормальность внутри групп существенно нарушена (а у нас <span class="math inline">\(U(0,1)\)</span>), вместо ANOVA применяют <strong>ранговый тест Краскела–Уоллиса</strong>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># H₀: все 20 цветовых распределений одинаковы (по медиане/рангам)</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(acne_condition <span class="sc">~</span> jelly_bean_color, <span class="at">data =</span> eating_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Kruskal-Wallis rank sum test
+
+data:  acne_condition by jelly_bean_color
+Kruskal-Wallis chi-squared = 16.056, df = 19, p-value = 0.6536</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>При нормальных данных ANOVA мощнее. При нарушении нормальности — особенно в маленьких группах — Краскел–Уоллис предпочтительнее, так как не предполагает конкретной формы распределения.</p>
+</blockquote>
+<hr>
+</section>
+<section id="часть-vi.-пост-хок-тесты" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="часть-vi.-пост-хок-тесты"><span class="header-section-number">2.7</span> Часть VI. Пост-хок тесты</h2>
+<p>ANOVA отвечает на вопрос «есть ли хоть одно различие?», но не говорит <strong>между какими именно парами</strong> групп оно есть. Для этого нужны пост-хок тесты.</p>
+<section id="tukey-hsd-все-попарные-сравнения-контроль-fwer" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="tukey-hsd-все-попарные-сравнения-контроль-fwer"><span class="header-section-number">2.7.1</span> 6.1 Tukey HSD (все попарные сравнения, контроль FWER)</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tukey HSD — стандартный выбор после значимой ANOVA при 3+ группах.</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Контролирует FWER для всех g(g-1)/2 пар через studentized range.</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>tukey_result <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(anova_result)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Показываем только пары с наименьшими p-значениями</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>tukey_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(tukey_result<span class="sc">$</span>jelly_bean_color)</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>tukey_df<span class="sc">$</span>pair <span class="ot">&lt;-</span> <span class="fu">rownames</span>(tukey_df)</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>tukey_df <span class="sc">%&gt;%</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="st">`</span><span class="at">p adj</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">4</span>,</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">caption =</span> <span class="st">"Tukey HSD: 10 пар с наименьшими скорректированными p-value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Tukey HSD: 10 пар с наименьшими скорректированными p-value</caption>
+<colgroup>
+<col style="width: 31%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">diff</th>
+<th style="text-align: right;">lwr</th>
+<th style="text-align: right;">upr</th>
+<th style="text-align: right;">p adj</th>
+<th style="text-align: left;">pair</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">slateblue3-grey38</td>
+<td style="text-align: right;">0.1541</td>
+<td style="text-align: right;">-0.0364</td>
+<td style="text-align: right;">0.3446</td>
+<td style="text-align: right;">0.3070</td>
+<td style="text-align: left;">slateblue3-grey38</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">slateblue3-grey65</td>
+<td style="text-align: right;">0.1372</td>
+<td style="text-align: right;">-0.0760</td>
+<td style="text-align: right;">0.3504</td>
+<td style="text-align: right;">0.7425</td>
+<td style="text-align: left;">slateblue3-grey65</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">slateblue3-grey16</td>
+<td style="text-align: right;">0.1140</td>
+<td style="text-align: right;">-0.0716</td>
+<td style="text-align: right;">0.2996</td>
+<td style="text-align: right;">0.8104</td>
+<td style="text-align: left;">slateblue3-grey16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">wheat1-grey38</td>
+<td style="text-align: right;">0.1093</td>
+<td style="text-align: right;">-0.0792</td>
+<td style="text-align: right;">0.2978</td>
+<td style="text-align: right;">0.8756</td>
+<td style="text-align: left;">wheat1-grey38</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">slateblue3-grey69</td>
+<td style="text-align: right;">0.1180</td>
+<td style="text-align: right;">-0.0875</td>
+<td style="text-align: right;">0.3235</td>
+<td style="text-align: right;">0.8845</td>
+<td style="text-align: left;">slateblue3-grey69</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">grey38-gray34</td>
+<td style="text-align: right;">-0.1071</td>
+<td style="text-align: right;">-0.2956</td>
+<td style="text-align: right;">0.0815</td>
+<td style="text-align: right;">0.8943</td>
+<td style="text-align: left;">grey38-gray34</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">grey46-grey38</td>
+<td style="text-align: right;">0.1058</td>
+<td style="text-align: right;">-0.0868</td>
+<td style="text-align: right;">0.2984</td>
+<td style="text-align: right;">0.9203</td>
+<td style="text-align: left;">grey46-grey38</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">khaki-grey38</td>
+<td style="text-align: right;">0.1015</td>
+<td style="text-align: right;">-0.0871</td>
+<td style="text-align: right;">0.2900</td>
+<td style="text-align: right;">0.9332</td>
+<td style="text-align: left;">khaki-grey38</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">slateblue3-mediumpurple4</td>
+<td style="text-align: right;">0.1012</td>
+<td style="text-align: right;">-0.0915</td>
+<td style="text-align: right;">0.2939</td>
+<td style="text-align: right;">0.9466</td>
+<td style="text-align: left;">slateblue3-mediumpurple4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">slateblue3-olivedrab1</td>
+<td style="text-align: right;">0.0947</td>
+<td style="text-align: right;">-0.0909</td>
+<td style="text-align: right;">0.2803</td>
+<td style="text-align: right;">0.9592</td>
+<td style="text-align: left;">slateblue3-olivedrab1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Визуализация доверительных интервалов Tukey</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">4</span>, <span class="dv">2</span>))   <span class="co"># увеличиваем левое поле для длинных меток</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tukey_result, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">cex.axis =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="multiple_testing_files/figure-html/tukey-plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Если ни один ДИ не пересекает ноль — нет значимых попарных различий. Именно это мы и видим: все пары включают 0 в ДИ.</p>
+</blockquote>
+</section>
+<section id="тест-данна-пост-хок-после-краскелауоллиса-ранговый" class="level3" data-number="2.7.2">
+<h3 data-number="2.7.2" class="anchored" data-anchor-id="тест-данна-пост-хок-после-краскелауоллиса-ранговый"><span class="header-section-number">2.7.2</span> 6.2 Тест Данна (пост-хок после Краскела–Уоллиса, ранговый)</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Тест Данна — непараметрический аналог Tukey HSD.</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Используется после значимого Краскела–Уоллиса, когда нормальность нарушена.</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Пакет dunn.test реализует поправку Бонферрони/Холма/BH.</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("dunn.test")  # раскомментировать при первом запуске</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dunn.test)</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>dunn_result <span class="ot">&lt;-</span> <span class="fu">dunn.test</span>(</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">x     =</span> eating_data<span class="sc">$</span>acne_condition,</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">g     =</span> eating_data<span class="sc">$</span>jelly_bean_color,</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"bh"</span>,   <span class="co"># поправка Benjamini–Hochberg</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">alph  =</span> <span class="fl">0.05</span>,</span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">kw    =</span> <span class="cn">TRUE</span>,    <span class="co"># вывести результат теста KW перед пост-хок</span></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="cn">TRUE</span></span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Собираем результаты в таблицу</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>dunn_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">comparison =</span> dunn_result<span class="sc">$</span>comparisons,</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Z          =</span> dunn_result<span class="sc">$</span>Z,</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">p_raw      =</span> dunn_result<span class="sc">$</span>P,</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">p_adjusted =</span> dunn_result<span class="sc">$</span>P.adjusted</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(p_adjusted) <span class="sc">%&gt;%</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(dunn_df, <span class="at">digits =</span> <span class="dv">4</span>,</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">caption =</span> <span class="st">"Тест Данна (поправка BH): 10 пар с наименьшими p-value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Тест Данна (поправка BH): 10 пар с наименьшими p-value</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">comparison</th>
+<th style="text-align: right;">Z</th>
+<th style="text-align: right;">p_raw</th>
+<th style="text-align: right;">p_adjusted</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">grey38 - slateblue3</td>
+<td style="text-align: right;">-2.9153</td>
+<td style="text-align: right;">0.0018</td>
+<td style="text-align: right;">0.3376</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mediumpurple4 - slategray2</td>
+<td style="text-align: right;">-0.0349</td>
+<td style="text-align: right;">0.4861</td>
+<td style="text-align: right;">0.4887</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">navajowhite - olivedrab1</td>
+<td style="text-align: right;">0.0358</td>
+<td style="text-align: right;">0.4857</td>
+<td style="text-align: right;">0.4909</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">khaki - wheat1</td>
+<td style="text-align: right;">-0.1751</td>
+<td style="text-align: right;">0.4305</td>
+<td style="text-align: right;">0.4927</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">darkseagreen3 - dodgerblue1</td>
+<td style="text-align: right;">0.0377</td>
+<td style="text-align: right;">0.4850</td>
+<td style="text-align: right;">0.4928</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dodgerblue1 - red2</td>
+<td style="text-align: right;">-0.1667</td>
+<td style="text-align: right;">0.4338</td>
+<td style="text-align: right;">0.4935</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">navajowhite - slategray2</td>
+<td style="text-align: right;">0.0743</td>
+<td style="text-align: right;">0.4704</td>
+<td style="text-align: right;">0.4938</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">grey46 - red2</td>
+<td style="text-align: right;">0.5491</td>
+<td style="text-align: right;">0.2915</td>
+<td style="text-align: right;">0.4945</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">grey16 - mediumpurple4</td>
+<td style="text-align: right;">-0.2580</td>
+<td style="text-align: right;">0.3982</td>
+<td style="text-align: right;">0.4945</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">red2 - skyblue2</td>
+<td style="text-align: right;">0.1977</td>
+<td style="text-align: right;">0.4216</td>
+<td style="text-align: right;">0.4945</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="сводка-как-выбирать-тест" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="сводка-как-выбирать-тест"><span class="header-section-number">2.8</span> Сводка: как выбирать тест</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Ситуация</th>
+<th>Рекомендуемый тест</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Нормальность + гомоскедастичность</td>
+<td>One-way ANOVA → Tukey HSD</td>
+</tr>
+<tr class="even">
+<td>Нормальность, но неравные дисперсии</td>
+<td>Welch ANOVA → Games–Howell</td>
+</tr>
+<tr class="odd">
+<td>Нарушена нормальность</td>
+<td>Краскел–Уоллис → тест Данна (BH)</td>
+</tr>
+<tr class="even">
+<td>Хотим скорректировать заранее заданный набор p-values</td>
+<td>Bonferroni / Holm / BH / BY через <code>p.adjust()</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p><strong>Главный вывод практикума.</strong><br>
+Проводя 20 отдельных тестов без коррекции, мы почти гарантированно получим хотя бы один «значимый» результат — даже в отсутствие реального эффекта. ANOVA + пост-хок тесты и коррекции p-значений — это инструменты, которые позволяют контролировать вероятность таких ложных открытий.</p>
+</blockquote>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./intro.html" class="pagination-link" aria-label="Введение в эксперименты">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Введение в эксперименты</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./DAG.html" class="pagination-link" aria-label="DAG и причинные механизмы">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">DAG и причинные механизмы</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
