@@ -205,34 +205,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sim1" id="toc-sim1" class="nav-link active" data-scroll-target="#sim1"><span class="header-section-number">1.1</span> Фундаментальная проблема причинного вывода</a>
-  <ul class="collapse">
-  <li><a href="#контекст" id="toc-контекст" class="nav-link" data-scroll-target="#контекст"><span class="header-section-number">1.1.1</span> Контекст</a></li>
-  <li><a href="#код" id="toc-код" class="nav-link" data-scroll-target="#код"><span class="header-section-number">1.1.2</span> Код</a></li>
-  <li><a href="#интерпретация" id="toc-интерпретация" class="nav-link" data-scroll-target="#интерпретация"><span class="header-section-number">1.1.3</span> Интерпретация</a></li>
-  <li><a href="#вопросы-для-размышления" id="toc-вопросы-для-размышления" class="nav-link" data-scroll-target="#вопросы-для-размышления"><span class="header-section-number">1.1.4</span> Вопросы для размышления</a></li>
-  </ul></li>
-  <li><a href="#sim2" id="toc-sim2" class="nav-link" data-scroll-target="#sim2"><span class="header-section-number">1.2</span> Рандомизация и смещение выборки</a>
-  <ul class="collapse">
-  <li><a href="#контекст-1" id="toc-контекст-1" class="nav-link" data-scroll-target="#контекст-1"><span class="header-section-number">1.2.1</span> Контекст</a></li>
-  <li><a href="#код-1" id="toc-код-1" class="nav-link" data-scroll-target="#код-1"><span class="header-section-number">1.2.2</span> Код</a></li>
-  <li><a href="#интерпретация-1" id="toc-интерпретация-1" class="nav-link" data-scroll-target="#интерпретация-1"><span class="header-section-number">1.2.3</span> Интерпретация</a></li>
-  <li><a href="#вопросы-для-размышления-1" id="toc-вопросы-для-размышления-1" class="nav-link" data-scroll-target="#вопросы-для-размышления-1"><span class="header-section-number">1.2.4</span> Вопросы для размышления</a></li>
-  </ul></li>
-  <li><a href="#sim4" id="toc-sim4" class="nav-link" data-scroll-target="#sim4"><span class="header-section-number">1.3</span> Нарушение SUTVA: интерференция</a>
-  <ul class="collapse">
-  <li><a href="#контекст-2" id="toc-контекст-2" class="nav-link" data-scroll-target="#контекст-2"><span class="header-section-number">1.3.1</span> Контекст</a></li>
-  <li><a href="#код-2" id="toc-код-2" class="nav-link" data-scroll-target="#код-2"><span class="header-section-number">1.3.2</span> Код</a></li>
-  <li><a href="#интерпретация-2" id="toc-интерпретация-2" class="nav-link" data-scroll-target="#интерпретация-2"><span class="header-section-number">1.3.3</span> Интерпретация</a></li>
-  <li><a href="#вопросы-для-размышления-2" id="toc-вопросы-для-размышления-2" class="nav-link" data-scroll-target="#вопросы-для-размышления-2"><span class="header-section-number">1.3.4</span> Вопросы для размышления</a></li>
-  </ul></li>
-  <li><a href="#sim5" id="toc-sim5" class="nav-link" data-scroll-target="#sim5"><span class="header-section-number">1.4</span> Баланс ковариат и размер выборки</a>
-  <ul class="collapse">
-  <li><a href="#контекст-3" id="toc-контекст-3" class="nav-link" data-scroll-target="#контекст-3"><span class="header-section-number">1.4.1</span> Контекст</a></li>
-  <li><a href="#код-3" id="toc-код-3" class="nav-link" data-scroll-target="#код-3"><span class="header-section-number">1.4.2</span> Код</a></li>
-  <li><a href="#интерпретация-3" id="toc-интерпретация-3" class="nav-link" data-scroll-target="#интерпретация-3"><span class="header-section-number">1.4.3</span> Интерпретация</a></li>
-  <li><a href="#вопросы-для-размышления-3" id="toc-вопросы-для-размышления-3" class="nav-link" data-scroll-target="#вопросы-для-размышления-3"><span class="header-section-number">1.4.4</span> Вопросы для размышления</a></li>
-  </ul></li>
+  <li><a href="#sim1" id="toc-sim1" class="nav-link active" data-scroll-target="#sim1"><span class="header-section-number">1.1</span> Фундаментальная проблема причинного вывода</a></li>
+  <li><a href="#sim2" id="toc-sim2" class="nav-link" data-scroll-target="#sim2"><span class="header-section-number">1.2</span> Рандомизация и смещение выборки</a></li>
+  <li><a href="#sim4" id="toc-sim4" class="nav-link" data-scroll-target="#sim4"><span class="header-section-number">1.3</span> Нарушение SUTVA: интерференция</a></li>
+  <li><a href="#sim5" id="toc-sim5" class="nav-link" data-scroll-target="#sim5"><span class="header-section-number">1.4</span> Баланс ковариат и размер выборки</a></li>
   </ul>
 </nav>
     </div>
@@ -258,79 +234,146 @@ window.Quarto = {
 </header>
 
 
+<section id="sim1" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sim1"><span class="header-section-number">1.1</span> Фундаментальная проблема причинного вывода</h2>
+<p>Представьте: правительство запускает <strong>программу микрокредитования</strong> для малых предпринимателей в регионе. Исследователи хотят оценить, как участие в программе влияет на выручку бизнеса через год.</p>
+<p>Введем следующие обозначения:</p>
+<ul>
+<li><span class="math inline">\(T_i\)</span> – бинарная переменная воздействия, то есть участия в программе микрокредитования (treatment variable): <span class="math display">\[\begin{equation*}
+T_i =
+\begin{cases}
+1, &amp;\text{воздействие на объект i оказано}\\
+0, &amp;\text{воздействие на объект i не оказано}
+\end{cases}
+\end{equation*}\]</span></li>
+<li><span class="math inline">\(X_i\)</span> – независимые переменные, то есть характеристики наблюдений (covariates)</li>
+<li><span class="math inline">\(Y_{i1}\)</span>, <span class="math inline">\(Y_{i0}\)</span> – потенциальные исходы (potential outcomes)</li>
+</ul>
+<p>Казалось бы, всё просто: сравним выручку у тех, кто получил кредит, с теми, кто не получил. Но здесь кроется <strong>фундаментальная проблема</strong>:</p>
+<p>Для каждого предпринимателя существуют <strong>два потенциальных исхода</strong>: <span class="math inline">\(Y_{i1}\)</span> — выручка <em>если получил кредит</em>, и <span class="math inline">\(Y_{i0}\)</span> — выручка <em>если не получил</em>. Эффект воздействия для конкретного человека: <span class="math inline">\(\tau_i = Y_{i1} - Y_{i0}\)</span>.</p>
+<p>Наблюдаемые исходы <span class="math inline">\(Y_i\)</span> отличаются от потенциальных исходов. Потенциальные исходы являются <em>гипотетическими</em> случайными величинами, когда наблюдаемые исходы являются <em>фактическими</em> случайными величинами. Наблюдаемые исходы являются функцией от потенциальных исходов:</p>
+<p><span class="math inline">\(Y_i = T_i \cdot Y_{i1} + (1-T_i) \cdot Y_{i0}\)</span></p>
+<p>Действительно при <span class="math inline">\(T=1\)</span> мы получим <span class="math inline">\(Y_i = Y_{i1}\)</span>, а при <span class="math inline">\(T=0\)</span> получим <span class="math inline">\(Y_i = Y_{i0}\)</span>.</p>
+<p>Мы можем наблюдать только <strong>один</strong> из двух исходов — тот мир, который реально случился. Второй навсегда остаётся <strong>контрфактическим</strong>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="intro_plots/photo_2022-09-05 22.42.04.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Это и есть <strong>фундаментальная проблема причинного вывода</strong> (Holland, 1986): нам не хватает ровно половины таблицы — той половины, которую физически невозможно наблюдать.</p>
+<p>Далее сделаем симуляцию нашего гипотетического примера, чтобы увидеть это на практике.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Зачем нужны симуляции? Может лучше взять настоящие данные?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Симуляция</strong> – это искусственно созданный мир, где мы заранее задаём механизм порождения данных (data generating process) и потому знаем, <strong>каков истинный эффект</strong>.</p>
+<p>Это полезно, когда мы хотим понять <strong>логику и свойства метода</strong>, а не бороться сразу со всеми сложностями реальных данных – то есть мы <strong>“изолируем” от мешающих факторов</strong> то, что хотим изучить.</p>
+<p>В симуляциях можно по очереди “включать” отдельные проблемы: селекцию в тритмент, шум, гетерогенность эффектов, spillovers, attrition. Поэтому симуляции помогают увидеть, <strong>когда оценка работает хорошо, а когда начинает систематически ошибаться</strong>.</p>
+<p>Иногда симуляция даже полезнее реальных данных: в реальных данных мы почти никогда не знаем истинный causal effect, а в симуляции знаем и можем сравнить его с тем, что оценила модель</p>
+<p>Между полностью искусственными симуляциями и “сырыми” реальными данными есть промежуточный вариант: <strong>benchmark datasets</strong>, которые часто используют для отработки методов и сравнения подходов.</p>
+<p>В науке есть две оси новизны:</p>
+<ul>
+<li>старый вопрос, новый язык (новый метод на хорошо изученной задаче)</li>
+<li>новый вопрос, старый язык (новая проблема, но проверенные методы)</li>
+</ul>
+<p>Одновременное изменение и вопроса, и языка создаёт много неопределённости: непонятно, где именно “сидит” эффект.</p>
+<p>Поэтому <strong>бенчмарки</strong> важны как “старые вопросы”: они позволяют тестировать новые методы на знакомой почве, прежде чем идти к совершенно новым сюжетам.</p>
+<p>То есть у нас есть три режима обучения: полностью искусственный мир – симуляции, канонические учебные датасеты – вроде LaLonde или Titanic, и уже потом сложные реальные данные, где всё перемешано.</p>
+</div>
+</div>
+</div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)   <span class="co"># визуализация</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)     <span class="co"># таблицы, группировки, summarise(), mutate()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<hr>
-<section id="sim1" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="sim1"><span class="header-section-number">1.1</span> Фундаментальная проблема причинного вывода</h2>
-<section id="контекст" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="контекст"><span class="header-section-number">1.1.1</span> Контекст</h3>
-<p>Представьте: правительство запускает <strong>программу микрокредитования</strong> для малых предпринимателей в регионе. Исследователи хотят оценить, как участие в программе влияет на выручку бизнеса через год.</p>
-<p>Казалось бы, всё просто: сравним выручку у тех, кто получил кредит, с теми, кто не получил. Но здесь кроется <strong>фундаментальная проблема</strong>:</p>
-<p>Для каждого предпринимателя существуют <strong>два потенциальных исхода</strong>: <span class="math inline">\(Y_{i1}\)</span> — выручка <em>если получил кредит</em>, и <span class="math inline">\(Y_{i0}\)</span> — выручка <em>если не получил</em>. Эффект воздействия для конкретного человека: <span class="math inline">\(\tau_i = Y_{i1} - Y_{i0}\)</span>.</p>
-<p>Но мы можем наблюдать только <strong>один</strong> из двух исходов — тот мир, который реально случился. Второй навсегда остаётся <strong>контрфактическим</strong>.</p>
-<p>Это и есть <strong>фундаментальная проблема причинного вывода</strong> (Holland, 1986): нам не хватает ровно половины таблицы — той половины, которую физически невозможно наблюдать.</p>
-</section>
-<section id="код" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="код"><span class="header-section-number">1.1.2</span> Код</h3>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">100</span>   <span class="co"># 20 предпринимателей </span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># "Истина", которую мы в реальности НИКОГДА не знаем:</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># потенциальные исходы для обоих миров</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Базовая выручка у каждого предпринимателя</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># без программы — зависит от размера бизнеса и прочих факторов</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>Y0 <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(N, <span class="at">mean =</span> <span class="dv">150</span>, <span class="at">sd =</span> <span class="dv">10</span>), <span class="dv">1</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Индивидуальный эффект кредита 20 тыс. руб.:</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>tau_i <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Потенциальный исход в "мире с кредитом"</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>Y1 <span class="ot">&lt;-</span> Y0 <span class="sc">+</span> tau_i</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Случайное назначение в тритмент (получил кредит) / контроль</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>T_i <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Наблюдаемые исходы — "switching equation":</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Y_i = T_i * Y_{i1} + (1 - T_i) * Y_{i0}</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>Y_obs <span class="ot">&lt;-</span> T_i <span class="sc">*</span> Y1 <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> T_i) <span class="sc">*</span> Y0</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Строим таблицу для модели Рубина: NA = контрфактический исход (не наблюдаем)</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>rubin_table <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">i        =</span> <span class="dv">1</span><span class="sc">:</span>N,</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">T_i      =</span> T_i,</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">Y0_true  =</span> Y0,</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">Y1_true  =</span> Y1,</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">tau_true =</span> tau_i</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Переводим бинарный индикатор в текстовую метку</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    Группа <span class="ot">=</span> <span class="fu">if_else</span>(T_i <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Тритмент (кредит)"</span>, <span class="st">"Контроль (нет кредита)"</span>),</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Показываем только тот потенциальный исход, который реально наблюдается</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">Y0_obs =</span> <span class="fu">if_else</span>(T_i <span class="sc">==</span> <span class="dv">0</span>, Y0_true, <span class="cn">NA_real_</span>),</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">Y1_obs =</span> <span class="fu">if_else</span>(T_i <span class="sc">==</span> <span class="dv">1</span>, Y1_true, <span class="cn">NA_real_</span>)</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Оставляем колонки в том порядке, в котором их удобно читать</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(i, Группа, Y0_obs, Y1_obs, tau_true)</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Выводим таблицу</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="co"># knitr::kable(</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="co">#   rubin_table,</span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="co">#   col.names = c("i", "Группа", "Y₀ (без кредита)", "Y₁ (с кредитом)", "τᵢ (истинный)"),</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co">#   caption   = "Таблица для модели Рубина: NA — контрфактические исходы, которые мы не наблюдаем",</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="co">#   digits    = 1</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">paged_table</span>(rubin_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Про генерацию случайных чисел в R
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>В R существует несколько алгоритмов, позволящих генерировать случайные числа (Random Number Generator (RNG), подробнее – <code>?RNGkind</code>). По умолчанию используется Mersenne twister (Вихрь Мерсенна), поскольку он работает наиболее быстро. Однако все эти алгоритмы на самом деле детерминированы, поэтому генерируемые ими числа корректнее называть “псевдослучайными”.</p>
+<p>Генератор псевдослучайных чисел начинает свою работу с определенной точки в пространстве возможных чисел. Эту точку приянто называть начальное число или seed. <em>Начальное число</em> – это число (или вектор), используемое для инициализации генератора псевдослучайных чисел. Если вы хотите получить одинаковые результаты с помощью генератора случайных чисел, важно установить начальное число. Для этого в R используется функция <code>set.seed()</code>. По умолчанию начальное число не установлено, если ничего не указать, то создается новое из текущего времени и идентификатора процесса на вашем устройстве. Следовательно, по умолчанию разные сеансы дают разные результаты моделирования.</p>
+<p>Чтобы сделать результаты воспроизводимыми, используют установку начального числа.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">100</span>   <span class="co"># 20 предпринимателей </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># "Истина", которую мы в реальности НИКОГДА не знаем:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># потенциальные исходы для обоих миров</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Базовая выручка у каждого предпринимателя</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># без программы — зависит от размера бизнеса и прочих факторов</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>Y0 <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(N, <span class="at">mean =</span> <span class="dv">150</span>, <span class="at">sd =</span> <span class="dv">10</span>), <span class="dv">1</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Индивидуальный эффект кредита 20 тыс. руб.:</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>tau_i <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Потенциальный исход в "мире с кредитом"</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>Y1 <span class="ot">&lt;-</span> Y0 <span class="sc">+</span> tau_i</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Случайное назначение в тритмент (получил кредит) / контроль</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>T_i <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Наблюдаемые исходы — "switching equation":</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Y_i = T_i * Y_{i1} + (1 - T_i) * Y_{i0}</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>Y_obs <span class="ot">&lt;-</span> T_i <span class="sc">*</span> Y1 <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> T_i) <span class="sc">*</span> Y0</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Строим таблицу для модели Рубина: NA = контрфактический исход (не наблюдаем)</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>rubin_table <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">i        =</span> <span class="dv">1</span><span class="sc">:</span>N,</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">T_i      =</span> T_i,</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">Y0_true  =</span> Y0,</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">Y1_true  =</span> Y1,</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">tau_true =</span> tau_i</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Переводим бинарный индикатор в текстовую метку</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    Группа <span class="ot">=</span> <span class="fu">if_else</span>(T_i <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Тритмент (кредит)"</span>, <span class="st">"Контроль (нет кредита)"</span>),</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Показываем только тот потенциальный исход, который реально наблюдается</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">Y0_obs =</span> <span class="fu">if_else</span>(T_i <span class="sc">==</span> <span class="dv">0</span>, Y0_true, <span class="cn">NA_real_</span>),</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">Y1_obs =</span> <span class="fu">if_else</span>(T_i <span class="sc">==</span> <span class="dv">1</span>, Y1_true, <span class="cn">NA_real_</span>)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Оставляем колонки в том порядке, в котором их удобно читать</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(i, Группа, Y0_obs, Y1_obs, tau_true)</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Выводим таблицу</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="co"># knitr::kable(</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="co">#   rubin_table,</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="co">#   col.names = c("i", "Группа", "Y₀ (без кредита)", "Y₁ (с кредитом)", "τᵢ (истинный)"),</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="co">#   caption   = "Таблица для модели Рубина: NA — контрфактические исходы, которые мы не наблюдаем",</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="co">#   digits    = 1</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">paged_table</span>(rubin_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -340,67 +383,74 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Сравниваем: что мы "знаем" vs. что наблюдаем</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>ATE_true <span class="ot">&lt;-</span> rubin_table <span class="sc">%&gt;%</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ATE_true =</span> <span class="fu">mean</span>(tau_true)) <span class="sc">%&gt;%</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(ATE_true)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>ATE_naive <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">T_i =</span> T_i, <span class="at">Y_obs =</span> Y_obs) <span class="sc">%&gt;%</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(T_i) <span class="sc">%&gt;%</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_outcome =</span> <span class="fu">mean</span>(Y_obs), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ATE_naive =</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">0</span>]) <span class="sc">%&gt;%</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(ATE_naive)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Истинный ATE (среднее τᵢ по всем):"</span>, <span class="fu">round</span>(ATE_true,  <span class="dv">1</span>), <span class="st">"тыс. руб.</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Истинный ATE (среднее τᵢ по всем): 20 тыс. руб.</code></pre>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Сравниваем: что мы "знаем" vs. что наблюдаем</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ATE_true <span class="ot">&lt;-</span> rubin_table <span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ATE_true =</span> <span class="fu">mean</span>(tau_true)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(ATE_true)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>ATE_naive <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">T_i =</span> T_i, <span class="at">Y_obs =</span> Y_obs) <span class="sc">%&gt;%</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(T_i) <span class="sc">%&gt;%</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_outcome =</span> <span class="fu">mean</span>(Y_obs), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">ATE_naive =</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">0</span>]) <span class="sc">%&gt;%</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(ATE_naive)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Наивная оценка (разность средних): "</span>, <span class="fu">round</span>(ATE_naive, <span class="dv">1</span>), <span class="st">"тыс. руб.</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Истинный ATE (среднее τ_i по всем):"</span>, <span class="fu">round</span>(ATE_true,  <span class="dv">1</span>), <span class="st">"тыс. руб.</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Истинный ATE (среднее τ_i по всем): 20 тыс. руб.</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Наивная оценка (разность средних): "</span>, <span class="fu">round</span>(ATE_naive, <span class="dv">1</span>), <span class="st">"тыс. руб.</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Наивная оценка (разность средних):  18.9 тыс. руб.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Отклонение (selection bias):       "</span>, <span class="fu">round</span>(ATE_naive <span class="sc">-</span> ATE_true, <span class="dv">1</span>), <span class="st">"тыс. руб.</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Отклонение (selection bias):       "</span>, <span class="fu">round</span>(ATE_naive <span class="sc">-</span> ATE_true, <span class="dv">1</span>), <span class="st">"тыс. руб.</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Отклонение (selection bias):        -1.1 тыс. руб.</code></pre>
 </div>
 </div>
-</section>
-<section id="интерпретация" class="level3" data-number="1.1.3">
-<h3 data-number="1.1.3" class="anchored" data-anchor-id="интерпретация"><span class="header-section-number">1.1.3</span> Интерпретация</h3>
-<p>В таблице выше каждая строка — это один предприниматель. Обратите внимание: колонки <code>Y₀</code> и <code>Y₁</code> никогда не заполнены одновременно. Знак <code>NA</code> — это не «данные не собраны», это <strong>принципиальная невозможность</strong> наблюдать оба исхода.</p>
+<p>В таблице выше каждая строка — это один предприниматель. Обратите внимание: колонки <span class="math inline">\(Y_0\)</span> и <span class="math inline">\(Y_1\)</span> никогда не заполнены одновременно. <code>NA</code> — это не «данные не собраны», это <strong>принципиальная невозможность</strong> наблюдать оба исхода.</p>
 <p>Поскольку рандомизация здесь <strong>случайная</strong>, наивная оценка близка к истинному ATE. В следующей симуляции мы увидим, что происходит при <em>нарушении</em> этого условия.</p>
-</section>
-<section id="вопросы-для-размышления" class="level3" data-number="1.1.4">
-<h3 data-number="1.1.4" class="anchored" data-anchor-id="вопросы-для-размышления"><span class="header-section-number">1.1.4</span> Вопросы для размышления</h3>
+<p><strong>Вопросы для размышления:</strong></p>
 <ol type="1">
 <li>Почему колонка <code>tau_true</code> в реальном исследовании была бы полностью скрыта?</li>
 <li>Как связана «проблема пропущенных данных» с тем, почему нельзя просто сравнить выручку до и после программы для одного предпринимателя?</li>
 <li>Что меняется, если вместо 20 предпринимателей у нас 20 000?</li>
 </ol>
-<details>
-<summary>
-<strong>Возможные ответы</strong>
-</summary>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Возможные ответы
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p><strong>1. Почему <code>tau_true</code> в реальном исследовании была бы скрыта?</strong><br>
-Потому что для каждого индивида мы наблюдаем только один из двух потенциальных исходов: либо (Y_{i1}), либо (Y_{i0}). Второй исход — контрфактический. Следовательно, ( <em>i = Y</em>{i1}-Y_{i0}) для отдельного (i) принципиально ненаблюдаем: нам всегда не хватает одного слагаемого.</p>
+Потому что для каждого индивида мы наблюдаем только один из двух потенциальных исходов: либо (Y_{i1}), либо (Y_{i0}). Второй исход — контрфактический. Следовательно, ( i = Y*{i1}-Y_{i0}) для отдельного (i) принципиально ненаблюдаем: нам всегда не хватает одного слагаемого.</p>
 <p><strong>2. Как связана «проблема пропущенных данных» с сравнением до/после?</strong><br>
 Сравнение «до–после» для одного индивида подменяет контрфактический исход «что было бы без программы» простой динамикой во времени: трендом, шоками, сезонностью, обучением и т.д. Состояние «до» — это другая временная точка, а не альтернативный мир «в тот же момент без воздействия».</p>
 <p><strong>3. Что меняется при 20 000 индивидов?</strong><br>
 Большая выборка снижает дисперсию оценок средних эффектов и делает ATE точнее, но не решает фундаментальную проблему: индивидуальный эффект ( _i) всё равно ненаблюдаем. Мы лучше оцениваем средние, но не видим оба мира для одного и того же объекта.</p>
-</details>
+</div>
+</div>
+</div>
 <hr>
-</section>
 </section>
 <section id="sim2" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="sim2"><span class="header-section-number">1.2</span> Рандомизация и смещение выборки</h2>
-<section id="контекст-1" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="контекст-1"><span class="header-section-number">1.2.1</span> Контекст</h3>
-<p>Продолжим сценарий с микрокредитованием, но теперь добавим реализм: в реальном мире предприниматели <strong>сами решают</strong>, подавать ли заявку на кредит. Те, кто активнее, образованнее или уже имеет хорошие показатели — идут охотнее.</p>
+<p>Продолжим сценарий с микрокредитованием, но теперь сделаем его более реалистичным: в реальном мире предприниматели <strong>сами решают</strong>, подавать ли заявку на кредит. Те, кто активнее, образованнее или уже имеет хорошие показатели — идут охотнее.</p>
 <p>Это порождает <strong>смещение из-за самоотбора (selection bias)</strong>: если мы просто сравним «взявших кредит» и «не взявших», наша оценка будет завышена — не потому что кредит так хорош, а потому что в программу пошли изначально более сильные предприниматели.</p>
-<p><strong>Вопрос:</strong> насколько велика эта проблема и что с ней делает рандомизация?</p>
+<p>Насколько велика эта проблема и что с ней делает рандомизация?</p>
 <p>Формально, наивная оценка раскладывается как (Mixtape, Cunningham, 2021):</p>
 <p><span class="math display">\[
 \underbrace{\mathbb{E}[Y_1|T=1] - \mathbb{E}[Y_0|T=0]}_{\text{наивная оценка}}
@@ -408,114 +458,112 @@ window.Quarto = {
 + \underbrace{\mathbb{E}[Y_0|T=1] - \mathbb{E}[Y_0|T=0]}_{\text{Selection Bias}}
 + \underbrace{(1-\pi)(ATT-ATnT)}_{\text{гетерогенность}}
 \]</span></p>
-<p>Рандомизация обнуляет оба смещения сразу.</p>
-</section>
-<section id="код-1" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="код-1"><span class="header-section-number">1.2.2</span> Код</h3>
+<p>Рандомизация обнуляет оба смещения сразу. Вернемся к нашему примеру и убедимся в этом.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Функция для одного «прогона» симуляции</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># На входе: размер выборки N и индикатор самоотбора</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># На выходе: наивная оценка эффекта как разность средних исходов</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>simulate_selection_bias <span class="ot">&lt;-</span> <span class="cf">function</span>(N, <span class="at">self_selection =</span> <span class="cn">FALSE</span>) {</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 1. Генерируем ненаблюдаемую характеристику предпринимателя</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Можно интерпретировать её как способности, мотивацию, связи, опыт и т.д.</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  ability <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2. Строим потенциальные исходы</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Y0 — что было бы без кредита</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Y1 — что было бы с кредитом</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  Y0 <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">+</span> <span class="dv">30</span> <span class="sc">*</span> ability <span class="sc">+</span> <span class="fu">rnorm</span>(N, <span class="at">sd =</span> <span class="dv">15</span>)</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  Y1 <span class="ot">&lt;-</span> Y0 <span class="sc">+</span> <span class="dv">20</span>   <span class="co"># истинный эффект одинаков для всех: +20</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 3. Задаём механизм назначения в тритмент</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (self_selection) {</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># При самоселекции вероятность участия зависит от ability</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    prob_T <span class="ot">&lt;-</span> <span class="fu">plogis</span>(<span class="sc">-</span><span class="fl">0.5</span> <span class="sc">+</span> <span class="fl">1.8</span> <span class="sc">*</span> ability)</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># При честной рандомизации все имеют одинаковую вероятность попадания в программу</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    prob_T <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fl">0.5</span>, N)</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  T_i <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, prob_T)</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 4. Наблюдаемый исход зависит от того, в какую группу попал участник</span></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>  sim_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">ability =</span> ability, <span class="at">Y0 =</span> Y0, <span class="at">Y1 =</span> Y1, <span class="at">T_i =</span> T_i) <span class="sc">%&gt;%</span></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Y_obs =</span> <span class="fu">if_else</span>(T_i <span class="sc">==</span> <span class="dv">1</span>, Y1, Y0))</span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 5. Возвращаем наивную оценку: средний исход treated минус средний исход control</span></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  sim_data <span class="sc">%&gt;%</span></span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(T_i) <span class="sc">%&gt;%</span></span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mean_outcome =</span> <span class="fu">mean</span>(Y_obs), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">estimate =</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">0</span>]) <span class="sc">%&gt;%</span></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(estimate)</span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Функция для одного «прогона» симуляции</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># На входе: размер выборки N и индикатор самоотбора</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># На выходе: наивная оценка эффекта как разность средних исходов</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>simulate_selection_bias <span class="ot">&lt;-</span> <span class="cf">function</span>(N, <span class="at">self_selection =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 1. Генерируем ненаблюдаемую характеристику предпринимателя</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Можно интерпретировать её как способности, мотивацию, связи, опыт и т.д.</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  ability <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2. Строим потенциальные исходы</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Y0 — что было бы без кредита</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Y1 — что было бы с кредитом</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  Y0 <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">+</span> <span class="dv">30</span> <span class="sc">*</span> ability <span class="sc">+</span> <span class="fu">rnorm</span>(N, <span class="at">sd =</span> <span class="dv">15</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  Y1 <span class="ot">&lt;-</span> Y0 <span class="sc">+</span> <span class="dv">20</span>   <span class="co"># истинный эффект одинаков для всех: +20</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 3. Задаём механизм назначения в тритмент</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (self_selection) {</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># При самоселекции вероятность участия зависит от ability</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    prob_T <span class="ot">&lt;-</span> <span class="fu">plogis</span>(<span class="sc">-</span><span class="fl">0.5</span> <span class="sc">+</span> <span class="fl">1.8</span> <span class="sc">*</span> ability)</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># При честной рандомизации все имеют одинаковую вероятность попадания в программу</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    prob_T <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fl">0.5</span>, N)</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>  T_i <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, prob_T)</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 4. Наблюдаемый исход зависит от того, в какую группу попал участник</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>  sim_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">ability =</span> ability, <span class="at">Y0 =</span> Y0, <span class="at">Y1 =</span> Y1, <span class="at">T_i =</span> T_i) <span class="sc">%&gt;%</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Y_obs =</span> <span class="fu">if_else</span>(T_i <span class="sc">==</span> <span class="dv">1</span>, Y1, Y0))</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 5. Возвращаем наивную оценку: средний исход treated минус средний исход control</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>  sim_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(T_i) <span class="sc">%&gt;%</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mean_outcome =</span> <span class="fu">mean</span>(Y_obs), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">estimate =</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">0</span>]) <span class="sc">%&gt;%</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(estimate)</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Запускаем 2000 повторений каждого сценария для 500 предпринимателей</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>reps <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>N    <span class="ot">&lt;-</span> <span class="dv">500</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>est_random    <span class="ot">&lt;-</span> <span class="fu">replicate</span>(reps, <span class="fu">simulate_selection_bias</span>(N, <span class="at">self_selection =</span> <span class="cn">FALSE</span>))</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>est_selection <span class="ot">&lt;-</span> <span class="fu">replicate</span>(reps, <span class="fu">simulate_selection_bias</span>(N, <span class="at">self_selection =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"=== Истинный ATE = 20 тыс. руб. ===</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Запускаем 2000 повторений каждого сценария для 500 предпринимателей</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>reps <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>N    <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>est_random    <span class="ot">&lt;-</span> <span class="fu">replicate</span>(reps, <span class="fu">simulate_selection_bias</span>(N, <span class="at">self_selection =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>est_selection <span class="ot">&lt;-</span> <span class="fu">replicate</span>(reps, <span class="fu">simulate_selection_bias</span>(N, <span class="at">self_selection =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"=== Истинный ATE = 20 тыс. руб. ===</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>=== Истинный ATE = 20 тыс. руб. ===</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Сценарий 1 — рандомизация:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Сценарий 1 — рандомизация:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Сценарий 1 — рандомизация:</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  Среднее оценок:  "</span>, <span class="fu">round</span>(<span class="fu">mean</span>(est_random), <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  Среднее оценок:  "</span>, <span class="fu">round</span>(<span class="fu">mean</span>(est_random), <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Среднее оценок:   19.97 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  Ст. отклонение:  "</span>, <span class="fu">round</span>(<span class="fu">sd</span>(est_random),   <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  Ст. отклонение:  "</span>, <span class="fu">round</span>(<span class="fu">sd</span>(est_random),   <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Ст. отклонение:   3 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Сценарий 2 — самоотбор:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Сценарий 2 — самоотбор:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Сценарий 2 — самоотбор:</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  Среднее оценок:  "</span>, <span class="fu">round</span>(<span class="fu">mean</span>(est_selection), <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  Среднее оценок:  "</span>, <span class="fu">round</span>(<span class="fu">mean</span>(est_selection), <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Среднее оценок:   54.98 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  Ст. отклонение:  "</span>, <span class="fu">round</span>(<span class="fu">sd</span>(est_selection),   <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  Ст. отклонение:  "</span>, <span class="fu">round</span>(<span class="fu">sd</span>(est_selection),   <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Ст. отклонение:   2.62 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  Среднее смещение:"</span>, <span class="fu">round</span>(<span class="fu">mean</span>(est_selection) <span class="sc">-</span> <span class="dv">20</span>, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  Среднее смещение:"</span>, <span class="fu">round</span>(<span class="fu">mean</span>(est_selection) <span class="sc">-</span> <span class="dv">20</span>, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Среднее смещение: 34.98 </code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df_plot <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">estimate =</span> <span class="fu">c</span>(est_random, est_selection),</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">scenario =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Рандомизация"</span>, <span class="st">"Самоотбор"</span>), <span class="at">each =</span> reps)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_plot, <span class="fu">aes</span>(<span class="at">x =</span> estimate, <span class="at">fill =</span> scenario)) <span class="sc">+</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">60</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">20</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">21.5</span>, <span class="at">y =</span> <span class="cn">Inf</span>, <span class="at">label =</span> <span class="st">"Истинный ATE = 20"</span>,</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="fl">1.5</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Рандомизация"</span> <span class="ot">=</span> <span class="st">"#2196F3"</span>, <span class="st">"Самоотбор"</span> <span class="ot">=</span> <span class="st">"#F44336"</span>)) <span class="sc">+</span></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> scenario) <span class="sc">+</span></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Распределение оценок ATE: 2000 повторений"</span>,</span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Рандомизация центрирует оценки вокруг истинного значения; самоотбор — систематически завышает"</span>,</span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x        =</span> <span class="st">"Оценка ATE (тыс. руб.)"</span>,</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y        =</span> <span class="st">"Частота"</span>,</span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill     =</span> <span class="st">"Сценарий"</span></span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df_plot <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">estimate =</span> <span class="fu">c</span>(est_random, est_selection),</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">scenario =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Рандомизация"</span>, <span class="st">"Самоотбор"</span>), <span class="at">each =</span> reps)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_plot, <span class="fu">aes</span>(<span class="at">x =</span> estimate, <span class="at">fill =</span> scenario)) <span class="sc">+</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">60</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">20</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">21.5</span>, <span class="at">y =</span> <span class="cn">Inf</span>, <span class="at">label =</span> <span class="st">"Истинный ATE = 20"</span>,</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="fl">1.5</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Рандомизация"</span> <span class="ot">=</span> <span class="st">"#2196F3"</span>, <span class="st">"Самоотбор"</span> <span class="ot">=</span> <span class="st">"#F44336"</span>)) <span class="sc">+</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> scenario) <span class="sc">+</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Распределение оценок ATE: 2000 повторений"</span>,</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Рандомизация центрирует оценки вокруг истинного значения; </span><span class="sc">\n</span><span class="st"> самоотбор — систематически завышает"</span>,</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x        =</span> <span class="st">"Оценка ATE (тыс. руб.)"</span>,</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y        =</span> <span class="st">"Частота"</span>,</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill     =</span> <span class="st">"Сценарий"</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -524,134 +572,133 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</section>
-<section id="интерпретация-1" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="интерпретация-1"><span class="header-section-number">1.2.3</span> Интерпретация</h3>
 <p>При рандомизации распределение оценок <strong>сосредоточено вокруг 20</strong> — истинного значения ATE. При самоотборе центр сдвинут вправо: мы «видим» эффект больше реального, потому что в программу пошли изначально более сильные предприниматели.</p>
-<p>Именно это объясняет, почему рандомизация — «золотой стандарт» идентификации.</p>
-</section>
-<section id="вопросы-для-размышления-1" class="level3" data-number="1.2.4">
-<h3 data-number="1.2.4" class="anchored" data-anchor-id="вопросы-для-размышления-1"><span class="header-section-number">1.2.4</span> Вопросы для размышления</h3>
+<p>Именно это объясняет, почему эксперименты и использование рандомизации является «золотым стандартом» идентификации.</p>
+<p><strong>Вопросы для размышления:</strong></p>
 <ol type="1">
 <li>Почему при рандомизации дисперсия оценок больше нуля, хотя мы знаем «истину»?</li>
 <li>Что произойдёт с selection bias, если мы будем контролировать <code>ability</code> в регрессии? (Подсказка: ability ненаблюдаема — что это означает на практике?)</li>
 <li>В каком направлении смещение при самоотборе, если в программу идут <em>самые слабые</em> предприниматели (например, в программу помощи банкротам)?</li>
 </ol>
-<details>
-<summary>
-<strong>Возможные ответы</strong>
-</summary>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Возможные ответы
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p><strong>1. Почему при рандомизации дисперсия оценок больше нуля?</strong><br>
 Потому что даже при идеальной рандомизации мы работаем с конечной выборкой. Выборочные средние случайно колеблются вокруг истинного ATE, поэтому оценка остаётся шумной, хотя и несмещённой.</p>
 <p><strong>2. Что будет, если контролировать <code>ability</code> в регрессии?</strong><br>
 Если <code>ability</code> измерен точно и включён корректно, такая регрессия может убрать ту часть selection bias, которая идёт через <code>ability</code>. Но если <code>ability</code> ненаблюдаем или измеряется грубо, смещение полностью не исчезает — именно поэтому рандомизация лучше простой регрессии с контролями.</p>
 <p><strong>3. Что, если в программу идут самые слабые?</strong><br>
 Тогда смещение может стать отрицательным: наивная оценка будет занижать истинный эффект, потому что treated-группа изначально хуже контроля. В пределе можно получить даже отрицательную наивную оценку при положительном истинном ATE.</p>
-</details>
+</div>
+</div>
+</div>
 <hr>
-</section>
 </section>
 <section id="sim4" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="sim4"><span class="header-section-number">1.3</span> Нарушение SUTVA: интерференция</h2>
-<section id="контекст-2" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="контекст-2"><span class="header-section-number">1.3.1</span> Контекст</h3>
 <p>SUTVA (Stable Unit Treatment Value Assumption) — одна из ключевых предпосылок для корректной оценки причинного эффекта. Она требует:</p>
 <ol type="1">
-<li><strong>Нет интерференции</strong>: потенциальные исходы одного человека не зависят от того, кто ещё получил воздействие</li>
-<li><strong>Нет скрытых версий тритмента</strong>: воздействие однородно</li>
+<li><strong>Отсутствие интерференции</strong>: потенциальные исходы одного человека (наблюдения) не зависят от того, кто ещё получил воздействие</li>
+<li><strong>Отсутствие скрытых версий тритмента</strong>: воздействие однородно</li>
 </ol>
 <p>Представьте программу <strong>субсидирования малого бизнеса</strong> в районе города. Случайно выбранные магазины получают субсидию на маркетинг и привлечение клиентов. Но клиентский поток не создаётся из воздуха — он перераспределяется. Если субсидированные магазины переманивают покупателей у соседей-контрольных, то у тех снижается выручка <em>именно из-за программы</em>, а не по собственным причинам.</p>
 <p>Это <strong>spillover-эффект</strong> — прямое нарушение SUTVA. В результате контрольная группа «страдает», эффект как бы перетекает и в нее, уменьшая там зависимую переменную, и тогда наивная оценка <strong>завышает</strong> эффект программы.</p>
-</section>
-<section id="код-2" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="код-2"><span class="header-section-number">1.3.2</span> Код</h3>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">99</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">300</span>    <span class="co"># магазинов в районе</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Собираем данные в tibble, чтобы дальше работать через mutate() и summarise()</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>sim4_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">T_i =</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">share_treated =</span> <span class="fu">mean</span>(T_i),</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Сценарий A: SUTVA выполняется — нет интерференции</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Y0_clean =</span> <span class="fu">rnorm</span>(N, <span class="at">mean =</span> <span class="dv">500</span>, <span class="at">sd =</span> <span class="dv">80</span>),</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Y1_clean =</span> Y0_clean <span class="sc">+</span> <span class="dv">60</span>,</span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Y_obs_clean =</span> <span class="fu">if_else</span>(T_i <span class="sc">==</span> <span class="dv">1</span>, Y1_clean, Y0_clean),</span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Сценарий B: контрольные магазины теряют клиентов из-за соседей из treated-группы</span></span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">spillover_strength =</span> <span class="dv">40</span>,</span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Y0_spill =</span> Y0_clean <span class="sc">-</span> spillover_strength <span class="sc">*</span> share_treated,</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">Y_obs_spill =</span> <span class="fu">if_else</span>(T_i <span class="sc">==</span> <span class="dv">1</span>, Y1_clean, Y0_spill)</span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Оценки</span></span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>ATE_clean <span class="ot">&lt;-</span> sim4_data <span class="sc">%&gt;%</span></span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(T_i) <span class="sc">%&gt;%</span></span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_outcome =</span> <span class="fu">mean</span>(Y_obs_clean), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">val =</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">0</span>]) <span class="sc">%&gt;%</span></span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(val)</span>
-<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>ATE_spill <span class="ot">&lt;-</span> sim4_data <span class="sc">%&gt;%</span></span>
-<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(T_i) <span class="sc">%&gt;%</span></span>
-<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_outcome =</span> <span class="fu">mean</span>(Y_obs_spill), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">val =</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">0</span>]) <span class="sc">%&gt;%</span></span>
-<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(val)</span>
-<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"=== Истинный эффект субсидии = 60 тыс. руб. ===</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">99</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">300</span>    <span class="co"># магазинов в районе</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Собираем данные в tibble, чтобы дальше работать через mutate() и summarise()</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>sim4_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">T_i =</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">share_treated =</span> <span class="fu">mean</span>(T_i),</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Сценарий A: SUTVA выполняется — нет интерференции</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Y0_clean =</span> <span class="fu">rnorm</span>(N, <span class="at">mean =</span> <span class="dv">500</span>, <span class="at">sd =</span> <span class="dv">80</span>),</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Y1_clean =</span> Y0_clean <span class="sc">+</span> <span class="dv">60</span>,</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Y_obs_clean =</span> <span class="fu">if_else</span>(T_i <span class="sc">==</span> <span class="dv">1</span>, Y1_clean, Y0_clean),</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Сценарий B: контрольные магазины теряют клиентов из-за соседей из treated-группы</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">spillover_strength =</span> <span class="dv">40</span>,</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Y0_spill =</span> Y0_clean <span class="sc">-</span> spillover_strength <span class="sc">*</span> share_treated,</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">Y_obs_spill =</span> <span class="fu">if_else</span>(T_i <span class="sc">==</span> <span class="dv">1</span>, Y1_clean, Y0_spill)</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Оценки</span></span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>ATE_clean <span class="ot">&lt;-</span> sim4_data <span class="sc">%&gt;%</span></span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(T_i) <span class="sc">%&gt;%</span></span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_outcome =</span> <span class="fu">mean</span>(Y_obs_clean), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">val =</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">0</span>]) <span class="sc">%&gt;%</span></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(val)</span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>ATE_spill <span class="ot">&lt;-</span> sim4_data <span class="sc">%&gt;%</span></span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(T_i) <span class="sc">%&gt;%</span></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_outcome =</span> <span class="fu">mean</span>(Y_obs_spill), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">val =</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">0</span>]) <span class="sc">%&gt;%</span></span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(val)</span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"=== Истинный эффект субсидии = 60 тыс. руб. ===</span><span class="sc">\n\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>=== Истинный эффект субсидии = 60 тыс. руб. ===</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Оценка ATE без spillover (SUTVA ок): %.1f тыс. руб.</span><span class="sc">\n</span><span class="st">"</span>, ATE_clean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Оценка ATE без spillover (SUTVA ок): %.1f тыс. руб.</span><span class="sc">\n</span><span class="st">"</span>, ATE_clean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Оценка ATE без spillover (SUTVA ок): 58.3 тыс. руб.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Оценка ATE со spillover  (SUTVA !): %.1f тыс. руб.</span><span class="sc">\n</span><span class="st">"</span>, ATE_spill))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Оценка ATE со spillover  (SUTVA !): %.1f тыс. руб.</span><span class="sc">\n</span><span class="st">"</span>, ATE_spill))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Оценка ATE со spillover  (SUTVA !): 80.5 тыс. руб.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Завышение из-за нарушения SUTVA:    %.1f тыс. руб.</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>            ATE_spill <span class="sc">-</span> ATE_clean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Завышение из-за нарушения SUTVA:    %.1f тыс. руб.</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>            ATE_spill <span class="sc">-</span> ATE_clean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Завышение из-за нарушения SUTVA:    22.3 тыс. руб.</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Как оценка смещается в зависимости от силы spillover?</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>spillover_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">5</span>)</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>bias_vals <span class="ot">&lt;-</span> <span class="fu">sapply</span>(spillover_vals, <span class="cf">function</span>(sp) {</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  sim4_data <span class="sc">%&gt;%</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">Y0_tmp  =</span> Y0_clean <span class="sc">-</span> sp <span class="sc">*</span> share_treated,</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">Y_obs   =</span> <span class="fu">if_else</span>(T_i <span class="sc">==</span> <span class="dv">1</span>, Y1_clean, Y0_tmp)</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(T_i) <span class="sc">%&gt;%</span></span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mean_outcome =</span> <span class="fu">mean</span>(Y_obs), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">bias =</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">0</span>] <span class="sc">-</span> <span class="dv">60</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(bias)</span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>df_bias <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">spillover =</span> spillover_vals, <span class="at">bias =</span> bias_vals)</span>
-<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_bias, <span class="fu">aes</span>(<span class="at">x =</span> spillover, <span class="at">y =</span> bias)) <span class="sc">+</span></span>
-<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"#E53935"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#E53935"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey40"</span>) <span class="sc">+</span></span>
-<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="dv">1</span>, <span class="at">label =</span> <span class="st">"Нет смещения</span><span class="sc">\n</span><span class="st">(SUTVA выполнено)"</span>,</span>
-<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">color =</span> <span class="st">"grey40"</span>) <span class="sc">+</span></span>
-<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Зависимость смещения оценки ATE от силы spillover-эффекта"</span>,</span>
-<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"По мере нарастания интерференции оценка всё больше завышает истинный эффект"</span>,</span>
-<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">x        =</span> <span class="st">"Сила spillover (тыс. руб. потерь контрольных при полной «обработке» района)"</span>,</span>
-<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">y        =</span> <span class="st">"Смещение оценки ATE (тыс. руб.)"</span></span>
-<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Как оценка смещается в зависимости от силы spillover?</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>spillover_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">5</span>)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>bias_vals <span class="ot">&lt;-</span> <span class="fu">sapply</span>(spillover_vals, <span class="cf">function</span>(sp) {</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  sim4_data <span class="sc">%&gt;%</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">Y0_tmp  =</span> Y0_clean <span class="sc">-</span> sp <span class="sc">*</span> share_treated,</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">Y_obs   =</span> <span class="fu">if_else</span>(T_i <span class="sc">==</span> <span class="dv">1</span>, Y1_clean, Y0_tmp)</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(T_i) <span class="sc">%&gt;%</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mean_outcome =</span> <span class="fu">mean</span>(Y_obs), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">bias =</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_outcome[T_i <span class="sc">==</span> <span class="dv">0</span>] <span class="sc">-</span> <span class="dv">60</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(bias)</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>df_bias <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">spillover =</span> spillover_vals, <span class="at">bias =</span> bias_vals)</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_bias, <span class="fu">aes</span>(<span class="at">x =</span> spillover, <span class="at">y =</span> bias)) <span class="sc">+</span></span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"#E53935"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#E53935"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey40"</span>) <span class="sc">+</span></span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="dv">1</span>, <span class="at">label =</span> <span class="st">"Нет смещения</span><span class="sc">\n</span><span class="st">(SUTVA выполнено)"</span>,</span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">color =</span> <span class="st">"grey40"</span>) <span class="sc">+</span></span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Зависимость смещения оценки ATE от силы spillover-эффекта"</span>,</span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"По мере нарастания интерференции оценка всё больше завышает истинный эффект"</span>,</span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">x        =</span> <span class="st">"Сила spillover (тыс. руб. потерь контрольных при полной «обработке» района)"</span>,</span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">y        =</span> <span class="st">"Смещение оценки ATE (тыс. руб.)"</span></span>
+<span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb38-31"><a href="#cb38-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -660,80 +707,79 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</section>
-<section id="интерпретация-2" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="интерпретация-2"><span class="header-section-number">1.3.3</span> Интерпретация</h3>
 <p>При нарушении SUTVA контрольная группа «перестаёт быть хорошим контрфактом»: её выручка снижается не из-за отсутствия программы как таковой, а из-за того, что соседи конкурируют агрессивнее. В результате разность средних завышает истинный эффект программы.</p>
 <p><strong>Важно:</strong> SUTVA нельзя проверить статистически — её нарушение нужно выявлять содержательно, на этапе дизайна исследования. Например, можно использовать кластеризацию - субсидировать целые районы, а не отдельные магазины.</p>
-</section>
-<section id="вопросы-для-размышления-2" class="level3" data-number="1.3.4">
-<h3 data-number="1.3.4" class="anchored" data-anchor-id="вопросы-для-размышления-2"><span class="header-section-number">1.3.4</span> Вопросы для размышления</h3>
+<p><strong>Вопросы для размышления:</strong></p>
 <ol type="1">
 <li>Назовите три экономических контекста, где нарушение первой части SUTVA (интерференция) наиболее вероятно.</li>
 <li>Что такое «скрытые версии тритмента» (вторая часть SUTVA)? Придумайте пример.</li>
 <li>Предложите дизайн эксперимента для оценки программы субсидирования бизнеса, который минимизировал бы нарушение SUTVA.</li>
 </ol>
-<details>
-<summary>
-<strong>Возможные ответы</strong>
-</summary>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Возможные ответы
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p><strong>1. Где интерференция особенно вероятна?</strong><br>
 Вакцинация и другие меры общественного здоровья; образовательные интервенции с peer effects; программы поддержки фирм на локальных рынках, где treated и control конкурируют за одних и тех же клиентов или работников.</p>
 <p><strong>2. Что такое скрытые версии тритмента?</strong><br>
 Это ситуация, когда формально у всех (T=1), но фактическое воздействие различается по содержанию или интенсивности. Например, участники «одной и той же» обучающей программы получают разное число занятий, разных преподавателей или разный объём обратной связи.</p>
 <p><strong>3. Какой дизайн снизит риск нарушения SUTVA?</strong><br>
 Логичен кластерный дизайн: рандомизировать не отдельные магазины, а целые районы или торговые зоны. Тогда spillover внутри кластера уже не искажает сравнение treated и control, а внешние эффекты между кластерами можно уменьшить буферными зонами.</p>
-</details>
+</div>
+</div>
+</div>
 <hr>
-</section>
 </section>
 <section id="sim5" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="sim5"><span class="header-section-number">1.4</span> Баланс ковариат и размер выборки</h2>
-<section id="контекст-3" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="контекст-3"><span class="header-section-number">1.4.1</span> Контекст</h3>
 <p>Одно из ключевых достоинств рандомизированного эксперимента — <strong>балансировка ковариат</strong>: в среднем группы тритмента и контроля должны быть идентичны по всем характеристикам (наблюдаемым и ненаблюдаемым). Именно это позволяет интерпретировать разность в исходах как причинный эффект.</p>
 <p>Но исследователи-практики часто <strong>тестируют баланс</strong> после рандомизации и расстраиваются, если находят значимые различия.</p>
 <p>Симуляция демонстрирует важный факт: на <strong>малых выборках</strong> случайный дисбаланс — нормальное явление, а не признак плохой рандомизации. При большой выборке он статистически исчезает, но не потому что «рандомизация стала лучше» — просто дисперсия оценок уменьшается.</p>
-</section>
-<section id="код-3" class="level3" data-number="1.4.2">
-<h3 data-number="1.4.2" class="anchored" data-anchor-id="код-3"><span class="header-section-number">1.4.2</span> Код</h3>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">555</span>)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Функция: проверяем баланс по двум ковариатам и возвращаем p-values</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>check_balance <span class="ot">&lt;-</span> <span class="cf">function</span>(N) {</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Генерируем данные и сразу собираем их в одну таблицу</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  sim_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">age    =</span> <span class="fu">runif</span>(N, <span class="dv">22</span>, <span class="dv">55</span>),</span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">rnorm</span>(N, <span class="at">mean =</span> <span class="dv">60</span>, <span class="at">sd =</span> <span class="dv">10</span>),</span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">T_i    =</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
-<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># t.test() ожидает два вектора, поэтому временно фильтруем таблицу по группам</span></span>
-<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  p_age <span class="ot">&lt;-</span> <span class="fu">t.test</span>(</span>
-<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(T_i <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(age),</span>
-<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(T_i <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(age)</span>
-<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">$</span>p.value</span>
-<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>  p_income <span class="ot">&lt;-</span> <span class="fu">t.test</span>(</span>
-<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(T_i <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(income),</span>
-<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(T_i <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(income)</span>
-<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">$</span>p.value</span>
-<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">p_age =</span> p_age, <span class="at">p_income =</span> p_income)</span>
-<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Одиночный прогон при разных N — смотрим на конкретные p-values</span></span>
-<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>ns_demo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">5000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>)</span>
-<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a>demo <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">sapply</span>(ns_demo, <span class="cf">function</span>(n) <span class="fu">round</span>(<span class="fu">check_balance</span>(n), <span class="dv">3</span>)))</span>
-<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(demo) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"N = "</span>, ns_demo)</span>
-<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-32"><a href="#cb36-32" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb36-33"><a href="#cb36-33" aria-hidden="true" tabindex="-1"></a>  demo,</span>
-<span id="cb36-34"><a href="#cb36-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"p-value (возраст)"</span>, <span class="st">"p-value (доход)"</span>),</span>
-<span id="cb36-35"><a href="#cb36-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption   =</span> <span class="st">"p-values t-теста на баланс ковариат при разных размерах выборки (одна реализация)"</span></span>
-<span id="cb36-36"><a href="#cb36-36" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">555</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Функция: проверяем баланс по двум ковариатам и возвращаем p-values</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>check_balance <span class="ot">&lt;-</span> <span class="cf">function</span>(N) {</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Генерируем данные и сразу собираем их в одну таблицу</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  sim_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">age    =</span> <span class="fu">runif</span>(N, <span class="dv">22</span>, <span class="dv">55</span>),</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">rnorm</span>(N, <span class="at">mean =</span> <span class="dv">60</span>, <span class="at">sd =</span> <span class="dv">10</span>),</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">T_i    =</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># t.test() ожидает два вектора, поэтому временно фильтруем таблицу по группам</span></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>  p_age <span class="ot">&lt;-</span> <span class="fu">t.test</span>(</span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(T_i <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(age),</span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(T_i <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(age)</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">$</span>p.value</span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>  p_income <span class="ot">&lt;-</span> <span class="fu">t.test</span>(</span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(T_i <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(income),</span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(T_i <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(income)</span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">$</span>p.value</span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">p_age =</span> p_age, <span class="at">p_income =</span> p_income)</span>
+<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Одиночный прогон при разных N — смотрим на конкретные p-values</span></span>
+<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a>ns_demo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">5000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>)</span>
+<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb39-29"><a href="#cb39-29" aria-hidden="true" tabindex="-1"></a>demo <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">sapply</span>(ns_demo, <span class="cf">function</span>(n) <span class="fu">round</span>(<span class="fu">check_balance</span>(n), <span class="dv">3</span>)))</span>
+<span id="cb39-30"><a href="#cb39-30" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(demo) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"N = "</span>, ns_demo)</span>
+<span id="cb39-31"><a href="#cb39-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-32"><a href="#cb39-32" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb39-33"><a href="#cb39-33" aria-hidden="true" tabindex="-1"></a>  demo,</span>
+<span id="cb39-34"><a href="#cb39-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"p-value (возраст)"</span>, <span class="st">"p-value (доход)"</span>),</span>
+<span id="cb39-35"><a href="#cb39-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption   =</span> <span class="st">"p-values t-теста на баланс ковариат при разных размерах выборки (одна реализация)"</span></span>
+<span id="cb39-36"><a href="#cb39-36" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>p-values t-теста на баланс ковариат при разных размерах выборки (одна реализация)</caption>
@@ -790,36 +836,36 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Запускаем 2000 повторений и смотрим</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># в какой доле прогонов мы ложно "бракуем"</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># баланс (p &lt; 0.05) — хотя рандомизация идеальная?</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>reps <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>ns   <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">5000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>)</span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>false_rejection <span class="ot">&lt;-</span> <span class="fu">sapply</span>(ns, <span class="cf">function</span>(n) {</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  pvals <span class="ot">&lt;-</span> <span class="fu">replicate</span>(reps, <span class="fu">check_balance</span>(n)[<span class="st">"p_age"</span>])</span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(pvals <span class="sc">&lt;</span> <span class="fl">0.05</span>)   <span class="co"># доля "ложных дисбалансов"</span></span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>df_frej <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">N =</span> ns, <span class="at">false_rejection =</span> false_rejection)</span>
-<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_frej, <span class="fu">aes</span>(<span class="at">x =</span> N, <span class="at">y =</span> false_rejection)) <span class="sc">+</span></span>
-<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"#7B1FA2"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#7B1FA2"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.05</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey40"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">200</span>, <span class="at">y =</span> <span class="fl">0.06</span>, <span class="at">label =</span> <span class="st">"Уровень значимости α = 5%"</span>,</span>
-<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">color =</span> <span class="st">"grey40"</span>) <span class="sc">+</span></span>
-<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span></span>
-<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
-<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Доля «ложного дисбаланса» при идеальной рандомизации"</span>,</span>
-<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Линия сходится к 5% — именно столько ложных отвержений ожидаемо при α = 0.05"</span>,</span>
-<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">x        =</span> <span class="st">"Размер выборки N (логарифмическая шкала)"</span>,</span>
-<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">y        =</span> <span class="st">"Доля прогонов с p &lt; 0.05 по возрасту"</span></span>
-<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Запускаем 2000 повторений и смотрим</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co"># в какой доле прогонов мы ложно "бракуем"</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># баланс (p &lt; 0.05) — хотя рандомизация идеальная?</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>reps <span class="ot">&lt;-</span> <span class="dv">2000</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>ns   <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">5000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>)</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>false_rejection <span class="ot">&lt;-</span> <span class="fu">sapply</span>(ns, <span class="cf">function</span>(n) {</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>  pvals <span class="ot">&lt;-</span> <span class="fu">replicate</span>(reps, <span class="fu">check_balance</span>(n)[<span class="st">"p_age"</span>])</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(pvals <span class="sc">&lt;</span> <span class="fl">0.05</span>)   <span class="co"># доля "ложных дисбалансов"</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>df_frej <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">N =</span> ns, <span class="at">false_rejection =</span> false_rejection)</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_frej, <span class="fu">aes</span>(<span class="at">x =</span> N, <span class="at">y =</span> false_rejection)) <span class="sc">+</span></span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"#7B1FA2"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"#7B1FA2"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.05</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"grey40"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">200</span>, <span class="at">y =</span> <span class="fl">0.06</span>, <span class="at">label =</span> <span class="st">"Уровень значимости α = 5%"</span>,</span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">color =</span> <span class="st">"grey40"</span>) <span class="sc">+</span></span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span></span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Доля «ложного дисбаланса» при идеальной рандомизации"</span>,</span>
+<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Линия сходится к 5% — именно столько ложных отвержений ожидаемо при α = 0.05"</span>,</span>
+<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">x        =</span> <span class="st">"Размер выборки N (логарифмическая шкала)"</span>,</span>
+<span id="cb40-28"><a href="#cb40-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">y        =</span> <span class="st">"Доля прогонов с p &lt; 0.05 по возрасту"</span></span>
+<span id="cb40-29"><a href="#cb40-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -829,38 +875,38 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Бонус: смотрим, насколько средние отличаются при малом N</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>show_means <span class="ot">&lt;-</span> <span class="cf">function</span>(N, label) {</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">runif</span>(N, <span class="dv">22</span>, <span class="dv">55</span>),</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">T_i =</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(T_i) <span class="sc">%&gt;%</span></span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mean_age =</span> <span class="fu">mean</span>(age), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
-<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">N      =</span> label,</span>
-<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">Mean_T =</span> <span class="fu">round</span>(mean_age[T_i <span class="sc">==</span> <span class="dv">1</span>], <span class="dv">1</span>),</span>
-<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">Mean_C =</span> <span class="fu">round</span>(mean_age[T_i <span class="sc">==</span> <span class="dv">0</span>], <span class="dv">1</span>),</span>
-<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">Diff   =</span> <span class="fu">round</span>(mean_age[T_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_age[T_i <span class="sc">==</span> <span class="dv">0</span>], <span class="dv">1</span>)</span>
-<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>balance_demo <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
-<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_means</span>(<span class="dv">20</span>,   <span class="st">"N = 20"</span>),</span>
-<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_means</span>(<span class="dv">100</span>,  <span class="st">"N = 100"</span>),</span>
-<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_means</span>(<span class="dv">1000</span>, <span class="st">"N = 1000"</span>),</span>
-<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_means</span>(<span class="dv">5000</span>, <span class="st">"N = 5000"</span>)</span>
-<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a>  balance_demo,</span>
-<span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"N"</span>, <span class="st">"Среднее (тритмент)"</span>, <span class="st">"Среднее (контроль)"</span>, <span class="st">"Разность"</span>),</span>
-<span id="cb38-31"><a href="#cb38-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption   =</span> <span class="st">"Разность средних по возрасту в тритменте и контроле (идеальная рандомизация)"</span></span>
-<span id="cb38-32"><a href="#cb38-32" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Бонус: смотрим, насколько средние отличаются при малом N</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------------------</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>show_means <span class="ot">&lt;-</span> <span class="cf">function</span>(N, label) {</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">runif</span>(N, <span class="dv">22</span>, <span class="dv">55</span>),</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">T_i =</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(T_i) <span class="sc">%&gt;%</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">mean_age =</span> <span class="fu">mean</span>(age), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">N      =</span> label,</span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">Mean_T =</span> <span class="fu">round</span>(mean_age[T_i <span class="sc">==</span> <span class="dv">1</span>], <span class="dv">1</span>),</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">Mean_C =</span> <span class="fu">round</span>(mean_age[T_i <span class="sc">==</span> <span class="dv">0</span>], <span class="dv">1</span>),</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">Diff   =</span> <span class="fu">round</span>(mean_age[T_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_age[T_i <span class="sc">==</span> <span class="dv">0</span>], <span class="dv">1</span>)</span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>balance_demo <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_means</span>(<span class="dv">20</span>,   <span class="st">"N = 20"</span>),</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_means</span>(<span class="dv">100</span>,  <span class="st">"N = 100"</span>),</span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_means</span>(<span class="dv">1000</span>, <span class="st">"N = 1000"</span>),</span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_means</span>(<span class="dv">5000</span>, <span class="st">"N = 5000"</span>)</span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb41-29"><a href="#cb41-29" aria-hidden="true" tabindex="-1"></a>  balance_demo,</span>
+<span id="cb41-30"><a href="#cb41-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"N"</span>, <span class="st">"Среднее (тритмент)"</span>, <span class="st">"Среднее (контроль)"</span>, <span class="st">"Разность"</span>),</span>
+<span id="cb41-31"><a href="#cb41-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption   =</span> <span class="st">"Разность средних по возрасту в тритменте и контроле (идеальная рандомизация)"</span></span>
+<span id="cb41-32"><a href="#cb41-32" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Разность средних по возрасту в тритменте и контроле (идеальная рандомизация)</caption>
@@ -901,34 +947,38 @@ window.Quarto = {
 </table>
 </div>
 </div>
-</section>
-<section id="интерпретация-3" class="level3" data-number="1.4.3">
-<h3 data-number="1.4.3" class="anchored" data-anchor-id="интерпретация-3"><span class="header-section-number">1.4.3</span> Интерпретация</h3>
 <p>На малых выборках (N = 20–50) случайный дисбаланс статистически значим примерно в 5–15% случаев — даже при <strong>идеально</strong> случайном назначении. Это <strong>не</strong> проблема рандомизации: это просто флуктуация выборки. При N → ∞ доля ложных «находок» сходится ровно к уровню значимости α = 5%.</p>
 <p>Практический вывод: если обнаружен «дисбаланс» на малой выборке, прежде всего нужно использовать <strong>блочную рандомизацию</strong> (randomization within strata) или ковариатную корректировку в регрессии — не расстраиваться и не перезапускать рандомизацию снова и снова до «красивых» p-values (это data-dredging!).</p>
-</section>
-<section id="вопросы-для-размышления-3" class="level3" data-number="1.4.4">
-<h3 data-number="1.4.4" class="anchored" data-anchor-id="вопросы-для-размышления-3"><span class="header-section-number">1.4.4</span> Вопросы для размышления</h3>
+<p><strong>Вопросы для размышления:</strong></p>
 <ol type="1">
 <li>Почему «перезапускать рандомизацию до достижения баланса» — плохая практика?</li>
 <li>Что такое блочная (стратифицированная) рандомизация и как она решает проблему малых выборок?</li>
 <li>Если наблюдается значимый дисбаланс по ненаблюдаемой переменной — можно ли это вообще проверить?</li>
 </ol>
-<details>
-<summary>
-<strong>Возможные ответы</strong>
-</summary>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Возможные ответы
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p><strong>1. Почему нельзя перезапускать рандомизацию до «красивого баланса»?</strong><br>
 Потому что тогда исследователь начинает подбирать разбиение ex post под желаемый результат. Это ломает честную вероятностную логику рандомизации и приближает дизайн к p-hacking.</p>
 <p><strong>2. Что делает блочная рандомизация?</strong><br>
 Сначала единицы разбиваются на однородные блоки по важным ковариатам (например, пол, возраст, размер фирмы), а затем рандомизация проводится внутри каждого блока. Это уменьшает риск сильного случайного дисбаланса, особенно на небольших выборках.</p>
 <p><strong>3. Можно ли проверить дисбаланс по ненаблюдаемой переменной?</strong><br>
 Нет, напрямую нельзя: если переменная не наблюдается, её нельзя включить в тест баланса. Поэтому так важны дизайн, содержательное знание механизма назначения и использование прокси или стратификации по наиболее важным наблюдаемым характеристикам.</p>
-</details>
+</div>
+</div>
+</div>
 <hr>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
