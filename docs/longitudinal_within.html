@@ -211,17 +211,26 @@ window.Quarto = {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#sim1" id="toc-sim1" class="nav-link active" data-scroll-target="#sim1"><span class="header-section-number">4.1</span> Baseline + posttest: насколько pretest снижает SE</a></li>
-  <li><a href="#sim2" id="toc-sim2" class="nav-link" data-scroll-target="#sim2"><span class="header-section-number">4.2</span> Fadeout: динамика эффекта во времени</a></li>
-  <li><a href="#sim3" id="toc-sim3" class="nav-link" data-scroll-target="#sim3"><span class="header-section-number">4.3</span> ESC: Endogenous Stratification Catastrophe</a>
+  <li><a href="#sim1" id="toc-sim1" class="nav-link active" data-scroll-target="#sim1"><span class="header-section-number">4.1</span> Baseline + posttest: насколько pretest снижает SE</a>
   <ul class="collapse">
-  <li><a href="#ловушка-1-грубая-приросты-по-базовым-группам" id="toc-ловушка-1-грубая-приросты-по-базовым-группам" class="nav-link" data-scroll-target="#ловушка-1-грубая-приросты-по-базовым-группам"><span class="header-section-number">4.3.1</span> Ловушка 1 (грубая): приросты по базовым группам</a></li>
-  <li><a href="#ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification" id="toc-ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification" class="nav-link" data-scroll-target="#ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification"><span class="header-section-number">4.3.2</span> Ловушка 2 (тонкая): страты по предсказанному <span class="math inline">\(\hat Y(0)\)</span> — endogenous stratification</a></li>
+  <li><a href="#эффект-тестирования-и-дизайн-соломона" id="toc-эффект-тестирования-и-дизайн-соломона" class="nav-link" data-scroll-target="#эффект-тестирования-и-дизайн-соломона"><span class="header-section-number">4.1.1</span> Эффект тестирования и дизайн Соломона</a></li>
+  <li><a href="#ступенчатое-внедрение-staggered-adoption" id="toc-ступенчатое-внедрение-staggered-adoption" class="nav-link" data-scroll-target="#ступенчатое-внедрение-staggered-adoption"><span class="header-section-number">4.1.2</span> Ступенчатое внедрение (staggered adoption)</a></li>
   </ul></li>
-  <li><a href="#sim4" id="toc-sim4" class="nav-link" data-scroll-target="#sim4"><span class="header-section-number">4.4</span> Within-subject дизайн: каждый — сам себе контроль</a></li>
-  <li><a href="#sim5" id="toc-sim5" class="nav-link" data-scroll-target="#sim5"><span class="header-section-number">4.5</span> Идиосинкратическая гетерогенность: что значит «<span class="math inline">\(\text{Cov}[Y(0), Y(1)]\)</span> не идентифицируется»</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">4.6</span> Итоговая таблица: что какой дизайн идентифицирует</a></li>
-  <li><a href="#литература" id="toc-литература" class="nav-link" data-scroll-target="#литература"><span class="header-section-number">4.7</span> Литература</a></li>
+  <li><a href="#sim2" id="toc-sim2" class="nav-link" data-scroll-target="#sim2"><span class="header-section-number">4.2</span> Fadeout: динамика эффекта во времени</a></li>
+  <li><a href="#долгосрочные-исходы-суррогаты-и-экспериментальная-коррекция-селекции" id="toc-долгосрочные-исходы-суррогаты-и-экспериментальная-коррекция-селекции" class="nav-link" data-scroll-target="#долгосрочные-исходы-суррогаты-и-экспериментальная-коррекция-селекции"><span class="header-section-number">4.3</span> Долгосрочные исходы: суррогаты и экспериментальная коррекция селекции</a></li>
+  <li><a href="#sim3" id="toc-sim3" class="nav-link" data-scroll-target="#sim3"><span class="header-section-number">4.4</span> Эндогенная стратификация: ловушка гетерогенности по базовому уровню</a>
+  <ul class="collapse">
+  <li><a href="#ловушка-1-грубая-приросты-по-базовым-группам" id="toc-ловушка-1-грубая-приросты-по-базовым-группам" class="nav-link" data-scroll-target="#ловушка-1-грубая-приросты-по-базовым-группам"><span class="header-section-number">4.4.1</span> Ловушка 1 (грубая): приросты по базовым группам</a></li>
+  <li><a href="#ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification" id="toc-ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification" class="nav-link" data-scroll-target="#ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification"><span class="header-section-number">4.4.2</span> Ловушка 2 (тонкая): страты по предсказанному <span class="math inline">\(\hat Y(0)\)</span> — endogenous stratification</a></li>
+  </ul></li>
+  <li><a href="#sim4" id="toc-sim4" class="nav-link" data-scroll-target="#sim4"><span class="header-section-number">4.5</span> Within-subject дизайн: каждый — сам себе контроль</a>
+  <ul class="collapse">
+  <li><a href="#цена-мощности-три-новых-допущения" id="toc-цена-мощности-три-новых-допущения" class="nav-link" data-scroll-target="#цена-мощности-три-новых-допущения"><span class="header-section-number">4.5.1</span> Цена мощности: три новых допущения</a></li>
+  <li><a href="#типология-ws-дизайнов-по-правдоподобию-допущений" id="toc-типология-ws-дизайнов-по-правдоподобию-допущений" class="nav-link" data-scroll-target="#типология-ws-дизайнов-по-правдоподобию-допущений"><span class="header-section-number">4.5.2</span> Типология WS-дизайнов по правдоподобию допущений</a></li>
+  </ul></li>
+  <li><a href="#sim5" id="toc-sim5" class="nav-link" data-scroll-target="#sim5"><span class="header-section-number">4.6</span> Идиосинкратическая гетерогенность: что значит «<span class="math inline">\(\text{Cov}[Y(0), Y(1)]\)</span> не идентифицируется»</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">4.7</span> Итоговая таблица: что какой дизайн идентифицирует</a></li>
+  <li><a href="#литература" id="toc-литература" class="nav-link" data-scroll-target="#литература"><span class="header-section-number">4.8</span> Литература</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/annastavniychuk/causal_inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Сообщить о проблеме</a></li></ul></div></nav>
     </div>
@@ -253,16 +262,26 @@ window.Quarto = {
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)     <span class="co"># pivot_longer / pivot_wider</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)      <span class="co"># mvrnorm — для совместного распределения (Y0, Y1)</span></span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>В прошлом практикуме мы работали с <strong>one-shot between-subject (BS) RCT</strong>: каждый предприниматель получал одно назначение и мерялся один раз. Такой дизайн даёт нам ATE и CATE по наблюдаемым ковариатам <span class="math inline">\(X\)</span>, но не отвечает на пять важных вопросов: про <em>идиосинкратическую гетерогенность</em> (<span class="math inline">\(\text{Var}[\tau_i]\)</span>, <span class="math inline">\(\Pr(\tau_i&gt;0)\)</span>), <em>динамику</em>, <em>долгосрочные исходы</em>, <em>поведенческие механизмы</em> и <em>устойчивость при повторении</em>.</p>
-<p>Чтобы получить ответы, нужно <strong>добавить время</strong> — либо к измерению исхода (ось <span class="math inline">\(Y\)</span> — продольные дизайны), либо к назначению лечения (ось <span class="math inline">\(D\)</span> — внутрисубъектные, within-subject). В этом практикуме мы по очереди разберём:</p>
+<p>В прошлом практикуме мы работали с <strong>одномоментным межсубъектным RCT</strong> (one-shot between-subject, BS): каждый предприниматель получал одно назначение, и исход измерялся один раз. Такой дизайн оценивает ATE и CATE по наблюдаемым ковариатам <span class="math inline">\(X\)</span>, но не отвечает на пять вопросов, которые реально задаёт политика:</p>
 <ol type="1">
-<li><strong>Baseline + posttest</strong>: насколько pretest снижает <span class="math inline">\(\text{SE}(\hat\tau)\)</span> через ANCOVA по сравнению с разностью средних.</li>
-<li><strong>Change score vs ANCOVA</strong>: когда лучше работает разность <span class="math inline">\(\Delta Y\)</span>, а когда — регрессия с pretest как контролем.</li>
-<li><strong>Fadeout</strong>: эффект может расти, стабилизироваться или затухать — что увидит one-shot и что — продольный дизайн.</li>
-<li><strong>Endogenous Stratification Catastrophe (ESC)</strong>: классическая ловушка при оценке гетерогенности по базовому уровню.</li>
-<li><strong>Within-subject дизайн</strong>: как один и тот же субъект, проходящий через <span class="math inline">\(D=0\)</span> и <span class="math inline">\(D=1\)</span>, идентифицирует <span class="math inline">\(\tau_i\)</span>.</li>
-<li><strong>Идиосинкратическая гетерогенность</strong>: что значит «совместное распределение <span class="math inline">\((Y(0), Y(1))\)</span> не идентифицируется» в one-shot — и как within-subject это решает.</li>
+<li>Насколько эффект <strong>варьируется между людьми</strong>? Кто именно выиграл? (идиосинкратическая гетерогенность: <span class="math inline">\(\text{Var}[\tau_i]\)</span>, <span class="math inline">\(\Pr(\tau_i&gt;0)\)</span>)</li>
+<li>Эффект <strong>растёт, стабилен или затухает</strong> со временем? (динамика)</li>
+<li>Эффект на тесты через год — хорошо, а на <strong>зарплату через 20 лет</strong>? (долгосрочные исходы)</li>
+<li>Это эффект самого воздействия — или <strong>реакции на новизну и наблюдение</strong>? (поведенческие механизмы)</li>
+<li>Что будет, если воздействие <strong>повторить</strong>?</li>
 </ol>
+<p>Полезно различать два рода гетерогенности. Гетерогенность <strong>по наблюдаемым</strong> <span class="math inline">\(X\)</span> — CATE — доступна и в one-shot дизайне (взаимодействия, причинные леса). <strong>Идиосинкратическая</strong> гетерогенность — разброс <span class="math inline">\(\tau_i\)</span> <em>внутри</em> ячейки <span class="math inline">\(X = x\)</span> — требует величины <span class="math inline">\(\text{Cov}[Y(0), Y(1)]\)</span>, которая в one-shot не идентифицируется в принципе: это фундаментальная проблема причинного вывода в самом остром виде.</p>
+<p>Чтобы получить ответы, нужно <strong>добавить время</strong> — либо к измерению исхода (ось <span class="math inline">\(Y\)</span> — продольные дизайны, longitudinal), либо к назначению воздействия (ось <span class="math inline">\(D\)</span> — внутрисубъектные дизайны, within-subject, WS). В этом практикуме мы по очереди разберём:</p>
+<ol type="1">
+<li><strong>Baseline + posttest</strong>: насколько претест снижает <span class="math inline">\(\text{SE}(\hat\tau)\)</span> через ANCOVA по сравнению с разностью средних.</li>
+<li><strong>Change score vs ANCOVA</strong>: когда лучше работает разность <span class="math inline">\(\Delta Y\)</span>, а когда — регрессия с претестом как контролем.</li>
+<li><strong>Fadeout</strong>: эффект может расти, стабилизироваться или затухать — что увидит one-shot и что — продольный дизайн.</li>
+<li><strong>Долгосрочные исходы</strong>: суррогаты (surrogates) и экспериментальная коррекция селекции (experimental selection correction, ESC) — теоретический блок.</li>
+<li><strong>Эндогенная стратификация</strong>: классическая ловушка при оценке гетерогенности по базовому уровню.</li>
+<li><strong>Within-subject дизайн</strong>: как один и тот же субъект, проходящий через <span class="math inline">\(D=0\)</span> и <span class="math inline">\(D=1\)</span>, идентифицирует <span class="math inline">\(\tau_i\)</span>.</li>
+<li><strong>Идиосинкратическая гетерогенность</strong>: что значит «совместное распределение <span class="math inline">\((Y(0), Y(1))\)</span> не идентифицируется» в one-shot — и как WS это решает.</li>
+</ol>
+<p>Классические примеры того, что даёт продольность: Andreoni (1988) по 10 раундам игры в общественное благо отличил обучение от альтруизма (вклады падают — доминирует обучение); Miguel, Kremer (2004) по нескольким годам наблюдений выявили экстерналии дегельминтизации между школами; программа Perry Preschool с наблюдением участников до 40 лет дала знаменитые оценки долгосрочных эффектов дошкольного образования на зарплату и преступность — без продольного дизайна они были бы невозможны.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -270,7 +289,15 @@ window.Quarto = {
 <section id="sim1" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="sim1"><span class="header-section-number">4.1</span> Baseline + posttest: насколько pretest снижает SE</h2>
 <p>Вспомним постановку с микрокредитованием. Теперь у нас есть <strong>два измерения выручки</strong>: <span class="math inline">\(Y_{i,\text{pre}}\)</span> (до программы) и <span class="math inline">\(Y_{i,\text{post}}\)</span> (через год после). Лечение <span class="math inline">\(D_i\)</span> назначается случайно в промежутке между двумя измерениями.</p>
-<p>Ключевая нотационная тонкость: <span class="math inline">\(Y_{i,\text{pre}}\)</span> — это <em>реальное измерение</em> до лечения (наблюдается для всех), а <span class="math inline">\(Y_i(0)\)</span> — это <em>потенциальный исход в пост-периоде без лечения</em> (контрфактуальный для тех, кого лечили). Связь между ними — допущение, а не тождество.</p>
+<p>Ключевая нотационная тонкость: <span class="math inline">\(Y_{i,\text{pre}}\)</span> — это <em>реальное измерение</em> до лечения (наблюдается для всех), а <span class="math inline">\(Y_i(0)\)</span> — это <em>потенциальный исход в пост-периоде без лечения</em> (контрфактуальный для тех, кого лечили). Связь между ними — допущение, а не тождество: претест полезен для идентификации, только если он служит прокси для <span class="math inline">\(Y(0)\)</span> (формализуется как «нет эффекта времени» <span class="math inline">\(\mathbb{E}[Y_{\text{post}}(0)] = \mathbb{E}[Y_{\text{pre}}]\)</span> или как параллельные тренды в духе разности разностей).</p>
+<p>Зачем вообще нужен базовый замер (baseline)? Три выигрыша:</p>
+<ol type="1">
+<li><strong>точность</strong>: претест — мощная ковариата, сильно снижающая остаточную дисперсию (главный сюжет этого раздела);</li>
+<li><strong>проверка рандомизации</strong>: если <span class="math inline">\(\bar Y_{\text{pre}}\)</span> различается между группами — жеребьёвка подвела (формально это то же, что проверка предтрендов в разности разностей);</li>
+<li><strong>гетерогенность по стартовому уровню</strong>: можно спросить, помогает ли программа сильнее тем, кто начинал с низкого уровня (об опасностях этого — ниже, в разделе про эндогенную стратификацию).</li>
+</ol>
+<p>Цена: второе измерение стоит денег, а само пре-измерение может изменить поведение — <strong>эффект тестирования</strong> (testing effect), к которому мы вернёмся в конце раздела.</p>
+<p>Полезно сразу увидеть механику. Запишем модель исхода с индивидуальным уровнем: <span class="math inline">\(Y_{it} = \mu_i + \alpha_t + \tau D_{it} + \varepsilon_{it}\)</span>. При рандомизации <span class="math inline">\(D \perp \mu\)</span>, поэтому <em>несмещённость</em> любой разумной оценки гарантирована — индивидуальная гетерогенность <span class="math inline">\(\mu_i\)</span> не смещает, а <strong>раздувает дисперсию</strong>: в оценке по разности средних <span class="math inline">\(\sigma^2_\mu\)</span> целиком сидит в остатке. Идея baseline: <span class="math inline">\(Y_{i,\text{pre}}\)</span> тоже содержит <span class="math inline">\(\mu_i\)</span>, значит, им можно «вычесть» <span class="math inline">\(\mu_i\)</span> из остатка. Это сюжет не про идентификацию, а про точность.</p>
 <p>Простейшая оценка эффекта без pretest — <strong>разность средних</strong> (difference-in-means, DiM):</p>
 <p><span class="math display">\[\hat\tau_{\text{DiM}} = \bar Y_{\text{post}}\mid D{=}1 \;-\; \bar Y_{\text{post}}\mid D{=}0.\]</span></p>
 <p>С pretest у нас есть два альтернативных подхода:</p>
@@ -402,6 +429,11 @@ window.Quarto = {
 <li>Change score (разность <span class="math inline">\(\Delta Y\)</span>) использует pretest, но <strong>жёстко</strong> — предполагает <span class="math inline">\(\beta = 1\)</span>.</li>
 <li>ANCOVA оценивает <span class="math inline">\(\beta\)</span> из данных, и при <span class="math inline">\(\rho^2 = 0.64\)</span> её SE составляет <span class="math inline">\(\sqrt{1-0.64} = 0.6\)</span> от SE DiM — по точности это как увеличить выборку почти втрое (<span class="math inline">\(1/0.36 \approx 2.8\)</span>).</li>
 </ul>
+<p>Все оценщики с претестом сводятся к одному уравнению <span class="math inline">\(Y_{\text{post}} = \alpha + \tau D + \beta Y_{\text{pre}} + u\)</span> и различаются только тем, что делают с <span class="math inline">\(\beta\)</span>:</p>
+<ul>
+<li><strong>Путь 1: зафиксировать <span class="math inline">\(\beta \equiv 1\)</span>.</strong> Сюда попадают сразу три «обличия» одного оценщика, совпадающие при двух периодах и сбалансированном RCT: разность разностей (difference-in-differences, DiD), <strong>change score</strong> (регрессия <span class="math inline">\(\Delta Y_i\)</span> на <span class="math inline">\(D_i\)</span>) и панельная регрессия с двумя видами фиксированных эффектов (two-way fixed effects, TWFE). Содержательно <span class="math inline">\(\beta = 1\)</span> означает: «всё, что отличает единицу в нулевом периоде, переносится в следующий один к одному».</li>
+<li><strong>Путь 2: оценить <span class="math inline">\(\hat\beta\)</span> из данных</strong> — это ANCOVA. Если исход «стабильный», <span class="math inline">\(\hat\beta \approx 1\)</span> и пути совпадают; если исход шумный, <span class="math inline">\(\hat\beta &lt; 1\)</span>, и ANCOVA вычитает только ту часть претеста, которая действительно является сигналом.</li>
+</ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -414,13 +446,121 @@ window.Quarto = {
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>ANCOVA</strong> оптимальна, когда <span class="math inline">\(\beta &lt; 1\)</span> — то есть pretest несовершенно предсказывает post (mean reversion). Это типичный случай в эконометрике: способности, доходы, веса колеблются вокруг своего «уровня».</p>
-<p><strong>Change score</strong> оптимален, когда <span class="math inline">\(\beta = 1\)</span> ровно — то есть post следует за pretest один к одному (индивидуальный фиксированный эффект без mean reversion). Тогда <span class="math inline">\(\Delta Y\)</span> полностью убирает <span class="math inline">\(\alpha_i\)</span>.</p>
-<p>На практике почти всегда <span class="math inline">\(\beta &lt; 1\)</span>, поэтому ANCOVA — стандарт. Но если вы боитесь, что pretest и допущение об отсутствии тренда плохо стыкуются, change score может быть более робастной.</p>
-<p>См. McKenzie (2012) «Beyond baseline and follow-up» — там подробно про выбор.</p>
+<p>Ответ определяется истинной персистентностью исхода <span class="math inline">\(\beta^*\)</span>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\beta^*\)</span></th>
+<th>Содержательно</th>
+<th>Что лучше</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\beta^* = 1\)</span></td>
+<td>Полная персистентность: отличия переносятся один к одному (рост, IQ, позиция в рейтинге)</td>
+<td>Все оценщики эквивалентны</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\beta^* &lt; 1\)</span></td>
+<td>Регрессия к среднему (mean reversion) — типичный случай: разовый тест, дневная выручка, настроение</td>
+<td>ANCOVA эффективнее; DiD/change score «перевычитают»</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\beta^* &gt; 1\)</span></td>
+<td>Расходящиеся траектории (накопление, неравенство)</td>
+<td>ANCOVA корректирует; DiD/change score недовычитают</td>
+</tr>
+</tbody>
+</table>
+<p>Эмпирический факт (McKenzie, 2012): в полевых RCT в развивающихся странах <span class="math inline">\(\hat\beta\)</span> для большинства исходов лежит в диапазоне 0.3–0.7 — то есть <span class="math inline">\(\beta^* = 1\)</span> редкость, а не норма.</p>
+<p>Практические правила, когда <span class="math inline">\(\beta^*\)</span> неизвестна:</p>
+<ol type="1">
+<li><strong>Оцените <span class="math inline">\(\hat\rho = \widehat{\text{Cor}}(Y_{\text{pre}}, Y_{\text{post}})\)</span> на контрольной группе.</strong> При <span class="math inline">\(\hat\rho &gt; 0.8\)</span> выбор не критичен; при <span class="math inline">\(\hat\rho \approx 0.5\)</span> ANCOVA заметно точнее; при <span class="math inline">\(\hat\rho \to 0\)</span> претест почти бесполезен.</li>
+<li><strong>Показывайте обе оценки.</strong> Совпали — выбор не важен; разошлись — это ценная диагностика (реверсия к среднему или нарушение параллельных трендов), а не недостаток.</li>
+<li><strong>По умолчанию — ANCOVA</strong> (правило McKenzie): для нового эксперимента с двумя периодами и без особых причин верить в <span class="math inline">\(\beta^* = 1\)</span>.</li>
+</ol>
+<p>Интуиция на примере: <span class="math inline">\(Y_{\text{pre}}\)</span> — балл пробного ЕГЭ, <span class="math inline">\(Y_{\text{post}}\)</span> — реального. У слабых учеников в пробном случается «провал» из-за нервов, и в реальном они подтянулись бы и без программы (<span class="math inline">\(\beta^* &lt; 1\)</span>). ANCOVA это видит и не приписывает «подтягивание» программе; change score — приписывает.</p>
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+CUPED: та же ANCOVA в промышленном A/B-тестировании
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>В онлайн-экспериментах метод снижения дисперсии <strong>CUPED</strong> (controlled-experiment using pre-experiment data; Deng, Xu, Kohavi, Walker, 2013) корректирует метрику <span class="math inline">\(Y^{\text{CUPED}} = Y - \theta(X - \bar X)\)</span>, где <span class="math inline">\(X\)</span> — любая доэкспериментальная ковариата, а <span class="math inline">\(\theta = \text{Cov}(Y, X)/\text{Var}(X)\)</span>. Алгебраически это в точности ANCOVA, переписанная как «корректировка метрики». Новое по сути одно: <span class="math inline">\(X\)</span> не обязан быть прошлым значением <span class="math inline">\(Y\)</span> — на практике берут агрегат за 30 дней до эксперимента (корреляция выше, чем у одного замера) или несколько ковариат сразу. При типичных для индустрии <span class="math inline">\(\rho \approx 0.5\)</span>–<span class="math inline">\(0.7\)</span> это даёт минус 30–50% к стандартной ошибке. Требование то же, что и всегда: ковариата обязана быть <em>доэкспериментальной</em>, иначе оценка смещена.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Сколько волн измерений покупать? Правило McKenzie
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>При двух периодах <span class="math inline">\(\text{V}(\hat\tau_{\text{DiM}}) = 2\sigma^2/N\)</span>, а с одним претестом <span class="math inline">\(\text{V}(\hat\tau) = 2\sigma^2(1-\rho)/N\)</span> — один базовый замер срезает дисперсию в <span class="math inline">\((1-\rho)\)</span> раз (при <span class="math inline">\(\rho = 0.6\)</span> — на 60%). Дополнительные пост-периоды дают <em>убывающую</em> отдачу: при высоком <span class="math inline">\(\rho\)</span> новое измерение почти дублирует старое. Выводы McKenzie (2012): один baseline почти всегда оправдан; вторая и третья волна пост-измерений добавляют всё меньше; бюджет обычно выгоднее тратить на <strong>больше единиц, а не больше волн</strong>.</p>
+</div>
+</div>
+</div>
+<section id="эффект-тестирования-и-дизайн-соломона" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="эффект-тестирования-и-дизайн-соломона"><span class="header-section-number">4.1.1</span> Эффект тестирования и дизайн Соломона</h3>
+<p>Само пре-измерение может стать воздействием: анкета о финансовой грамотности заставляет задуматься о сбережениях, и реакция на последующее предложение финансового продукта уже не та, что была бы «с улицы». Это <strong>эффект тестирования</strong> (testing effect / sensitization), и он угрожает внешней валидности: программа в реальности разворачивается на людях, не проходивших никаких претестов.</p>
+<p>Решение — <strong>дизайн Соломона</strong> (Solomon four-group design; Solomon, 1949): рандомизировать дважды — сначала «измерять ли baseline», затем внутри каждой половины «воздействовать ли». Четыре ячейки дают четыре контраста:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Контраст</th>
+<th>Что измеряет</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\bar Y_1 - \bar Y_2\)</span> (с baseline)</td>
+<td>эффект воздействия на протестированных — «стандартная» оценка</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\bar Y_3 - \bar Y_4\)</span> (без baseline)</td>
+<td>эффект на «людях с улицы» — то, что увидит реальная программа</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\((\bar Y_1 - \bar Y_2) - (\bar Y_3 - \bar Y_4)\)</span></td>
+<td>взаимодействие «претест × воздействие» — величина искажения</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\bar Y_2 - \bar Y_4\)</span></td>
+<td>чистый эффект самого претеста</td>
+</tr>
+</tbody>
+</table>
+<p>Цена — вчетверо больше единиц (или отказ от baseline для половины выборки), поэтому дизайн применяют при серьёзных подозрениях на эффект тестирования.</p>
+</section>
+<section id="ступенчатое-внедрение-staggered-adoption" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="ступенчатое-внедрение-staggered-adoption"><span class="header-section-number">4.1.2</span> Ступенчатое внедрение (staggered adoption)</h3>
+<p>Часто программа «раскатывается» постепенно: единицы начинают получать воздействие в разные моменты <span class="math inline">\(G_i \in \{1, \dots, T, \infty\}\)</span> (<span class="math inline">\(\infty\)</span> — никогда). Это бывает единственно возможным вариантом (бюджет, этика, логистика) и само по себе полезно: идентифицируется <strong>динамика эффекта</strong> по «возрасту воздействия», а параллельность претрендов между когортами проверяема. Классический пример — Miguel, Kremer (2004), где школы получали дегельминтизацию в разные годы.</p>
+<p>Подводный камень: стандартный TWFE-оценщик <span class="math inline">\(Y_{it} = \mu_i + \alpha_t + \beta D_{it} + \varepsilon_{it}\)</span> при гетерогенных во времени эффектах <strong>не идентифицирует</strong> осмысленный средний эффект — «плохие» сравнения уже обработанных с поздно обработанными получают отрицательные веса и могут даже перевернуть знак (Goodman-Bacon, 2021). Современный консенсус — использовать «чистые» оценщики: Callaway–Sant’Anna (2021), de Chaisemartin–D’Haultfœuille (2020), Sun–Abraham (2021), Borusyak–Jaravel–Spiess (2024). А если исследователь сам решает, кого запускать когда, распределением когорт можно управлять: для долгосрочного среднего эффекта оптимальна U-образная форма (масса в первой и последней когортах), а не равномерная и не «пирамида» (Xiong, Athey, Bayati, Imbens, 2023).</p>
 <p><strong>Вопросы для размышления:</strong></p>
 <ol type="1">
 <li>Что произойдёт с относительной эффективностью ANCOVA при <span class="math inline">\(\rho = 0\)</span>? При <span class="math inline">\(\rho = 1\)</span>?</li>
@@ -428,7 +568,7 @@ window.Quarto = {
 <li>Что случится с DiM и ANCOVA, если есть <strong>сильный временной тренд</strong> (например, рост выручки на 10 у всех)?</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -437,7 +577,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>1. ANCOVA при</strong> <span class="math inline">\(\rho = 0\)</span> и <span class="math inline">\(\rho = 1\)</span>. При <span class="math inline">\(\rho = 0\)</span> pretest не несёт информации о post, и ANCOVA вырождается в DiM (выигрыша по SE нет, но и потерь тоже). При <span class="math inline">\(\rho = 1\)</span> остаточная дисперсия исчезает, и <span class="math inline">\(\text{SE}(\hat\tau)\)</span> у ANCOVA обращается в ноль при любом фиксированном <span class="math inline">\(N\)</span> — тогда как у DiM она остаётся положительной.</p>
 <p><strong>2. Несмещённость ANCOVA при нелинейности.</strong> При рандомизации <span class="math inline">\(D_i \perp\!\!\!\perp Y_{i,\text{pre}}\)</span>, поэтому коэффициент при <span class="math inline">\(D_i\)</span> оценивается <em>без</em> предположения о форме связи <span class="math inline">\(Y_{\text{pre}} \to Y_{\text{post}}\)</span>. Линейность нужна только для эффективности, не для несмещённости.</p>
@@ -446,6 +586,7 @@ window.Quarto = {
 </div>
 </div>
 <hr>
+</section>
 </section>
 <section id="sim2" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="sim2"><span class="header-section-number">4.2</span> Fadeout: динамика эффекта во времени</h2>
@@ -592,7 +733,7 @@ window.Quarto = {
 <li>Как поведёт себя ANCOVA, если мы используем <span class="math inline">\(Y_{\text{pre}}\)</span> как контроль для <span class="math inline">\(Y_{t=8}\)</span>, а fadeout сильный?</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -601,7 +742,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>1. Fadeout vs growing.</strong> <em>Fadeout</em> типичен для краткосрочных нудж (напоминания о вакцинации), эффектов новизны (Hawthorne), быстро забывающихся обучающих интервенций. <em>Growing</em> — для программ, инвестирующих в человеческий капитал (Perry Preschool: эффект слабо виден на тестах, но проявляется на зарплате через 20 лет), для накопительных социальных эффектов (peer learning), для микрокредитов, где бизнес растёт постепенно.</p>
 <p><strong>2. +20 в t=1, +5 в t=8.</strong> Это fadeout. Содержательно — программа работает, но эффект не закрепляется. Это <strong>не</strong> значит, что программа бесполезна (она дала временный буст), но это значит, что нужно либо повторять, либо разбираться, почему не закрепилось (нет ли поведенческой адаптации, не закончились ли деньги).</p>
@@ -611,12 +752,22 @@ window.Quarto = {
 </div>
 <hr>
 </section>
-<section id="sim3" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="sim3"><span class="header-section-number">4.3</span> ESC: Endogenous Stratification Catastrophe</h2>
+<section id="долгосрочные-исходы-суррогаты-и-экспериментальная-коррекция-селекции" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="долгосрочные-исходы-суррогаты-и-экспериментальная-коррекция-селекции"><span class="header-section-number">4.3</span> Долгосрочные исходы: суррогаты и экспериментальная коррекция селекции</h2>
+<p><em>Этот раздел — теоретический: он связывает продольные дизайны с вопросом о долгосрочных эффектах.</em></p>
+<p>Политика принимает решения по первичным исходам — выпуск из школы, заработок к 30 годам, продолжительность жизни. Но у исследователя лаг 10–40 лет, финансирование заканчивается раньше, а участники теряются. Доступны <strong>промежуточные исходы</strong> — тесты, биомаркеры, оценки, которые реагируют быстро и коррелируют с первичным исходом. Соблазн: оценить эффект на промежуточном исходе и «перенести» его на первичный. Когда это законно?</p>
+<p><strong>Критерий Прентиса</strong> (Prentice, 1989): промежуточная переменная <span class="math inline">\(Y^S\)</span> — валидный <strong>статистический суррогат</strong> (statistical surrogate) для первичного исхода <span class="math inline">\(Y^P\)</span>, если эффект воздействия на <span class="math inline">\(Y^P\)</span> <em>полностью</em> опосредован <span class="math inline">\(Y^S\)</span>: <span class="math inline">\(Y^P \perp D \mid Y^S\)</span> — на DAG нет ни прямой стрелки <span class="math inline">\(D \to Y^P\)</span>, ни путей в обход суррогата. Тогда работает рецепт из трёх шагов: (1) на исторических данных, где видны и <span class="math inline">\(Y^S\)</span>, и <span class="math inline">\(Y^P\)</span>, оценить функцию <span class="math inline">\(\hat m(y^s) = \widehat{\mathbb{E}}[Y^P \mid Y^S = y^s]\)</span>; (2) в эксперименте построить каждому прогноз <span class="math inline">\(\hat Y^P_i = \hat m(Y^S_i)\)</span>; (3) сравнить средние прогнозы по группам. Долгосрочный исход в самом эксперименте не нужен.</p>
+<p>Опасность в том, что при нарушении критерия — если есть прямой канал <span class="math inline">\(D \to Y^P\)</span> мимо суррогата — смещение имеет неизвестный знак и величину. Учебный пример: программа «натаскивает» на тест (суррогат растёт), не развивая навыки (зарплата не растёт). Медицинский: препарат торцетрапиб снижал «плохой» холестерин LDL (суррогат), но в большом RCT <em>повышал</em> смертность — действовал через каналы, суррогатом не охваченные (Barter et al., 2007). Ослабить требование помогает <strong>суррогатный индекс</strong> (surrogate index; Athey, Chetty, Imbens, Kang, 2019): вместо одного суррогата — корзина <span class="math inline">\(\{Y^{S,1}, \dots, Y^{S,J}\}\)</span>, охватывающая все основные каналы (когнитивные навыки, некогнитивные, социальный капитал…), с коэффициентами, оценёнными на исторической выборке.</p>
+<p><strong>Экспериментальная коррекция селекции</strong> (experimental selection correction, ESC; Athey, Chetty, Imbens, 2025) идёт дальше: она комбинирует <strong>малый эксперимент</strong> (воздействие рандомизировано, виден только короткий исход <span class="math inline">\(Y^S\)</span>) и <strong>большие наблюдаемые данные</strong> (видны <span class="math inline">\(D\)</span>, <span class="math inline">\(Y^S\)</span> и долгий <span class="math inline">\(Y^P\)</span>, но воздействие не случайно). Мотивирующий парадокс: эксперимент STAR даёт эффект малых классов на тесты +0.19 SD, а OLS по административным данным Нью-Йорка — <em>минус</em> 0.12 SD и −1.76 п.п. к вероятности выпуска: в малые классы там направляют детей с особыми потребностями, и никакой набор наблюдаемых контролей это смещение не убирает.</p>
+<p>Идея ESC: оценить эффект на короткий исход в эксперименте, построить в наблюдаемых данных <strong>остатки</strong> <span class="math inline">\(\hat\alpha^S_i\)</span> короткого исхода (очищенные от воздействия и ковариат) и включить их контрольной функцией (control function) в регрессию длинного исхода. Ключевое допущение — <strong>латентная несмещённость</strong> (latent unconfoundedness): все ненаблюдаемые конфаундеры, влияющие на <span class="math inline">\(Y^P\)</span>, действуют через ту же «ось», что ловит их влияние на <span class="math inline">\(Y^S\)</span> (если два ученика одинаковы по тесту при данных ковариатах — они одинаковы и по невидимым факторам выпуска). Это допущение <strong>строго слабее</strong> критерия Прентиса: прямой канал <span class="math inline">\(D \to Y^P\)</span> и скрытые конфаундеры разрешены. Результат для STAR: ESC на данных Нью-Йорка восстанавливает +0.19 SD на тесты и даёт +0.69 п.п. к выпуску — малый дорогой эксперимент плюс большой смещённый датасет дают вывод, который ни одна часть не даёт по отдельности. Идейно ESC — родственник коррекции Хекмана (Heckman, 1979) и контрольных функций (Imbens, Newey, 2009), но источник экзогенной вариации здесь — сам эксперимент, проведённый на другой выборке.</p>
+<hr>
+</section>
+<section id="sim3" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="sim3"><span class="header-section-number">4.4</span> Эндогенная стратификация: ловушка гетерогенности по базовому уровню</h2>
 <p>Когда у нас есть pretest, возникает большой соблазн оценить <strong>гетерогенность эффекта по pretest</strong>: «помогла ли программа сильнее тем, у кого изначально низкая выручка?» Это содержательно важный вопрос для дизайна политики (targeting).</p>
 <p>Здесь прячутся сразу две ловушки — одна грубая и одна тонкая.</p>
-<section id="ловушка-1-грубая-приросты-по-базовым-группам" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="ловушка-1-грубая-приросты-по-базовым-группам"><span class="header-section-number">4.3.1</span> Ловушка 1 (грубая): приросты по базовым группам</h3>
+<section id="ловушка-1-грубая-приросты-по-базовым-группам" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="ловушка-1-грубая-приросты-по-базовым-группам"><span class="header-section-number">4.4.1</span> Ловушка 1 (грубая): приросты по базовым группам</h3>
 <p>Наивный практик смотрит на <strong>приросты</strong> <span class="math inline">\(Y_{\text{post}} - Y_{\text{pre}}\)</span> по терцилям pretest в группе тритмента: «у слабых прирост огромный, у сильных — почти нулевой, значит, программа помогает отстающим!»</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)</span>
@@ -728,8 +879,8 @@ window.Quarto = {
 </div>
 <p>Стратификация по <strong>претритментной</strong> переменной при рандомизации не смещает оценку: внутри терциля лечение по-прежнему случайно. Оговорка одна — «нижний терциль по <span class="math inline">\(Y_{\text{pre}}\)</span>» не равен «нижнему терцилю по истинному уровню <span class="math inline">\(\alpha_i\)</span>»: из-за шума группы перемешаны, поэтому <em>интерпретировать</em> такие подгруппы как «действительно слабых» нужно осторожно.</p>
 </section>
-<section id="ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification" class="level3" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification"><span class="header-section-number">4.3.2</span> Ловушка 2 (тонкая): страты по предсказанному <span class="math inline">\(\hat Y(0)\)</span> — endogenous stratification</h3>
+<section id="ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification"><span class="header-section-number">4.4.2</span> Ловушка 2 (тонкая): страты по предсказанному <span class="math inline">\(\hat Y(0)\)</span> — endogenous stratification</h3>
 <p>Настоящая ловушка Abadie–Chingos–West возникает шагом позже. Исследователь хочет группировать не по одному шумному претесту, а по <strong>предсказанному</strong> беспрограммному исходу <span class="math inline">\(\hat Y(0)\)</span>: строит регрессию <span class="math inline">\(Y_{\text{post}}\)</span> на претест и другие ковариаты <strong>по контрольной группе тех же данных</strong> (in-sample) и делит выборку на страты по предсказанию. Звучит разумно — но теперь страты построены с участием <em>собственных остатков</em> контрольных наблюдений: контрольные единицы со случайно низким <span class="math inline">\(Y_{\text{post}}\)</span> утягиваются предсказанием вниз, в нижней страте контрольное среднее оказывается занижено, и эффект там <strong>завышается</strong> (в верхней — наоборот). Чем меньше выборка и чем больше ковариат, тем сильнее переобучение и смещение.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)</span>
@@ -840,7 +991,7 @@ window.Quarto = {
 </div>
 <p>Наивная in-sample стратификация систематически показывает «эффект сильнее у слабых» (≈ +26 в нижней страте против ≈ +13 в верхней), хотя истинный эффект одинаков. Поправка (Abadie–Chingos–West): строить предсказание <span class="math inline">\(\hat Y(0)\)</span> на <strong>отдельной</strong> части данных — split-sample, leave-one-out или repeated split sampling. Тогда стратификация перестаёт быть эндогенной к шуму тех наблюдений, по которым оценивается эффект.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -849,7 +1000,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Когда предсказание <span class="math inline">\(\hat Y(0)\)</span> обучено на тех же контрольных наблюдениях, по которым потом считается эффект, модель «знает» их случайный шум: наблюдение с отрицательным остатком получает заниженное предсказание и системно попадает в нижнюю страту. Стратификация становится эндогенной к той самой ошибке, которая входит в оценку эффекта.</p>
 <p>Когда предсказание строится <strong>на отдельной части данных</strong>, оно не «знает» индивидуальный шум того человека, чей эффект мы потом оцениваем. Корреляция между splitting variable и шумом разрывается. Это та же идея, что и в double machine learning: разделяй обучение и оценку.</p>
@@ -864,7 +1015,7 @@ window.Quarto = {
 <li>Если бы у нас было <strong>два</strong> pretest (например, <span class="math inline">\(Y_{i,-2}\)</span> и <span class="math inline">\(Y_{i,-1}\)</span>), помогло бы это решить ESC?</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -873,7 +1024,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>1. Почему ATE не страдает.</strong> ATE усредняется по всей выборке, и завышение в нижней страте компенсируется занижением в верхней (в таблице выше среднее по трём стратам ≈ 20). Гетерогенность же — это <em>разница</em> между стратами, и здесь смещения складываются, а не сокращаются.</p>
 <p><strong>2. LOO vs split-sample.</strong> LOO даёт менее «зашумлённые» страты (для каждого наблюдения предсказание обучено почти на всей выборке), но вычислительно тяжелее. Split-sample проще, но «выбрасывает» половину данных для оценки. Современный компромисс — <em>cross-fitting</em> (как в DML): несколько проходов, в каждом меняются роли частей.</p>
@@ -884,11 +1035,13 @@ window.Quarto = {
 <hr>
 </section>
 </section>
-<section id="sim4" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="sim4"><span class="header-section-number">4.4</span> Within-subject дизайн: каждый — сам себе контроль</h2>
+<section id="sim4" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="sim4"><span class="header-section-number">4.5</span> Within-subject дизайн: каждый — сам себе контроль</h2>
 <p>Продольные дизайны (Часть I лекции) добавляют время к <strong>оси</strong> <span class="math inline">\(Y\)</span>: каждый получает одно лечение, но измеряется несколько раз. Это уменьшает SE и даёт динамику.</p>
 <p><strong>Внутрисубъектный (within-subject, WS) дизайн</strong> — это другая ось: время добавляется к <strong>оси</strong> <span class="math inline">\(D\)</span>. Каждый субъект <span class="math inline">\(i\)</span> проходит и через <span class="math inline">\(D=0\)</span>, и через <span class="math inline">\(D=1\)</span> (в разные периоды). Тогда индивидуальный эффект <span class="math inline">\(\tau_i = Y_i(1) - Y_i(0)\)</span> оценивается <strong>напрямую</strong> — каждый человек служит своим собственным контролем.</p>
 <p>Классические применения: лабораторные эксперименты в психологии и поведенческой экономике (один и тот же испытуемый делает задачи в обоих условиях), кросс-овер клинические испытания, личные A/B-тесты («попробовал кофе утром неделю, потом неделю без — что с продуктивностью?»).</p>
+<p>Хрестоматийная иллюстрация — эксперимент List (2004) о дискриминации на рынке спортивных карточек. В межсубъектной постановке каждый дилер торгуется с одним покупателем (мужчиной <em>или</em> женщиной), и мы видим только средние цены по группам. В WS-постановке тот же дилер встречается с обоими покупателями (с интервалом, чтобы не распознать эксперимент) — видны все клетки таблицы, и известен <span class="math inline">\(\tau_i\)</span> каждого дилера. Только WS показал, что ~50% дилеров не дискриминируют вовсе, а ~50% дискриминируют сильно, причём вторые считают распределения оценок покупательниц иными, — то есть дискриминация <strong>статистическая</strong>, а не вкусовая. Средний эффект эту структуру полностью маскировал.</p>
+<p>Второе преимущество WS — <strong>мощность</strong>. В модели <span class="math inline">\(Y_{it} = \pi_0 + \tau D_{it} + \mu_i + \epsilon_{it}\)</span> межсубъектная оценка несёт в дисперсии всю индивидуальную гетерогенность: <span class="math inline">\(\text{V}(\hat\tau_{BS}) \propto (\sigma^2_\mu + \sigma^2_\epsilon)/N\)</span>, тогда как внутрисубъектные разности поглощают <span class="math inline">\(\mu_i\)</span>: <span class="math inline">\(\text{V}(\hat\tau_{WS}) \propto \sigma^2_\epsilon/N\)</span>. Выигрыш в эффективности равен <span class="math inline">\(1 + \sigma^2_\mu/\sigma^2_\epsilon\)</span> — и когда индивидуальная гетерогенность доминирует, он огромен: в типичных сценариях межсубъектному дизайну нужно <strong>в 4–8 раз больше испытуемых</strong> для той же мощности (List, 2025; Bellemare, Bissonnette, Kröger, 2016).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">11</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">100</span></span>
@@ -1004,29 +1157,62 @@ window.Quarto = {
 <li><strong>ATE</strong> оценивают и BS, и WS — обе несмещённые.</li>
 <li><strong>Var[τ_i]</strong> и <strong>Pr(τ_i &gt; 0)</strong> доступны <em>только</em> в WS. В BS one-shot мы видим маргинальные распределения <span class="math inline">\(Y(0)\)</span> и <span class="math inline">\(Y(1)\)</span> по отдельности, но не их <em>совместное</em> распределение для одного и того же <span class="math inline">\(i\)</span> — а именно оно нужно для <span class="math inline">\(\text{Var}[\tau_i] = \text{Var}[Y(1)] + \text{Var}[Y(0)] - 2\text{Cov}[Y(0), Y(1)]\)</span>.</li>
 </ul>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Что делает WS дизайн уязвимым?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Внутрисубъектные дизайны требуют отдельных допущений, которых не нужно в BS:</p>
+<section id="цена-мощности-три-новых-допущения" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="цена-мощности-три-новых-допущения"><span class="header-section-number">4.5.1</span> Цена мощности: три новых допущения</h3>
+<p>Внутрисубъектный дизайн идентифицирует эффекты только при трёх допущениях <em>сверх</em> классических (SUTVA, наблюдаемость, соблюдение протокола):</p>
+<ol type="1">
+<li><strong>Сбалансированная панель</strong> (balanced panel): <span class="math inline">\(\Pr(R_{it} = 1) = 1\)</span> — никто не выбывает между периодами.</li>
+<li><strong>Временная стабильность</strong> (temporal stability): потенциальный исход при фиксированном воздействии не зависит от времени <span class="math inline">\(t\)</span>. Что её разрушает: (а) внешние шоки между периодами (кризис, закон, погода); (б) внутренние тренды — обучение, усталость, взросление, регрессия к среднему; (в) изменение самого измерения (тест для трёхлетних не годится четырёхлетним). Поучительный пример: знаменитый «эффект Хоторна» — рост производительности при каждом изменении освещения — по восстановленным данным оказался артефактом дня недели: изменения вводились по воскресеньям, а по понедельникам производительность всегда выше пятничной (Levitt, List, 2011).</li>
+<li><strong>Причинная преходящесть</strong> (causal transience): эффект текущего воздействия не зависит от истории, порядка и ожиданий будущих воздействий. Угрозы: <strong>эффекты ожидания</strong> (anticipation — испытуемый готовится к известному второму раунду уже в первом), <strong>перенос</strong> (carryover) с подтипами — <strong>сенсибилизация</strong> (sensitization: после первого воздействия реакция обостряется), <strong>якорение</strong> (anchoring: первое предложение задаёт точку отсчёта) — и <strong>эффекты спроса экспериментатора</strong> (experimenter demand effects: испытуемый догадывается, чего от него ждут).</li>
+</ol>
+<p>Стандартные защиты:</p>
 <ul>
-<li><strong>Carryover effect</strong>: эффект из периода 1 не должен переноситься в период 2. Если испытуемый «выучил» задание в условии <span class="math inline">\(D=0\)</span>, то в условии <span class="math inline">\(D=1\)</span> его производительность будет завышена не из-за лечения.</li>
-<li><strong>Order effect</strong>: усталость, обучение, нарастающая мотивация — всё это коррелирует с порядком условий.</li>
-<li><strong>Стабильность</strong> <span class="math inline">\(\alpha_i\)</span>: предполагается, что «базовый» уровень не меняется между двумя замерами.</li>
+<li><strong>латинский квадрат</strong> (Latin square) — балансировка порядка: каждое условие появляется ровно один раз в каждой позиции последовательности; фиксированные эффекты периода убирают тренды, а сравнение эффекта по позициям — прямой тест на перенос;</li>
+<li><strong>washout-период</strong> — пауза между условиями, чтобы эффект первого «выдохся»; в фармакологии калибруется как ~5 периодов полувыведения, в экономике аналога нет — нужен пилот. Внутренний компромисс: длинный washout защищает от переноса, но подрывает временную стабильность;</li>
+<li><strong>анализ первого предъявления</strong> (first-encounter analysis) — оценка только по первым позициям как проверка устойчивости;</li>
+<li>против отсева — стимулирование повторного участия, инверсное взвешивание по вероятности отклика (inverse probability weighting, IPW), границы Ли и Мански.</li>
 </ul>
-<p>Стандартные защиты: рандомизация порядка между испытуемыми (counterbalancing), washout-периоды между условиями, latin square designs.</p>
-<p>См. Charness, Gneezy &amp; Kuhn (2012) «Experimental methods: Between-subject and within-subject design» для подробного разбора.</p>
-</div>
-</div>
-</div>
+</section>
+<section id="типология-ws-дизайнов-по-правдоподобию-допущений" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="типология-ws-дизайнов-по-правдоподобию-допущений"><span class="header-section-number">4.5.2</span> Типология WS-дизайнов по правдоподобию допущений</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Тип</th>
+<th>Пример</th>
+<th>Что характерно</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Скрытый</strong> (stealth/covert)</td>
+<td>List (2004) — дилеры; Blumenstock et al.&nbsp;(2018) — смена дефолта сберегательного счёта без уведомления</td>
+<td>Участник не знает об эксперименте — преходящесть правдоподобна; короткий лаг — стабильность тоже</td>
+</tr>
+<tr class="even">
+<td><strong>Явный</strong> (overt)</td>
+<td>Gneezy (2005) — «цена лжи» в лаборатории</td>
+<td>Участник видит оба условия — сенсибилизация и якорение почти неизбежны; защита: латинский квадрат + тест порядка</td>
+</tr>
+<tr class="odd">
+<td><strong>Эпохальный</strong> (epochal)</td>
+<td>Rodemeier (2023) — готовность платить за углеродные офсеты, лаг 10–11 мес.</td>
+<td>Длинный washout защищает преходящесть, но под угрозой панель (отсев) и стабильность (шоки за год)</td>
+</tr>
+<tr class="even">
+<td><strong>Switchback</strong></td>
+<td>Lyft/Uber: алгоритм переключается по получасам; DoorDash: цены по дням</td>
+<td>Единица — рынок × время, а не человек; главная угроза — перенос через рыночное равновесие; защита — washout-буферы и оптимизация расписания</td>
+</tr>
+</tbody>
+</table>
+<p>Правило выбора: <strong>если возможен скрытый WS — предпочесть его</strong>; если нет, явно назвать, какие допущения вы готовы защищать. Отдельно про switchback: в двусторонних рынках пользовательский A/B-тест нарушает SUTVA (воздействие на одного водителя меняет равновесие для контрольных), и переключение целого рынка во времени переносит рандомизацию на уровень, где интерференция уже «внутри» единицы; подробно об этом — в будущей главе про онлайн-эксперименты.</p>
+<p>См. Charness, Gneezy &amp; Kuhn (2012) «Experimental methods: Between-subject and within-subject design» и List (2025), гл. 10.</p>
 <p><strong>Вопросы для размышления:</strong></p>
 <ol type="1">
 <li>Какие исследовательские вопросы <strong>принципиально нельзя</strong> решить BS-дизайном — а WS можно?</li>
@@ -1034,7 +1220,7 @@ window.Quarto = {
 <li>Если у вас N=30 и вам нужно оценить <span class="math inline">\(\text{Var}[\tau_i]\)</span> — BS или WS? А если N=30 000?</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1043,7 +1229,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>1. BS не может, WS может.</strong> Любой вопрос про <em>индивидуальную</em> реакцию: «есть ли responders и non-responders?», «сильнее ли эффект у тех, кому это вообще помогает?», «коррелирует ли индивидуальный эффект с другими индивидуальными параметрами?». Также — все вопросы про индивидуальные временные паттерны в реакции на лечение.</p>
 <p><strong>2. WS даёт смещение, если…</strong> (a) есть carryover — эффект из первого периода переносится; (b) есть order effect — обучение, усталость, motivation drift; (c) <span class="math inline">\(\alpha_i\)</span> нестабилен между периодами (большой временной интервал). Также: если контекст между периодами различается (сезон, настроение, погода).</p>
@@ -1053,8 +1239,9 @@ window.Quarto = {
 </div>
 <hr>
 </section>
-<section id="sim5" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="sim5"><span class="header-section-number">4.5</span> Идиосинкратическая гетерогенность: что значит «<span class="math inline">\(\text{Cov}[Y(0), Y(1)]\)</span> не идентифицируется»</h2>
+</section>
+<section id="sim5" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="sim5"><span class="header-section-number">4.6</span> Идиосинкратическая гетерогенность: что значит «<span class="math inline">\(\text{Cov}[Y(0), Y(1)]\)</span> не идентифицируется»</h2>
 <p>Это самая важная концептуальная секция. На лекции мы говорили: <span class="math inline">\(\text{Var}[\tau_i]\)</span> зависит от <span class="math inline">\(\text{Cov}[Y(0), Y(1)]\)</span>, которое <strong>принципиально не идентифицируется</strong> в BS one-shot, потому что мы никогда не видим обе величины для одного и того же <span class="math inline">\(i\)</span>.</p>
 <p>Покажем это симуляцией: возьмём два мира с <em>одинаковыми</em> маргинальными распределениями <span class="math inline">\(Y(0)\)</span>, <span class="math inline">\(Y(1)\)</span> и одинаковым ATE, но разной ковариацией. В BS-данных они выглядят неразличимо. В WS-данных — диаметрально разные истории.</p>
 <div class="cell" data-layout-align="center">
@@ -1246,7 +1433,7 @@ window.Quarto = {
 <li>Какие содержательные допущения позволили бы вам <em>принять</em> одну из границ?</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1255,7 +1442,7 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>1. Таргетинг.</strong> В мире B (отрицательная Cov): таргетировать на низкий <span class="math inline">\(Y(0)\)</span> имеет смысл — у них больше <span class="math inline">\(\tau_i\)</span>. В мире A (положительная Cov): таргетинг бессмыслен — все получают примерно одинаковый эффект, и стоимость дополнительной аналитики не окупается.</p>
 <p><strong>2. Границы</strong> <span class="math inline">\(\text{Var}[\tau_i]\)</span>. Да, можно — это известные границы Fréchet–Hoeffding. <span class="math inline">\(\text{Var}[\tau_i] = \text{Var}[Y(1)] + \text{Var}[Y(0)] - 2\text{Cov}[Y(0), Y(1)]\)</span>. Минимум при максимальной положительной зависимости (corr = +1): <span class="math inline">\(\text{Var}_{\min} = (\sigma_1 - \sigma_0)^2\)</span>. Максимум при максимальной отрицательной (corr = –1): <span class="math inline">\(\text{Var}_{\max} = (\sigma_1 + \sigma_0)^2\)</span>. У нас <span class="math inline">\(\sigma_0 = \sigma_1 = 15\)</span>, значит <span class="math inline">\(\text{Var}[\tau_i] \in [0, 900]\)</span>.</p>
@@ -1265,8 +1452,8 @@ window.Quarto = {
 </div>
 <hr>
 </section>
-<section id="summary" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="summary"><span class="header-section-number">4.6</span> Итоговая таблица: что какой дизайн идентифицирует</h2>
+<section id="summary" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="summary"><span class="header-section-number">4.7</span> Итоговая таблица: что какой дизайн идентифицирует</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -1334,8 +1521,8 @@ window.Quarto = {
 </div>
 <hr>
 </section>
-<section id="литература" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="литература"><span class="header-section-number">4.7</span> Литература</h2>
+<section id="литература" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="литература"><span class="header-section-number">4.8</span> Литература</h2>
 <ul>
 <li>Abadie, A., Chingos, M. M., &amp; West, M. R. (2018). Endogenous stratification in randomized experiments. <em>Review of Economics and Statistics</em>, 100(4), 567–580.</li>
 <li>Athey, S., Chetty, R., &amp; Imbens, G. (2025). The Promise of Causal Machine Learning. <em>Annual Review of Economics</em>.</li>
@@ -1345,7 +1532,19 @@ window.Quarto = {
 <li>Frison, L., &amp; Pocock, S. J. (1992). Repeated measures in clinical trials: analysis using mean summary statistics and its implications for design. <em>Statistics in Medicine</em>, 11(13), 1685–1704.</li>
 <li>Heckman, J. J., Smith, J., &amp; Clements, N. (1997). Making the most out of programme evaluations and social experiments: Accounting for heterogeneity in programme impacts. <em>Review of Economic Studies</em>, 64(4), 487–535.</li>
 <li>Holland, P. W. (1986). Statistics and causal inference. <em>JASA</em>, 81(396), 945–960.</li>
-<li>List, J. A. (2025). <em>Experimental Economics: Theory and Practice</em>. University of Chicago Press, гл. 9–10.</li>
+<li>List, J. A. (2025). <em>Optimally Imperfect: Designing Experiments for Inference</em> (NBER Working Paper 33930), гл. 9–10.</li>
+<li>List, J. A. (2004). The nature and extent of discrimination in the marketplace: Evidence from the field. <em>Quarterly Journal of Economics</em>, 119(1), 49–89.</li>
+<li>Athey, S., Chetty, R., &amp; Imbens, G. W. (2025). The experimental selection correction estimator: Using experiments to remove biases in observational estimates. arXiv:2006.09676.</li>
+<li>Athey, S., Chetty, R., Imbens, G. W., &amp; Kang, H. (2019). The surrogate index: Combining short-term proxies to estimate long-term treatment effects. NBER WP 26463.</li>
+<li>Prentice, R. L. (1989). Surrogate endpoints in clinical trials. <em>Statistics in Medicine</em>, 8(4), 431–440.</li>
+<li>Solomon, R. L. (1949). An extension of control group design. <em>Psychological Bulletin</em>, 46(2), 137–150.</li>
+<li>Deng, A., Xu, Y., Kohavi, R., &amp; Walker, T. (2013). Improving the sensitivity of online controlled experiments by utilizing pre-experiment data (CUPED). <em>WSDM</em>.</li>
+<li>Goodman-Bacon, A. (2021). Difference-in-differences with variation in treatment timing. <em>Journal of Econometrics</em>, 225(2).</li>
+<li>Xiong, R., Athey, S., Bayati, M., &amp; Imbens, G. W. (2023). Optimal experimental design for staggered rollouts. <em>Management Science</em>.</li>
+<li>Levitt, S. D., &amp; List, J. A. (2011). Was there really a Hawthorne effect at the Hawthorne plant? <em>AEJ: Applied</em>, 3(1), 224–238.</li>
+<li>Blumenstock, J., Callen, M., &amp; Ghani, T. (2018). Why do defaults affect behavior? Experimental evidence from Afghanistan. <em>American Economic Review</em>, 108(10).</li>
+<li>Gneezy, U. (2005). Deception: The role of consequences. <em>American Economic Review</em>, 95(1), 384–394.</li>
+<li>Bellemare, C., Bissonnette, L., &amp; Kröger, S. (2016). Simulating power of economic experiments. <em>Journal of the Economic Science Association</em>, 2(2).</li>
 <li>McKenzie, D. (2012). Beyond baseline and follow-up: The case for more T in experiments. <em>Journal of Development Economics</em>, 99(2), 210–221.</li>
 <li>Wager, S., &amp; Athey, S. (2018). Estimation and inference of heterogeneous treatment effects using random forests. <em>JASA</em>, 113(523), 1228–1242.</li>
 </ul>

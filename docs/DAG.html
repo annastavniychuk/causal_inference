@@ -212,40 +212,50 @@ window.Quarto = {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#постановка-задачи" id="toc-постановка-задачи" class="nav-link active" data-scroll-target="#постановка-задачи"><span class="header-section-number">3.1</span> Постановка задачи</a></li>
-  <li><a href="#часть-1.-dag-качественная-карта-допущений" id="toc-часть-1.-dag-качественная-карта-допущений" class="nav-link" data-scroll-target="#часть-1.-dag-качественная-карта-допущений"><span class="header-section-number">3.2</span> Часть 1. DAG: качественная карта допущений</a>
+  <li><a href="#что-такое-dag" id="toc-что-такое-dag" class="nav-link active" data-scroll-target="#что-такое-dag"><span class="header-section-number">3.1</span> Что такое DAG</a></li>
+  <li><a href="#три-роли-переменных-и-d-разделение" id="toc-три-роли-переменных-и-d-разделение" class="nav-link" data-scroll-target="#три-роли-переменных-и-d-разделение"><span class="header-section-number">3.2</span> Три роли переменных и d-разделение</a></li>
+  <li><a href="#критерии-идентификации" id="toc-критерии-идентификации" class="nav-link" data-scroll-target="#критерии-идентификации"><span class="header-section-number">3.3</span> Критерии идентификации</a></li>
+  <li><a href="#хорошие-и-плохие-контроли" id="toc-хорошие-и-плохие-контроли" class="nav-link" data-scroll-target="#хорошие-и-плохие-контроли"><span class="header-section-number">3.4</span> Хорошие и плохие контроли</a></li>
+  <li><a href="#постановка-задачи" id="toc-постановка-задачи" class="nav-link" data-scroll-target="#постановка-задачи"><span class="header-section-number">3.5</span> Постановка задачи</a></li>
+  <li><a href="#часть-1.-dag-качественная-карта-допущений" id="toc-часть-1.-dag-качественная-карта-допущений" class="nav-link" data-scroll-target="#часть-1.-dag-качественная-карта-допущений"><span class="header-section-number">3.6</span> Часть 1. DAG: качественная карта допущений</a>
   <ul class="collapse">
-  <li><a href="#задание-графа" id="toc-задание-графа" class="nav-link" data-scroll-target="#задание-графа"><span class="header-section-number">3.2.1</span> Задание графа</a></li>
-  <li><a href="#базовая-визуализация" id="toc-базовая-визуализация" class="nav-link" data-scroll-target="#базовая-визуализация"><span class="header-section-number">3.2.2</span> Базовая визуализация</a></li>
-  <li><a href="#все-пути-от-t-к-y" id="toc-все-пути-от-t-к-y" class="nav-link" data-scroll-target="#все-пути-от-t-к-y"><span class="header-section-number">3.2.3</span> Все пути от <span class="math inline">\(T\)</span> к <span class="math inline">\(Y\)</span></a></li>
-  <li><a href="#множество-поправки" id="toc-множество-поправки" class="nav-link" data-scroll-target="#множество-поправки"><span class="header-section-number">3.2.4</span> Множество поправки</a></li>
-  <li><a href="#что-меняется-когда-мы-условились-на-k-m" id="toc-что-меняется-когда-мы-условились-на-k-m" class="nav-link" data-scroll-target="#что-меняется-когда-мы-условились-на-k-m"><span class="header-section-number">3.2.5</span> Что меняется, когда мы условились на <span class="math inline">\(\{K, M\}\)</span></a></li>
+  <li><a href="#задание-графа" id="toc-задание-графа" class="nav-link" data-scroll-target="#задание-графа"><span class="header-section-number">3.6.1</span> Задание графа</a></li>
+  <li><a href="#базовая-визуализация" id="toc-базовая-визуализация" class="nav-link" data-scroll-target="#базовая-визуализация"><span class="header-section-number">3.6.2</span> Базовая визуализация</a></li>
+  <li><a href="#все-пути-от-t-к-y" id="toc-все-пути-от-t-к-y" class="nav-link" data-scroll-target="#все-пути-от-t-к-y"><span class="header-section-number">3.6.3</span> Все пути от <span class="math inline">\(T\)</span> к <span class="math inline">\(Y\)</span></a></li>
+  <li><a href="#множество-поправки" id="toc-множество-поправки" class="nav-link" data-scroll-target="#множество-поправки"><span class="header-section-number">3.6.4</span> Множество поправки</a></li>
+  <li><a href="#что-меняется-когда-мы-условились-на-k-m" id="toc-что-меняется-когда-мы-условились-на-k-m" class="nav-link" data-scroll-target="#что-меняется-когда-мы-условились-на-k-m"><span class="header-section-number">3.6.5</span> Что меняется, когда мы условились на <span class="math inline">\(\{K, M\}\)</span></a></li>
   </ul></li>
-  <li><a href="#часть-2.-симуляция-данных" id="toc-часть-2.-симуляция-данных" class="nav-link" data-scroll-target="#часть-2.-симуляция-данных"><span class="header-section-number">3.3</span> Часть 2. Симуляция данных</a></li>
-  <li><a href="#часть-3.-оценка-общего-эффекта-te" id="toc-часть-3.-оценка-общего-эффекта-te" class="nav-link" data-scroll-target="#часть-3.-оценка-общего-эффекта-te"><span class="header-section-number">3.4</span> Часть 3. Оценка общего эффекта (TE)</a>
+  <li><a href="#часть-2.-симуляция-данных" id="toc-часть-2.-симуляция-данных" class="nav-link" data-scroll-target="#часть-2.-симуляция-данных"><span class="header-section-number">3.7</span> Часть 2. Симуляция данных</a></li>
+  <li><a href="#часть-3.-оценка-общего-эффекта-te" id="toc-часть-3.-оценка-общего-эффекта-te" class="nav-link" data-scroll-target="#часть-3.-оценка-общего-эффекта-te"><span class="header-section-number">3.8</span> Часть 3. Оценка общего эффекта (TE)</a>
   <ul class="collapse">
-  <li><a href="#наивная-регрессия-без-контролей" id="toc-наивная-регрессия-без-контролей" class="nav-link" data-scroll-target="#наивная-регрессия-без-контролей"><span class="header-section-number">3.4.1</span> Наивная регрессия без контролей</a></li>
-  <li><a href="#регрессия-с-adjustment-set-k-m" id="toc-регрессия-с-adjustment-set-k-m" class="nav-link" data-scroll-target="#регрессия-с-adjustment-set-k-m"><span class="header-section-number">3.4.2</span> Регрессия с adjustment set <span class="math inline">\(\{K, M\}\)</span></a></li>
-  <li><a href="#что-произойдёт-если-контролировать-всё-подряд" id="toc-что-произойдёт-если-контролировать-всё-подряд" class="nav-link" data-scroll-target="#что-произойдёт-если-контролировать-всё-подряд"><span class="header-section-number">3.4.3</span> Что произойдёт, если контролировать «всё подряд»</a></li>
+  <li><a href="#наивная-регрессия-без-контролей" id="toc-наивная-регрессия-без-контролей" class="nav-link" data-scroll-target="#наивная-регрессия-без-контролей"><span class="header-section-number">3.8.1</span> Наивная регрессия без контролей</a></li>
+  <li><a href="#регрессия-с-adjustment-set-k-m" id="toc-регрессия-с-adjustment-set-k-m" class="nav-link" data-scroll-target="#регрессия-с-adjustment-set-k-m"><span class="header-section-number">3.8.2</span> Регрессия с adjustment set <span class="math inline">\(\{K, M\}\)</span></a></li>
+  <li><a href="#что-произойдёт-если-контролировать-всё-подряд" id="toc-что-произойдёт-если-контролировать-всё-подряд" class="nav-link" data-scroll-target="#что-произойдёт-если-контролировать-всё-подряд"><span class="header-section-number">3.8.3</span> Что произойдёт, если контролировать «всё подряд»</a></li>
   </ul></li>
-  <li><a href="#часть-4.-модерация-для-кого-прогулы-вреднее" id="toc-часть-4.-модерация-для-кого-прогулы-вреднее" class="nav-link" data-scroll-target="#часть-4.-модерация-для-кого-прогулы-вреднее"><span class="header-section-number">3.5</span> Часть 4. Модерация: для кого прогулы вреднее?</a>
+  <li><a href="#часть-4.-модерация-для-кого-прогулы-вреднее" id="toc-часть-4.-модерация-для-кого-прогулы-вреднее" class="nav-link" data-scroll-target="#часть-4.-модерация-для-кого-прогулы-вреднее"><span class="header-section-number">3.9</span> Часть 4. Модерация: для кого прогулы вреднее?</a>
   <ul class="collapse">
-  <li><a href="#логика" id="toc-логика" class="nav-link" data-scroll-target="#логика"><span class="header-section-number">3.5.1</span> Логика</a></li>
-  <li><a href="#линейная-модерация-по-k" id="toc-линейная-модерация-по-k" class="nav-link" data-scroll-target="#линейная-модерация-по-k"><span class="header-section-number">3.5.2</span> Линейная модерация по <span class="math inline">\(K\)</span></a></li>
-  <li><a href="#условный-ate-на-сетке-k" id="toc-условный-ate-на-сетке-k" class="nav-link" data-scroll-target="#условный-ate-на-сетке-k"><span class="header-section-number">3.5.3</span> Условный ATE на сетке <span class="math inline">\(K\)</span></a></li>
-  <li><a href="#модерация-по-нескольким-переменным-сразу" id="toc-модерация-по-нескольким-переменным-сразу" class="nav-link" data-scroll-target="#модерация-по-нескольким-переменным-сразу"><span class="header-section-number">3.5.4</span> Модерация по нескольким переменным сразу</a></li>
+  <li><a href="#иерархия-эффектов" id="toc-иерархия-эффектов" class="nav-link" data-scroll-target="#иерархия-эффектов"><span class="header-section-number">3.9.1</span> Иерархия эффектов</a></li>
+  <li><a href="#описательная-и-причинная-модерация" id="toc-описательная-и-причинная-модерация" class="nav-link" data-scroll-target="#описательная-и-причинная-модерация"><span class="header-section-number">3.9.2</span> Описательная и причинная модерация</a></li>
+  <li><a href="#логика" id="toc-логика" class="nav-link" data-scroll-target="#логика"><span class="header-section-number">3.9.3</span> Логика</a></li>
+  <li><a href="#линейная-модерация-по-k" id="toc-линейная-модерация-по-k" class="nav-link" data-scroll-target="#линейная-модерация-по-k"><span class="header-section-number">3.9.4</span> Линейная модерация по <span class="math inline">\(K\)</span></a></li>
+  <li><a href="#условный-ate-на-сетке-k" id="toc-условный-ate-на-сетке-k" class="nav-link" data-scroll-target="#условный-ate-на-сетке-k"><span class="header-section-number">3.9.5</span> Условный ATE на сетке <span class="math inline">\(K\)</span></a></li>
+  <li><a href="#модерация-по-нескольким-переменным-сразу" id="toc-модерация-по-нескольким-переменным-сразу" class="nav-link" data-scroll-target="#модерация-по-нескольким-переменным-сразу"><span class="header-section-number">3.9.6</span> Модерация по нескольким переменным сразу</a></li>
   </ul></li>
-  <li><a href="#часть-5.-медиация-через-какие-каналы-работают-прогулы" id="toc-часть-5.-медиация-через-какие-каналы-работают-прогулы" class="nav-link" data-scroll-target="#часть-5.-медиация-через-какие-каналы-работают-прогулы"><span class="header-section-number">3.6</span> Часть 5. Медиация: через какие каналы работают прогулы</a>
+  <li><a href="#отступление-экстенсивная-и-интенсивная-границы" id="toc-отступление-экстенсивная-и-интенсивная-границы" class="nav-link" data-scroll-target="#отступление-экстенсивная-и-интенсивная-границы"><span class="header-section-number">3.10</span> Отступление: экстенсивная и интенсивная границы</a></li>
+  <li><a href="#часть-5.-медиация-через-какие-каналы-работают-прогулы" id="toc-часть-5.-медиация-через-какие-каналы-работают-прогулы" class="nav-link" data-scroll-target="#часть-5.-медиация-через-какие-каналы-работают-прогулы"><span class="header-section-number">3.11</span> Часть 5. Медиация: через какие каналы работают прогулы</a>
   <ul class="collapse">
-  <li><a href="#логика-1" id="toc-логика-1" class="nav-link" data-scroll-target="#логика-1"><span class="header-section-number">3.6.1</span> Логика</a></li>
-  <li><a href="#допущения" id="toc-допущения" class="nav-link" data-scroll-target="#допущения"><span class="header-section-number">3.6.2</span> Допущения</a></li>
-  <li><a href="#две-регрессии" id="toc-две-регрессии" class="nav-link" data-scroll-target="#две-регрессии"><span class="header-section-number">3.6.3</span> Две регрессии</a></li>
-  <li><a href="#sensitivity-к-нарушению-sequential-ignorability" id="toc-sensitivity-к-нарушению-sequential-ignorability" class="nav-link" data-scroll-target="#sensitivity-к-нарушению-sequential-ignorability"><span class="header-section-number">3.6.4</span> Sensitivity к нарушению sequential ignorability</a></li>
+  <li><a href="#логика-1" id="toc-логика-1" class="nav-link" data-scroll-target="#логика-1"><span class="header-section-number">3.11.1</span> Логика</a></li>
+  <li><a href="#формальные-определения-удвоение-потенциальных-исходов" id="toc-формальные-определения-удвоение-потенциальных-исходов" class="nav-link" data-scroll-target="#формальные-определения-удвоение-потенциальных-исходов"><span class="header-section-number">3.11.2</span> Формальные определения: удвоение потенциальных исходов</a></li>
+  <li><a href="#допущения" id="toc-допущения" class="nav-link" data-scroll-target="#допущения"><span class="header-section-number">3.11.3</span> Допущения</a></li>
+  <li><a href="#спецификация-imaikeeletingley" id="toc-спецификация-imaikeeletingley" class="nav-link" data-scroll-target="#спецификация-imaikeeletingley"><span class="header-section-number">3.11.4</span> Спецификация Imai–Keele–Tingley</a></li>
+  <li><a href="#две-регрессии" id="toc-две-регрессии" class="nav-link" data-scroll-target="#две-регрессии"><span class="header-section-number">3.11.5</span> Две регрессии</a></li>
+  <li><a href="#sensitivity-к-нарушению-sequential-ignorability" id="toc-sensitivity-к-нарушению-sequential-ignorability" class="nav-link" data-scroll-target="#sensitivity-к-нарушению-sequential-ignorability"><span class="header-section-number">3.11.6</span> Sensitivity к нарушению sequential ignorability</a></li>
   </ul></li>
-  <li><a href="#часть-6.-сводка" id="toc-часть-6.-сводка" class="nav-link" data-scroll-target="#часть-6.-сводка"><span class="header-section-number">3.7</span> Часть 6. Сводка</a>
+  <li><a href="#часть-6.-сводка" id="toc-часть-6.-сводка" class="nav-link" data-scroll-target="#часть-6.-сводка"><span class="header-section-number">3.12</span> Часть 6. Сводка</a>
   <ul class="collapse">
-  <li><a href="#что-мы-поняли-на-этом-примере" id="toc-что-мы-поняли-на-этом-примере" class="nav-link" data-scroll-target="#что-мы-поняли-на-этом-примере"><span class="header-section-number">3.7.1</span> Что мы поняли на этом примере</a></li>
+  <li><a href="#что-мы-поняли-на-этом-примере" id="toc-что-мы-поняли-на-этом-примере" class="nav-link" data-scroll-target="#что-мы-поняли-на-этом-примере"><span class="header-section-number">3.12.1</span> Что мы поняли на этом примере</a></li>
   </ul></li>
+  <li><a href="#что-почитать" id="toc-что-почитать" class="nav-link" data-scroll-target="#что-почитать"><span class="header-section-number">3.13</span> Что почитать</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/annastavniychuk/causal_inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Сообщить о проблеме</a></li></ul></div></nav>
     </div>
@@ -271,8 +281,154 @@ window.Quarto = {
 </header>
 
 
-<section id="постановка-задачи" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="постановка-задачи"><span class="header-section-number">3.1</span> Постановка задачи</h2>
+<p>Мы уже умеем оценивать средние эффекты воздействия в рамках подхода потенциальных исходов: формулируем допущения об экзогенности, контролируем ковариаты, интерпретируем коэффициент при <span class="math inline">\(T\)</span>. В этой главе мы освоим <strong>второй язык</strong> причинного вывода — направленные ациклические графы. На нём удобно видеть, почему одни контроли убирают смещение, а другие — создают его. А затем пойдём дальше двух чисел «ATE + стандартная ошибка» и разберём два вопроса, которые задаёт каждый исследователь и регулятор: <strong>для кого</strong> эффект больше (модерация) и <strong>через какие каналы</strong> он работает (медиация). Сквозной принцип главы: ни одна оценка не интерпретируется причинно сама по себе — нужны явные допущения, и DAG делает их прозрачными.</p>
+<section id="что-такое-dag" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="что-такое-dag"><span class="header-section-number">3.1</span> Что такое DAG</h2>
+<p><strong>DAG</strong> (directed acyclic graph — направленный ациклический граф) — визуальная модель причинной структуры: <strong>вершины</strong> (nodes) — переменные (наблюдаемые и нет), <strong>рёбра</strong> (edges) — направленные стрелки, предполагаемое прямое причинное влияние. Два жёстких требования: рёбра направлены (стрелка идёт от причины к следствию) и в графе нет циклов — идя по стрелкам, нельзя вернуться в исходную вершину.</p>
+<p>Важно понимать асимметрию утверждений: <strong>отсутствие стрелки — сильное утверждение</strong> («прямой причинной связи нет»), наличие стрелки — слабое («возможно, есть»). И главное: DAG — это не модель данных, а модель <em>знаний</em> о процессе порождения данных (data generating process). Структуру графа исследователь приносит из теории и предметных знаний, <strong>а не извлекает из корреляций</strong>.</p>
+<p>Терминология родственных связей: если <span class="math inline">\(A \to B\)</span>, то <span class="math inline">\(A\)</span> — <strong>родитель</strong> (parent) и прямая причина <span class="math inline">\(B\)</span>, а <span class="math inline">\(B\)</span> — <strong>ребёнок</strong> (child). Родители родителей — <strong>предки</strong> (ancestors), дети детей — <strong>потомки</strong> (descendants). Переменные без нарисованных родителей — <strong>экзогенные</strong>. <strong>Путь</strong> (path) — последовательность рёбер, соединяющая две вершины (каждая проходится не более одного раза). Путь <strong>каузальный</strong>, если все стрелки смотрят в одну сторону (<span class="math inline">\(A \to B \to C\)</span>), и <strong>некаузальный</strong>, если направление меняется; два базовых узора смены направления:</p>
+<ul>
+<li><strong>вилка</strong> (fork): <span class="math inline">\(A \leftarrow B \to C\)</span> — <span class="math inline">\(B\)</span> является общей причиной;</li>
+<li><strong>обратная вилка</strong>, или <strong>коллайдер</strong> (inverted fork / collider): <span class="math inline">\(A \to B \leftarrow C\)</span> — <span class="math inline">\(B\)</span> является общим следствием.</li>
+</ul>
+<p>Каждому DAG соответствует система <strong>структурных уравнений</strong> — по одному на вершину: каждая переменная есть функция своих родителей и собственного шума, например <span class="math inline">\(Y = f_Y(T, X, \varepsilon_Y)\)</span>. Уравнения <strong>непараметрические</strong>: модель не предполагает ни распределений, ни функциональной формы, ни однородности эффекта, ни даже его знака. DAG отвечает на один вопрос: <strong>идентифицируем ли</strong> причинный эффект <span class="math inline">\(T \to Y\)</span> из наблюдаемых данных, и если да — на что контролировать. Успех целиком зависит от соответствия графа реальности (wrong DAG ⇒ wrong answer), и идентификация ≠ оценка: даже для идентифицируемого эффекта в конечной выборке нужны статистические методы.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Два языка причинного вывода: потенциальные исходы vs DAG
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Потенциальные исходы (Neyman, 1923; Rubin, 1974)</th>
+<th>DAG (Pearl, 1988, 1995)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Примитивы</td>
+<td><span class="math inline">\(Y_i(1)\)</span>, <span class="math inline">\(Y_i(0)\)</span>, <span class="math inline">\(\tau_i\)</span></td>
+<td>Граф, структурные уравнения, do-оператор</td>
+</tr>
+<tr class="even">
+<td>Форма допущений</td>
+<td>Условные независимости: <span class="math inline">\(\{Y(0), Y(1)\} \perp T \mid X\)</span></td>
+<td>Топологические: «<span class="math inline">\(Z\)</span> не родитель <span class="math inline">\(T\)</span>», «<span class="math inline">\(M\)</span> перехватывает все пути»</td>
+</tr>
+<tr class="odd">
+<td>Сильная сторона</td>
+<td>Гетерогенность, монотонность, инструментальные переменные</td>
+<td>Визуализация сложных систем, поиск стратегий идентификации</td>
+</tr>
+</tbody>
+</table>
+<p>Языки эквивалентны (каждому DAG соответствует семейство PO-моделей и наоборот — Richardson, Robins, 2013) и взаимодополняющие: экономистам в задачах с функциональными ограничениями удобнее потенциальные исходы, в больших системах с десятками переменных — DAG (Imbens, 2020).</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+А можно ли извлечь DAG из данных?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Отдельное направление — <strong>поиск причинной структуры</strong> (causal discovery). Алгоритмы опираются на разные сигналы: условные независимости (PC, FCI), правдоподобие перебираемых графов (GES, NOTEARS), асимметрию формы связи (LiNGAM, ANM). Главное ограничение: данные часто не различают графы с одинаковыми корреляциями (при линейной связи <span class="math inline">\(X \to Y\)</span> и <span class="math inline">\(X \leftarrow Y\)</span> неотличимы), а алгоритмы требуют отсутствия скрытых конфаундеров и больших выборок — в экономических данных это редко выполняется вместе. На практике causal discovery — вспомогательный инструмент для генерации гипотез, не замена экспертному знанию. В этом курсе мы остаёмся в парадигме «DAG приносит исследователь». Обзоры: Glymour, Zhang, Spirtes (2019); Vowels, Camgoz, Bowden (2022).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="три-роли-переменных-и-d-разделение" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="три-роли-переменных-и-d-разделение"><span class="header-section-number">3.2</span> Три роли переменных и d-разделение</h2>
+<p>Каждая переменная между <span class="math inline">\(T\)</span> и <span class="math inline">\(Y\)</span> играет одну из трёх ролей, и от роли зависит, нужно ли на неё контролировать:</p>
+<ul>
+<li><strong>Конфаундер</strong> (confounder, общая причина): <span class="math inline">\(T \leftarrow X \to Y\)</span> — создаёт ложную корреляцию. Пример: занятия спортом <span class="math inline">\(\leftarrow\)</span> возраст <span class="math inline">\(\to\)</span> холестерин.</li>
+<li><strong>Медиатор</strong> (mediator): <span class="math inline">\(T \to X \to Y\)</span> — переносит часть эффекта. Пример: образование <span class="math inline">\(\to\)</span> тип работы <span class="math inline">\(\to\)</span> доход.</li>
+<li><strong>Коллайдер</strong> (collider, общее следствие): <span class="math inline">\(T \to X \leftarrow Y\)</span>. Пример: курение <span class="math inline">\(\to\)</span> диагноз <span class="math inline">\(\leftarrow\)</span> ослабленный иммунитет.</li>
+</ul>
+<p>Когда путь «передаёт» зависимость, а когда нет, определяет критерий <strong>d-разделения</strong> (d-separation; Pearl, 1988). Путь считается <strong>заблокированным</strong> (blocked / d-separated), если выполнено хотя бы одно из условий:</p>
+<ol type="1">
+<li>на пути есть промежуточная вершина — <em>не</em> коллайдер (то есть звено цепи <span class="math inline">\(T \to X \to Y\)</span> или вилка <span class="math inline">\(T \leftarrow X \to Y\)</span>), и исследователь <strong>контролирует</strong> эту переменную;</li>
+<li>на пути есть вершина-коллайдер (<span class="math inline">\(T \to X \leftarrow Y\)</span>), и на неё (и её потомков) <strong>не</strong> контролируют.</li>
+</ol>
+<p>Незаблокированный путь называют <strong>открытым</strong> (d-connected). Правило действий по ролям:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Медиатор <span class="math inline">\(T \to X \to Y\)</span></th>
+<th>Конфаундер <span class="math inline">\(T \leftarrow X \to Y\)</span></th>
+<th>Коллайдер <span class="math inline">\(T \to X \leftarrow Y\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Не контролируем</td>
+<td>путь открыт</td>
+<td>путь открыт</td>
+<td>путь <strong>закрыт сам собой</strong></td>
+</tr>
+<tr class="even">
+<td>Контролируем</td>
+<td>путь закрыт (теряем часть эффекта!)</td>
+<td>путь закрыт (убрали смещение)</td>
+<td>путь <strong>открылся</strong> (создали смещение!)</td>
+</tr>
+</tbody>
+</table>
+<p>Ключевое статистическое следствие: если все пути между двумя вершинами d-разделены, вершины статистически независимы (при данном множестве контролей). Обратное верно для «почти всех» распределений — это допущение называется <strong>верностью</strong> (faithfulness).</p>
+</section>
+<section id="критерии-идентификации" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="критерии-идентификации"><span class="header-section-number">3.3</span> Критерии идентификации</h2>
+<p><strong>Back-door критерий</strong> (Pearl, 1995) — базовый случай. Back-door путь — путь из <span class="math inline">\(T\)</span> в <span class="math inline">\(Y\)</span>, начинающийся стрелкой <em>в</em> <span class="math inline">\(T\)</span> (то есть <span class="math inline">\(T \leftarrow \dots\)</span>). Множество <span class="math inline">\(Z\)</span> удовлетворяет критерию, если: (1) ни один элемент <span class="math inline">\(Z\)</span> не является потомком <span class="math inline">\(T\)</span>; (2) <span class="math inline">\(Z\)</span> блокирует все back-door пути из <span class="math inline">\(T\)</span> в <span class="math inline">\(Y\)</span>. Тогда внутри каждой «клетки» с фиксированным <span class="math inline">\(Z\)</span> назначение <span class="math inline">\(T\)</span> устроено «как в эксперименте», и сравнение исходов по <span class="math inline">\(T\)</span> имеет причинную интерпретацию.</p>
+<p><strong>Front-door критерий</strong> (Pearl, 1995) — запасной выход, когда back-door закрыть нельзя из-за <em>ненаблюдаемого</em> конфаундера <span class="math inline">\(U\)</span>. Пусть весь эффект <span class="math inline">\(T \to Y\)</span> идёт через наблюдаемый медиатор <span class="math inline">\(M\)</span>. Критерий требует: (1) <span class="math inline">\(M\)</span> перехватывает все направленные пути из <span class="math inline">\(T\)</span> в <span class="math inline">\(Y\)</span> (нет прямого пути в обход <span class="math inline">\(M\)</span>); (2) нет открытых back-door путей из <span class="math inline">\(T\)</span> в <span class="math inline">\(M\)</span>; (3) все back-door пути из <span class="math inline">\(M\)</span> в <span class="math inline">\(Y\)</span> блокируются контролем на <span class="math inline">\(T\)</span>. Идея: оценить, как <span class="math inline">\(T\)</span> сдвигает <span class="math inline">\(M\)</span>, затем — как <span class="math inline">\(M\)</span> сдвигает <span class="math inline">\(Y\)</span>, и перемножить. В простейшей линейной версии это две регрессии: <span class="math inline">\(M = \alpha_0 + \alpha_1 T\)</span> и <span class="math inline">\(Y = \beta_0 + \beta_1 M + \beta_2 T\)</span>, и общий эффект равен <span class="math inline">\(\tau = \alpha_1 \beta_1\)</span>. Плата — гораздо более сильные структурные предположения о механизме. Практическое правило: сначала проверяем back-door; если он заведомо нарушен латентными факторами и есть хороший кандидат-медиатор — проверяем front-door; если не работает ничего — нужен другой дизайн (эксперимент, инструмент).</p>
+<p><strong>Критерий поправки</strong> (adjustment criterion) — общий язык выбора допустимых контролей. Множество <span class="math inline">\(X\)</span> ему удовлетворяет, если (1) <span class="math inline">\(X\)</span> блокирует все некаузальные пути между <span class="math inline">\(T\)</span> и <span class="math inline">\(Y\)</span> и (2) ни одна переменная из <span class="math inline">\(X\)</span> не лежит на каузальном пути <span class="math inline">\(T \to \dots \to Y\)</span> и не является потомком вершины такого пути. Тогда эффект непараметрически идентифицируем.</p>
+<p>Валидных множеств обычно несколько, поэтому различают:</p>
+<ul>
+<li><strong>минимальное множество поправки</strong> (minimal adjustment set) — валидное множество, из которого нельзя убрать ни одной переменной без открытия какого-нибудь back-door пути;</li>
+<li><strong>оптимальное по дисперсии множество</strong> (variance-optimal adjustment set; Henckel, Perković, Maathuis, 2022) — среди валидных множеств выбирается то, что даёт минимальную асимптотическую дисперсию оценки. Интуиция: полезно контролировать предикторы <span class="math inline">\(Y\)</span> (падает дисперсия ошибки), вредно — «чистые» предикторы <span class="math inline">\(T\)</span>: они съедают вариацию воздействия, из которой идентифицируется эффект, и раздувают стандартную ошибку (<span class="math inline">\(\operatorname{Var}(\hat\beta_T) \propto \sigma^2_u / \operatorname{Var}(T \mid Z)\)</span>).</li>
+</ul>
+</section>
+<section id="хорошие-и-плохие-контроли" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="хорошие-и-плохие-контроли"><span class="header-section-number">3.4</span> Хорошие и плохие контроли</h2>
+<p><strong>Плохой контроль</strong> (bad control) — переменная, включение которой в модель <em>создаёт</em> смещение вместо того, чтобы убирать его. Таксономия Cinelli, Forney, Pearl (2022) насчитывает шесть архетипов:</p>
+<ol type="1">
+<li><strong>хороший контроль</strong> — классический конфаундер (вилка <span class="math inline">\(Z \to T\)</span>, <span class="math inline">\(Z \to Y\)</span>): контролировать;</li>
+<li><strong>M-bias</strong> — <span class="math inline">\(Z\)</span> является коллайдером на back-door пути: контроль <em>открывает</em> путь;</li>
+<li><strong>медиатор</strong> — <span class="math inline">\(T \to Z \to Y\)</span>: контроль удаляет часть истинного эффекта (overcontrol);</li>
+<li><strong>потомок исхода</strong> <span class="math inline">\(Y\)</span>: контроль индуцирует селекцию;</li>
+<li><strong>нейтральный контроль</strong> — не влияет на смещение, но может уменьшить дисперсию (если предиктор <span class="math inline">\(Y\)</span>) или увеличить (если предиктор <span class="math inline">\(T\)</span>);</li>
+<li><strong>переменная на единственном направленном пути</strong> <span class="math inline">\(T \to Y\)</span> — жёсткий вариант overcontrol.</li>
+</ol>
+<p>Мнемоническое правило: <strong>не трогай посттритментные переменные</strong> (post-treatment variables). И общий вывод: «контролировать всё, что доступно» — системно ошибочная практика; решение принимается по графу, а не по списку доступных столбцов в данных.</p>
+<p>Теперь применим весь этот аппарат к сквозному примеру.</p>
+</section>
+<section id="постановка-задачи" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="постановка-задачи"><span class="header-section-number">3.5</span> Постановка задачи</h2>
 <p>Преподаватели эконометрики хотят изучить, как <strong>прогулы лекций</strong> (<span class="math inline">\(T\)</span>) влияют на <strong>качество освоения дисциплин</strong> (<span class="math inline">\(Y\)</span>).</p>
 <ul>
 <li><span class="math inline">\(T\)</span> — бинарная: <span class="math inline">\(T_i=1\)</span>, если студент пропустил более половины лекций.</li>
@@ -299,10 +455,10 @@ window.Quarto = {
 </div>
 <hr>
 </section>
-<section id="часть-1.-dag-качественная-карта-допущений" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="часть-1.-dag-качественная-карта-допущений"><span class="header-section-number">3.2</span> Часть 1. DAG: качественная карта допущений</h2>
-<section id="задание-графа" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="задание-графа"><span class="header-section-number">3.2.1</span> Задание графа</h3>
+<section id="часть-1.-dag-качественная-карта-допущений" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="часть-1.-dag-качественная-карта-допущений"><span class="header-section-number">3.6</span> Часть 1. DAG: качественная карта допущений</h2>
+<section id="задание-графа" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="задание-графа"><span class="header-section-number">3.6.1</span> Задание графа</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dag_lectures <span class="ot">&lt;-</span> <span class="fu">dagify</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  Y <span class="sc">~</span> T <span class="sc">+</span> S <span class="sc">+</span> K <span class="sc">+</span> M,</span>
@@ -322,8 +478,8 @@ window.Quarto = {
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="базовая-визуализация" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="базовая-визуализация"><span class="header-section-number">3.2.2</span> Базовая визуализация</h3>
+<section id="базовая-визуализация" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="базовая-визуализация"><span class="header-section-number">3.6.2</span> Базовая визуализация</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdag</span>(dag_lectures, <span class="at">text =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="fu">theme_dag</span>()</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -344,8 +500,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="все-пути-от-t-к-y" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="все-пути-от-t-к-y"><span class="header-section-number">3.2.3</span> Все пути от <span class="math inline">\(T\)</span> к <span class="math inline">\(Y\)</span></h3>
+<section id="все-пути-от-t-к-y" class="level3" data-number="3.6.3">
+<h3 data-number="3.6.3" class="anchored" data-anchor-id="все-пути-от-t-к-y"><span class="header-section-number">3.6.3</span> Все пути от <span class="math inline">\(T\)</span> к <span class="math inline">\(Y\)</span></h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdag_paths</span>(dag_lectures, <span class="at">from =</span> <span class="st">"T"</span>, <span class="at">to =</span> <span class="st">"Y"</span>,</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">text =</span> <span class="cn">FALSE</span>, <span class="at">use_labels =</span> <span class="st">"label"</span>, <span class="at">shadow =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
@@ -386,8 +542,8 @@ $open
 <li><strong>не открывать</strong> путь 5 контролем на <span class="math inline">\(A\)</span>.</li>
 </ul>
 </section>
-<section id="множество-поправки" class="level3" data-number="3.2.4">
-<h3 data-number="3.2.4" class="anchored" data-anchor-id="множество-поправки"><span class="header-section-number">3.2.4</span> Множество поправки</h3>
+<section id="множество-поправки" class="level3" data-number="3.6.4">
+<h3 data-number="3.6.4" class="anchored" data-anchor-id="множество-поправки"><span class="header-section-number">3.6.4</span> Множество поправки</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">adjustmentSets</span>(dag_lectures, <span class="at">exposure =</span> <span class="st">"T"</span>, <span class="at">outcome =</span> <span class="st">"Y"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -408,8 +564,8 @@ $open
 </div>
 <p>Минимальное adjustment set: <span class="math inline">\(\{K, M\}\)</span>. Контроль на <span class="math inline">\(S\)</span> закрыл бы каузальный путь <span class="math inline">\(T \to S \to Y\)</span> (overcontrol bias); контроль на <span class="math inline">\(A\)</span> открыл бы коллайдер-путь <span class="math inline">\(T \to A \leftarrow Y\)</span> (collider bias).</p>
 </section>
-<section id="что-меняется-когда-мы-условились-на-k-m" class="level3" data-number="3.2.5">
-<h3 data-number="3.2.5" class="anchored" data-anchor-id="что-меняется-когда-мы-условились-на-k-m"><span class="header-section-number">3.2.5</span> Что меняется, когда мы условились на <span class="math inline">\(\{K, M\}\)</span></h3>
+<section id="что-меняется-когда-мы-условились-на-k-m" class="level3" data-number="3.6.5">
+<h3 data-number="3.6.5" class="anchored" data-anchor-id="что-меняется-когда-мы-условились-на-k-m"><span class="header-section-number">3.6.5</span> Что меняется, когда мы условились на <span class="math inline">\(\{K, M\}\)</span></h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdag_adjust</span>(dag_lectures, <span class="at">var =</span> <span class="fu">c</span>(<span class="st">"K"</span>, <span class="st">"M"</span>),</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">text =</span> <span class="cn">FALSE</span>, <span class="at">use_labels =</span> <span class="st">"label"</span>,</span>
@@ -444,8 +600,8 @@ $open
 <hr>
 </section>
 </section>
-<section id="часть-2.-симуляция-данных" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="часть-2.-симуляция-данных"><span class="header-section-number">3.3</span> Часть 2. Симуляция данных</h2>
+<section id="часть-2.-симуляция-данных" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="часть-2.-симуляция-данных"><span class="header-section-number">3.7</span> Часть 2. Симуляция данных</h2>
 <p>Чтобы все шаги были воспроизводимы, сгенерируем данные, согласованные с DAG.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">350</span>)</span>
@@ -495,10 +651,10 @@ $open
 </div>
 <hr>
 </section>
-<section id="часть-3.-оценка-общего-эффекта-te" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="часть-3.-оценка-общего-эффекта-te"><span class="header-section-number">3.4</span> Часть 3. Оценка общего эффекта (TE)</h2>
-<section id="наивная-регрессия-без-контролей" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="наивная-регрессия-без-контролей"><span class="header-section-number">3.4.1</span> Наивная регрессия без контролей</h3>
+<section id="часть-3.-оценка-общего-эффекта-te" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="часть-3.-оценка-общего-эффекта-te"><span class="header-section-number">3.8</span> Часть 3. Оценка общего эффекта (TE)</h2>
+<section id="наивная-регрессия-без-контролей" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="наивная-регрессия-без-контролей"><span class="header-section-number">3.8.1</span> Наивная регрессия без контролей</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>m_naive <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T, <span class="at">data =</span> d)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(m_naive, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -512,8 +668,8 @@ $open
 </div>
 <p>Коэффициент при <span class="math inline">\(T\)</span> смещён: он смешивает причинный эффект со связью через открытые back-door пути <span class="math inline">\(T \leftarrow K \to Y\)</span> и <span class="math inline">\(T \leftarrow M \to Y\)</span>.</p>
 </section>
-<section id="регрессия-с-adjustment-set-k-m" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="регрессия-с-adjustment-set-k-m"><span class="header-section-number">3.4.2</span> Регрессия с adjustment set <span class="math inline">\(\{K, M\}\)</span></h3>
+<section id="регрессия-с-adjustment-set-k-m" class="level3" data-number="3.8.2">
+<h3 data-number="3.8.2" class="anchored" data-anchor-id="регрессия-с-adjustment-set-k-m"><span class="header-section-number">3.8.2</span> Регрессия с adjustment set <span class="math inline">\(\{K, M\}\)</span></h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>m_te <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T <span class="sc">+</span> K <span class="sc">+</span> M, <span class="at">data =</span> d)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(m_te, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -529,8 +685,8 @@ $open
 </div>
 <p><strong>Интерпретация.</strong> Коэффициент при <code>T1</code> — это оценка <span class="math inline">\(\mathbb{E}[Y(1)-Y(0)]\)</span> при условии корректности DAG: контроль на <span class="math inline">\(\{K,M\}\)</span> закрывает оба back-door пути, путь <span class="math inline">\(T\to A\leftarrow Y\)</span> закрыт сам собой, а каузальные пути <span class="math inline">\(T\to Y\)</span> и <span class="math inline">\(T\to S\to Y\)</span> остаются открытыми. Полученная оценка должна быть близка к истинному общему эффекту <span class="math inline">\(-3 + (-0.7)\cdot 5 = -6.5\)</span> балла.</p>
 </section>
-<section id="что-произойдёт-если-контролировать-всё-подряд" class="level3" data-number="3.4.3">
-<h3 data-number="3.4.3" class="anchored" data-anchor-id="что-произойдёт-если-контролировать-всё-подряд"><span class="header-section-number">3.4.3</span> Что произойдёт, если контролировать «всё подряд»</h3>
+<section id="что-произойдёт-если-контролировать-всё-подряд" class="level3" data-number="3.8.3">
+<h3 data-number="3.8.3" class="anchored" data-anchor-id="что-произойдёт-если-контролировать-всё-подряд"><span class="header-section-number">3.8.3</span> Что произойдёт, если контролировать «всё подряд»</h3>
 <p>Иллюстрация overcontrol (через медиатор <span class="math inline">\(S\)</span>) и collider bias (через <span class="math inline">\(A\)</span>):</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>m_bad_S  <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T <span class="sc">+</span> K <span class="sc">+</span> M <span class="sc">+</span> S, <span class="at">data =</span> d)         <span class="co"># overcontrol: закрыли T→S→Y</span></span>
@@ -559,14 +715,83 @@ $open
 <hr>
 </section>
 </section>
-<section id="часть-4.-модерация-для-кого-прогулы-вреднее" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="часть-4.-модерация-для-кого-прогулы-вреднее"><span class="header-section-number">3.5</span> Часть 4. Модерация: для кого прогулы вреднее?</h2>
-<section id="логика" class="level3" data-number="3.5.1">
-<h3 data-number="3.5.1" class="anchored" data-anchor-id="логика"><span class="header-section-number">3.5.1</span> Логика</h3>
+<section id="часть-4.-модерация-для-кого-прогулы-вреднее" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="часть-4.-модерация-для-кого-прогулы-вреднее"><span class="header-section-number">3.9</span> Часть 4. Модерация: для кого прогулы вреднее?</h2>
+<section id="иерархия-эффектов" class="level3" data-number="3.9.1">
+<h3 data-number="3.9.1" class="anchored" data-anchor-id="иерархия-эффектов"><span class="header-section-number">3.9.1</span> Иерархия эффектов</h3>
+<p>ATE — это агрегат, и агрегация скрывает <strong>гетерогенность</strong>: средний эффект может быть положительным при том, что у половины популяции он отрицателен; программа с нулевым средним эффектом может радикально помогать одной подгруппе и вредить другой. Рекомендации для регулятора без оценки гетерогенности невозможны. Формально выстраивается иерархия (Imbens, Rubin, 2015):</p>
+<ul>
+<li><strong>ITE</strong> (individual treatment effect) — индивидуальный эффект <span class="math inline">\(\tau_i = Y_i(1) - Y_i(0)\)</span>; не идентифицируется без сильных параметрических предположений;</li>
+<li><strong>CATE</strong> (conditional average treatment effect) — условный средний эффект <span class="math inline">\(\tau(x) = \mathbb{E}[Y(1) - Y(0) \mid X = x]\)</span>; идентифицируется при <strong>неконфаундированности</strong> (unconfoundedness) <span class="math inline">\(\{Y(0), Y(1)\} \perp T \mid X\)</span> и <strong>перекрытии</strong> (overlap) <span class="math inline">\(0 &lt; \Pr(T = 1 \mid X) &lt; 1\)</span>;</li>
+<li><strong>GATE</strong> (group average treatment effect) — средний эффект в предопределённой группе, <span class="math inline">\(\tau_g = \mathbb{E}[\tau(X) \mid G = g]\)</span>;</li>
+<li><strong>ATE</strong> — глобальное среднее <span class="math inline">\(\tau = \mathbb{E}[\tau(X)]\)</span>.</li>
+</ul>
+<p>Иерархия: <span class="math inline">\(ITE \Rightarrow CATE \Rightarrow GATE \Rightarrow ATE\)</span>; CATE — самая богатая из идентифицируемых величин.</p>
+<p>Простейшая оценка CATE — линейная регрессия со <strong>взаимодействиями</strong> (interactions): <span class="math inline">\(Y_i = \beta_0 + \beta_1 T_i + \gamma' X_i + \delta'(T_i \cdot X_i) + \varepsilon_i\)</span>, откуда <span class="math inline">\(\hat\tau(x) = \hat\beta_1 + \hat\delta' x\)</span>. Плюсы: прозрачность, стандартные ошибки, простая интерпретация. Минусы: линейность и в <span class="math inline">\(X\)</span>, и во взаимодействиях; при большой размерности <span class="math inline">\(X\)</span> — проклятие размерности и соблазн перебора спецификаций. Непараметрическая альтернатива — <strong>причинный лес</strong> (causal forest; Wager, Athey, 2018): модификация случайного леса, оптимизирующая не предсказание <span class="math inline">\(Y\)</span>, а гетерогенность <span class="math inline">\(\tau(x)\)</span>; выдаёт функцию <span class="math inline">\(\hat\tau(x)\)</span> с доверительными интервалами, важность переменных и <strong>наилучшую линейную проекцию</strong> (best linear projection, BLP) CATE на выбранные ковариаты.</p>
+</section>
+<section id="описательная-и-причинная-модерация" class="level3" data-number="3.9.2">
+<h3 data-number="3.9.2" class="anchored" data-anchor-id="описательная-и-причинная-модерация"><span class="header-section-number">3.9.2</span> Описательная и причинная модерация</h3>
+<p>Прежде чем оценивать, важно понять, <strong>какой из двух вопросов</strong> мы задаём:</p>
+<ul>
+<li><strong>Описательная модерация</strong> — «в каких подгруппах эффект больше?» Ответ — <span class="math inline">\(\tau(x)\)</span> как функция <span class="math inline">\(x\)</span>. Это описание вариации эффекта по характеристикам.</li>
+<li><strong>Причинная модерация</strong> (List, 2025) — «если бы мы <em>принудительно изменили</em> модератор с <span class="math inline">\(x'\)</span> на <span class="math inline">\(x''\)</span>, изменился бы эффект <span class="math inline">\(T\)</span>?» Ответ — <strong>ATME</strong> (average treatment moderation effect):</li>
+</ul>
+<p><span class="math display">\[\tau_{\text{mod}}(x'', x') = \mathbb{E}\big[\underbrace{\{Y_i(1, x'') - Y_i(0, x'')\}}_{\text{эффект } T \text{ при } X^M = x''} - \underbrace{\{Y_i(1, x') - Y_i(0, x')\}}_{\text{эффект } T \text{ при } X^M = x'}\big].\]</span></p>
+<p>Это «причинный эффект на причинный эффект» (causal-on-causal). Пример различия: эффект образовательного ваучера выше у детей образованных родителей — описательный факт. Но <em>изменение образования родителей</em> — другая интервенция, и её влияние на отдачу от ваучера требует отдельных допущений. Для идентификации ATME нужны четыре условия: (1) модифицированная SUTVA — исходы <span class="math inline">\(Y_i(t, x^M)\)</span> корректно определены; (2) <strong>предшествование ковариат</strong> (covariate precedence) — модератор зафиксирован до назначения воздействия; (3) <strong>условная независимость модератора</strong> <span class="math inline">\(\{Y(t, x^M)\} \perp X^M \mid W\)</span> для набора претритментных ковариат <span class="math inline">\(W\)</span>; (4) <strong>общая поддержка</strong> (common support) <span class="math inline">\(0 &lt; \Pr(X^M = x^M \mid W) &lt; 1\)</span>. Без условия (3) разность <span class="math inline">\(\hat\tau(x'') - \hat\tau(x')\)</span> описывает лишь корреляцию модератора с эффектом.</p>
+<p>Кто может быть модератором? Любая переменная, зафиксированная <strong>до</strong> воздействия, — независимо от того, влияет ли она на <span class="math inline">\(T\)</span> или на <span class="math inline">\(Y\)</span> по отдельности (модератор не обязан быть конфаундером: модерация — это гетерогенность эффекта, а не источник смещения). Не годятся медиаторы (посттритментные — нарушают предшествование) и коллайдеры (контроль создаёт смещение). Сводное сравнение с медиатором:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Критерий</th>
+<th>Модератор <span class="math inline">\(W\)</span></th>
+<th>Медиатор <span class="math inline">\(M\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Вопрос</td>
+<td>Для кого эффект больше?</td>
+<td>Через что эффект работает?</td>
+</tr>
+<tr class="even">
+<td>Роль</td>
+<td>Меняет <em>силу</em> <span class="math inline">\(T \to Y\)</span></td>
+<td><em>Проводит</em> часть <span class="math inline">\(T \to Y\)</span></td>
+</tr>
+<tr class="odd">
+<td>Когда измеряется</td>
+<td>До <span class="math inline">\(T\)</span> (pre-treatment)</td>
+<td>После <span class="math inline">\(T\)</span> (post-treatment)</td>
+</tr>
+<tr class="even">
+<td>Связь с <span class="math inline">\(T\)</span></td>
+<td><span class="math inline">\(T\)</span> не обязан влиять на <span class="math inline">\(W\)</span></td>
+<td><span class="math inline">\(T\)</span> влияет на <span class="math inline">\(M\)</span>: <span class="math inline">\(T \to M\)</span></td>
+</tr>
+<tr class="odd">
+<td>Что оцениваем</td>
+<td>CATE(<span class="math inline">\(w\)</span>), ATME</td>
+<td>ADE, ACME, TE = ADE + ACME</td>
+</tr>
+<tr class="even">
+<td>При оценке общего ATE</td>
+<td>Контролировать, если конфаундер</td>
+<td><strong>Не</strong> контролировать</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="логика" class="level3" data-number="3.9.3">
+<h3 data-number="3.9.3" class="anchored" data-anchor-id="логика"><span class="header-section-number">3.9.3</span> Логика</h3>
 <p>Хотим увидеть, <strong>гетерогенен</strong> ли эффект <span class="math inline">\(T\)</span> по предварительным знаниям <span class="math inline">\(K\)</span> и мотивации <span class="math inline">\(M\)</span>. Модерацию делаем <strong>поверх правильного adjustment set</strong> — то есть всегда контролируем <span class="math inline">\(\{K, M\}\)</span>, но добавляем взаимодействия с <span class="math inline">\(T\)</span>.</p>
 </section>
-<section id="линейная-модерация-по-k" class="level3" data-number="3.5.2">
-<h3 data-number="3.5.2" class="anchored" data-anchor-id="линейная-модерация-по-k"><span class="header-section-number">3.5.2</span> Линейная модерация по <span class="math inline">\(K\)</span></h3>
+<section id="линейная-модерация-по-k" class="level3" data-number="3.9.4">
+<h3 data-number="3.9.4" class="anchored" data-anchor-id="линейная-модерация-по-k"><span class="header-section-number">3.9.4</span> Линейная модерация по <span class="math inline">\(K\)</span></h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>m_modK <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> T<span class="sc">*</span>K <span class="sc">+</span> M, <span class="at">data =</span> d)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(m_modK, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -583,8 +808,8 @@ $open
 </div>
 <p>Коэффициент при <code>T1:K</code> — насколько эффект прогулов меняется при росте <span class="math inline">\(K\)</span> на одно стандартное отклонение. Знак отрицательный: прогулы <strong>сильнее</strong> бьют по успеваемости у студентов с высокой базой (что согласуется с заложенными <span class="math inline">\(-1.5\cdot T\cdot K\)</span>).</p>
 </section>
-<section id="условный-ate-на-сетке-k" class="level3" data-number="3.5.3">
-<h3 data-number="3.5.3" class="anchored" data-anchor-id="условный-ate-на-сетке-k"><span class="header-section-number">3.5.3</span> Условный ATE на сетке <span class="math inline">\(K\)</span></h3>
+<section id="условный-ate-на-сетке-k" class="level3" data-number="3.9.5">
+<h3 data-number="3.9.5" class="anchored" data-anchor-id="условный-ate-на-сетке-k"><span class="header-section-number">3.9.5</span> Условный ATE на сетке <span class="math inline">\(K\)</span></h3>
 <p>Посчитаем CATE(K) = <span class="math inline">\(\widehat E[Y \mid T{=}1, K, M{=}0] - \widehat E[Y \mid T{=}0, K, M{=}0]\)</span> вручную через <code>predict()</code></p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>K_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="at">by =</span> <span class="fl">0.25</span>)</span>
@@ -637,8 +862,8 @@ $open
 </div>
 <p>Чем выше <span class="math inline">\(K\)</span>, тем отрицательнее эффект прогулов — у сильных студентов прогулы вредят больше (как и заложено в симуляции: взаимодействие <span class="math inline">\(-1.5\,T\cdot K\)</span>).</p>
 </section>
-<section id="модерация-по-нескольким-переменным-сразу" class="level3" data-number="3.5.4">
-<h3 data-number="3.5.4" class="anchored" data-anchor-id="модерация-по-нескольким-переменным-сразу"><span class="header-section-number">3.5.4</span> Модерация по нескольким переменным сразу</h3>
+<section id="модерация-по-нескольким-переменным-сразу" class="level3" data-number="3.9.6">
+<h3 data-number="3.9.6" class="anchored" data-anchor-id="модерация-по-нескольким-переменным-сразу"><span class="header-section-number">3.9.6</span> Модерация по нескольким переменным сразу</h3>
 <p>Удобно описать гетерогенность одной интерпретируемой моделью BLP — best linear projection — на ковариаты с помощью causal forest:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Опционально: causal forest даёт непараметрическую оценку CATE</span></span>
@@ -654,27 +879,106 @@ $open
 <hr>
 </section>
 </section>
-<section id="часть-5.-медиация-через-какие-каналы-работают-прогулы" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="часть-5.-медиация-через-какие-каналы-работают-прогулы"><span class="header-section-number">3.6</span> Часть 5. Медиация: через какие каналы работают прогулы</h2>
-<section id="логика-1" class="level3" data-number="3.6.1">
-<h3 data-number="3.6.1" class="anchored" data-anchor-id="логика-1"><span class="header-section-number">3.6.1</span> Логика</h3>
-<p>DAG говорит: <span class="math inline">\(T \to Y\)</span> напрямую и <span class="math inline">\(T \to S \to Y\)</span> через самоподготовку. Хотим разложить совокупный эффект:</p>
+<section id="отступление-экстенсивная-и-интенсивная-границы" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="отступление-экстенсивная-и-интенсивная-границы"><span class="header-section-number">3.10</span> Отступление: экстенсивная и интенсивная границы</h2>
+<p>Особый случай гетерогенности возникает, когда исход имеет <strong>массу в нуле</strong>: сумма пожертвования, часы волонтёрства, объём покупки — многие не делают этого вообще (<span class="math inline">\(Y_i = 0\)</span>). Воздействие тогда работает по двум разным каналам:</p>
+<ul>
+<li><strong>экстенсивная граница</strong> (extensive margin) — переключить человека из «не делает» в «делает»: <span class="math inline">\(Y(0) = 0,\ Y(1) &gt; 0\)</span>;</li>
+<li><strong>интенсивная граница</strong> (intensive margin) — изменить, <em>сколько</em> делает тот, кто и так делал бы.</li>
+</ul>
+<p>Это не два вида эффекта, а эффекты <strong>на двух разных латентных группах</strong>. Обозначим <span class="math inline">\(D_i = \mathbb{1}\{Y_i &gt; 0\}\)</span>; пара потенциальных состояний <span class="math inline">\((D_i(0), D_i(1))\)</span> задаёт <strong>латентный тип</strong> единицы — это конструкция <strong>принципиальной стратификации</strong> (principal stratification; Frangakis, Rubin, 2002):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Тип</th>
+<th><span class="math inline">\((D(0), D(1))\)</span></th>
+<th>На кого программа влияет</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>never-payers</td>
+<td><span class="math inline">\((0, 0)\)</span></td>
+<td>не делают в любом случае</td>
+</tr>
+<tr class="even">
+<td>switchers</td>
+<td><span class="math inline">\((0, 1)\)</span></td>
+<td>программа их «включает» (экстенсивный канал)</td>
+</tr>
+<tr class="odd">
+<td>always-payers</td>
+<td><span class="math inline">\((1, 1)\)</span></td>
+<td>программа может изменить объём (интенсивный канал)</td>
+</tr>
+<tr class="even">
+<td>deflectors</td>
+<td><span class="math inline">\((1, 0)\)</span></td>
+<td>программа «выключает» из деятельности</td>
+</tr>
+</tbody>
+</table>
+<p>Допущение <strong>монотонности</strong> (monotonicity), <span class="math inline">\(D_i(1) \geq D_i(0)\)</span>, исключает deflectors — правдоподобно для стимулирующих программ, но не для любых (налоги и регулирование могут «выключать»). Проблема в том, что тип ненаблюдаем: увидев <span class="math inline">\(T_i = 1, Y_i &gt; 0\)</span>, мы не знаем, switcher это или always-payer. Отсюда и ловушки наивных подходов: регрессия на подвыборке <span class="math inline">\(Y &gt; 0\)</span> сравнивает <em>разные</em> латентные группы (selection on outcome), а регрессия с <span class="math inline">\(\mathbb{1}\{Y&gt;0\}\)</span> в контролях — включение посттритментной переменной, то есть плохой контроль.</p>
+<p>Что делать (кратко — подробный практикум будет отдельной главой):</p>
+<ul>
+<li><strong>экстенсивный эффект</strong> оценивается прямо и «бесплатно»: это ATE на наблюдаемом бинарном исходе <span class="math inline">\(D_i\)</span> (линейная вероятностная модель или пробит);</li>
+<li><strong>интенсивный эффект</strong> — через <strong>границы Ли</strong> (Lee bounds; Lee, 2009): доля always-payers в группе воздействия оценивается как <span class="math inline">\(\hat\pi = \hat q/\hat p\)</span> (где <span class="math inline">\(\hat p, \hat q\)</span> — доли <span class="math inline">\(Y&gt;0\)</span> в группах), затем распределение «делающих» в группе воздействия обрезается сверху и снизу на долю switchers — получаются нижняя и верхняя границы эффекта для always-payers. Единственное допущение — монотонность; плата — интервал вместо точки;</li>
+<li><strong>two-part model</strong> использует тождество <span class="math inline">\(\mathbb{E}[Y] = \Pr(Y &gt; 0) \cdot \mathbb{E}[Y \mid Y &gt; 0]\)</span> и оценивает две части раздельными регрессиями — точечные оценки, но более сильные допущения;</li>
+<li><strong>Tobit</strong> (Tobin, 1958) трактует нули как цензурирование латентной переменной $Y^* $ и одним параметром управляет обеими границами; разложение Макдональда–Моффитта (McDonald, Moffitt, 1980) делит полный эффект на экстенсивный и интенсивный вклады. Жёсткие требования к нормальности и единому механизму делают его скорее ориентиром для сравнения, чем основным методом.</li>
+</ul>
+<p>Классическая иллюстрация — List, Pernaudet, Suskind (2021): программа обучения родителей «включила» в развивающие занятия с ребёнком ≈ 24% родителей (экстенсивный канал), но почти не изменила интенсивность у тех, кто занимался и так. Наивная OLS показала бы положительный средний эффект, скрыв, что он целиком экстенсивный, — а для масштабирования программы это принципиально разные выводы.</p>
+<hr>
+</section>
+<section id="часть-5.-медиация-через-какие-каналы-работают-прогулы" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="часть-5.-медиация-через-какие-каналы-работают-прогулы"><span class="header-section-number">3.11</span> Часть 5. Медиация: через какие каналы работают прогулы</h2>
+<section id="логика-1" class="level3" data-number="3.11.1">
+<h3 data-number="3.11.1" class="anchored" data-anchor-id="логика-1"><span class="header-section-number">3.11.1</span> Логика</h3>
+<p>Знание ATE без знания механизма ограничивает перенос выводов. Классический пример: Джеймс Линд в 1747 г. экспериментально установил, что цитрусовые лечат цингу, — но <em>что именно</em> в них лечит, стало ясно лишь в 1932 г. с выделением аскорбиновой кислоты: витамин C оказался полным медиатором эффекта. Пока механизм неизвестен, нельзя ответить, лечит ли «лимонная» терапия другие болезни и можно ли заменить лимон таблеткой.</p>
+<p>DAG нашего примера говорит: <span class="math inline">\(T \to Y\)</span> напрямую и <span class="math inline">\(T \to S \to Y\)</span> через самоподготовку. Хотим разложить совокупный эффект:</p>
 <p><span class="math display">\[
 \text{TE} = \underbrace{\text{ADE}}_{T\to Y \text{ напрямую}} + \underbrace{\text{ACME}}_{T\to S \to Y}.
 \]</span></p>
-<p>Здесь <span class="math inline">\(S\)</span> — outcome второй модели, <strong>не</strong> контроль.</p>
+<p>Здесь <span class="math inline">\(S\)</span> — outcome второй модели, <strong>не</strong> контроль: медиатор — посттритментная переменная, и просто «добавить его в регрессию рядом с <span class="math inline">\(T\)</span>» нельзя (это плохой контроль). Нужны две модели — одна для медиатора, одна для исхода.</p>
 </section>
-<section id="допущения" class="level3" data-number="3.6.2">
-<h3 data-number="3.6.2" class="anchored" data-anchor-id="допущения"><span class="header-section-number">3.6.2</span> Допущения</h3>
-<p>Sequential ignorability в этом DAG выполнена при контроле на <span class="math inline">\(\{K, M\}\)</span>:</p>
+<section id="формальные-определения-удвоение-потенциальных-исходов" class="level3" data-number="3.11.2">
+<h3 data-number="3.11.2" class="anchored" data-anchor-id="формальные-определения-удвоение-потенциальных-исходов"><span class="header-section-number">3.11.2</span> Формальные определения: удвоение потенциальных исходов</h3>
+<p>До сих пор у каждой единицы был один набор потенциальных исходов <span class="math inline">\(Y_i(t)\)</span>. Для медиации систему нужно <strong>удвоить</strong>:</p>
 <ul>
-<li><span class="math inline">\(T \perp\!\!\!\perp \{Y(t,s), S(t)\} \mid K, M\)</span> (нет нескомпенсированных back-door путей в <span class="math inline">\(T\)</span>);</li>
-<li><span class="math inline">\(S \perp\!\!\!\perp Y(t,s) \mid T, K, M\)</span> (нет нескомпенсированных back-door путей в <span class="math inline">\(S\)</span>, кроме идущих через <span class="math inline">\(T\)</span>).</li>
+<li><span class="math inline">\(M_i(t)\)</span> — значение медиатора при воздействии <span class="math inline">\(t\)</span> (у бинарного <span class="math inline">\(T\)</span> это пара <span class="math inline">\(M_i(0)\)</span>, <span class="math inline">\(M_i(1)\)</span>);</li>
+<li><span class="math inline">\(Y_i(t, m)\)</span> — исход, если бы воздействие равнялось <span class="math inline">\(t\)</span>, <strong>а медиатор был установлен в</strong> <span class="math inline">\(m\)</span>.</li>
 </ul>
-<p>Это сильное непроверяемое предположение — позже сделаем sensitivity analysis (<code>medsens</code>).</p>
+<p>Наблюдается только <span class="math inline">\(Y_i = Y_i(T_i, M_i(T_i))\)</span>. Громоздкая нотация нужна, чтобы записать вопрос «что было бы, если <span class="math inline">\(T\)</span> изменился, а <span class="math inline">\(M\)</span> остался прежним» — стандартная запись <span class="math inline">\(Y_i(t)\)</span> это смешивает. Через неё определяются:</p>
+<p><span class="math display">\[\text{ADE} = \mathbb{E}\big[Y(1, M(0)) - Y(0, M(0))\big] \qquad \text{(average direct effect)}\]</span></p>
+<p>— эффект <span class="math inline">\(T\)</span> при «замороженном» на бестритментном уровне медиаторе, то есть прямой канал;</p>
+<p><span class="math display">\[\text{ACME} = \mathbb{E}\big[Y(1, M(1)) - Y(1, M(0))\big] \qquad \text{(average causal mediation effect)}\]</span></p>
+<p>— эффект сдвига медиатора с <span class="math inline">\(M(0)\)</span> на <span class="math inline">\(M(1)\)</span> при фиксированном воздействии, то есть опосредованный канал. Их сумма тождественно равна полному эффекту: <span class="math inline">\(\text{ATE} = \text{ADE} + \text{ACME}\)</span> — это удобный контроль качества оценки (если <span class="math inline">\(\widehat{\text{ADE}} + \widehat{\text{ACME}} \not\approx \widehat{\text{TE}}\)</span>, в спецификации ошибка). <strong>Доля медиации</strong> (proportion mediated) <span class="math inline">\(\text{ACME}/\text{TE}\)</span> показывает, какой процент эффекта идёт через канал: около 1 — полный медиатор, около 0 — канал нерелевантен.</p>
+<p>Обратите внимание на двойное употребление слова «медиатор»: как <em>тип переменной</em> на DAG и как <em>объект медиационного анализа</em> — это разные вещи, хотя и связанные.</p>
 </section>
-<section id="две-регрессии" class="level3" data-number="3.6.3">
-<h3 data-number="3.6.3" class="anchored" data-anchor-id="две-регрессии"><span class="header-section-number">3.6.3</span> Две регрессии</h3>
+<section id="допущения" class="level3" data-number="3.11.3">
+<h3 data-number="3.11.3" class="anchored" data-anchor-id="допущения"><span class="header-section-number">3.11.3</span> Допущения</h3>
+<p>Идентификацию обеспечивает <strong>последовательная игнорируемость</strong> (sequential ignorability; Imai, Keele, Yamamoto, 2010) — два условия при претритментных ковариатах <span class="math inline">\(X\)</span>:</p>
+<ul>
+<li><strong>Допущение 1</strong> (<span class="math inline">\(T\)</span> как бы рандомизирован): <span class="math inline">\(\{Y(t', m), M(t)\} \perp T \mid X\)</span> — нет ненаблюдаемых конфаундеров ни для <span class="math inline">\(T \leftrightarrow Y\)</span>, ни для <span class="math inline">\(T \leftrightarrow M\)</span>;</li>
+<li><strong>Допущение 2</strong> (<span class="math inline">\(M\)</span> как бы рандомизирован при данном <span class="math inline">\(T\)</span>): <span class="math inline">\(Y(t', m) \perp M(t) \mid T = t, X\)</span> — после фиксации <span class="math inline">\(T\)</span> и <span class="math inline">\(X\)</span> медиатор «как бы случаен» относительно исхода, то есть нет ненаблюдаемых конфаундеров <span class="math inline">\(M \leftrightarrow Y\)</span>.</li>
+</ul>
+<p>Принципиально важно: <strong>рандомизация <span class="math inline">\(T\)</span> не обеспечивает второго допущения</strong>. Даже в идеальном RCT медиатор остаётся наблюдательной переменной — его значение выбирает сам участник, а не экспериментатор. Любой третий фактор, влияющий и на <span class="math inline">\(M\)</span>, и на <span class="math inline">\(Y\)</span> (мотивация, способности, сопутствующие условия), нарушает допущение 2. Хуже того, оно <strong>непроверяемо</strong> по данным — обосновать его можно только содержательным аргументом, а количественно оценить уязвимость — анализом чувствительности (<code>medsens</code>, см. ниже).</p>
+<p>В нашем DAG последовательная игнорируемость выполнена при контроле на <span class="math inline">\(\{K, M\}\)</span> по построению симуляции.</p>
+</section>
+<section id="спецификация-imaikeeletingley" class="level3" data-number="3.11.4">
+<h3 data-number="3.11.4" class="anchored" data-anchor-id="спецификация-imaikeeletingley"><span class="header-section-number">3.11.4</span> Спецификация Imai–Keele–Tingley</h3>
+<p>Рабочая лошадка оценивания — две регрессии:</p>
+<p><span class="math display">\[M_i = \alpha_M + a\,T_i + \gamma_M' X_i + \varepsilon_{M,i} \qquad \text{(M-уравнение)},\]</span> <span class="math display">\[Y_i = \alpha_Y + c'\,T_i + b\,M_i + d\,(T_i \cdot M_i) + \gamma_Y' X_i + \varepsilon_{Y,i} \qquad \text{(Y-уравнение)},\]</span></p>
+<p>где <span class="math inline">\(\hat a\)</span> — эффект <span class="math inline">\(T\)</span> на медиатор (стрелка <span class="math inline">\(T \to M\)</span>), <span class="math inline">\(\hat b\)</span> — эффект медиатора на исход при <span class="math inline">\(T = 0\)</span>, <span class="math inline">\(\hat c'\)</span> — прямой эффект, <span class="math inline">\(\hat d\)</span> — взаимодействие (эффект медиатора может зависеть от воздействия). Тогда</p>
+<p><span class="math display">\[\widehat{\text{ACME}}(t) = \hat a \cdot (\hat b + \hat d \cdot t), \qquad \widehat{\text{ADE}}(t) = \hat c' + \hat d \cdot \widehat{\mathbb{E}}[M(t)].\]</span></p>
+<p>При <span class="math inline">\(\hat d = 0\)</span> получается классический <strong>метод произведения коэффициентов</strong> <span class="math inline">\(\widehat{\text{ACME}} = \hat a \hat b\)</span> (Baron, Kenny, 1986); при <span class="math inline">\(\hat d \neq 0\)</span> ACME и ADE зависят от уровня воздействия, при котором они вычисляются. Доверительные интервалы строят бутстрапом (<code>boot = TRUE</code> в <code>mediate()</code>), а не тестом Собеля — у последнего низкая мощность.</p>
+</section>
+<section id="две-регрессии" class="level3" data-number="3.11.5">
+<h3 data-number="3.11.5" class="anchored" data-anchor-id="две-регрессии"><span class="header-section-number">3.11.5</span> Две регрессии</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Модель медиатора: S как функция T и конфаундеров</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>m_med <span class="ot">&lt;-</span> <span class="fu">lm</span>(S <span class="sc">~</span> T <span class="sc">+</span> K <span class="sc">+</span> M, <span class="at">data =</span> d)</span>
@@ -741,8 +1045,8 @@ Simulations: 500 </code></pre>
 </ul>
 <p>Заметим: <code>ACME ≈ a*b</code> здесь оправдано, потому что в модели нет взаимодействия <span class="math inline">\(T \times S\)</span>. В общем случае нужно использовать саму функцию <code>mediate()</code>, а не произведение коэффициентов.</p>
 </section>
-<section id="sensitivity-к-нарушению-sequential-ignorability" class="level3" data-number="3.6.4">
-<h3 data-number="3.6.4" class="anchored" data-anchor-id="sensitivity-к-нарушению-sequential-ignorability"><span class="header-section-number">3.6.4</span> Sensitivity к нарушению sequential ignorability</h3>
+<section id="sensitivity-к-нарушению-sequential-ignorability" class="level3" data-number="3.11.6">
+<h3 data-number="3.11.6" class="anchored" data-anchor-id="sensitivity-к-нарушению-sequential-ignorability"><span class="header-section-number">3.11.6</span> Sensitivity к нарушению sequential ignorability</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>sens <span class="ot">&lt;-</span> <span class="fu">medsens</span>(med_fit, <span class="at">rho.by =</span> <span class="fl">0.05</span>, <span class="at">effect.type =</span> <span class="st">"indirect"</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sens)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -772,8 +1076,8 @@ R^2_M~R^2_Y~ at which ACME = 0: 0.0236 </code></pre>
 <hr>
 </section>
 </section>
-<section id="часть-6.-сводка" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="часть-6.-сводка"><span class="header-section-number">3.7</span> Часть 6. Сводка</h2>
+<section id="часть-6.-сводка" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="часть-6.-сводка"><span class="header-section-number">3.12</span> Часть 6. Сводка</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Эффект,                   <span class="sc">~</span>Источник,                                                      <span class="sc">~</span>Оценка,</span>
@@ -795,8 +1099,8 @@ R^2_M~R^2_Y~ at which ACME = 0: 0.0236 </code></pre>
 5 Доля через S            mediate(): n0             0.505</code></pre>
 </div>
 </div>
-<section id="что-мы-поняли-на-этом-примере" class="level3" data-number="3.7.1">
-<h3 data-number="3.7.1" class="anchored" data-anchor-id="что-мы-поняли-на-этом-примере"><span class="header-section-number">3.7.1</span> Что мы поняли на этом примере</h3>
+<section id="что-мы-поняли-на-этом-примере" class="level3" data-number="3.12.1">
+<h3 data-number="3.12.1" class="anchored" data-anchor-id="что-мы-поняли-на-этом-примере"><span class="header-section-number">3.12.1</span> Что мы поняли на этом примере</h3>
 <ol type="1">
 <li><strong>DAG</strong> превратил «список факторов» в проверяемую карту допущений и сразу подсказал adjustment set — <span class="math inline">\(\{K, M\}\)</span> (а не «всё подряд»).</li>
 <li><strong><code>ggdag_paths</code></strong> показал все 5 путей и помог увидеть, что путь через коллайдер <span class="math inline">\(A\)</span> уже закрыт — его не надо «помогать» закрывать.</li>
@@ -806,9 +1110,48 @@ R^2_M~R^2_Y~ at which ACME = 0: 0.0236 </code></pre>
 <li><strong>Медиация</strong> (<code>mediate()</code>) разложила TE на ADE и ACME — ответив, <strong>через что</strong> работают прогулы. Sensitivity-анализ количественно показал, насколько результат устойчив к нарушению sequential ignorability.</li>
 </ol>
 <p>Сквозной принцип: ни одно число — ATE, CATE, ACME — не интерпретируется причинно само по себе. За каждым стоит граф и набор допущений, и DAG делает их прозрачными.</p>
-
-
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Чек-лист медиационного анализа
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Сформулировать вопрос <em>до</em> анализа: интересует механизм («через что работает программа?») или политика («что будет, если заблокировать канал <span class="math inline">\(M\)</span>?»).</li>
+<li>Нарисовать DAG с <span class="math inline">\(T\)</span>, <span class="math inline">\(M\)</span>, <span class="math inline">\(Y\)</span>, <span class="math inline">\(X\)</span>; убедиться, что все ковариаты <span class="math inline">\(X\)</span> — претритментные (посттритментные — плохой контроль).</li>
+<li>Проверить взаимодействие <span class="math inline">\(T \times M\)</span>; если значимо — использовать спецификацию Imai–Keele–Tingley, а не упрощённое <span class="math inline">\(\hat a \hat b\)</span>.</li>
+<li>Проверка согласованности: <span class="math inline">\(\widehat{\text{ADE}} + \widehat{\text{ACME}} \approx \widehat{\text{TE}}\)</span>; заметное расхождение — сигнал об ошибке спецификации.</li>
+<li>Доверительные интервалы — бутстрап, не тест Собеля.</li>
+<li>В отчёте всегда указывать долю медиации с интервалом и результат анализа чувствительности.</li>
+</ol>
+</div>
+</div>
+</div>
 </section>
+</section>
+<section id="что-почитать" class="level2" data-number="3.13">
+<h2 data-number="3.13" class="anchored" data-anchor-id="что-почитать"><span class="header-section-number">3.13</span> Что почитать</h2>
+<ul>
+<li>List, J. A. (2025). <em>Experimental Economics: Theory and Practice</em>. University of Chicago Press. — гл. 7 (Heterogeneity and Causal Moderation), гл. 8 (Mediation: Exploring Relevant Mechanisms).</li>
+<li>Pearl, J. (2009). <em>Causality: Models, Reasoning, and Inference</em> (2nd ed.). Cambridge University Press.</li>
+<li>Cinelli, C., Forney, A., &amp; Pearl, J. (2022). A crash course in good and bad controls. <em>Sociological Methods &amp; Research</em>.</li>
+<li>Imbens, G. (2020). Potential outcome and directed acyclic graph approaches to causality. <em>Journal of Economic Literature</em>, 58(4).</li>
+<li>Imai, K., Keele, L., &amp; Yamamoto, T. (2010). Identification, inference and sensitivity analysis for causal mediation effects. <em>Statistical Science</em>, 25(1), 51–71.</li>
+<li>Imai, K., Keele, L., Tingley, D., &amp; Yamamoto, T. (2011). Unpacking the black box of causality. <em>American Political Science Review</em>, 105(4), 765–789.</li>
+<li>Baron, R. M., &amp; Kenny, D. A. (1986). The moderator–mediator variable distinction. <em>JPSP</em>, 51, 1173–1182.</li>
+<li>Wager, S., &amp; Athey, S. (2018). Estimation and inference of heterogeneous treatment effects using random forests. <em>JASA</em>, 113(523).</li>
+<li>Henckel, L., Perković, E., &amp; Maathuis, M. (2022). Graphical criteria for efficient covariate adjustment. <em>JRSS B</em>.</li>
+<li>Lee, D. S. (2009). Training, wages, and sample selection: Estimating sharp bounds on treatment effects. <em>Review of Economic Studies</em>, 76(3).</li>
+<li>Frangakis, C. E., &amp; Rubin, D. B. (2002). Principal stratification in causal inference. <em>Biometrics</em>, 58(1).</li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->

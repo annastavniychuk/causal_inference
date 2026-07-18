@@ -212,41 +212,48 @@ window.Quarto = {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#почему-множественное-тестирование-проблема" id="toc-почему-множественное-тестирование-проблема" class="nav-link active" data-scroll-target="#почему-множественное-тестирование-проблема"><span class="header-section-number">2.1</span> Почему множественное тестирование — проблема?</a>
+  <li><a href="#проверка-гипотез-краткое-напоминание" id="toc-проверка-гипотез-краткое-напоминание" class="nav-link active" data-scroll-target="#проверка-гипотез-краткое-напоминание"><span class="header-section-number">2.1</span> Проверка гипотез: краткое напоминание</a></li>
+  <li><a href="#какой-должна-быть-научная-гипотеза" id="toc-какой-должна-быть-научная-гипотеза" class="nav-link" data-scroll-target="#какой-должна-быть-научная-гипотеза"><span class="header-section-number">2.2</span> Какой должна быть научная гипотеза?</a></li>
+  <li><a href="#почему-множественное-тестирование-проблема" id="toc-почему-множественное-тестирование-проблема" class="nav-link" data-scroll-target="#почему-множественное-тестирование-проблема"><span class="header-section-number">2.3</span> Почему множественное тестирование — проблема?</a>
   <ul class="collapse">
-  <li><a href="#как-быстро-растёт-fwer" id="toc-как-быстро-растёт-fwer" class="nav-link" data-scroll-target="#как-быстро-растёт-fwer"><span class="header-section-number">2.1.1</span> Как быстро растёт FWER?</a></li>
+  <li><a href="#как-быстро-растёт-fwer" id="toc-как-быстро-растёт-fwer" class="nav-link" data-scroll-target="#как-быстро-растёт-fwer"><span class="header-section-number">2.3.1</span> Как быстро растёт FWER?</a></li>
   </ul></li>
-  <li><a href="#часть-i.-базовый-анализ-желейные-бобы" id="toc-часть-i.-базовый-анализ-желейные-бобы" class="nav-link" data-scroll-target="#часть-i.-базовый-анализ-желейные-бобы"><span class="header-section-number">2.2</span> Часть I. Базовый анализ (желейные бобы)</a>
+  <li><a href="#две-парадигмы-контроля-ошибок-fwer-и-fdr" id="toc-две-парадигмы-контроля-ошибок-fwer-и-fdr" class="nav-link" data-scroll-target="#две-парадигмы-контроля-ошибок-fwer-и-fdr"><span class="header-section-number">2.4</span> Две парадигмы контроля ошибок: FWER и FDR</a></li>
+  <li><a href="#часть-i.-базовый-анализ-желейные-бобы" id="toc-часть-i.-базовый-анализ-желейные-бобы" class="nav-link" data-scroll-target="#часть-i.-базовый-анализ-желейные-бобы"><span class="header-section-number">2.5</span> Часть I. Базовый анализ (желейные бобы)</a>
   <ul class="collapse">
-  <li><a href="#sec-data" id="toc-sec-data" class="nav-link" data-scroll-target="#sec-data"><span class="header-section-number">2.2.1</span> 1.1 Генерация данных</a></li>
-  <li><a href="#визуальный-анализ" id="toc-визуальный-анализ" class="nav-link" data-scroll-target="#визуальный-анализ"><span class="header-section-number">2.2.2</span> 1.2 Визуальный анализ</a></li>
-  <li><a href="#t-тест-общий-эффект" id="toc-t-тест-общий-эффект" class="nav-link" data-scroll-target="#t-тест-общий-эффект"><span class="header-section-number">2.2.3</span> 1.3 t-тест: общий эффект</a></li>
+  <li><a href="#sec-data" id="toc-sec-data" class="nav-link" data-scroll-target="#sec-data"><span class="header-section-number">2.5.1</span> 1.1 Генерация данных</a></li>
+  <li><a href="#визуальный-анализ" id="toc-визуальный-анализ" class="nav-link" data-scroll-target="#визуальный-анализ"><span class="header-section-number">2.5.2</span> 1.2 Визуальный анализ</a></li>
+  <li><a href="#t-тест-общий-эффект" id="toc-t-тест-общий-эффект" class="nav-link" data-scroll-target="#t-тест-общий-эффект"><span class="header-section-number">2.5.3</span> 1.3 t-тест: общий эффект</a></li>
   </ul></li>
-  <li><a href="#часть-ii.-гетерогенный-эффект-по-цвету" id="toc-часть-ii.-гетерогенный-эффект-по-цвету" class="nav-link" data-scroll-target="#часть-ii.-гетерогенный-эффект-по-цвету"><span class="header-section-number">2.3</span> Часть II. Гетерогенный эффект по цвету</a>
+  <li><a href="#часть-ii.-гетерогенный-эффект-по-цвету" id="toc-часть-ii.-гетерогенный-эффект-по-цвету" class="nav-link" data-scroll-target="#часть-ii.-гетерогенный-эффект-по-цвету"><span class="header-section-number">2.6</span> Часть II. Гетерогенный эффект по цвету</a>
   <ul class="collapse">
-  <li><a href="#добавляем-цвет-желейных-бобов" id="toc-добавляем-цвет-желейных-бобов" class="nav-link" data-scroll-target="#добавляем-цвет-желейных-бобов"><span class="header-section-number">2.3.1</span> 2.1 Добавляем цвет желейных бобов</a></li>
-  <li><a href="#боксплот-по-цветам" id="toc-боксплот-по-цветам" class="nav-link" data-scroll-target="#боксплот-по-цветам"><span class="header-section-number">2.3.2</span> 2.2 Боксплот по цветам</a></li>
-  <li><a href="#отдельные-t-тесты-для-каждого-цвета" id="toc-отдельные-t-тесты-для-каждого-цвета" class="nav-link" data-scroll-target="#отдельные-t-тесты-для-каждого-цвета"><span class="header-section-number">2.3.3</span> 2.3 Отдельные t-тесты для каждого цвета</a></li>
+  <li><a href="#добавляем-цвет-желейных-бобов" id="toc-добавляем-цвет-желейных-бобов" class="nav-link" data-scroll-target="#добавляем-цвет-желейных-бобов"><span class="header-section-number">2.6.1</span> 2.1 Добавляем цвет желейных бобов</a></li>
+  <li><a href="#боксплот-по-цветам" id="toc-боксплот-по-цветам" class="nav-link" data-scroll-target="#боксплот-по-цветам"><span class="header-section-number">2.6.2</span> 2.2 Боксплот по цветам</a></li>
+  <li><a href="#отдельные-t-тесты-для-каждого-цвета" id="toc-отдельные-t-тесты-для-каждого-цвета" class="nav-link" data-scroll-target="#отдельные-t-тесты-для-каждого-цвета"><span class="header-section-number">2.6.3</span> 2.3 Отдельные t-тесты для каждого цвета</a></li>
   </ul></li>
-  <li><a href="#часть-iii.-коррекция-p-значений" id="toc-часть-iii.-коррекция-p-значений" class="nav-link" data-scroll-target="#часть-iii.-коррекция-p-значений"><span class="header-section-number">2.4</span> Часть III. Коррекция p-значений</a>
+  <li><a href="#часть-iii.-коррекция-p-значений" id="toc-часть-iii.-коррекция-p-значений" class="nav-link" data-scroll-target="#часть-iii.-коррекция-p-значений"><span class="header-section-number">2.7</span> Часть III. Коррекция p-значений</a>
   <ul class="collapse">
-  <li><a href="#методы-коррекции" id="toc-методы-коррекции" class="nav-link" data-scroll-target="#методы-коррекции"><span class="header-section-number">2.4.1</span> 3.1 Методы коррекции</a></li>
-  <li><a href="#сравнение-результатов" id="toc-сравнение-результатов" class="nav-link" data-scroll-target="#сравнение-результатов"><span class="header-section-number">2.4.2</span> 3.2 Сравнение результатов</a></li>
+  <li><a href="#методы-коррекции" id="toc-методы-коррекции" class="nav-link" data-scroll-target="#методы-коррекции"><span class="header-section-number">2.7.1</span> 3.1 Методы коррекции</a></li>
+  <li><a href="#сравнение-результатов" id="toc-сравнение-результатов" class="nav-link" data-scroll-target="#сравнение-результатов"><span class="header-section-number">2.7.2</span> 3.2 Сравнение результатов</a></li>
   </ul></li>
-  <li><a href="#часть-iv.-anova-глобальный-тест" id="toc-часть-iv.-anova-глобальный-тест" class="nav-link" data-scroll-target="#часть-iv.-anova-глобальный-тест"><span class="header-section-number">2.5</span> Часть IV. ANOVA — глобальный тест</a>
+  <li><a href="#часть-iv.-anova-глобальный-тест" id="toc-часть-iv.-anova-глобальный-тест" class="nav-link" data-scroll-target="#часть-iv.-anova-глобальный-тест"><span class="header-section-number">2.8</span> Часть IV. ANOVA — глобальный тест</a>
   <ul class="collapse">
-  <li><a href="#проверка-предпосылок-anova" id="toc-проверка-предпосылок-anova" class="nav-link" data-scroll-target="#проверка-предпосылок-anova"><span class="header-section-number">2.5.1</span> 4.1 Проверка предпосылок ANOVA</a></li>
-  <li><a href="#one-way-anova" id="toc-one-way-anova" class="nav-link" data-scroll-target="#one-way-anova"><span class="header-section-number">2.5.2</span> 4.2 One-way ANOVA</a></li>
-  <li><a href="#anova-как-частный-случай-ols-регрессии" id="toc-anova-как-частный-случай-ols-регрессии" class="nav-link" data-scroll-target="#anova-как-частный-случай-ols-регрессии"><span class="header-section-number">2.5.3</span> 4.3 ANOVA как частный случай OLS-регрессии</a></li>
-  <li><a href="#welch-anova-на-случай-нарушения-гомоскедастичности" id="toc-welch-anova-на-случай-нарушения-гомоскедастичности" class="nav-link" data-scroll-target="#welch-anova-на-случай-нарушения-гомоскедастичности"><span class="header-section-number">2.5.4</span> 4.4 Welch ANOVA (на случай нарушения гомоскедастичности)</a></li>
+  <li><a href="#модель-и-гипотезы" id="toc-модель-и-гипотезы" class="nav-link" data-scroll-target="#модель-и-гипотезы"><span class="header-section-number">2.8.1</span> Модель и гипотезы</a></li>
+  <li><a href="#ключевая-идея-сравнение-изменчивостей" id="toc-ключевая-идея-сравнение-изменчивостей" class="nav-link" data-scroll-target="#ключевая-идея-сравнение-изменчивостей"><span class="header-section-number">2.8.2</span> Ключевая идея: сравнение изменчивостей</a></li>
+  <li><a href="#проверка-предпосылок-anova" id="toc-проверка-предпосылок-anova" class="nav-link" data-scroll-target="#проверка-предпосылок-anova"><span class="header-section-number">2.8.3</span> 4.1 Проверка предпосылок ANOVA</a></li>
+  <li><a href="#one-way-anova" id="toc-one-way-anova" class="nav-link" data-scroll-target="#one-way-anova"><span class="header-section-number">2.8.4</span> 4.2 One-way ANOVA</a></li>
+  <li><a href="#anova-как-частный-случай-ols-регрессии" id="toc-anova-как-частный-случай-ols-регрессии" class="nav-link" data-scroll-target="#anova-как-частный-случай-ols-регрессии"><span class="header-section-number">2.8.5</span> 4.3 ANOVA как частный случай OLS-регрессии</a></li>
+  <li><a href="#welch-anova-на-случай-нарушения-гомоскедастичности" id="toc-welch-anova-на-случай-нарушения-гомоскедастичности" class="nav-link" data-scroll-target="#welch-anova-на-случай-нарушения-гомоскедастичности"><span class="header-section-number">2.8.6</span> 4.4 Welch ANOVA (на случай нарушения гомоскедастичности)</a></li>
   </ul></li>
-  <li><a href="#часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса" id="toc-часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса" class="nav-link" data-scroll-target="#часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса"><span class="header-section-number">2.6</span> Часть V. Непараметрическая альтернатива: тест Краскела–Уоллиса</a></li>
-  <li><a href="#часть-vi.-пост-хок-тесты" id="toc-часть-vi.-пост-хок-тесты" class="nav-link" data-scroll-target="#часть-vi.-пост-хок-тесты"><span class="header-section-number">2.7</span> Часть VI. Пост-хок тесты</a>
+  <li><a href="#часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса" id="toc-часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса" class="nav-link" data-scroll-target="#часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса"><span class="header-section-number">2.9</span> Часть V. Непараметрическая альтернатива: тест Краскела–Уоллиса</a></li>
+  <li><a href="#часть-vi.-пост-хок-тесты" id="toc-часть-vi.-пост-хок-тесты" class="nav-link" data-scroll-target="#часть-vi.-пост-хок-тесты"><span class="header-section-number">2.10</span> Часть VI. Пост-хок тесты</a>
   <ul class="collapse">
-  <li><a href="#tukey-hsd-все-попарные-сравнения-контроль-fwer" id="toc-tukey-hsd-все-попарные-сравнения-контроль-fwer" class="nav-link" data-scroll-target="#tukey-hsd-все-попарные-сравнения-контроль-fwer"><span class="header-section-number">2.7.1</span> 6.1 Tukey HSD (все попарные сравнения, контроль FWER)</a></li>
-  <li><a href="#тест-данна-пост-хок-после-краскелауоллиса-ранговый" id="toc-тест-данна-пост-хок-после-краскелауоллиса-ранговый" class="nav-link" data-scroll-target="#тест-данна-пост-хок-после-краскелауоллиса-ранговый"><span class="header-section-number">2.7.2</span> 6.2 Тест Данна (пост-хок после Краскела–Уоллиса, ранговый)</a></li>
+  <li><a href="#tukey-hsd-все-попарные-сравнения-контроль-fwer" id="toc-tukey-hsd-все-попарные-сравнения-контроль-fwer" class="nav-link" data-scroll-target="#tukey-hsd-все-попарные-сравнения-контроль-fwer"><span class="header-section-number">2.10.1</span> 6.1 Tukey HSD (все попарные сравнения, контроль FWER)</a></li>
+  <li><a href="#тест-данна-пост-хок-после-краскелауоллиса-ранговый" id="toc-тест-данна-пост-хок-после-краскелауоллиса-ранговый" class="nav-link" data-scroll-target="#тест-данна-пост-хок-после-краскелауоллиса-ранговый"><span class="header-section-number">2.10.2</span> 6.2 Тест Данна (пост-хок после Краскела–Уоллиса, ранговый)</a></li>
   </ul></li>
-  <li><a href="#сводка-как-выбирать-тест" id="toc-сводка-как-выбирать-тест" class="nav-link" data-scroll-target="#сводка-как-выбирать-тест"><span class="header-section-number">2.8</span> Сводка: как выбирать тест</a></li>
+  <li><a href="#часть-vii.-современные-методы-учёт-зависимости-тестов" id="toc-часть-vii.-современные-методы-учёт-зависимости-тестов" class="nav-link" data-scroll-target="#часть-vii.-современные-методы-учёт-зависимости-тестов"><span class="header-section-number">2.11</span> Часть VII. Современные методы: учёт зависимости тестов</a></li>
+  <li><a href="#сводка-как-выбирать-тест" id="toc-сводка-как-выбирать-тест" class="nav-link" data-scroll-target="#сводка-как-выбирать-тест"><span class="header-section-number">2.12</span> Сводка: как выбирать тест</a></li>
+  <li><a href="#что-почитать" id="toc-что-почитать" class="nav-link" data-scroll-target="#что-почитать"><span class="header-section-number">2.13</span> Что почитать</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/annastavniychuk/causal_inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Сообщить о проблеме</a></li></ul></div></nav>
     </div>
@@ -272,11 +279,83 @@ window.Quarto = {
 </header>
 
 
-<section id="почему-множественное-тестирование-проблема" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="почему-множественное-тестирование-проблема"><span class="header-section-number">2.1</span> Почему множественное тестирование — проблема?</h2>
-<p>Прежде чем перейти к примеру, посмотрим, насколько быстро растёт групповая вероятность ошибки первого рода (FWER), когда мы сравниваем сразу несколько групп.</p>
-<section id="как-быстро-растёт-fwer" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="как-быстро-растёт-fwer"><span class="header-section-number">2.1.1</span> Как быстро растёт FWER?</h3>
+<section id="проверка-гипотез-краткое-напоминание" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="проверка-гипотез-краткое-напоминание"><span class="header-section-number">2.1</span> Проверка гипотез: краткое напоминание</h2>
+<p><strong>Гипотеза</strong> — утверждение о мире, которое мы хотим проверить на данных. <strong>Проверить гипотезу</strong> — оценить, не противоречат ли ей наблюдения. Поскольку данные — это случайные выборки, при любом их объёме можно совершить ошибку, и статистический тест никогда не «доказывает» гипотезу: он либо отвергает её, либо не находит достаточных свидетельств против.</p>
+<p><strong>Нулевая гипотеза</strong> (<span class="math inline">\(H_0\)</span>, null hypothesis) — статус-кво, обычно «эффекта нет». <strong>Альтернативная гипотеза</strong> (<span class="math inline">\(H_1\)</span>, alternative hypothesis) — «эффект есть». Если данные согласуются с <span class="math inline">\(H_0\)</span>, мы <em>не можем её отвергнуть</em> — говорить «доказали» или «приняли» некорректно: новая выборка может изменить ситуацию.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(H_0\)</span> не отвергается</th>
+<th><span class="math inline">\(H_0\)</span> отвергается</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><span class="math inline">\(H_0\)</span> верна</strong></td>
+<td>✓</td>
+<td><strong>Ошибка I рода</strong> (type I error), вероятность <span class="math inline">\(\alpha\)</span></td>
+</tr>
+<tr class="even">
+<td><strong><span class="math inline">\(H_0\)</span> неверна</strong></td>
+<td><strong>Ошибка II рода</strong> (type II error), вероятность <span class="math inline">\(\beta\)</span></td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Уровень значимости</strong> (significance level) <span class="math inline">\(\alpha\)</span> — зафиксированная исследователем вероятность ошибки I рода.</li>
+<li><strong>Мощность</strong> (power) <span class="math inline">\(1 - \beta\)</span> — вероятность отвергнуть <span class="math inline">\(H_0\)</span>, когда она действительно неверна, то есть обнаружить реально существующий эффект.</li>
+<li><strong>p-значение</strong> (p-value) — вероятность получить такое же значение статистики, как в эксперименте, <em>или более экстремальное</em>, при условии, что <span class="math inline">\(H_0\)</span> верна. Эквивалентно: наименьший уровень значимости, при котором гипотеза впервые отвергается.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Частая ошибка интерпретации p-value
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(p = 0.04\)</span> <strong>не</strong> означает, что «вероятность ложноположительного результата равна 4%» и тем более не означает, что «<span class="math inline">\(H_0\)</span> верна с вероятностью 4%». Это означает: <em>если</em> <span class="math inline">\(H_0\)</span> верна, вероятность получить такие (или более экстремальные) данные составляет 4%. Условие и событие нельзя менять местами.</p>
+</div>
+</div>
+</section>
+<section id="какой-должна-быть-научная-гипотеза" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="какой-должна-быть-научная-гипотеза"><span class="header-section-number">2.2</span> Какой должна быть научная гипотеза?</h2>
+<p>Гипотеза в научном исследовании — не «догадка», а чёткое утверждение о мире, из которого следуют наблюдаемые эмпирические следствия. К ней предъявляются два требования.</p>
+<p><strong>Фальсифицируемость</strong> (falsifiability) — критерий Поппера: научной является гипотеза, для которой можно указать наблюдение или результат эксперимента, <em>несовместимый</em> с ней (Popper, 2005). Универсальные утверждения нельзя окончательно доказать набором подтверждений, но можно опровергнуть контрпримером — поэтому научная проверка это поиск рискованных тестов, а не удобных подтверждений.</p>
+<p><strong>Операционализируемость</strong> (operationalizability): ключевые понятия должны переводиться в измеримые переменные, а ожидаемый эффект — в проверяемое сравнение. Должно быть ясно, кто получает воздействие, что является исходом, с чем идёт сравнение и какой знак эффекта ожидается.</p>
+<p>Сравните: «<em>цифровизация влияет на экономику</em>» (неясно, что такое цифровизация, не указан исход, неясен знак, невозможно понять, что её опровергнет) — и «<em>после внедрения онлайн-платформы закупок средняя цена контрактов в учреждениях с платформой снижается относительно сопоставимых учреждений без неё</em>» (есть воздействие, измеримый исход, направление, сравнение и очевидный дизайн проверки).</p>
+<p>Правильная последовательность работы: (1) содержательная гипотеза → (2) измеримые переменные и дизайн → (3) статистические <span class="math inline">\(H_0\)</span> и <span class="math inline">\(H_1\)</span> → (4) уровень значимости <span class="math inline">\(\alpha\)</span> и тест → (5) <strong>и только потом</strong> данные. Если гипотеза формулируется <em>после</em> просмотра данных, возрастает риск трёх родственных болезней:</p>
+<ul>
+<li><strong>ad hoc гипотезы</strong> (лат. «для данного случая») — объяснения, вводимые задним числом, чтобы спасти исходную гипотезу от опровержения («эффект не проявился, потому что испытуемые устали» — хотя усталость не измерялась);</li>
+<li><strong>p-hacking</strong> — манипуляции анализом ради статистической значимости: перебор гипотез с публикацией только «значимых», выделение подгрупп и исключение выбросов после неудачи на полной выборке, перебор методов и наборов ковариат. Как сформулировал Рональд Коуз: «если пытать данные достаточно долго, они признаются»;</li>
+<li>ложноположительные выводы как систематический итог первых двух.</li>
+</ul>
+<p>Главная институциональная защита — <strong>план анализа, зафиксированный заранее</strong> (pre-analysis plan, PAP): регистрация гипотез, переменных и методов до сбора или вскрытия данных. Важно: PAP снижает p-hacking, но <em>не решает проблему множественности напрямую</em> — если честно заявлено 40 тестов, поправки всё равно нужны.</p>
+</section>
+<section id="почему-множественное-тестирование-проблема" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="почему-множественное-тестирование-проблема"><span class="header-section-number">2.3</span> Почему множественное тестирование — проблема?</h2>
+<p>Исследовательский вопрос часто требует не одной, а многих проверок. В экономических экспериментах выделяют шесть типовых источников множественности (List, Shaikh, Xu, 2019):</p>
+<ol type="1">
+<li><strong>несколько исходов</strong> (multiple outcomes): программа обучения влияет на зарплату, занятость и производительность — три исхода;</li>
+<li><strong>гетерогенность по подгруппам</strong> (subgroup analysis): эффект отдельно для мужчин и женщин, бедных и богатых, города и села;</li>
+<li><strong>несколько видов воздействия</strong> (multiple treatment arms): контроль и три варианта программы; <strong>рукав эксперимента</strong> (treatment arm) — одна из экспериментальных групп, получающая определённый тип воздействия;</li>
+<li><strong>несколько оценщиков</strong> (multiple estimators);</li>
+<li><strong>несколько спецификаций</strong> модели (разные наборы ковариат);</li>
+<li><strong>несколько временных точек</strong> (исходы в <span class="math inline">\(t = 1, 2, 3\)</span>).</li>
+</ol>
+<p>Каждый отдельный тест держит вероятность ошибки I рода на уровне <span class="math inline">\(\alpha\)</span>. Но чем больше гипотез проверяется на одних данных, тем выше вероятность допустить <em>хотя бы одну</em> ошибку I рода — это и есть <strong>эффект множественных сравнений</strong> (multiple hypothesis testing, MHT). Посмотрим, насколько быстро растёт групповая вероятность ошибки первого рода (family-wise error rate, FWER), когда мы сравниваем сразу несколько групп.</p>
+<section id="как-быстро-растёт-fwer" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="как-быстро-растёт-fwer"><span class="header-section-number">2.3.1</span> Как быстро растёт FWER?</h3>
 <p>При <span class="math inline">\(g\)</span> группах и уровне значимости <span class="math inline">\(\alpha = 0.05\)</span> число попарных сравнений равно <span class="math inline">\(\binom{g}{2} = g(g-1)/2\)</span>. Если проводить каждый тест независимо, то FWER = <span class="math inline">\(1 - (1 - \alpha)^m\)</span>, где <span class="math inline">\(m\)</span> — число тестов.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Построим таблицу: для каждого числа групп g считаем число попарных гипотез</span></span>
@@ -346,14 +425,112 @@ window.Quarto = {
 <blockquote class="blockquote">
 <p><strong>Вывод.</strong> FWER превышает номинальные 5% уже при двух тестах, а дальше растёт стремительно: при <span class="math inline">\(g = 3\)</span> группах (3 сравнения) он равен <span class="math inline">\(1 - 0.95^3 \approx 14\%\)</span>, при <span class="math inline">\(g = 8\)</span> (28 сравнений) — уже около 76%. При <span class="math inline">\(g = 20\)</span> (именно столько цветов в примере ниже) FWER практически равен 100%. Значит, хотя бы одна «ложная» значимая находка практически гарантирована — даже если никакого эффекта нет.</p>
 </blockquote>
+</section>
+</section>
+<section id="две-парадигмы-контроля-ошибок-fwer-и-fdr" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="две-парадигмы-контроля-ошибок-fwer-и-fdr"><span class="header-section-number">2.4</span> Две парадигмы контроля ошибок: FWER и FDR</h2>
+<p>Прежде чем чинить проблему, договоримся о нотации. Пусть проверяется <span class="math inline">\(m\)</span> гипотез, из которых <span class="math inline">\(m_0\)</span> на самом деле истинны:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(H_0\)</span> не отвергнута</th>
+<th><span class="math inline">\(H_0\)</span> отвергнута</th>
+<th>Итого</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><span class="math inline">\(H_0\)</span> истинна</strong></td>
+<td><span class="math inline">\(U\)</span> (истинноотрицательные, true negatives)</td>
+<td><span class="math inline">\(V\)</span> (ложноположительные, false positives)</td>
+<td><span class="math inline">\(m_0\)</span></td>
+</tr>
+<tr class="even">
+<td><strong><span class="math inline">\(H_0\)</span> ложна</strong></td>
+<td><span class="math inline">\(T\)</span> (ложноотрицательные, false negatives)</td>
+<td><span class="math inline">\(S\)</span> (истинноположительные, true positives)</td>
+<td><span class="math inline">\(m_1\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Итого</strong></td>
+<td><span class="math inline">\(m - R\)</span></td>
+<td><span class="math inline">\(R\)</span> (все отвержения)</td>
+<td><span class="math inline">\(m\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Контролировать можно два разных показателя:</p>
+<ul>
+<li><strong>Групповая вероятность ошибки I рода</strong> (family-wise error rate, FWER) — вероятность совершить <em>хотя бы одну</em> ошибку I рода во всём семействе тестов:</li>
+</ul>
+<p><span class="math display">\[\text{FWER} = \Pr(V \geq 1).\]</span></p>
+<ul>
+<li><strong>Доля ложных открытий</strong> (false discovery rate, FDR; Benjamini, Hochberg, 1995) — <em>ожидаемая доля</em> ложноположительных результатов среди всех отвергнутых гипотез:</li>
+</ul>
+<p><span class="math display">\[\text{FDR} = \mathbb{E}\!\left[\frac{V}{\max(R, 1)}\right].\]</span></p>
+<p>FWER жёстче: он требует, чтобы ложных находок не было <em>вовсе</em>. FDR мягче: он допускает ложные отклонения, но контролирует их долю — если при контроле FDR на уровне <span class="math inline">\(q = 0.10\)</span> отвергнута тысяча гипотез, среди них в среднем не более сотни ложных. Полезный факт: когда все <span class="math inline">\(H_0\)</span> истинны (<span class="math inline">\(m_0 = m\)</span>), FDR совпадает с FWER; при наличии настоящих эффектов FDR &lt; FWER, поэтому FDR-процедуры мощнее.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Характеристика</th>
+<th>FWER</th>
+<th>FDR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Что контролирует</td>
+<td><span class="math inline">\(\Pr(V \geq 1)\)</span></td>
+<td><span class="math inline">\(\mathbb{E}[V/R]\)</span></td>
+</tr>
+<tr class="even">
+<td>Строгость</td>
+<td>Очень строгий</td>
+<td>Мягче</td>
+</tr>
+<tr class="odd">
+<td>Мощность</td>
+<td>Ниже (особенно при большом <span class="math inline">\(m\)</span>)</td>
+<td>Выше</td>
+</tr>
+<tr class="even">
+<td>Когда уместен</td>
+<td>Цена любой ложной находки критична</td>
+<td>Скрининг, генерация гипотез</td>
+</tr>
+<tr class="odd">
+<td>Типичные области</td>
+<td>Клинические испытания, policy-решения</td>
+<td>Геномика, большие данные</td>
+</tr>
+<tr class="even">
+<td>Методы</td>
+<td>Бонферрони, Холм, Тьюки, Даннет, List et al.</td>
+<td>BH, BY</td>
+</tr>
+</tbody>
+</table>
+<p>Выбор парадигмы определяется ценой ошибки и числом тестов. Масштабирование ложного эффекта государственной программы стоит миллионы — здесь нужен FWER. Отобрать из тысяч генов кандидатов для дальнейшей проверки — задача для FDR: часть «открытий» окажется ложной, но их отсеет второй этап (репликационная выборка, новый эксперимент, плацебо-тесты, анализ чувствительности). FDR-скрининг даёт не «доказанные эффекты», а список кандидатов.</p>
+<p>И общее предупреждение: любая коррекция снижает мощность — труднее найти и настоящие эффекты. Это неизбежный компромисс. Поэтому <strong>семейство тестов нужно определить до просмотра данных</strong>: от этого зависит, какие тесты войдут в «семейство» и какая поправка применяется.</p>
 <hr>
 </section>
-</section>
-<section id="часть-i.-базовый-анализ-желейные-бобы" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="часть-i.-базовый-анализ-желейные-бобы"><span class="header-section-number">2.2</span> Часть I. Базовый анализ (желейные бобы)</h2>
+<section id="часть-i.-базовый-анализ-желейные-бобы" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="часть-i.-базовый-анализ-желейные-бобы"><span class="header-section-number">2.5</span> Часть I. Базовый анализ (желейные бобы)</h2>
 <p><em>Первоисточник примера: <a href="https://datascience.stanford.edu/news/data-snooping" class="uri">https://datascience.stanford.edu/news/data-snooping</a></em></p>
-<section id="sec-data" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="sec-data"><span class="header-section-number">2.2.1</span> 1.1 Генерация данных</h3>
+<section id="sec-data" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="sec-data"><span class="header-section-number">2.5.1</span> 1.1 Генерация данных</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Параметры эксперимента ────────────────────────────────────────────────────</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1000 испытуемых; 90% из них регулярно едят желейные бобы.</span></span>
@@ -397,8 +574,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="визуальный-анализ" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="визуальный-анализ"><span class="header-section-number">2.2.2</span> 1.2 Визуальный анализ</h3>
+<section id="визуальный-анализ" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="визуальный-анализ"><span class="header-section-number">2.5.2</span> 1.2 Визуальный анализ</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -423,8 +600,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="t-тест-общий-эффект" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="t-тест-общий-эффект"><span class="header-section-number">2.2.3</span> 1.3 t-тест: общий эффект</h3>
+<section id="t-тест-общий-эффект" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="t-тест-общий-эффект"><span class="header-section-number">2.5.3</span> 1.3 t-тест: общий эффект</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># H₀: употребление желейных бобов не влияет на качество кожи</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Двухвыборочный t-тест Велча (не предполагает равенства дисперсий)</span></span>
@@ -449,10 +626,10 @@ sample estimates:
 <hr>
 </section>
 </section>
-<section id="часть-ii.-гетерогенный-эффект-по-цвету" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="часть-ii.-гетерогенный-эффект-по-цвету"><span class="header-section-number">2.3</span> Часть II. Гетерогенный эффект по цвету</h2>
-<section id="добавляем-цвет-желейных-бобов" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="добавляем-цвет-желейных-бобов"><span class="header-section-number">2.3.1</span> 2.1 Добавляем цвет желейных бобов</h3>
+<section id="часть-ii.-гетерогенный-эффект-по-цвету" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="часть-ii.-гетерогенный-эффект-по-цвету"><span class="header-section-number">2.6</span> Часть II. Гетерогенный эффект по цвету</h2>
+<section id="добавляем-цвет-желейных-бобов" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="добавляем-цвет-желейных-бобов"><span class="header-section-number">2.6.1</span> 2.1 Добавляем цвет желейных бобов</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -481,8 +658,8 @@ sample estimates:
 </div>
 </div>
 </section>
-<section id="боксплот-по-цветам" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="боксплот-по-цветам"><span class="header-section-number">2.3.2</span> 2.2 Боксплот по цветам</h3>
+<section id="боксплот-по-цветам" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="боксплот-по-цветам"><span class="header-section-number">2.6.2</span> 2.2 Боксплот по цветам</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(jelly_bean_color))) <span class="sc">+</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(</span>
@@ -502,8 +679,8 @@ sample estimates:
 </div>
 </div>
 </section>
-<section id="отдельные-t-тесты-для-каждого-цвета" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="отдельные-t-тесты-для-каждого-цвета"><span class="header-section-number">2.3.3</span> 2.3 Отдельные t-тесты для каждого цвета</h3>
+<section id="отдельные-t-тесты-для-каждого-цвета" class="level3" data-number="2.6.3">
+<h3 data-number="2.6.3" class="anchored" data-anchor-id="отдельные-t-тесты-для-каждого-цвета"><span class="header-section-number">2.6.3</span> 2.3 Отдельные t-тесты для каждого цвета</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Функция: t-тест для одного цвета (цвет vs «не ел»)</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>test_color <span class="ot">&lt;-</span> <span class="cf">function</span>(color) {</span>
@@ -566,10 +743,18 @@ sample estimates:
 <hr>
 </section>
 </section>
-<section id="часть-iii.-коррекция-p-значений" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="часть-iii.-коррекция-p-значений"><span class="header-section-number">2.4</span> Часть III. Коррекция p-значений</h2>
-<section id="методы-коррекции" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="методы-коррекции"><span class="header-section-number">2.4.1</span> 3.1 Методы коррекции</h3>
+<section id="часть-iii.-коррекция-p-значений" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="часть-iii.-коррекция-p-значений"><span class="header-section-number">2.7</span> Часть III. Коррекция p-значений</h2>
+<p>Разберём четыре стандартные процедуры. Сквозной пример: три теста дали p-значения <span class="math inline">\(0.001\)</span>, <span class="math inline">\(0.01\)</span> и <span class="math inline">\(0.04\)</span>; уровень значимости <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p><strong>Поправка Бонферрони</strong> (Bonferroni correction) — контролирует FWER. Каждое p-значение сравнивается не с <span class="math inline">\(\alpha\)</span>, а с <span class="math inline">\(\alpha/m\)</span>, где <span class="math inline">\(m\)</span> — число гипотез. Эквивалентно (так реализовано в R): умножаем каждое p-значение на <span class="math inline">\(m\)</span> и сравниваем с <span class="math inline">\(\alpha\)</span>; если после умножения получилось больше единицы — берём единицу. В примере порог равен <span class="math inline">\(0.05/3 \approx 0.017\)</span>: первые две гипотезы отвергаются, третья (<span class="math inline">\(0.04 &gt; 0.017\)</span>) — нет.</p>
+<p>Гарантия следует из неравенства Буля–Бонферрони: вероятность хотя бы одного ложного отклонения не превышает суммы вероятностей по всем тестам, <span class="math inline">\(m \cdot \alpha/m = \alpha\)</span>. Обратите внимание: неравенство верно при <em>любой</em> зависимости тестов — за эту универсальность платим консервативностью. Главная слабость метода — быстро тающая мощность: при 10 гипотезах порог уже <span class="math inline">\(0.005\)</span>, при 100 — <span class="math inline">\(0.0005\)</span>; при большом числе гипотез Бонферрони лучше не использовать.</p>
+<p><strong>Нисходящая процедура Хольма</strong> (Holm step-down procedure) — тоже контролирует FWER, но всегда не менее мощна, чем Бонферрони. Алгоритм: упорядочиваем p-значения по возрастанию <span class="math inline">\(p_{(1)} \leq p_{(2)} \leq \dots \leq p_{(m)}\)</span> и двигаемся сверху вниз, сравнивая <span class="math inline">\(p_{(i)}\)</span> с порогом <span class="math inline">\(\alpha/(m - i + 1)\)</span>: первое значение — с <span class="math inline">\(\alpha/m\)</span>, второе — с <span class="math inline">\(\alpha/(m-1)\)</span> и так далее. Как только условие впервые нарушено, процедура останавливается, и все оставшиеся гипотезы не отвергаются. Эквивалентная коррекция p-значений: <span class="math inline">\(p_{(i)}^{\text{adj}} = p_{(i)} \cdot (m - i + 1)\)</span> (с монотонизацией). Интуиция: самое маленькое p-значение проверяется по строгому бонферрониевскому порогу, но каждое следующее — по всё более мягкому, ведь часть гипотез уже отвергнута.</p>
+<p><strong>Восходящая процедура Бенджамини–Хохберга</strong> (Benjamini–Hochberg step-up procedure, BH) — контролирует FDR. Упорядочиваем p-значения по возрастанию и находим <em>максимальный</em> индекс <span class="math inline">\(k\)</span>, для которого</p>
+<p><span class="math display">\[p_{(k)} \leq \frac{k}{m} \, q,\]</span></p>
+<p>где <span class="math inline">\(q\)</span> — целевой уровень FDR; отвергаем все гипотезы с индексами <span class="math inline">\(1, \dots, k\)</span>. Скорректированные значения <span class="math inline">\(p_{(i)}^{\text{adj}} = p_{(i)} \cdot m / i\)</span> принято называть <strong>q-значениями</strong> (q-values): отвергнув все гипотезы с <span class="math inline">\(q \le 0.05\)</span>, мы ожидаем среди отвергнутых не более 5% ложных. Классический результат BH доказан для независимых тестов (и некоторых видов положительной зависимости).</p>
+<p><strong>Процедура Бенджамини–Йекутиели</strong> (Benjamini–Yekutieli, BY) — модификация BH, сохраняющая контроль FDR при <em>произвольной</em> зависимости тестов. Отличие — поправочная константа <span class="math inline">\(c_m = \sum_{i=1}^{m} 1/i\)</span>: порог становится <span class="math inline">\(p_{(k)} \leq \frac{k}{m \, c_m} q\)</span>. Плата за универсальность — заметная потеря мощности (при <span class="math inline">\(m = 20\)</span> константа <span class="math inline">\(c_m \approx 3.6\)</span>).</p>
+<section id="методы-коррекции" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="методы-коррекции"><span class="header-section-number">2.7.1</span> 3.1 Методы коррекции</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Добавляем все четыре стандартных коррекции</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>ttest_data<span class="sc">$</span>bonferroni <span class="ot">&lt;-</span> <span class="fu">p.adjust</span>(ttest_data<span class="sc">$</span>pval, <span class="at">method =</span> <span class="st">"bonferroni"</span>)</span>
@@ -589,8 +774,8 @@ gray34               gray34 0.5976528          1    1 0.9873128  1</code></pre>
 </div>
 </div>
 </section>
-<section id="сравнение-результатов" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="сравнение-результатов"><span class="header-section-number">2.4.2</span> 3.2 Сравнение результатов</h3>
+<section id="сравнение-результатов" class="level3" data-number="2.7.2">
+<h3 data-number="2.7.2" class="anchored" data-anchor-id="сравнение-результатов"><span class="header-section-number">2.7.2</span> 3.2 Сравнение результатов</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -656,19 +841,58 @@ gray34               gray34 0.5976528          1    1 0.9873128  1</code></pre>
 <hr>
 </section>
 </section>
-<section id="часть-iv.-anova-глобальный-тест" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="часть-iv.-anova-глобальный-тест"><span class="header-section-number">2.5</span> Часть IV. ANOVA — глобальный тест</h2>
-<p>До сих пор мы тестировали каждый цвет отдельно с помощью t-тестов. Более правильный подход — сначала задать <strong>глобальный</strong> вопрос: различаются ли средние значения акне хотя бы для одной пары цветов? Для этого используется <strong>дисперсионный анализ (ANOVA)</strong>.</p>
-<section id="проверка-предпосылок-anova" class="level3" data-number="2.5.1">
-<h3 data-number="2.5.1" class="anchored" data-anchor-id="проверка-предпосылок-anova"><span class="header-section-number">2.5.1</span> 4.1 Проверка предпосылок ANOVA</h3>
+<section id="часть-iv.-anova-глобальный-тест" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="часть-iv.-anova-глобальный-тест"><span class="header-section-number">2.8</span> Часть IV. ANOVA — глобальный тест</h2>
+<p>До сих пор мы тестировали каждый цвет отдельно с помощью t-тестов. Более правильный подход — сначала задать <strong>глобальный</strong> вопрос: различаются ли средние значения акне хотя бы для одной пары цветов? Для этого используется <strong>дисперсионный анализ</strong> (analysis of variance, ANOVA) — одна проверка вместо <span class="math inline">\(g(g-1)/2\)</span>, контролирующая ошибку I рода на уровне <span class="math inline">\(\alpha\)</span>.</p>
+<section id="модель-и-гипотезы" class="level3" data-number="2.8.1">
+<h3 data-number="2.8.1" class="anchored" data-anchor-id="модель-и-гипотезы"><span class="header-section-number">2.8.1</span> Модель и гипотезы</h3>
+<p>Пусть <span class="math inline">\(y_{ij}\)</span> — значение исхода для <span class="math inline">\(j\)</span>-го наблюдения в группе <span class="math inline">\(i\)</span>, где <span class="math inline">\(i = 1, \dots, g\)</span> — индекс группы (в RCT — рукава, arm), <span class="math inline">\(j = 1, \dots, n_i\)</span> — индекс наблюдения внутри группы, <span class="math inline">\(N = \sum_i n_i\)</span> — общее число наблюдений:</p>
+<p><span class="math display">\[y_{ij} = \mu_i + \varepsilon_{ij}, \qquad \varepsilon_{ij} \overset{iid}{\sim} N(0, \sigma^2),\]</span></p>
+<p>где <span class="math inline">\(\mu_i\)</span> — истинное среднее в группе <span class="math inline">\(i\)</span>. Эквивалентная запись: <span class="math inline">\(y_{ij} = \mu + \tau_i + \varepsilon_{ij}\)</span>, где <span class="math inline">\(\mu\)</span> — общее среднее, а <span class="math inline">\(\tau_i = \mu_i - \mu\)</span> — эффект группы <span class="math inline">\(i\)</span> (с нормировкой <span class="math inline">\(\sum_i n_i \tau_i = 0\)</span>, без которой <span class="math inline">\(\mu\)</span> и <span class="math inline">\(\tau_i\)</span> не идентифицируются по отдельности: к <span class="math inline">\(\mu\)</span> можно прибавить любую константу, вычтя её из всех <span class="math inline">\(\tau_i\)</span>). Гипотезы:</p>
+<p><span class="math display">\[H_0: \mu_1 = \mu_2 = \dots = \mu_g \;\Leftrightarrow\; \tau_1 = \dots = \tau_g = 0, \qquad H_1: \exists\, i \neq j: \mu_i \neq \mu_j.\]</span></p>
+</section>
+<section id="ключевая-идея-сравнение-изменчивостей" class="level3" data-number="2.8.2">
+<h3 data-number="2.8.2" class="anchored" data-anchor-id="ключевая-идея-сравнение-изменчивостей"><span class="header-section-number">2.8.2</span> Ключевая идея: сравнение изменчивостей</h3>
+<p>Если <span class="math inline">\(H_0\)</span> верна, то и различия <em>между</em> групповыми средними, и разброс <em>внутри</em> групп порождены одним и тем же шумом — они должны быть соизмеримы. Если <span class="math inline">\(H_1\)</span> верна, межгрупповая изменчивость содержит ещё и реальные различия средних. Формализуется это через разложение суммы квадратов отклонений:</p>
+<p><span class="math display">\[\underbrace{\sum_{i,j} (y_{ij} - \bar y)^2}_{\text{SST (total)}} = \underbrace{\sum_i n_i (\bar y_{i\cdot} - \bar y)^2}_{\text{SSB (between)}} + \underbrace{\sum_{i,j} (y_{ij} - \bar y_{i\cdot})^2}_{\text{SSW (within)}}\]</span></p>
+<p>(перекрёстный член обнуляется по определению группового среднего). SSB — потенциальный эффект, SSW — шум. Нормируем каждую сумму на её число степеней свободы (degrees of freedom): <span class="math inline">\(df_B = g - 1\)</span>, <span class="math inline">\(df_W = N - g\)</span>, — и получаем средние квадраты (mean squares) <span class="math inline">\(\text{MSB} = \text{SSB}/(g-1)\)</span> и <span class="math inline">\(\text{MSW} = \text{SSW}/(N-g)\)</span>; MSW — это оценка дисперсии ошибки <span class="math inline">\(\hat\sigma^2\)</span>. Тестовая статистика — их отношение:</p>
+<p><span class="math display">\[F = \frac{\text{MSB}}{\text{MSW}} \sim F(g-1,\, N-g) \text{ при } H_0.\]</span></p>
+<p>При <span class="math inline">\(H_0\)</span> оба средних квадрата оценивают <span class="math inline">\(\sigma^2\)</span> и <span class="math inline">\(F \approx 1\)</span>; при <span class="math inline">\(H_1\)</span> ожидание MSB равно <span class="math inline">\(\sigma^2 + \sum_i n_i \tau_i^2/(g-1) &gt; \sigma^2\)</span>, и <span class="math inline">\(F &gt; 1\)</span>. Отвергаем <span class="math inline">\(H_0\)</span> при <span class="math inline">\(F &gt; F_{\alpha,\, g-1,\, N-g}\)</span> (критерий правосторонний).</p>
+<p>Небольшой числовой пример: RCT с <span class="math inline">\(g = 4\)</span> рукавами, <span class="math inline">\(N = 100\)</span>, <span class="math inline">\(\text{SSB} = 150\)</span>, <span class="math inline">\(\text{SSW} = 480\)</span>. Тогда <span class="math inline">\(\text{MSB} = 150/3 = 50\)</span>, <span class="math inline">\(\text{MSW} = 480/96 = 5\)</span>, <span class="math inline">\(F = 10\)</span> при критическом значении <span class="math inline">\(F_{0.05,\,3,\,96} \approx 2.70\)</span> — глобальная гипотеза уверенно отвергается.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Семейство дисперсионного анализа: краткий путеводитель
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>One-way ANOVA</strong> — один фактор (например, <span class="math inline">\(g\)</span> рукавов эксперимента).</li>
+<li><strong>Факторная ANOVA</strong> (factorial ANOVA: two-way и далее) — несколько факторов и их взаимодействия: формат рекламы × тип устройства.</li>
+<li><strong>MANOVA</strong> (multivariate ANOVA) — несколько зависимых переменных одновременно, с учётом их корреляции.</li>
+<li><strong>ANCOVA</strong> (analysis of covariance) — к категориальным факторам добавляются непрерывные ковариаты: сравнение средних с поправкой на исходный уровень, возраст и т.п.</li>
+<li><strong>Межсубъектные</strong> (between-subjects) <strong>vs повторные измерения</strong> (repeated measures) — разные люди в группах против многократных измерений одних и тех же субъектов.</li>
+<li><strong>Фиксированные эффекты</strong> (fixed effects) — уровни фактора заданы исследователем и интересны сами по себе (рукава, тарифы); <strong>случайные эффекты</strong> (random effects) — уровни рассматриваются как выборка из популяции уровней (школы, врачи, рынки); <strong>смешанные модели</strong> (mixed effects) — и те и другие.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="проверка-предпосылок-anova" class="level3" data-number="2.8.3">
+<h3 data-number="2.8.3" class="anchored" data-anchor-id="проверка-предпосылок-anova"><span class="header-section-number">2.8.3</span> 4.1 Проверка предпосылок ANOVA</h3>
 <p>One-way ANOVA требует трёх условий:</p>
 <ol type="1">
 <li><strong>Нормальность</strong> ошибок внутри каждой группы (тест Шапиро–Уилка, QQ-plot).</li>
 <li><strong>Гомоскедастичность</strong>: дисперсии одинаковы во всех группах (тест Левена / Бартлетта).</li>
 <li><strong>Независимость</strong> наблюдений — обеспечивается рандомизацией.</li>
 </ol>
-<section id="нормальность-тест-шапироуилка" class="level4" data-number="2.5.1.1">
-<h4 data-number="2.5.1.1" class="anchored" data-anchor-id="нормальность-тест-шапироуилка"><span class="header-section-number">2.5.1.1</span> Нормальность: тест Шапиро–Уилка</h4>
+<section id="нормальность-тест-шапироуилка" class="level4" data-number="2.8.3.1">
+<h4 data-number="2.8.3.1" class="anchored" data-anchor-id="нормальность-тест-шапироуилка"><span class="header-section-number">2.8.3.1</span> Нормальность: тест Шапиро–Уилка</h4>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Проверяем нормальность внутри каждой цветовой группы.</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># shapiro.test() требует не менее 3 и не более 5000 наблюдений.</span></span>
@@ -732,8 +956,8 @@ gray34               gray34 0.5976528          1    1 0.9873128  1</code></pre>
 <p>Поскольку <span class="math inline">\(acne\_condition \sim U(0,1)\)</span>, нормальность нарушена теоретически, но при достаточно большом числе наблюдений в каждой группе CLT смягчает это нарушение. Тест Шапиро–Уилка сигнализирует о нарушении для некоторых групп → это повод применить непараметрический тест Краскела–Уоллиса.</p>
 </blockquote>
 </section>
-<section id="гомоскедастичность-тест-левена-и-тест-бартлетта" class="level4" data-number="2.5.1.2">
-<h4 data-number="2.5.1.2" class="anchored" data-anchor-id="гомоскедастичность-тест-левена-и-тест-бартлетта"><span class="header-section-number">2.5.1.2</span> Гомоскедастичность: тест Левена и тест Бартлетта</h4>
+<section id="гомоскедастичность-тест-левена-и-тест-бартлетта" class="level4" data-number="2.8.3.2">
+<h4 data-number="2.8.3.2" class="anchored" data-anchor-id="гомоскедастичность-тест-левена-и-тест-бартлетта"><span class="header-section-number">2.8.3.2</span> Гомоскедастичность: тест Левена и тест Бартлетта</h4>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)  <span class="co"># для leveneTest()</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -762,8 +986,8 @@ Bartlett's K-squared = 6.7536, df = 19, p-value = 0.9954</code></pre>
 </blockquote>
 </section>
 </section>
-<section id="one-way-anova" class="level3" data-number="2.5.2">
-<h3 data-number="2.5.2" class="anchored" data-anchor-id="one-way-anova"><span class="header-section-number">2.5.2</span> 4.2 One-way ANOVA</h3>
+<section id="one-way-anova" class="level3" data-number="2.8.4">
+<h3 data-number="2.8.4" class="anchored" data-anchor-id="one-way-anova"><span class="header-section-number">2.8.4</span> 4.2 One-way ANOVA</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># H₀: средние значения acne_condition одинаковы для всех 20 цветов</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># H₁: хотя бы одно среднее отличается</span></span>
@@ -819,8 +1043,8 @@ Residuals        865  72.60 0.08394               </code></pre>
 <p><strong>Интерпретация.</strong> Незначимый F-тест (p &gt; 0.05) означает: нет оснований отвергнуть H₀ о равенстве всех средних. Ни один цвет желейных бобов не оказывает значимого влияния на состояние кожи — и это правильный ответ, ведь эффект в данные не заложен.</p>
 </blockquote>
 </section>
-<section id="anova-как-частный-случай-ols-регрессии" class="level3" data-number="2.5.3">
-<h3 data-number="2.5.3" class="anchored" data-anchor-id="anova-как-частный-случай-ols-регрессии"><span class="header-section-number">2.5.3</span> 4.3 ANOVA как частный случай OLS-регрессии</h3>
+<section id="anova-как-частный-случай-ols-регрессии" class="level3" data-number="2.8.5">
+<h3 data-number="2.8.5" class="anchored" data-anchor-id="anova-как-частный-случай-ols-регрессии"><span class="header-section-number">2.8.5</span> 4.3 ANOVA как частный случай OLS-регрессии</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-way ANOVA ≡ линейная регрессия с (g-1) дамми-переменными.</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># lm() и aov() дают одинаковые F-статистику и p-value.</span></span>
@@ -842,8 +1066,8 @@ Residuals        865 72.605 0.083936               </code></pre>
 <p>Сравните F-статистику и p-value с результатом <code>aov()</code> выше — они идентичны. Регрессионный фреймворк удобнее: к нему легко добавить ковариаты (ANCOVA), кластерные стандартные ошибки и т.д.</p>
 </blockquote>
 </section>
-<section id="welch-anova-на-случай-нарушения-гомоскедастичности" class="level3" data-number="2.5.4">
-<h3 data-number="2.5.4" class="anchored" data-anchor-id="welch-anova-на-случай-нарушения-гомоскедастичности"><span class="header-section-number">2.5.4</span> 4.4 Welch ANOVA (на случай нарушения гомоскедастичности)</h3>
+<section id="welch-anova-на-случай-нарушения-гомоскедастичности" class="level3" data-number="2.8.6">
+<h3 data-number="2.8.6" class="anchored" data-anchor-id="welch-anova-на-случай-нарушения-гомоскедастичности"><span class="header-section-number">2.8.6</span> 4.4 Welch ANOVA (на случай нарушения гомоскедастичности)</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Если тест Левена/Бартлетта значим → используем Welch ANOVA,</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># которая не предполагает равенства дисперсий.</span></span>
@@ -866,8 +1090,8 @@ F = 0.78849, num df = 19.00, denom df = 305.77, p-value = 0.7208</code></pre>
 <hr>
 </section>
 </section>
-<section id="часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса"><span class="header-section-number">2.6</span> Часть V. Непараметрическая альтернатива: тест Краскела–Уоллиса</h2>
+<section id="часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="часть-v.-непараметрическая-альтернатива-тест-краскелауоллиса"><span class="header-section-number">2.9</span> Часть V. Непараметрическая альтернатива: тест Краскела–Уоллиса</h2>
 <p>Если нормальность внутри групп существенно нарушена (а у нас <span class="math inline">\(U(0,1)\)</span>), вместо ANOVA применяют <strong>ранговый тест Краскела–Уоллиса</strong>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># H₀: все 20 цветовых распределений одинаковы (по медиане/рангам)</span></span>
@@ -885,11 +1109,57 @@ Kruskal-Wallis chi-squared = 14.356, df = 19, p-value = 0.7626</code></pre>
 </blockquote>
 <hr>
 </section>
-<section id="часть-vi.-пост-хок-тесты" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="часть-vi.-пост-хок-тесты"><span class="header-section-number">2.7</span> Часть VI. Пост-хок тесты</h2>
-<p>ANOVA отвечает на вопрос «есть ли хоть одно различие?», но не говорит <strong>между какими именно парами</strong> групп оно есть. Для этого нужны пост-хок тесты.</p>
-<section id="tukey-hsd-все-попарные-сравнения-контроль-fwer" class="level3" data-number="2.7.1">
-<h3 data-number="2.7.1" class="anchored" data-anchor-id="tukey-hsd-все-попарные-сравнения-контроль-fwer"><span class="header-section-number">2.7.1</span> 6.1 Tukey HSD (все попарные сравнения, контроль FWER)</h3>
+<section id="часть-vi.-пост-хок-тесты" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="часть-vi.-пост-хок-тесты"><span class="header-section-number">2.10</span> Часть VI. Пост-хок тесты</h2>
+<p>ANOVA отвечает на вопрос «есть ли хоть одно различие?», но не говорит, <strong>между какими именно парами</strong> групп оно есть. Причём заметьте: значимая ANOVA не означает, что различаются все пары (может быть значима одна из десяти); незначимая ANOVA не гарантирует отсутствия различий (при большом числе групп её мощность падает, и отдельные попарные сравнения могут быть значимы). Для локализации различий нужны <strong>пост-хок тесты</strong> (post hoc — лат. «после этого»): процедуры, применяемые после глобального теста и учитывающие множественность сравнений. «Сырые» попарные t-тесты не годятся — при <span class="math inline">\(g\)</span> группах их <span class="math inline">\(g(g-1)/2\)</span>, и FWER взлетает, как мы видели выше.</p>
+<p>Карта выбора:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Метод</th>
+<th>Тип сравнений</th>
+<th>Параметрический?</th>
+<th>Что контролирует</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Fisher LSD</strong> (least significant difference)</td>
+<td>Все попарные</td>
+<td>Да</td>
+<td>Практически только per-comparison ошибку; FWER — лишь при <span class="math inline">\(g = 3\)</span> со значимой ANOVA (protected LSD)</td>
+</tr>
+<tr class="even">
+<td><strong>Tukey HSD</strong> (honestly significant difference)</td>
+<td>Все попарные</td>
+<td>Да</td>
+<td>FWER для всех <span class="math inline">\(g(g-1)/2\)</span> пар</td>
+</tr>
+<tr class="odd">
+<td><strong>Даннет</strong> (Dunnett)</td>
+<td>Каждый рукав vs контроль</td>
+<td>Да</td>
+<td>FWER для <span class="math inline">\(g - 1\)</span> сравнений с контролем</td>
+</tr>
+<tr class="even">
+<td><strong>Данн</strong> (Dunn)</td>
+<td>Все попарные, по рангам</td>
+<td>Нет (ранговый)</td>
+<td>FWER или FDR — в зависимости от выбранной поправки</td>
+</tr>
+</tbody>
+</table>
+<p>Исторически первый метод — <strong>Fisher LSD</strong> (Fisher, 1935): обычные попарные t-тесты с общей оценкой дисперсии MSW из ANOVA. Он прост и мощен, но при <span class="math inline">\(g &gt; 3\)</span> почти не контролирует FWER, поэтому годится лишь для трёх групп со значимой ANOVA, небольших наборов заранее запланированных контрастов или разведочного анализа.</p>
+<p><strong>Как устроен Tukey HSD</strong> (Tukey, 1953). Идея: подобрать <em>одно общее</em> пороговое расстояние между средними, при котором вероятность хотя бы одной ложной «значимой» пары среди всех <span class="math inline">\(g(g-1)/2\)</span> не превышает <span class="math inline">\(\alpha\)</span>. Опорная величина — нормированный <strong>размах</strong> выборочных средних <span class="math inline">\(q = (\max_i \bar y_{i\cdot} - \min_i \bar y_{i\cdot})/\sqrt{\text{MSW}/n}\)</span>: при верной <span class="math inline">\(H_0\)</span> он имеет <strong>распределение стьюдентизированного размаха</strong> (studentized range distribution). Для каждой пары <span class="math inline">\((i, j)\)</span> считается её нормированная разность, и пара признаётся «честно значимо» различающейся, если та превышает квантиль <span class="math inline">\(q_{\alpha,\,g,\,N-g}\)</span>. Побочный бонус — <strong>одновременные доверительные интервалы</strong> (simultaneous confidence intervals) <span class="math inline">\((\bar y_{i\cdot} - \bar y_{j\cdot}) \pm \text{HSD}_{ij}\)</span>, накрывающие все истинные разности сразу с вероятностью <span class="math inline">\(1 - \alpha\)</span>. Практические оговорки: метод предполагает примерно равные дисперсии; для несбалансированных дизайнов используется модификация Тьюки–Крамера (Tukey–Kramer); при сильной гетероскедастичности — тест Геймса–Хауэлла (Games–Howell).</p>
+<p><strong>Метод Даннета</strong> (Dunnett, 1955) решает более узкую задачу: сравнить <span class="math inline">\(g - 1\)</span> рукавов с <em>одной контрольной группой</em>, не сравнивая рукава между собой. Тестов становится <span class="math inline">\(g - 1\)</span> вместо <span class="math inline">\(g(g-1)/2\)</span>, критическое значение (из многомерного t-распределения, multivariate t) — меньше тьюкиевского, а мощность — выше. Для RCT с несколькими рукавами и вопросом «какие из них лучше контроля?» это метод выбора; в R — <code>multcomp::glht(model, linfct = mcp(group = "Dunnett"))</code>.</p>
+<section id="tukey-hsd-все-попарные-сравнения-контроль-fwer" class="level3" data-number="2.10.1">
+<h3 data-number="2.10.1" class="anchored" data-anchor-id="tukey-hsd-все-попарные-сравнения-контроль-fwer"><span class="header-section-number">2.10.1</span> 6.1 Tukey HSD (все попарные сравнения, контроль FWER)</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tukey HSD — стандартный выбор после значимой ANOVA при 3+ группах.</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Контролирует FWER для всех g(g-1)/2 пар через studentized range.</span></span>
@@ -1027,8 +1297,9 @@ Kruskal-Wallis chi-squared = 14.356, df = 19, p-value = 0.7626</code></pre>
 <p>Пара различается значимо, если её доверительный интервал <strong>не</strong> содержит ноль. Здесь каждый ДИ включает 0 — значимых попарных различий нет.</p>
 </blockquote>
 </section>
-<section id="тест-данна-пост-хок-после-краскелауоллиса-ранговый" class="level3" data-number="2.7.2">
-<h3 data-number="2.7.2" class="anchored" data-anchor-id="тест-данна-пост-хок-после-краскелауоллиса-ранговый"><span class="header-section-number">2.7.2</span> 6.2 Тест Данна (пост-хок после Краскела–Уоллиса, ранговый)</h3>
+<section id="тест-данна-пост-хок-после-краскелауоллиса-ранговый" class="level3" data-number="2.10.2">
+<h3 data-number="2.10.2" class="anchored" data-anchor-id="тест-данна-пост-хок-после-краскелауоллиса-ранговый"><span class="header-section-number">2.10.2</span> 6.2 Тест Данна (пост-хок после Краскела–Уоллиса, ранговый)</h3>
+<p><strong>Тест Данна</strong> (Dunn, 1961, 1964) — непараметрический аналог попарных сравнений: все <span class="math inline">\(N\)</span> наблюдений ранжируются совместно, для каждой пары групп сравниваются средние ранги, а полученные p-значения затем корректируются (чаще всего методом Хольма; Бонферрони — консервативнее; BH — если целью выбран FDR). Уместен, когда нарушена нормальность или гомоскедастичность, данные порядковые, выборки малы или засорены выбросами — и, как правило, применяется после значимого теста Краскела–Уоллиса.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Тест Данна — непараметрический аналог Tukey HSD.</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Используется после значимого Краскела–Уоллиса, когда нормальность нарушена.</span></span>
@@ -1138,8 +1409,21 @@ Kruskal-Wallis chi-squared = 14.356, df = 19, p-value = 0.7626</code></pre>
 <hr>
 </section>
 </section>
-<section id="сводка-как-выбирать-тест" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="сводка-как-выбирать-тест"><span class="header-section-number">2.8</span> Сводка: как выбирать тест</h2>
+<section id="часть-vii.-современные-методы-учёт-зависимости-тестов" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="часть-vii.-современные-методы-учёт-зависимости-тестов"><span class="header-section-number">2.11</span> Часть VII. Современные методы: учёт зависимости тестов</h2>
+<p>У классических поправок есть общий изъян: Бонферрони и Хольм построены под «худший случай» произвольной зависимости и потому просто делят <span class="math inline">\(\alpha\)</span> на число тестов. Но в реальном эксперименте тесты обычно <strong>сильно зависимы</strong>: одни и те же участники, коррелированные исходы, общие ковариаты. FWER в такой ситуации и так не взлетает до теоретического максимума — а мощность классические методы режут по полной.</p>
+<p><strong>List, Shaikh, Xu (2019)</strong> предлагают процедуру, которая использует эту зависимость вместо того, чтобы её игнорировать. Идея (на базе подхода Романо–Вольфа, Romano–Wolf step-down):</p>
+<ol type="1">
+<li>для каждой гипотезы считается обычная тестовая статистика (например, t-статистика для ATE);</li>
+<li>назначения в группы многократно перемешиваются (<strong>перестановочный бутстрап</strong>, permutation bootstrap), и при каждой перестановке пересчитываются <em>все</em> статистики сразу — так оценивается их совместное распределение с реальной структурой корреляций;</li>
+<li>применяется нисходящая процедура: p-значения сортируются, и на каждом шаге критическое значение обновляется с учётом только ещё не отвергнутых гипотез.</li>
+</ol>
+<p>Результат: FWER по-прежнему <span class="math inline">\(\leq \alpha\)</span>, но ложных <em>неотвержений</em> заметно меньше, чем у Бонферрони и Хольма — порог подстроен под фактическую, а не наихудшую зависимость. Процедура покрывает сразу три источника множественности: несколько исходов, несколько рукавов, подгруппы.</p>
+<p><strong>List, Shaikh, Vayalinkal (2023)</strong> добавляют к той же конструкции регрессионную поправку на претритментные ковариаты (в духе Лина): вместо простых разностей средних тестируются стьюдентизированные ATE из регрессии с ковариатами. Дисперсия оценок падает, мощность растёт, а контроль FWER сохраняется асимптотически. Знать устройство этих процедур в деталях для нашего курса не требуется — важно понимать идею и то, что в серьёзном эксперименте с множеством исходов и рукавов сегодня ожидают именно такого подхода, а не тотального Бонферрони.</p>
+<hr>
+</section>
+<section id="сводка-как-выбирать-тест" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="сводка-как-выбирать-тест"><span class="header-section-number">2.12</span> Сводка: как выбирать тест</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -1171,9 +1455,19 @@ Kruskal-Wallis chi-squared = 14.356, df = 19, p-value = 0.7626</code></pre>
 </tbody>
 </table>
 <blockquote class="blockquote">
-<p><strong>Главный вывод практикума.</strong><br>
-Проводя 20 отдельных тестов без коррекции, мы почти гарантированно получим хотя бы один «значимый» результат — даже в отсутствие реального эффекта. ANOVA + пост-хок тесты и коррекции p-значений — это инструменты, которые позволяют контролировать вероятность таких ложных открытий.</p>
+<p><strong>Главный вывод практикума.</strong> Проводя 20 отдельных тестов без коррекции, мы почти гарантированно получим хотя бы один «значимый» результат — даже в отсутствие реального эффекта. ANOVA + пост-хок тесты и коррекции p-значений — это инструменты, которые позволяют контролировать вероятность таких ложных открытий.</p>
 </blockquote>
+</section>
+<section id="что-почитать" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="что-почитать"><span class="header-section-number">2.13</span> Что почитать</h2>
+<ul>
+<li>List, J. A. (2025). <em>Experimental Economics: Theory and Practice</em>. University of Chicago Press. — гл. 4 (Statistical Conclusion Validity).</li>
+<li>List, J. A., Shaikh, A. M., &amp; Xu, Y. (2019). Multiple hypothesis testing in experimental economics. <em>Experimental Economics</em>, 22(4), 773–793.</li>
+<li>Benjamini, Y., &amp; Hochberg, Y. (1995). Controlling the false discovery rate. <em>Journal of the Royal Statistical Society B</em>, 57(1), 289–300.</li>
+<li>Мастицкий, С. (2013). Цикл заметок о множественных проверках гипотез: <a href="https://r-analytics.blogspot.com/2013/10/blog-post.html">r-analytics.blogspot.com</a> — Бонферрони и Хольм, критерий Тьюки, методы Беньямини–Хохберга и Беньямини–Йекутили, пакет <code>multcomp</code>.</li>
+<li>Убогоева, Е. (2023). Поправки на множественное тестирование: <a href="https://ubogoeva.github.io/R4Analytics/posts/multiple_testing.html">ubogoeva.github.io/R4Analytics</a>.</li>
+<li>Пономарев, А. (2023). Проблема множественного тестирования на практике: <a href="https://habr.com/ru/articles/772940/">habr.com/ru/articles/772940</a>.</li>
+</ul>
 
 
 </section>

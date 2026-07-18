@@ -214,10 +214,24 @@ window.Quarto = {
     <h2 id="toc-title">Содержание</h2>
    
   <ul>
-  <li><a href="#sim1" id="toc-sim1" class="nav-link active" data-scroll-target="#sim1"><span class="header-section-number">1.1</span> Фундаментальная проблема причинного вывода</a></li>
-  <li><a href="#sim2" id="toc-sim2" class="nav-link" data-scroll-target="#sim2"><span class="header-section-number">1.2</span> Рандомизация и смещение выборки</a></li>
-  <li><a href="#sim4" id="toc-sim4" class="nav-link" data-scroll-target="#sim4"><span class="header-section-number">1.3</span> Нарушение SUTVA: интерференция</a></li>
-  <li><a href="#sim5" id="toc-sim5" class="nav-link" data-scroll-target="#sim5"><span class="header-section-number">1.4</span> Баланс ковариат и размер выборки</a></li>
+  <li><a href="#что-такое-причинный-вывод" id="toc-что-такое-причинный-вывод" class="nav-link active" data-scroll-target="#что-такое-причинный-вывод"><span class="header-section-number">1.1</span> Что такое причинный вывод?</a></li>
+  <li><a href="#sim1" id="toc-sim1" class="nav-link" data-scroll-target="#sim1"><span class="header-section-number">1.2</span> Фундаментальная проблема причинного вывода</a>
+  <ul class="collapse">
+  <li><a href="#средние-эффекты-ate-att-и-atnt" id="toc-средние-эффекты-ate-att-и-atnt" class="nav-link" data-scroll-target="#средние-эффекты-ate-att-и-atnt"><span class="header-section-number">1.2.1</span> Средние эффекты: ATE, ATT и ATnT</a></li>
+  </ul></li>
+  <li><a href="#четыре-предпосылки-внутренней-валидности" id="toc-четыре-предпосылки-внутренней-валидности" class="nav-link" data-scroll-target="#четыре-предпосылки-внутренней-валидности"><span class="header-section-number">1.3</span> Четыре предпосылки внутренней валидности</a>
+  <ul class="collapse">
+  <li><a href="#статистическая-независимость" id="toc-статистическая-независимость" class="nav-link" data-scroll-target="#статистическая-независимость"><span class="header-section-number">1.3.1</span> Статистическая независимость</a></li>
+  </ul></li>
+  <li><a href="#sim2" id="toc-sim2" class="nav-link" data-scroll-target="#sim2"><span class="header-section-number">1.4</span> Рандомизация и смещение выборки</a></li>
+  <li><a href="#sim4" id="toc-sim4" class="nav-link" data-scroll-target="#sim4"><span class="header-section-number">1.5</span> Нарушение SUTVA: интерференция</a></li>
+  <li><a href="#наблюдаемость-и-полное-соблюдение-протокола" id="toc-наблюдаемость-и-полное-соблюдение-протокола" class="nav-link" data-scroll-target="#наблюдаемость-и-полное-соблюдение-протокола"><span class="header-section-number">1.6</span> Наблюдаемость и полное соблюдение протокола</a></li>
+  <li><a href="#sim5" id="toc-sim5" class="nav-link" data-scroll-target="#sim5"><span class="header-section-number">1.7</span> Баланс ковариат и размер выборки</a></li>
+  <li><a href="#виды-валидности" id="toc-виды-валидности" class="nav-link" data-scroll-target="#виды-валидности"><span class="header-section-number">1.8</span> Виды валидности</a></li>
+  <li><a href="#две-главные-экспериментальные-проблемы" id="toc-две-главные-экспериментальные-проблемы" class="nav-link" data-scroll-target="#две-главные-экспериментальные-проблемы"><span class="header-section-number">1.9</span> Две главные экспериментальные проблемы</a></li>
+  <li><a href="#типология-экспериментов-harrisonlist" id="toc-типология-экспериментов-harrisonlist" class="nav-link" data-scroll-target="#типология-экспериментов-harrisonlist"><span class="header-section-number">1.10</span> Типология экспериментов Harrison–List</a></li>
+  <li><a href="#квазиэксперименты-и-естественные-эксперименты" id="toc-квазиэксперименты-и-естественные-эксперименты" class="nav-link" data-scroll-target="#квазиэксперименты-и-естественные-эксперименты"><span class="header-section-number">1.11</span> Квазиэксперименты и естественные эксперименты</a></li>
+  <li><a href="#что-почитать" id="toc-что-почитать" class="nav-link" data-scroll-target="#что-почитать"><span class="header-section-number">1.12</span> Что почитать</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/annastavniychuk/causal_inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Сообщить о проблеме</a></li></ul></div></nav>
     </div>
@@ -243,8 +257,74 @@ window.Quarto = {
 </header>
 
 
-<section id="sim1" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="sim1"><span class="header-section-number">1.1</span> Фундаментальная проблема причинного вывода</h2>
+<section id="что-такое-причинный-вывод" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="что-такое-причинный-вывод"><span class="header-section-number">1.1</span> Что такое причинный вывод?</h2>
+<p>Причинный вывод (causal inference) отвечает на вопросы вида <strong>«что будет, если…?»</strong> (what if): что будет с выручкой фирмы, если она получит субсидию? Что будет со спросом, если поднять цену? Что будет с успеваемостью, если сократить размер класса? Такие вопросы принципиально отличаются от описательных («какова средняя выручка фирм, получивших субсидию?»): они спрашивают не о том, как устроен мир, а о том, как он <em>изменился бы</em> в ответ на вмешательство.</p>
+<p>Любая задача причинного вывода состоит из двух частей:</p>
+<p><span class="math display">\[\text{Причинный вывод} = \text{Идентификация} + \text{Оценка}\]</span></p>
+<ul>
+<li><strong>Идентификация</strong> (identification) — формулирование и обоснование набора допущений, при которых эффект воздействия некоторой переменной имеет причинную интерпретацию. Это вопрос <em>логики</em>, а не данных: даже с бесконечной выборкой без корректных допущений причинный эффект восстановить нельзя.</li>
+<li><strong>Оценка</strong> (estimation) — построение надёжного оценщика для интересующей величины и вычисление точечной оценки по конечной выборке. Это вопрос <em>статистики</em>: как извлечь максимум точности из имеющихся данных.</li>
+</ul>
+<p>С этим разделением связана тройка терминов, которую важно не путать:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Термин</th>
+<th>Что это</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Эстиманд</strong> (estimand)</td>
+<td>Величина, которую мы хотим узнать, <span class="math inline">\(\tau\)</span></td>
+<td>Средний эффект программы на выручку</td>
+</tr>
+<tr class="even">
+<td><strong>Оценщик</strong> (estimator)</td>
+<td>Алгоритм, превращающий данные в число</td>
+<td>Разность средних, МНК (OLS)</td>
+</tr>
+<tr class="odd">
+<td><strong>Оценка</strong> (estimate)</td>
+<td>Число, полученное на конкретной выборке, <span class="math inline">\(\hat\tau\)</span></td>
+<td>«+18.3 тыс. руб.»</td>
+</tr>
+</tbody>
+</table>
+<p>Ошибки в эмпирических работах часто происходят на стыке этих понятий: исследователь аккуратно вычисляет оценку, не задумываясь, какой именно эстиманд его оценщик на самом деле оценивает — и оценивает ли он причинную величину вообще.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Откуда взялся причинный вывод: краткая история
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Философские истоки (XVIII–XIX вв.).</strong> Дэвид Юм заметил, что человек не наблюдает причинные связи непосредственно — лишь последовательности событий (Hume, 1748). Джон Стюарт Милль разработал методы согласия и различия, заложив основы логического анализа причинности (Mill, 1843).</li>
+<li><strong>Статистическая революция (XX в.).</strong> Ежи Нейман предложил концепцию потенциальных исходов — первую строгую количественную модель причинности (Neyman, 1923). Рональд Фишер обосновал рандомизированные контролируемые эксперименты (randomized controlled trials, RCT) как способ устранить систематические смещения (Fisher, 1935).</li>
+<li><strong>Экономика и квазиэксперименты (1970–1986).</strong> Орли Ашенфельтер применил метод разности разностей (difference-in-differences) к оценке программ занятости (Ashenfelter, 1978). Роберт ЛаЛонд показал, что оценки эффекта программы трудоустройства с помощью МНК систематически расходятся с экспериментальными (LaLonde, 1986) — это резко усилило интерес к экспериментальным и квазиэкспериментальным методам.</li>
+<li><strong>Инструментальные переменные и LATE (1990-е).</strong> Джошуа Ангрист использовал лотерею призывных номеров как инструмент для оценки эффекта военной службы на доходы (Angrist, 1990); Гвидо Имбенс и Дональд Рубин формализовали условия, при которых инструментальные переменные оценивают локальный средний эффект воздействия (local average treatment effect, LATE).</li>
+<li><strong>Современный этап.</strong> Сложные экспериментальные дизайны, машинное обучение, доказательная политика (evidence-based policy).</li>
+</ol>
+<p>Этот сдвиг в эмпирической экономике получил название <strong>революции достоверности</strong> (credibility revolution): доля статей NBER с обоснованной причинной идентификацией выросла с 4% в 1990 г. до 28% в 2020 г. (Garg, Fetzer, 2024).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sim1" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sim1"><span class="header-section-number">1.2</span> Фундаментальная проблема причинного вывода</h2>
 <p>Представьте: правительство запускает <strong>программу микрокредитования</strong> для малых предпринимателей в регионе. Исследователи хотят оценить, как участие в программе влияет на выручку бизнеса через год.</p>
 <p>Введем следующие обозначения:</p>
 <ul>
@@ -273,10 +353,30 @@ T_i =
 </div>
 </div>
 </div>
-<p>Это и есть <strong>фундаментальная проблема причинного вывода</strong> (Holland, 1986): нам не хватает ровно половины таблицы — той половины, которую физически невозможно наблюдать.</p>
-<p>Далее сделаем симуляцию нашего гипотетического примера, чтобы увидеть это на практике.</p>
+<p>Это и есть <strong>фундаментальная проблема причинного вывода</strong> (fundamental problem of causal inference; Holland, 1986): невозможно наблюдать одну и ту же единицу в двух состояниях мира одновременно. По сути это <strong>проблема пропущенных данных</strong> (missing data problem) — нам не хватает ровно половины таблицы, причём той половины, которую физически невозможно собрать.</p>
+<p>Из этой формулировки следуют два важных вывода.</p>
+<p>Во-первых, раз индивидуальный эффект <span class="math inline">\(\tau_i\)</span> недоступен, приходится сравнивать <em>разные</em> единицы между собой — и всё качество такого сравнения определяется <strong>механизмом назначения</strong> (assignment mechanism): правилом, по которому одни единицы оказались под воздействием, а другие нет. В контролируемом эксперименте исследователь сам задаёт этот механизм <em>ex ante</em> — и потому точно знает, какие данные наблюдаются, а какие пропущены. Квазиэкспериментальные методы, напротив, пытаются <em>ex post</em> восстановить эндогенный механизм назначения, который исследователь не контролировал.</p>
+<p>Во-вторых, раз распределение индивидуальных эффектов недоступно, будем довольствоваться <strong>средними</strong> величинами.</p>
+<section id="средние-эффекты-ate-att-и-atnt" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="средние-эффекты-ate-att-и-atnt"><span class="header-section-number">1.2.1</span> Средние эффекты: ATE, ATT и ATnT</h3>
+<ul>
+<li><strong>Средний эффект воздействия</strong> (average treatment effect):</li>
+</ul>
+<p><span class="math display">\[\text{ATE} = \mathbb{E}[\tau_i] = \mathbb{E}[Y_{i1} - Y_{i0}] = \mathbb{E}[Y_{i1}] - \mathbb{E}[Y_{i0}]\]</span></p>
+<p>это средняя разница между двумя сценариями по <em>всем</em> наблюдениям.</p>
+<ul>
+<li><strong>Средний эффект для подвергшихся воздействию</strong> (average treatment effect on the treated):</li>
+</ul>
+<p><span class="math display">\[\text{ATT} = \mathbb{E}[\tau_i \mid T_i = 1] = \mathbb{E}[Y_{i1} \mid T_i = 1] - \mathbb{E}[Y_{i0} \mid T_i = 1]\]</span></p>
+<p>та же разница, но только для тех, кто воздействие получил. Обратите внимание: второе слагаемое, <span class="math inline">\(\mathbb{E}[Y_{i0} \mid T_i = 1]\)</span>, — это контрфактический исход участников, «что было бы с ними без программы».</p>
+<ul>
+<li><strong>Средний эффект для не подвергшихся воздействию</strong> (average treatment effect on the non-treated):</li>
+</ul>
+<p><span class="math display">\[\text{ATnT} = \mathbb{E}[\tau_i \mid T_i = 0] = \mathbb{E}[Y_{i1} \mid T_i = 0] - \mathbb{E}[Y_{i0} \mid T_i = 0]\]</span></p>
+<p>Если эффект одинаков для всех, три величины совпадают. Но когда эффект <strong>гетерогенен</strong> и связан с тем, кто попадает в программу (например, в программу идут те, кому она больше помогает), ATE, ATT и ATnT — это три <em>разных</em> числа, и нужно ясно понимать, какое из них оценивает ваш дизайн и какое нужно для вашего вопроса о политике.</p>
+<p>Ни одну из этих величин нельзя вычислить напрямую — в каждой участвует контрфактическое среднее. Далее сделаем симуляцию нашего гипотетического примера, чтобы увидеть фундаментальную проблему на практике.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -285,7 +385,7 @@ T_i =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Симуляция</strong> – это искусственно созданный мир, где мы заранее задаём механизм порождения данных (data generating process) и потому знаем, <strong>каков истинный эффект</strong>.</p>
 <p>Это полезно, когда мы хотим понять <strong>логику и свойства метода</strong>, а не бороться сразу со всеми сложностями реальных данных – то есть мы <strong>“изолируем” от мешающих факторов</strong> то, что хотим изучить.</p>
@@ -311,7 +411,7 @@ T_i =
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -320,7 +420,7 @@ T_i =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>В R существует несколько алгоритмов, позволяющих генерировать случайные числа (Random Number Generator (RNG), подробнее – <code>?RNGkind</code>). По умолчанию используется Mersenne twister (Вихрь Мерсенна), поскольку он работает наиболее быстро. Однако все эти алгоритмы на самом деле детерминированы, поэтому генерируемые ими числа корректнее называть “псевдослучайными”.</p>
 <p>Генератор псевдослучайных чисел начинает свою работу с определенной точки в пространстве возможных чисел. Эту точку принято называть начальным числом или seed. <em>Начальное число</em> – это число (или вектор), используемое для инициализации генератора псевдослучайных чисел. Если вы хотите получить одинаковые результаты с помощью генератора случайных чисел, важно установить начальное число. Для этого в R используется функция <code>set.seed()</code>. По умолчанию начальное число не установлено, если ничего не указать, то создается новое из текущего времени и идентификатора процесса на вашем устройстве. Следовательно, по умолчанию разные сеансы дают разные результаты моделирования.</p>
@@ -433,7 +533,7 @@ T_i =
 <li>Что меняется, если вместо 100 предпринимателей у нас 100 000?</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -442,7 +542,7 @@ T_i =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>1. Почему <code>tau_true</code> в реальном исследовании была бы скрыта?</strong><br>
 Потому что для каждого индивида мы наблюдаем только один из двух потенциальных исходов: либо <span class="math inline">\(Y_{i1}\)</span>, либо <span class="math inline">\(Y_{i0}\)</span>. Второй исход — контрфактический. Следовательно, <span class="math inline">\(\tau_i = Y_{i1}-Y_{i0}\)</span> для отдельного <span class="math inline">\(i\)</span> принципиально ненаблюдаем: нам всегда не хватает одного слагаемого.</p>
@@ -455,8 +555,51 @@ T_i =
 </div>
 <hr>
 </section>
-<section id="sim2" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="sim2"><span class="header-section-number">1.2</span> Рандомизация и смещение выборки</h2>
+</section>
+<section id="четыре-предпосылки-внутренней-валидности" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="четыре-предпосылки-внутренней-валидности"><span class="header-section-number">1.3</span> Четыре предпосылки внутренней валидности</h2>
+<p>Когда разность средних между группами можно интерпретировать как причинный эффект? Ответ даёт набор из четырёх предпосылок — их называют <strong>ограничениями исключения</strong> (exclusion restrictions):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Предпосылка</th>
+<th>Суть</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>SUTVA</strong> (stable unit treatment value assumption)</td>
+<td>Потенциальные исходы единицы не зависят от воздействия на другие единицы; не существует скрытых версий воздействия</td>
+</tr>
+<tr class="even">
+<td><strong>Статистическая независимость</strong> (statistical independence)</td>
+<td>Механизм назначения не зависит от потенциальных исходов — достигается рандомизацией</td>
+</tr>
+<tr class="odd">
+<td><strong>Наблюдаемость</strong> (observability)</td>
+<td>Все участники остаются в исследовании до конца; нет отсева (attrition)</td>
+</tr>
+<tr class="even">
+<td><strong>Полное соблюдение протокола</strong> (compliance)</td>
+<td>Назначенное воздействие совпадает с фактически полученным (<span class="math inline">\(T_i = Z_i\)</span>)</td>
+</tr>
+</tbody>
+</table>
+<p>Только при выполнении <strong>всех четырёх</strong> условий разность средних между группами является <strong>внутренне валидной</strong> (internally valid) оценкой ATE. Разберём предпосылки по очереди; каждой соответствует своя симуляция.</p>
+<section id="статистическая-независимость" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="статистическая-независимость"><span class="header-section-number">1.3.1</span> Статистическая независимость</h3>
+<p>Формально: <span class="math inline">\(\{Y_{i1}, Y_{i0}\} \perp T_i\)</span> — распределение единиц по группам не зависит от их потенциальных исходов. Именно это условие обеспечивает рандомизация (randomization): подбрасывание монетки по построению «не знает» ни способностей предпринимателя, ни его будущей выручки.</p>
+<p>Из независимости следует, что группы сопоставимы <em>до</em> воздействия:</p>
+<p><span class="math display">\[\mathbb{E}[Y_{i0} \mid T_i = 1] - \mathbb{E}[Y_{i0} \mid T_i = 0] = 0,\]</span></p>
+<p>то есть контрольная группа честно отвечает на вопрос «что было бы с участниками без программы». Посмотрим, что происходит, когда это условие нарушается.</p>
+</section>
+</section>
+<section id="sim2" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sim2"><span class="header-section-number">1.4</span> Рандомизация и смещение выборки</h2>
 <p>Продолжим сценарий с микрокредитованием, но теперь сделаем его более реалистичным: в реальном мире предприниматели <strong>сами решают</strong>, подавать ли заявку на кредит. Те, кто активнее, образованнее или уже имеет хорошие показатели — идут охотнее.</p>
 <p>Это порождает <strong>смещение из-за самоотбора (selection bias)</strong>: если мы просто сравним «взявших кредит» и «не взявших», наша оценка будет завышена — не потому что кредит так хорош, а потому что в программу пошли изначально более сильные предприниматели.</p>
 <p>Насколько велика эта проблема и что с ней делает рандомизация?</p>
@@ -467,8 +610,13 @@ T_i =
 + \underbrace{\mathbb{E}[Y_0|T=1] - \mathbb{E}[Y_0|T=0]}_{\text{Selection Bias}}
 + \underbrace{(1-\pi)(ATT-ATnT)}_{\text{гетерогенность}}
 \]</span></p>
-<p>где <span class="math inline">\(\pi\)</span> — доля получивших воздействие, <span class="math inline">\(ATT\)</span> — средний эффект для участников (average treatment effect on the treated), а <span class="math inline">\(ATnT\)</span> — средний эффект для неучастников (average treatment effect on the non-treated).</p>
-<p>Рандомизация обнуляет оба смещения сразу. Вернемся к нашему примеру и убедимся в этом.</p>
+<p>где <span class="math inline">\(\pi\)</span> — доля получивших воздействие, а <span class="math inline">\(ATT\)</span> и <span class="math inline">\(ATnT\)</span> определены выше. Три слагаемых читаются так:</p>
+<ul>
+<li><strong>ATE</strong> — интересующий нас эффект;</li>
+<li><strong>смещение отбора</strong> (selection bias) — группы различались бы, даже если бы воздействия не было вовсе: <span class="math inline">\(\mathbb{E}[Y_0|T{=}1] \neq \mathbb{E}[Y_0|T{=}0]\)</span>;</li>
+<li><strong>смещение из-за гетерогенности эффекта</strong> (heterogeneous treatment effect bias) — сила эффекта различается между участниками и неучастниками, и это различие взвешено на долю контрольной группы <span class="math inline">\((1-\pi)\)</span>.</li>
+</ul>
+<p>Рандомизация обнуляет оба смещения сразу: из независимости <span class="math inline">\(\{Y_1, Y_0\} \perp T\)</span> следует и <span class="math inline">\(\mathbb{E}[Y_0|T{=}1] = \mathbb{E}[Y_0|T{=}0]\)</span> (нет смещения отбора), и <span class="math inline">\(ATT = ATnT\)</span> (нет смещения из-за гетерогенности). Вернемся к нашему примеру и убедимся в этом.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -591,7 +739,7 @@ T_i =
 <li>В каком направлении смещение при самоотборе, если в программу идут <em>самые слабые</em> предприниматели (например, в программу помощи банкротам)?</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -600,7 +748,7 @@ T_i =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>1. Почему при рандомизации дисперсия оценок больше нуля?</strong><br>
 Потому что даже при идеальной рандомизации мы работаем с конечной выборкой. Выборочные средние случайно колеблются вокруг истинного ATE, поэтому оценка остаётся шумной, хотя и несмещённой.</p>
@@ -613,13 +761,46 @@ T_i =
 </div>
 <hr>
 </section>
-<section id="sim4" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="sim4"><span class="header-section-number">1.3</span> Нарушение SUTVA: интерференция</h2>
-<p>SUTVA (Stable Unit Treatment Value Assumption) — одна из ключевых предпосылок для корректной оценки причинного эффекта. Она требует:</p>
+<section id="sim4" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="sim4"><span class="header-section-number">1.5</span> Нарушение SUTVA: интерференция</h2>
+<p><strong>SUTVA</strong> (stable unit treatment value assumption — предположение о стабильности значения воздействия для единицы) — вторая из четырёх предпосылок. Она состоит из двух частей:</p>
 <ol type="1">
-<li><strong>Отсутствие интерференции</strong>: потенциальные исходы одного человека (наблюдения) не зависят от того, кто ещё получил воздействие</li>
-<li><strong>Отсутствие скрытых версий тритмента</strong>: воздействие однородно</li>
+<li><strong>Отсутствие интерференции</strong> (no interference): потенциальные исходы единицы <span class="math inline">\(i\)</span> не зависят от того, какое воздействие назначено другим единицам. Записывая <span class="math inline">\(Y_{i1}\)</span> и <span class="math inline">\(Y_{i0}\)</span>, мы неявно предполагаем, что исход <span class="math inline">\(i\)</span> определяется только её собственным <span class="math inline">\(T_i\)</span> — иначе потенциальных исходов было бы не два, а по одному на каждую комбинацию воздействий во всей выборке.</li>
+<li><strong>Отсутствие скрытых версий воздействия</strong> (no hidden versions of treatment): каждому значению <span class="math inline">\(T_i\)</span> соответствует ровно одна версия воздействия. Если участники «одной и той же» программы фактически получают разные по содержанию и интенсивности услуги, запись <span class="math inline">\(Y_{i1}\)</span> теряет смысл — «единица» воздействия у всех разная.</li>
 </ol>
+<p>Важная особенность SUTVA: её <strong>невозможно проверить статистическими тестами</strong> — в неё можно только верить, а обеспечивается она грамотным дизайном эксперимента.</p>
+<p>Вокруг первой части SUTVA существует целая иерархия терминов, которые часто путают:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Термин</th>
+<th>Уровень</th>
+<th>Суть</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Интерференция</strong> (interference)</td>
+<td>Самый общий</td>
+<td>Сам факт, что исход единицы зависит не только от её собственного воздействия; нарушение части SUTVA «no interference»</td>
+</tr>
+<tr class="even">
+<td><strong>Внешние эффекты воздействия</strong> (spillover effects)</td>
+<td>Частный случай</td>
+<td>Причинный эффект воздействия одних единиц на <em>исходы</em> других; обычно задаётся через соседей, сеть, кластер или долю получивших воздействие вокруг</td>
+</tr>
+<tr class="odd">
+<td><strong>Эффекты окружения</strong> (peer effects)</td>
+<td>Язык социальной литературы</td>
+<td>Тот же класс межъюнитных зависимостей, но с акцентом на социальный канал: одноклассники, коллеги, соседи</td>
+</tr>
+</tbody>
+</table>
 <p>Представьте программу <strong>субсидирования малого бизнеса</strong> в районе города. Случайно выбранные магазины получают субсидию на маркетинг и привлечение клиентов. Но клиентский поток не создаётся из воздуха — он перераспределяется. Если субсидированные магазины переманивают покупателей у соседей-контрольных, то у тех снижается выручка <em>именно из-за программы</em>, а не по собственным причинам.</p>
 <p>Это <strong>spillover-эффект</strong> — прямое нарушение SUTVA. В результате контрольная группа «страдает», эффект как бы перетекает и в нее, уменьшая там зависимую переменную, и тогда наивная оценка <strong>завышает</strong> эффект программы.</p>
 <div class="cell" data-layout-align="center">
@@ -726,7 +907,7 @@ T_i =
 <li>Предложите дизайн эксперимента для оценки программы субсидирования бизнеса, который минимизировал бы нарушение SUTVA.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -735,7 +916,7 @@ T_i =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>1. Где интерференция особенно вероятна?</strong><br>
 Вакцинация и другие меры общественного здоровья; образовательные интервенции с peer effects; программы поддержки фирм на локальных рынках, где treated и control конкурируют за одних и тех же клиентов или работников.</p>
@@ -748,9 +929,29 @@ T_i =
 </div>
 <hr>
 </section>
-<section id="sim5" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="sim5"><span class="header-section-number">1.4</span> Баланс ковариат и размер выборки</h2>
+<section id="наблюдаемость-и-полное-соблюдение-протокола" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="наблюдаемость-и-полное-соблюдение-протокола"><span class="header-section-number">1.6</span> Наблюдаемость и полное соблюдение протокола</h2>
+<p>Оставшиеся две предпосылки внутренней валидности заслуживают отдельного упоминания — их нарушения настолько распространены и коварны, что каждой будет посвящена отдельная глава.</p>
+<p><strong>Наблюдаемость</strong> (observability). Формально: <span class="math inline">\(\Pr(R_i = 1) = 1\)</span> для всех единиц, где <span class="math inline">\(R_i\)</span> — индикатор того, что единица осталась в исследовании и все её данные наблюдаются. Нарушение — <strong>отсев</strong> (attrition): участники выбывают из эксперимента до финального измерения. Если отсев случаен, теряется только точность. Но если он <em>систематически связан с потенциальными исходами</em> (из программы обучения уходят самые слабые; из контрольной группы — самые нетерпеливые), сравнение «доживших до финала» смещено — даже при идеальной рандомизации на старте.</p>
+<p><strong>Полное соблюдение протокола</strong> (compliance). Обозначим <span class="math inline">\(Z_i\)</span> — <em>назначенное</em> воздействие, а <span class="math inline">\(T_i\)</span> — <em>фактически полученное</em>. Предпосылка требует <span class="math inline">\(\Pr(T_i = Z_i) = 1\)</span>. Нарушения бывают:</p>
+<ul>
+<li><strong>односторонние</strong> (one-sided noncompliance): часть назначенных в программу до неё не доходит (<span class="math inline">\(Z_i = 1, T_i = 0\)</span>) — или, наоборот, часть контрольной группы добывает воздействие самостоятельно (<span class="math inline">\(Z_i = 0, T_i = 1\)</span>);</li>
+<li><strong>двусторонние</strong> (two-sided noncompliance): оба типа нарушений одновременно.</li>
+</ul>
+<p>При несоблюдении протокола разность средних по <em>назначению</em> оценивает так называемый <strong>эффект намерения воздействовать</strong> (intention-to-treat effect, ITT) — эффект самого предложения программы, а не её получения. Это осмысленная величина для политики («что даст запуск программы с учётом реального поведения людей»), но она отличается от эффекта фактического воздействия.</p>
+<hr>
+</section>
+<section id="sim5" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="sim5"><span class="header-section-number">1.7</span> Баланс ковариат и размер выборки</h2>
 <p>Одно из ключевых достоинств рандомизированного эксперимента — <strong>балансировка ковариат</strong>: в среднем группы тритмента и контроля должны быть идентичны по всем характеристикам (наблюдаемым и ненаблюдаемым). Именно это позволяет интерпретировать разность в исходах как причинный эффект.</p>
+<p>Проверить, насколько успешно рандомизация уравняла группы по <em>наблюдаемым</em> характеристикам, можно постфактум — эта процедура называется <strong>проверкой баланса ковариат</strong> (covariate balance check). Хороший баланс — это незначимые различия в средних (а шире — в распределениях) ковариат между группами. Проверка бывает <strong>одномерной</strong> (по каждой ковариате отдельно) и <strong>многомерной</strong> (по совместному распределению нескольких ковариат). Стандартный арсенал:</p>
+<ul>
+<li>t-тест Стьюдента (Student’s t-test) — для непрерывных переменных;</li>
+<li>тест на равенство пропорций (test of proportions) — для категориальных;</li>
+<li>тест Колмогорова–Смирнова (Kolmogorov–Smirnov test) — сравнение распределений целиком, а не только средних;</li>
+<li>визуальные методы: гистограммы, графики плотности, квантильные графики (Q–Q plots);</li>
+<li>регрессия воздействия на ковариаты — совместный F-тест отвечает на вопрос, «предсказывают» ли ковариаты попадание в группу.</li>
+</ul>
 <p>Но исследователи-практики часто <strong>тестируют баланс</strong> после рандомизации и расстраиваются, если находят значимые различия.</p>
 <p>Симуляция демонстрирует два важных факта. Во-первых, случайный дисбаланс — нормальное явление, а не признак плохой рандомизации: «значимые» p-values в тестах баланса появляются с частотой <span class="math inline">\(\alpha\)</span> при <strong>любом</strong> размере выборки. Во-вторых, с ростом <span class="math inline">\(N\)</span> уменьшается сама <strong>величина</strong> дисбаланса (разность средних между группами) — именно поэтому большие выборки надёжнее, хотя доля «значимых» тестов баланса с ростом <span class="math inline">\(N\)</span> не падает.</p>
 <div class="cell" data-layout-align="center">
@@ -966,7 +1167,7 @@ T_i =
 <li>Если наблюдается значимый дисбаланс по ненаблюдаемой переменной — можно ли это вообще проверить?</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -975,7 +1176,7 @@ T_i =
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>1. Почему нельзя перезапускать рандомизацию до «красивого баланса»?</strong><br>
 Потому что тогда исследователь начинает подбирать разбиение ex post под желаемый результат. Это ломает честную вероятностную логику рандомизации и приближает дизайн к p-hacking.</p>
@@ -986,6 +1187,187 @@ T_i =
 </div>
 </div>
 </div>
+<hr>
+</section>
+<section id="виды-валидности" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="виды-валидности"><span class="header-section-number">1.8</span> Виды валидности</h2>
+<p>Слово «валидность» до сих пор встречалось в тексте без определения. Пора навести порядок — в методологии различают четыре вида:</p>
+<ul>
+<li><strong>Внутренняя валидность</strong> (internal validity) — уверенность в том, что наблюдаемая связь между воздействием и результатом является <em>причинной</em> именно в данном исследовании. Обеспечивается выполнением четырёх ограничений исключения: SUTVA, статистической независимости, наблюдаемости и полного соблюдения протокола.</li>
+<li><strong>Внешняя валидность</strong> (external validity) — возможность обобщать выводы за пределы экспериментальной выборки, среды и времени: сработает ли программа в другом регионе, через пять лет, на всей популяции?</li>
+<li><strong>Конструктная валидность</strong> (construct validity) — соответствие между теоретическим конструктом и его операционализацией в эксперименте. Если мы измеряем «доверие» вкладами в абстрактной игре, действительно ли мы измеряем доверие?</li>
+<li><strong>Валидность статистических выводов</strong> (statistical conclusion validity) — корректность применяемых статистических процедур: адекватные стандартные ошибки, достаточная мощность, честное обращение с множественными сравнениями (об этом — следующая глава).</li>
+</ul>
+<p>Между внутренней и внешней валидностью существует известное напряжение: жёсткий контроль условий укрепляет первую, но отдаляет эксперимент от реальности, ослабляя вторую. Управление этим компромиссом — центральный сюжет дизайна экспериментов, к которому мы вернёмся в типологии ниже.</p>
+</section>
+<section id="две-главные-экспериментальные-проблемы" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="две-главные-экспериментальные-проблемы"><span class="header-section-number">1.9</span> Две главные экспериментальные проблемы</h2>
+<p>Джон Лист формулирует программу экспериментальной экономики в виде двух больших задач (List, 2025).</p>
+<p><strong>Экспериментальная проблема 1</strong> (Experimental Problem 1, EP1): этически ответственным образом (1) количественно измерять экономические фундаментальные основы (quantifying economic fundamentals) — предпочтения, убеждения, ограничения агентов; (2) измерять эффекты воздействия (measuring treatment effects) — то, что называют «эффектами причин» (effects of causes); и (3) идентифицировать ключевые механизмы — <strong>медиаторы</strong> (mediators, <em>почему</em> работает) и <strong>модераторы</strong> (moderators, <em>для кого</em> работает), то есть «причины эффектов» (causes of effects). Первые две части — территория внутренней валидности; третья — мост к следующей проблеме.</p>
+<p><strong>Экспериментальная проблема 2</strong> (Experimental Problem 2, EP2): прогнозировать, переносится ли причинный эффект из среды эксперимента в другие среды — пространственно, временно́, масштабно и популяционно дифференцированные. Внешняя валидность — частный случай EP2; сама EP2 шире, поскольку включает и <strong>вертикальное масштабирование</strong> (vertical scaling).</p>
+<p>Различают два направления масштабирования:</p>
+<ul>
+<li><strong>горизонтальное</strong> (horizontal scaling) — перенос эффекта в другую популяцию: «программа сработала в Теннесси — сработает ли в Лондоне?»;</li>
+<li><strong>вертикальное</strong> (vertical scaling) — увеличение масштаба реализации в той же популяции: «программа сработала в одной школе — сработает ли в тысяче школ?»</li>
+</ul>
+<p>Игнорирование EP2 порождает <strong>эффект напряжения</strong> (voltage effect): многообещающие пилотные результаты не воспроизводятся при масштабировании — из-за гетерогенности эффектов, изменения качества реализации, сдвига стимулов участников. Рецепт Листа — <strong>обратная индукция</strong> (backward induction): проектировать эксперимент, отталкиваясь от целевой среды внедрения, а не от удобства пилота. EP1 и EP2 связаны напрямую: понимание медиаторов и модераторов — главный источник информации для прогноза переносимости эффекта.</p>
+</section>
+<section id="типология-экспериментов-harrisonlist" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="типология-экспериментов-harrisonlist"><span class="header-section-number">1.10</span> Типология экспериментов Harrison–List</h2>
+<p>Классификация экспериментов (Harrison, List, 2004) строится на четырёх бинарных признаках:</p>
+<ul>
+<li><span class="math inline">\(S\)</span> — <strong>тип популяции</strong> (population): <span class="math inline">\(S = 0\)</span> — стандартная «удобная» выборка (обычно студенты); <span class="math inline">\(S = 1\)</span> — целевая популяция, о которой мы хотим делать выводы (фермеры, предприниматели, чиновники). Поведение студентов может систематически отличаться от поведения целевой группы.</li>
+<li><span class="math inline">\(E\)</span> — <strong>среда</strong> (environment): <span class="math inline">\(E = 0\)</span> — искусственная лабораторная среда с навязанными правилами и абстрактными товарами; <span class="math inline">\(E = 1\)</span> — естественная среда, привычная обстановка и реальные блага. Искусственность среды угрожает конструктной валидности.</li>
+<li><span class="math inline">\(A\)</span> — <strong>осведомлённость</strong> (awareness): <span class="math inline">\(A = 1\)</span> — участники знают, что участвуют в эксперименте; <span class="math inline">\(A = 0\)</span> — не знают. Осведомлённость порождает поведенческие артефакты: <strong>эффект Хоторна</strong> (Hawthorne effect — изменение поведения из-за наблюдения), <strong>эффект Джона Генри</strong> (John Henry effect — контрольная группа «старается» доказать, что не хуже) и др.</li>
+<li><span class="math inline">\(P\)</span> — <strong>участие</strong> (participation): <span class="math inline">\(P = 1\)</span> — в выборке только те, кто добровольно согласился участвовать. Если эффект у согласившихся отличается от эффекта у отказавшихся, возникает <strong>смещение участия</strong> (participation / randomization bias).</li>
+</ul>
+<p>Комбинации признаков задают четыре канонических типа:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Тип</th>
+<th><span class="math inline">\(S\)</span></th>
+<th><span class="math inline">\(E\)</span></th>
+<th><span class="math inline">\(A\)</span></th>
+<th><span class="math inline">\(P\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Лабораторный</strong> (laboratory experiment)</td>
+<td>0 (студенты)</td>
+<td>0 (искусств.)</td>
+<td>1 (знают)</td>
+<td>1 (самоотбор)</td>
+</tr>
+<tr class="even">
+<td><strong>Искусственный полевой</strong> (artefactual field experiment, AFE), он же lab-in-the-field</td>
+<td>1 (целевая)</td>
+<td>0 (искусств.)</td>
+<td>1 (знают)</td>
+<td>1 (самоотбор)</td>
+</tr>
+<tr class="odd">
+<td><strong>Фреймовый полевой</strong> (framed field experiment, FFE)</td>
+<td>1 (целевая)</td>
+<td>1 (естеств.)</td>
+<td>1 (знают)</td>
+<td>1 (самоотбор)</td>
+</tr>
+<tr class="even">
+<td><strong>Естественный полевой</strong> (natural field experiment, NFE)</td>
+<td>1 (целевая)</td>
+<td>1 (естеств.)</td>
+<td>0 (не знают)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Каждый тип оценивает <em>свой</em> эстиманд — условное среднее эффекта при данной комбинации признаков:</p>
+<p><span class="math display">\[\tau^{\text{lab}} = \mathbb{E}[\tau_i \mid S{=}0, E{=}0, A{=}1, P{=}1], \qquad \tau^{\text{NFE}} = \mathbb{E}[\tau_i \mid S{=}1, E{=}1, A{=}0] = \tau.\]</span></p>
+<p>В NFE нет стадии явного набора — в выборку автоматически попадают все, кто находится в естественном потоке, поэтому признак <span class="math inline">\(P\)</span> для него не определён. Именно поэтому <strong>только NFE (при репрезентативной выборке) оценивает истинный популяционный ATE</strong>: в нём целевая популяция, естественная среда, нет артефактов осведомлённости и нет смещения участия.</p>
+<p>Сводное сравнение:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Критерий</th>
+<th>Лаб.</th>
+<th>AFE</th>
+<th>FFE</th>
+<th>NFE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Контроль назначения</td>
+<td>Полный</td>
+<td>Полный</td>
+<td>Полный</td>
+<td>Полный</td>
+</tr>
+<tr class="even">
+<td>Внутренняя валидность</td>
+<td>Высокая</td>
+<td>Высокая</td>
+<td>Средняя</td>
+<td>Ниже</td>
+</tr>
+<tr class="odd">
+<td>Воспроизводимость</td>
+<td>Высокая</td>
+<td>Высокая</td>
+<td>Средняя</td>
+<td>Низкая</td>
+</tr>
+<tr class="even">
+<td>Внешняя валидность</td>
+<td>Низкая</td>
+<td>Средняя</td>
+<td>Высокая</td>
+<td>Очень высокая</td>
+</tr>
+<tr class="odd">
+<td>Стоимость на участника</td>
+<td>Низкая</td>
+<td>Средняя</td>
+<td>Средняя/выс.</td>
+<td>Разная*</td>
+</tr>
+</tbody>
+</table>
+<p>* при партнёрстве с организацией NFE может быть почти бесплатным.</p>
+<p>Двигаясь по спектру «лаборатория → AFE → FFE → NFE → чистое наблюдение», мы <strong>обмениваем контроль на реализм</strong>: контроль над SUTVA, наблюдаемостью и соблюдением протокола максимален в лаборатории, а естественность поведения — в поле. Отсюда типичная траектория исследовательской программы: дешёвая лабораторная «аэродинамическая труба» (low-cost wind tunnel) для проверки теории → FFE для граничных условий → NFE для масштабирования. Все четыре типа комплементарны.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Самопроверка: определите тип эксперимента
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1.</strong> Студенты экономического факультета приходят в компьютерный класс, получают инструкции с абстрактными токенами и играют в игру на общественное благо; выплаты выдаются наличными в конце сессии.</p>
+<p><em>Ответ:</em> лабораторный эксперимент — <span class="math inline">\(S\)</span>: студенты; <span class="math inline">\(E\)</span>: искусственная среда; <span class="math inline">\(A\)</span>: знают об участии; <span class="math inline">\(P\)</span>: самоотбор записавшихся.</p>
+<p><strong>2.</strong> Та же игра на общественное благо, но команда исследователей приезжает в сельскую местность, и участники — реальные фермеры; инструкции остаются абстрактными (жетоны, множители).</p>
+<p><em>Ответ:</em> искусственный полевой эксперимент (AFE) — популяция целевая (<span class="math inline">\(S{=}1\)</span>), но среда и задача по-прежнему лабораторные.</p>
+<p><strong>3.</strong> Онлайн-платформа для фрилансеров случайно рассылает части пользователей письмо о снижении комиссии; фрилансеры не знают об исследовании, платформа измеряет их активность.</p>
+<p><em>Ответ:</em> естественный полевой эксперимент (NFE) — целевая популяция, естественная среда, <span class="math inline">\(A = 0\)</span>, без стадии набора.</p>
+<p><strong>4.</strong> Правительство вводит субсидию на найм молодёжи только в регионах с молодёжной безработицей выше 15%; исследователь сравнивает регионы чуть выше и чуть ниже порога.</p>
+<p><em>Ответ:</em> это уже не эксперимент, а квазиэксперимент (дизайн разрывной регрессии, regression discontinuity design): назначение не случайно, но порог создаёт квази-экзогенную вариацию около границы.</p>
+<p><strong>5.</strong> В городе мест в детских садах меньше, чем заявок, и места распределяются лотереей; исследователь сравнивает «выигравших» и «проигравших».</p>
+<p><em>Ответ:</em> естественный эксперимент — механизм назначения (лотерея) фактически случаен (as-if random), но создан не исследователем; он лишь использует его.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="квазиэксперименты-и-естественные-эксперименты" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="квазиэксперименты-и-естественные-эксперименты"><span class="header-section-number">1.11</span> Квазиэксперименты и естественные эксперименты</h2>
+<p>За пределами «настоящих» экспериментов, где исследователь контролирует механизм назначения, лежит большой мир наблюдательных дизайнов.</p>
+<p><strong>Квазиэксперимент</strong> (quasi-experiment): назначение воздействия задано политикой, институтами или поведением агентов — явно не случайно, но в нём есть структурная особенность, которую можно использовать для идентификации: различный тайминг реформ (метод разности разностей, difference-in-differences), пороговые правила доступа (разрывная регрессия, regression discontinuity design), переменные, влияющие на воздействие, но не на исход напрямую (инструментальные переменные, instrumental variables). Причинность здесь обосновывается через модельные допущения — параллельные тренды, непрерывность, экзогенность инструмента.</p>
+<p><strong>Естественный эксперимент</strong> (natural experiment) — частный случай квазиэксперимента, в котором механизм назначения можно считать <em>фактически случайным</em> (as-if random): лотереи распределения мест и грантов, административные правила очерёдности, «природные» шоки, разрезающие выборку почти случайно. Механизм назначения известен и близок к рандомизации, поэтому внутренняя валидность выше, чем у квазиэкспериментов в целом, — но всё же ниже, чем у спроектированного RCT.</p>
+<p>Итоговая эмпирическая дилемма выглядит так. Если возможен эксперимент (<span class="math inline">\(T \perp (Y_0, Y_1, X)\)</span>) — сравниваем средние и вкладываемся в <em>дизайн до</em> сбора данных: контроль, кластеризацию, стратификацию, снижение дисперсии. Если эксперимент невозможен — вся работа переносится на <em>анализ после</em>: нужно разбираться, как устроен процесс порождения данных (data generating process) и правило назначения воздействия, и подбирать квазиэкспериментальную стратегию идентификации.</p>
+</section>
+<section id="что-почитать" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="что-почитать"><span class="header-section-number">1.12</span> Что почитать</h2>
+<ul>
+<li>List, J. A. (2025). <em>Experimental Economics: Theory and Practice</em>. University of Chicago Press. — гл. 1–3 (введение, устройство экономических экспериментов, внутренняя валидность).</li>
+<li>Cunningham, S. (2021). <em>Causal Inference: The Mixtape</em>. Yale University Press. — гл. 4 (Potential Outcomes Causal Model): <a href="https://mixtape.scunning.com">mixtape.scunning.com</a>.</li>
+<li>Huntington-Klein, N. (2021). <em>The Effect: An Introduction to Research Design and Causality</em>: <a href="https://theeffectbook.net">theeffectbook.net</a>.</li>
+<li>Facure, M. <em>Causal Inference for the Brave and True</em>. — гл. 1 (Introduction to Causality).</li>
+<li>Neal, B. (2020). <em>Introduction to Causal Inference</em>. — гл. 1–2 (Motivation, Potential Outcomes).</li>
+<li>Harrison, G. W., &amp; List, J. A. (2004). Field Experiments. <em>Journal of Economic Literature</em>, 42(4), 1009–1055.</li>
+<li>Holland, P. W. (1986). Statistics and Causal Inference. <em>JASA</em>, 81(396), 945–960.</li>
+</ul>
 <hr>
 
 
