@@ -213,7 +213,11 @@ window.Quarto = {
   <ul>
   <li><a href="#sim1" id="toc-sim1" class="nav-link active" data-scroll-target="#sim1"><span class="header-section-number">4.1</span> Baseline + posttest: насколько pretest снижает SE</a></li>
   <li><a href="#sim2" id="toc-sim2" class="nav-link" data-scroll-target="#sim2"><span class="header-section-number">4.2</span> Fadeout: динамика эффекта во времени</a></li>
-  <li><a href="#sim3" id="toc-sim3" class="nav-link" data-scroll-target="#sim3"><span class="header-section-number">4.3</span> ESC: Endogenous Stratification Catastrophe</a></li>
+  <li><a href="#sim3" id="toc-sim3" class="nav-link" data-scroll-target="#sim3"><span class="header-section-number">4.3</span> ESC: Endogenous Stratification Catastrophe</a>
+  <ul class="collapse">
+  <li><a href="#ловушка-1-грубая-приросты-по-базовым-группам" id="toc-ловушка-1-грубая-приросты-по-базовым-группам" class="nav-link" data-scroll-target="#ловушка-1-грубая-приросты-по-базовым-группам"><span class="header-section-number">4.3.1</span> Ловушка 1 (грубая): приросты по базовым группам</a></li>
+  <li><a href="#ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification" id="toc-ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification" class="nav-link" data-scroll-target="#ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification"><span class="header-section-number">4.3.2</span> Ловушка 2 (тонкая): страты по предсказанному <span class="math inline">\(\hat Y(0)\)</span> — endogenous stratification</a></li>
+  </ul></li>
   <li><a href="#sim4" id="toc-sim4" class="nav-link" data-scroll-target="#sim4"><span class="header-section-number">4.4</span> Within-subject дизайн: каждый — сам себе контроль</a></li>
   <li><a href="#sim5" id="toc-sim5" class="nav-link" data-scroll-target="#sim5"><span class="header-section-number">4.5</span> Идиосинкратическая гетерогенность: что значит «<span class="math inline">\(\text{Cov}[Y(0), Y(1)]\)</span> не идентифицируется»</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">4.6</span> Итоговая таблица: что какой дизайн идентифицирует</a></li>
@@ -255,7 +259,7 @@ window.Quarto = {
 <li><strong>Baseline + posttest</strong>: насколько pretest снижает <span class="math inline">\(\text{SE}(\hat\tau)\)</span> через ANCOVA по сравнению с разностью средних.</li>
 <li><strong>Change score vs ANCOVA</strong>: когда лучше работает разность <span class="math inline">\(\Delta Y\)</span>, а когда — регрессия с pretest как контролем.</li>
 <li><strong>Fadeout</strong>: эффект может расти, стабилизироваться или затухать — что увидит one-shot и что — продольный дизайн.</li>
-<li><strong>Endogenous Stratification Cuckoo (ESC)</strong>: классическая ловушка при оценке гетерогенности по pretest.</li>
+<li><strong>Endogenous Stratification Catastrophe (ESC)</strong>: классическая ловушка при оценке гетерогенности по базовому уровню.</li>
 <li><strong>Within-subject дизайн</strong>: как один и тот же субъект, проходящий через <span class="math inline">\(D=0\)</span> и <span class="math inline">\(D=1\)</span>, идентифицирует <span class="math inline">\(\tau_i\)</span>.</li>
 <li><strong>Идиосинкратическая гетерогенность</strong>: что значит «совместное распределение <span class="math inline">\((Y(0), Y(1))\)</span> не идентифицируется» в one-shot — и как within-subject это решает.</li>
 </ol>
@@ -265,7 +269,7 @@ window.Quarto = {
 <hr>
 <section id="sim1" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="sim1"><span class="header-section-number">4.1</span> Baseline + posttest: насколько pretest снижает SE</h2>
-<p>Вспомним постановку с микрокредитованием. Теперь у нас есть <strong>два измерения выручки</strong>: <span class="math inline">\(Y_{i,\text{pre}}\)</span> (до программы) и <span class="math inline">\(Y_{i,\text{post}}\)</span> (через год после). Лечение <span class="math inline">\(D_i\)</span> назначается случайно, но между периодами.</p>
+<p>Вспомним постановку с микрокредитованием. Теперь у нас есть <strong>два измерения выручки</strong>: <span class="math inline">\(Y_{i,\text{pre}}\)</span> (до программы) и <span class="math inline">\(Y_{i,\text{post}}\)</span> (через год после). Лечение <span class="math inline">\(D_i\)</span> назначается случайно в промежутке между двумя измерениями.</p>
 <p>Ключевая нотационная тонкость: <span class="math inline">\(Y_{i,\text{pre}}\)</span> — это <em>реальное измерение</em> до лечения (наблюдается для всех), а <span class="math inline">\(Y_i(0)\)</span> — это <em>потенциальный исход в пост-периоде без лечения</em> (контрфактуальный для тех, кого лечили). Связь между ними — допущение, а не тождество.</p>
 <p>Простейшая оценка эффекта без pretest — <strong>разность средних</strong> (difference-in-means, DiM):</p>
 <p><span class="math display">\[\hat\tau_{\text{DiM}} = \bar Y_{\text{post}}\mid D{=}1 \;-\; \bar Y_{\text{post}}\mid D{=}0.\]</span></p>
@@ -274,7 +278,7 @@ window.Quarto = {
 <li><strong>Change score</strong> (разность «после минус до»): <span class="math inline">\(\hat\tau_{\Delta} = \overline{\Delta Y}\mid D{=}1 - \overline{\Delta Y}\mid D{=}0\)</span>, где <span class="math inline">\(\Delta Y_i = Y_{i,\text{post}} - Y_{i,\text{pre}}\)</span>.</li>
 <li><strong>ANCOVA</strong> (analysis of covariance): регрессия <span class="math inline">\(Y_{i,\text{post}} = \alpha + \tau D_i + \beta Y_{i,\text{pre}} + \varepsilon_i\)</span>.</li>
 </ul>
-<p>Теоретически, при идеальной рандомизации ANCOVA даёт <span class="math inline">\(\text{SE}(\hat\tau)\)</span> в <span class="math inline">\(\sqrt{1-\rho^2}\)</span> раз меньше, чем DiM, где <span class="math inline">\(\rho = \text{Cor}(Y_{\text{pre}}, Y_{\text{post}})\)</span>. Проверим это симуляцией.</p>
+<p>Теоретически, при идеальной рандомизации <span class="math inline">\(\text{SE}(\hat\tau)\)</span> у ANCOVA составляет долю <span class="math inline">\(\sqrt{1-\rho^2}\)</span> от SE разности средних, где <span class="math inline">\(\rho = \text{Cor}(Y_{\text{pre}}, Y_{\text{post}})\)</span>. Проверим это симуляцией.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Функция: один прогон симуляции</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># rho — корреляция между pretest и posttest (через общий «уровень» alpha_i)</span></span>
@@ -396,7 +400,7 @@ window.Quarto = {
 <ul>
 <li>DiM игнорирует pretest и имеет наибольшую SE.</li>
 <li>Change score (разность <span class="math inline">\(\Delta Y\)</span>) использует pretest, но <strong>жёстко</strong> — предполагает <span class="math inline">\(\beta = 1\)</span>.</li>
-<li>ANCOVA оценивает <span class="math inline">\(\beta\)</span> из данных и при <span class="math inline">\(\rho^2 \approx 0.64\)</span> даёт SE примерно в <span class="math inline">\(\sqrt{1-0.64} \approx 0.6\)</span> раз меньше DiM — эффективно как удвоить выборку.</li>
+<li>ANCOVA оценивает <span class="math inline">\(\beta\)</span> из данных, и при <span class="math inline">\(\rho^2 = 0.64\)</span> её SE составляет <span class="math inline">\(\sqrt{1-0.64} = 0.6\)</span> от SE DiM — по точности это как увеличить выборку почти втрое (<span class="math inline">\(1/0.36 \approx 2.8\)</span>).</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -411,7 +415,7 @@ window.Quarto = {
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>ANCOVA</strong> оптимальна, когда <span class="math inline">\(\beta &lt; 1\)</span> — то есть pretest несовершенно предсказывает post (mean reversion). Это типичный случай в эконометрике: способности, доходы, веса колеблются вокруг своего «уровня».</p>
-<p><strong>Change score</strong> оптимален, когда <span class="math inline">\(\beta = 1\)</span> ровно — то есть pretest почти идеально предсказывает post (например, индивидуальный фиксированный эффект без mean reversion). Тогда <span class="math inline">\(\Delta Y\)</span> полностью убирает <span class="math inline">\(\alpha_i\)</span>.</p>
+<p><strong>Change score</strong> оптимален, когда <span class="math inline">\(\beta = 1\)</span> ровно — то есть post следует за pretest один к одному (индивидуальный фиксированный эффект без mean reversion). Тогда <span class="math inline">\(\Delta Y\)</span> полностью убирает <span class="math inline">\(\alpha_i\)</span>.</p>
 <p>На практике почти всегда <span class="math inline">\(\beta &lt; 1\)</span>, поэтому ANCOVA — стандарт. Но если вы боитесь, что pretest и допущение об отсутствии тренда плохо стыкуются, change score может быть более робастной.</p>
 <p>См. McKenzie (2012) «Beyond baseline and follow-up» — там подробно про выбор.</p>
 </div>
@@ -435,7 +439,7 @@ window.Quarto = {
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>1. ANCOVA при</strong> <span class="math inline">\(\rho = 0\)</span> и <span class="math inline">\(\rho = 1\)</span>. При <span class="math inline">\(\rho = 0\)</span> pretest не несёт информации о post, и ANCOVA вырождается в DiM (выигрыша по SE нет, но и потерь тоже). При <span class="math inline">\(\rho = 1\)</span> ANCOVA становится точной до случайной ошибки выборки — SE стремится к нулю быстрее, чем у DiM.</p>
+<p><strong>1. ANCOVA при</strong> <span class="math inline">\(\rho = 0\)</span> и <span class="math inline">\(\rho = 1\)</span>. При <span class="math inline">\(\rho = 0\)</span> pretest не несёт информации о post, и ANCOVA вырождается в DiM (выигрыша по SE нет, но и потерь тоже). При <span class="math inline">\(\rho = 1\)</span> остаточная дисперсия исчезает, и <span class="math inline">\(\text{SE}(\hat\tau)\)</span> у ANCOVA обращается в ноль при любом фиксированном <span class="math inline">\(N\)</span> — тогда как у DiM она остаётся положительной.</p>
 <p><strong>2. Несмещённость ANCOVA при нелинейности.</strong> При рандомизации <span class="math inline">\(D_i \perp\!\!\!\perp Y_{i,\text{pre}}\)</span>, поэтому коэффициент при <span class="math inline">\(D_i\)</span> оценивается <em>без</em> предположения о форме связи <span class="math inline">\(Y_{\text{pre}} \to Y_{\text{post}}\)</span>. Линейность нужна только для эффективности, не для несмещённости.</p>
 <p><strong>3. Сильный тренд.</strong> DiM остаётся несмещённой (тренд бьёт по обоим группам одинаково при рандомизации). Change score тоже не страдает — тренд вычитается. ANCOVA также робастна: тренд уходит в константу <span class="math inline">\(\alpha\)</span>, не в <span class="math inline">\(\tau\)</span>.</p>
 </div>
@@ -466,7 +470,7 @@ window.Quarto = {
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    decay_type,</span>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">constant =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">rep</span>(<span class="dv">20</span>, <span class="dv">8</span>)),</span>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">fadeout  =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span> <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.3</span> <span class="sc">*</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span> <span class="sc">-</span> <span class="dv">1</span>))),</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">growing  =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.4</span> <span class="sc">*</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span> <span class="sc">-</span> <span class="dv">1</span>))) <span class="sc">+</span> <span class="dv">5</span> <span class="sc">*</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span> <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">8</span> <span class="sc">*</span> <span class="dv">10</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">growing  =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span> <span class="sc">+</span> <span class="dv">15</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.4</span> <span class="sc">*</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span> <span class="sc">-</span> <span class="dv">1</span>))))</span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Y_{i,t} = alpha_i + tau_t * D_i + epsilon</span></span>
@@ -567,8 +571,8 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">growing</td>
-<td style="text-align: right;">0.3</td>
-<td style="text-align: right;">62.2</td>
+<td style="text-align: right;">20.3</td>
+<td style="text-align: right;">33.8</td>
 </tr>
 </tbody>
 </table>
@@ -578,7 +582,7 @@ window.Quarto = {
 <ul>
 <li><em>Constant</em>: эффект всё ещё +20 (программа закрепилась).</li>
 <li><em>Fadeout</em>: эффект упал до +1–3 (программа не оставила следа).</li>
-<li><em>Growing</em>: эффект вырос до +35 (программа дала отложенный эффект).</li>
+<li><em>Growing</em>: эффект вырос до ≈ +34 (программа дала отложенный эффект).</li>
 </ul>
 <p>Без панельных измерений мы не можем отличить эти миры — а они требуют <strong>совершенно разной политики</strong>. Это и есть один из ответов на вопрос «зачем нам ось <span class="math inline">\(Y\)</span>» из лекции.</p>
 <p><strong>Вопросы для размышления:</strong></p>
@@ -610,17 +614,20 @@ window.Quarto = {
 <section id="sim3" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="sim3"><span class="header-section-number">4.3</span> ESC: Endogenous Stratification Catastrophe</h2>
 <p>Когда у нас есть pretest, возникает большой соблазн оценить <strong>гетерогенность эффекта по pretest</strong>: «помогла ли программа сильнее тем, у кого изначально низкая выручка?» Это содержательно важный вопрос для дизайна политики (targeting).</p>
-<p>Наивный подход: разделить выборку по терцилям <span class="math inline">\(Y_{\text{pre}}\)</span> и сравнить эффект в нижнем терциле vs верхнем. Но здесь скрывается ловушка, известная как <strong>endogenous stratification</strong> (Abadie, Chingos &amp; West, 2018): из-за регрессии к среднему (mean reversion) нижний терциль <em>по построению</em> покажет завышенный эффект, а верхний — заниженный, даже если истинный эффект <strong>одинаков для всех</strong>.</p>
+<p>Здесь прячутся сразу две ловушки — одна грубая и одна тонкая.</p>
+<section id="ловушка-1-грубая-приросты-по-базовым-группам" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="ловушка-1-грубая-приросты-по-базовым-группам"><span class="header-section-number">4.3.1</span> Ловушка 1 (грубая): приросты по базовым группам</h3>
+<p>Наивный практик смотрит на <strong>приросты</strong> <span class="math inline">\(Y_{\text{post}} - Y_{\text{pre}}\)</span> по терцилям pretest в группе тритмента: «у слабых прирост огромный, у сильных — почти нулевой, значит, программа помогает отстающим!»</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">5000</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Истинная модель: эффект одинаков для всех (+20),</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># pretest = alpha_i + шум_1, posttest = alpha_i + tau*D + шум_2</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Шум независим — поэтому низкий Y_pre частично отражает «плохой» alpha_i,</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># а частично — отрицательный шок шум_1.</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Те, у кого был отриц. шок в pre, в post получат шок около нуля</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># (регрессия к среднему) — это и подделается под «эффект»</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># pretest = alpha_i + шум_1, posttest = alpha_i + tau*D + шум_2.</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Шумы независимы — поэтому низкий Y_pre частично отражает «слабый» alpha_i,</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># а частично — случайный отрицательный шок в pre-периоде.</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># В post-периоде этот шок «обнуляется» (регрессия к среднему) —</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># и прирост маскируется под «большой эффект».</span></span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>alpha_i <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>D_i     <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
@@ -639,102 +646,190 @@ window.Quarto = {
 <span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Наивная оценка эффекта внутри каждого терциля pretest</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>esc_naive <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(терциль, D_i) <span class="sc">%&gt;%</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_post =</span> <span class="fu">mean</span>(Y_post), <span class="at">.groups =</span> <span class="st">"drop_last"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">`</span><span class="at">tau (наив.)</span><span class="st">`</span> <span class="ot">=</span> mean_post[D_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_post[D_i <span class="sc">==</span> <span class="dv">0</span>],</span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>gains <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(Группа <span class="ot">=</span> <span class="fu">if_else</span>(D_i <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Тритмент"</span>, <span class="st">"Контроль"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(терциль, Группа) <span class="sc">%&gt;%</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">`</span><span class="at">Средний прирост</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(Y_post <span class="sc">-</span> Y_pre), <span class="dv">1</span>),</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Группа, <span class="at">values_from =</span> <span class="st">`</span><span class="at">Средний прирост</span><span class="st">`</span>)</span>
 <span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Поправка через leave-out: для каждой единицы определяем терциль</span></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co"># по Y_pre, но регрессия для предсказания строится без него.</span></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Делаем split-sample: половина выборки используется для определения "типа",</span></span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co"># вторая — для оценки эффекта внутри типа.</span></span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>split_id <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="at">length.out =</span> N))</span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Шаг 1: на части A регрессируем Y_post(D=0) на Y_pre,</span></span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="co"># чтобы понять «нормальный» уровень post для каждого pretest</span></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>fit_A <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y_post <span class="sc">~</span> Y_pre, <span class="at">data =</span> dat[split_id <span class="sc">==</span> <span class="st">"A"</span> <span class="sc">&amp;</span> dat<span class="sc">$</span>D_i <span class="sc">==</span> <span class="dv">0</span>, ])</span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Шаг 2: на части B используем предсказания, чтобы построить «честные» терцили</span></span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="co"># по ожидаемому Y_post(D=0), а не по сырому Y_pre</span></span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>predicted_B <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_A, <span class="at">newdata =</span> dat[split_id <span class="sc">==</span> <span class="st">"B"</span>, ])</span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>dat_B <span class="ot">&lt;-</span> dat[split_id <span class="sc">==</span> <span class="st">"B"</span>, ] <span class="sc">%&gt;%</span></span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">pred  =</span> predicted_B,</span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>    терциль_честный <span class="ot">=</span> <span class="fu">cut</span>(</span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>      pred,</span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>      <span class="at">breaks =</span> <span class="fu">quantile</span>(pred, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span>)),</span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>      <span class="at">include.lowest =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Нижний"</span>, <span class="st">"Средний"</span>, <span class="st">"Верхний"</span>)</span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>esc_honest <span class="ot">&lt;-</span> dat_B <span class="sc">%&gt;%</span></span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(терциль_честный, D_i) <span class="sc">%&gt;%</span></span>
-<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_post =</span> <span class="fu">mean</span>(Y_post), <span class="at">.groups =</span> <span class="st">"drop_last"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">`</span><span class="at">tau (поправл.)</span><span class="st">`</span> <span class="ot">=</span> mean_post[D_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_post[D_i <span class="sc">==</span> <span class="dv">0</span>],</span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
-<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>comparison_esc <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>  Терциль <span class="ot">=</span> esc_naive<span class="sc">$</span>терциль,</span>
-<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Наивный split по Y_pre</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(esc_naive<span class="sc">$</span><span class="st">`</span><span class="at">tau (наив.)</span><span class="st">`</span>, <span class="dv">1</span>),</span>
-<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Split по предсказанию (honest)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(esc_honest<span class="sc">$</span><span class="st">`</span><span class="at">tau (поправл.)</span><span class="st">`</span>, <span class="dv">1</span>)</span>
-<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>  comparison_esc,</span>
-<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"ESC: наивное разбиение по pretest создаёт фиктивную гетерогенность. Истинный эффект = 20 во всех терцилях."</span></span>
-<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>  gains,</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Средний прирост Y_post − Y_pre по терцилям pretest. Истинный эффект = 20 во всех терцилях."</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<caption>ESC: наивное разбиение по pretest создаёт фиктивную гетерогенность. Истинный эффект = 20 во всех терцилях.</caption>
+<caption>Средний прирост Y_post − Y_pre по терцилям pretest. Истинный эффект = 20 во всех терцилях.</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Терциль</th>
-<th style="text-align: right;">Наивный split по Y_pre</th>
-<th style="text-align: right;">Split по предсказанию (honest)</th>
+<th style="text-align: left;">терциль</th>
+<th style="text-align: right;">Контроль</th>
+<th style="text-align: right;">Тритмент</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Нижний</td>
+<td style="text-align: right;">15.1</td>
+<td style="text-align: right;">32.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Средний</td>
+<td style="text-align: right;">-0.9</td>
+<td style="text-align: right;">20.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Верхний</td>
+<td style="text-align: right;">-14.1</td>
+<td style="text-align: right;">6.7</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>В группе тритмента приросты действительно кричат о «помощи отстающим»: ≈ +33 в нижнем терциле против ≈ +7 в верхнем. Но посмотрите на контрольную группу: тот же градиент (≈ +15 внизу против ≈ −14 наверху) — <strong>безо всякой программы</strong>. Это чистая <em>регрессия к среднему</em>: в нижний терциль по <span class="math inline">\(Y_{\text{pre}}\)</span> попали в том числе те, кому в pre-периоде просто не повезло со случайным шоком; в post-периоде шок «обнулился», и их значения подросли сами собой.</p>
+<p>Лечится эта ловушка просто: внутри каждого терциля сравниваем <strong>тритмент с контролем</strong> — реверсия одинаково сидит в обоих плечах и сокращается:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>esc_by_arm <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(терциль, D_i) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_post =</span> <span class="fu">mean</span>(Y_post), <span class="at">.groups =</span> <span class="st">"drop_last"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="st">`</span><span class="at">tau (тритмент − контроль)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    mean_post[D_i <span class="sc">==</span> <span class="dv">1</span>] <span class="sc">-</span> mean_post[D_i <span class="sc">==</span> <span class="dv">0</span>], <span class="dv">1</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  esc_by_arm,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Разность тритмент − контроль внутри терцилей pretest: эффект ≈ 20 везде."</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Разность тритмент − контроль внутри терцилей pretest: эффект ≈ 20 везде.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">терциль</th>
+<th style="text-align: right;">tau (тритмент − контроль)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Нижний</td>
 <td style="text-align: right;">17.2</td>
-<td style="text-align: right;">17.1</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Средний</td>
 <td style="text-align: right;">21.5</td>
-<td style="text-align: right;">22.3</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Верхний</td>
 <td style="text-align: right;">20.5</td>
-<td style="text-align: right;">17.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Стратификация по <strong>претритментной</strong> переменной при рандомизации не смещает оценку: внутри терциля лечение по-прежнему случайно. Оговорка одна — «нижний терциль по <span class="math inline">\(Y_{\text{pre}}\)</span>» не равен «нижнему терцилю по истинному уровню <span class="math inline">\(\alpha_i\)</span>»: из-за шума группы перемешаны, поэтому <em>интерпретировать</em> такие подгруппы как «действительно слабых» нужно осторожно.</p>
+</section>
+<section id="ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="ловушка-2-тонкая-страты-по-предсказанному-hat-y0-endogenous-stratification"><span class="header-section-number">4.3.2</span> Ловушка 2 (тонкая): страты по предсказанному <span class="math inline">\(\hat Y(0)\)</span> — endogenous stratification</h3>
+<p>Настоящая ловушка Abadie–Chingos–West возникает шагом позже. Исследователь хочет группировать не по одному шумному претесту, а по <strong>предсказанному</strong> беспрограммному исходу <span class="math inline">\(\hat Y(0)\)</span>: строит регрессию <span class="math inline">\(Y_{\text{post}}\)</span> на претест и другие ковариаты <strong>по контрольной группе тех же данных</strong> (in-sample) и делит выборку на страты по предсказанию. Звучит разумно — но теперь страты построены с участием <em>собственных остатков</em> контрольных наблюдений: контрольные единицы со случайно низким <span class="math inline">\(Y_{\text{post}}\)</span> утягиваются предсказанием вниз, в нижней страте контрольное среднее оказывается занижено, и эффект там <strong>завышается</strong> (в верхней — наоборот). Чем меньше выборка и чем больше ковариат, тем сильнее переобучение и смещение.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Реалистичный сценарий ACW: небольшая выборка, много ковариат</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># (претест + 15 переменных, не несущих информации), страты по предсказанному</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Y(0). Сравниваем in-sample предсказание и честный split-sample.</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>acw_run <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">N =</span> <span class="dv">200</span>, <span class="at">p_extra =</span> <span class="dv">15</span>) {</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  alpha  <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N, <span class="dv">100</span>, <span class="dv">10</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  D      <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  Y_pre  <span class="ot">&lt;-</span> alpha <span class="sc">+</span> <span class="fu">rnorm</span>(N, <span class="at">sd =</span> <span class="dv">15</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  Y_post <span class="ot">&lt;-</span> alpha <span class="sc">+</span> <span class="dv">20</span> <span class="sc">*</span> D <span class="sc">+</span> <span class="fu">rnorm</span>(N, <span class="at">sd =</span> <span class="dv">15</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  X      <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(N <span class="sc">*</span> p_extra), N,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="cn">NULL</span>, <span class="fu">paste0</span>(<span class="st">"X"</span>, <span class="dv">1</span><span class="sc">:</span>p_extra)))</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  df   <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(Y_post, Y_pre, D, X)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  covs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Y_pre"</span>, <span class="fu">colnames</span>(X))</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Наивно: предсказание Y(0) обучаем на ВСЕХ контрольных (in-sample)</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  fit    <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">reformulate</span>(covs, <span class="st">"Y_post"</span>), <span class="at">data =</span> df[df<span class="sc">$</span>D <span class="sc">==</span> <span class="dv">0</span>, ])</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  pred   <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit, <span class="at">newdata =</span> df)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  strata <span class="ot">&lt;-</span> <span class="fu">cut</span>(pred, <span class="fu">quantile</span>(pred, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span>)), <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  naive  <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="cf">function</span>(k)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mean</span>(Y_post[D <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="fu">as.integer</span>(strata) <span class="sc">==</span> k]) <span class="sc">-</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mean</span>(Y_post[D <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="fu">as.integer</span>(strata) <span class="sc">==</span> k]))</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Честно: split-sample — обучаем на половине A, страты и оценка на половине B</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  half   <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="at">length.out =</span> N))</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  fit_A  <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">reformulate</span>(covs, <span class="st">"Y_post"</span>), <span class="at">data =</span> df[half <span class="sc">&amp;</span> df<span class="sc">$</span>D <span class="sc">==</span> <span class="dv">0</span>, ])</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  pred_B <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_A, <span class="at">newdata =</span> df[<span class="sc">!</span>half, ])</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  s_B    <span class="ot">&lt;-</span> <span class="fu">cut</span>(pred_B, <span class="fu">quantile</span>(pred_B, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span>)), <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  Y_B    <span class="ot">&lt;-</span> Y_post[<span class="sc">!</span>half]; D_B <span class="ot">&lt;-</span> D[<span class="sc">!</span>half]</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>  honest <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="cf">function</span>(k)</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mean</span>(Y_B[D_B <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="fu">as.integer</span>(s_B) <span class="sc">==</span> k]) <span class="sc">-</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mean</span>(Y_B[D_B <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="fu">as.integer</span>(s_B) <span class="sc">==</span> k]))</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(naive, honest)</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Одна выборка слишком шумная, чтобы увидеть систематику, —</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="co"># усредняем по 400 прогонам</span></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>acw_res <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(<span class="fu">replicate</span>(<span class="dv">400</span>, <span class="fu">acw_run</span>()))</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>comparison_esc <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>  Страта <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Нижняя"</span>, <span class="st">"Средняя"</span>, <span class="st">"Верхняя"</span>),</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Наивно (in-sample)</span><span class="st">`</span>    <span class="ot">=</span> <span class="fu">round</span>(acw_res[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="dv">1</span>),</span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Честно (split-sample)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(acw_res[<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>], <span class="dv">1</span>)</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>  comparison_esc,</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"ACW: средняя оценка эффекта по стратам предсказанного Y(0), 400 прогонов (N = 200, 16 ковариат). Истинный эффект = 20 во всех стратах."</span></span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>ACW: средняя оценка эффекта по стратам предсказанного Y(0), 400 прогонов (N = 200, 16 ковариат). Истинный эффект = 20 во всех стратах.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Страта</th>
+<th style="text-align: right;">Наивно (in-sample)</th>
+<th style="text-align: right;">Честно (split-sample)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Нижняя</td>
+<td style="text-align: right;">26.0</td>
+<td style="text-align: right;">20.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Средняя</td>
+<td style="text-align: right;">19.9</td>
+<td style="text-align: right;">20.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Верхняя</td>
+<td style="text-align: right;">13.7</td>
+<td style="text-align: right;">19.7</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_compare <span class="ot">&lt;-</span> comparison_esc <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>Терциль, <span class="at">names_to =</span> <span class="st">"Метод"</span>, <span class="at">values_to =</span> <span class="st">"tau"</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_compare, <span class="fu">aes</span>(<span class="at">x =</span> Терциль, <span class="at">y =</span> tau, <span class="at">fill =</span> Метод)) <span class="sc">+</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">20</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">0.6</span>, <span class="at">y =</span> <span class="dv">21</span>, <span class="at">label =</span> <span class="st">"Истинный τ = 20"</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Наивный split по Y_pre"</span>             <span class="ot">=</span> <span class="st">"#F44336"</span>,</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Split по предсказанию (honest)"</span>     <span class="ot">=</span> <span class="st">"#2E7D32"</span>)) <span class="sc">+</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Endogenous Stratification: наивный split создаёт ложную гетерогенность"</span>,</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Истинный эффект одинаков. Наивный метод видит градиент. Honest split — нет."</span>,</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Терциль pretest"</span>, <span class="at">y =</span> <span class="st">"Оценка τ"</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_compare <span class="ot">&lt;-</span> comparison_esc <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>Страта, <span class="at">names_to =</span> <span class="st">"Метод"</span>, <span class="at">values_to =</span> <span class="st">"tau"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_compare, <span class="fu">aes</span>(<span class="at">x =</span> Страта, <span class="at">y =</span> tau, <span class="at">fill =</span> Метод)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">20</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">0.6</span>, <span class="at">y =</span> <span class="dv">21</span>, <span class="at">label =</span> <span class="st">"Истинный τ = 20"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Наивно (in-sample)"</span>    <span class="ot">=</span> <span class="st">"#F44336"</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Честно (split-sample)"</span> <span class="ot">=</span> <span class="st">"#2E7D32"</span>)) <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Endogenous stratification: in-sample страты создают ложную гетерогенность"</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Истинный эффект одинаков. In-sample предсказание видит градиент. Split-sample — нет."</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Страта предсказанного Y(0)"</span>, <span class="at">y =</span> <span class="st">"Средняя оценка τ"</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -743,8 +838,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Наивная оценка показывает: «в нижнем терциле эффект ~30, в верхнем ~10» — кажется, что программа сильнее помогает бедным. <strong>Это иллюзия.</strong> Истинный эффект одинаков (+20). Источник смещения — <em>регрессия к среднему</em>: те, у кого низкий <span class="math inline">\(Y_{\text{pre}}\)</span>, в среднем имели отрицательный шок в pre-период; в post-период шок «обнуляется», и они выглядят как «получившие большой эффект».</p>
-<p>Поправка (Abadie–Chingos–West): использовать <strong>split-sample</strong> или leave-one-out для построения терцилей по <em>предсказанному</em> <span class="math inline">\(\hat Y(0)\)</span>, а не по сырому <span class="math inline">\(Y_{\text{pre}}\)</span>. Тогда стратификация перестаёт быть эндогенной к шуму, который влияет на оценку эффекта.</p>
+<p>Наивная in-sample стратификация систематически показывает «эффект сильнее у слабых» (≈ +26 в нижней страте против ≈ +13 в верхней), хотя истинный эффект одинаков. Поправка (Abadie–Chingos–West): строить предсказание <span class="math inline">\(\hat Y(0)\)</span> на <strong>отдельной</strong> части данных — split-sample, leave-one-out или repeated split sampling. Тогда стратификация перестаёт быть эндогенной к шуму тех наблюдений, по которым оценивается эффект.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -757,9 +851,9 @@ window.Quarto = {
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Когда мы используем <span class="math inline">\(Y_{\text{pre}}\)</span> напрямую для split, мы группируем людей в том числе по их случайному шуму в pretest. Этот шум <em>коррелирует</em> с разностью <span class="math inline">\(Y_{\text{post}} - Y_{\text{pre}}\)</span> — потому что один и тот же индивидуальный <span class="math inline">\(\alpha_i\)</span> участвует в обеих.</p>
-<p>Когда мы строим предсказание <span class="math inline">\(\hat Y(0)\)</span> <strong>на отдельной части данных</strong>, наш предсказатель уже не «знает» индивидуальный шум того конкретного человека, чей эффект мы потом оцениваем. Корреляция между splitting variable и шумом разрывается. Это та же идея, что и в double machine learning: разделяй обучение и оценку.</p>
-<p>См. также Athey &amp; Imbens (2016), Wager &amp; Athey (2018) для модных аналогов — causal trees, causal forests.</p>
+<p>Когда предсказание <span class="math inline">\(\hat Y(0)\)</span> обучено на тех же контрольных наблюдениях, по которым потом считается эффект, модель «знает» их случайный шум: наблюдение с отрицательным остатком получает заниженное предсказание и системно попадает в нижнюю страту. Стратификация становится эндогенной к той самой ошибке, которая входит в оценку эффекта.</p>
+<p>Когда предсказание строится <strong>на отдельной части данных</strong>, оно не «знает» индивидуальный шум того человека, чей эффект мы потом оцениваем. Корреляция между splitting variable и шумом разрывается. Это та же идея, что и в double machine learning: разделяй обучение и оценку.</p>
+<p>См. также Athey &amp; Imbens (2016), Wager &amp; Athey (2018) для современных аналогов — causal trees, causal forests.</p>
 </div>
 </div>
 </div>
@@ -781,13 +875,14 @@ window.Quarto = {
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>1. Почему ATE не страдает.</strong> ATE усредняется по всей выборке, и положительное смещение в нижнем терциле компенсируется отрицательным в верхнем. Гетерогенность же — это <em>разница</em> между терцилями, и здесь смещение не сокращается.</p>
-<p><strong>2. LOO vs split-sample.</strong> LOO даёт менее «зашумлённые» терцили (используется почти вся выборка для обучения), но вычислительно тяжелее. Split-sample проще, но «выбрасывает» половину данных для оценки. Современный компромисс — <em>cross-fitting</em> (как в DML): несколько проходов, в каждом меняются роли частей.</p>
-<p><strong>3. Два pretest.</strong> Помогло бы! При двух measurements мы можем оценить индивидуальный <span class="math inline">\(\hat\alpha_i\)</span> точнее (среднее по двум pretest имеет меньший шум). Тогда split по <span class="math inline">\(\hat\alpha_i\)</span> будет ближе к split по истинному <span class="math inline">\(\alpha_i\)</span>, и ESC ослабнет. Это, по сути, аналог fixed effects в панели.</p>
+<p><strong>1. Почему ATE не страдает.</strong> ATE усредняется по всей выборке, и завышение в нижней страте компенсируется занижением в верхней (в таблице выше среднее по трём стратам ≈ 20). Гетерогенность же — это <em>разница</em> между стратами, и здесь смещения складываются, а не сокращаются.</p>
+<p><strong>2. LOO vs split-sample.</strong> LOO даёт менее «зашумлённые» страты (для каждого наблюдения предсказание обучено почти на всей выборке), но вычислительно тяжелее. Split-sample проще, но «выбрасывает» половину данных для оценки. Современный компромисс — <em>cross-fitting</em> (как в DML): несколько проходов, в каждом меняются роли частей.</p>
+<p><strong>3. Два pretest.</strong> Помогло бы! При двух измерениях мы можем оценить индивидуальный <span class="math inline">\(\hat\alpha_i\)</span> точнее (среднее по двум pretest имеет меньший шум). Тогда и иллюзия реверсии на приростах, и переобучение предсказания <span class="math inline">\(\hat Y(0)\)</span> ослабнут. Это, по сути, аналог fixed effects в панели.</p>
 </div>
 </div>
 </div>
 <hr>
+</section>
 </section>
 <section id="sim4" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="sim4"><span class="header-section-number">4.4</span> Within-subject дизайн: каждый — сам себе контроль</h2>
@@ -795,53 +890,53 @@ window.Quarto = {
 <p><strong>Внутрисубъектный (within-subject, WS) дизайн</strong> — это другая ось: время добавляется к <strong>оси</strong> <span class="math inline">\(D\)</span>. Каждый субъект <span class="math inline">\(i\)</span> проходит и через <span class="math inline">\(D=0\)</span>, и через <span class="math inline">\(D=1\)</span> (в разные периоды). Тогда индивидуальный эффект <span class="math inline">\(\tau_i = Y_i(1) - Y_i(0)\)</span> оценивается <strong>напрямую</strong> — каждый человек служит своим собственным контролем.</p>
 <p>Классические применения: лабораторные эксперименты в психологии и поведенческой экономике (один и тот же испытуемый делает задачи в обоих условиях), кросс-овер клинические испытания, личные A/B-тесты («попробовал кофе утром неделю, потом неделю без — что с продуктивностью?»).</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">11</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Истинная модель: каждый имеет свой alpha_i и свой tau_i</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Y_{i,D=0} = alpha_i + shock0</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Y_{i,D=1} = alpha_i + tau_i + shock1</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># В WS дизайне мы видим оба для каждого i</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>alpha_i <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">20</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>tau_i   <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N, <span class="at">mean =</span> <span class="dv">20</span>, <span class="at">sd =</span> <span class="dv">10</span>)   <span class="co"># есть гетерогенность</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>Y_D0    <span class="ot">&lt;-</span> alpha_i <span class="sc">+</span> <span class="fu">rnorm</span>(N, <span class="at">sd =</span> <span class="dv">5</span>)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>Y_D1    <span class="ot">&lt;-</span> alpha_i <span class="sc">+</span> tau_i <span class="sc">+</span> <span class="fu">rnorm</span>(N, <span class="at">sd =</span> <span class="dv">5</span>)</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Что увидит one-shot BS:</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># случайно делим пополам, один меряется при D=0, другой при D=1</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>D_i      <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>Y_obs_BS <span class="ot">&lt;-</span> <span class="fu">if_else</span>(D_i <span class="sc">==</span> <span class="dv">1</span>, Y_D1, Y_D0)</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co"># BS-оценки: видим только один потенциальный исход для каждого i,</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="co"># поэтому можем оценить только разность средних; Var[τ_i] принципиально недоступен</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>tau_bs_ate <span class="ot">&lt;-</span> <span class="fu">mean</span>(Y_obs_BS[D_i <span class="sc">==</span> <span class="dv">1</span>]) <span class="sc">-</span> <span class="fu">mean</span>(Y_obs_BS[D_i <span class="sc">==</span> <span class="dv">0</span>])</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Что увидит WS: оба исхода для каждого</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>tau_ws_i   <span class="ot">&lt;-</span> Y_D1 <span class="sc">-</span> Y_D0       <span class="co"># индивидуальные эффекты!</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>tau_ws_ate <span class="ot">&lt;-</span> <span class="fu">mean</span>(tau_ws_i)</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>var_tau_ws <span class="ot">&lt;-</span> <span class="fu">var</span>(tau_ws_i)</span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Истинные значения</span></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>ate_true    <span class="ot">&lt;-</span> <span class="fu">mean</span>(tau_i)</span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>var_true    <span class="ot">&lt;-</span> <span class="fu">var</span>(tau_i)</span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Все значения приводим к строкам, чтобы в одной колонке могли соседствовать</span></span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="co"># числа и пометки «Не идентифицируется»</span></span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>fmt <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">digits =</span> <span class="dv">2</span>) <span class="fu">format</span>(<span class="fu">round</span>(x, digits), <span class="at">nsmall =</span> digits)</span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>results_ws <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Величина,             <span class="sc">~</span><span class="st">`</span><span class="at">Истинное</span><span class="st">`</span>,           <span class="sc">~</span><span class="st">`</span><span class="at">Оценка BS one-shot</span><span class="st">`</span>,    <span class="sc">~</span><span class="st">`</span><span class="at">Оценка WS</span><span class="st">`</span>,</span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>  <span class="st">"ATE = E[tau_i]"</span>,      <span class="fu">fmt</span>(ate_true, <span class="dv">2</span>),         <span class="fu">fmt</span>(tau_bs_ate, <span class="dv">2</span>),         <span class="fu">fmt</span>(tau_ws_ate, <span class="dv">2</span>),</span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Var[tau_i]"</span>,          <span class="fu">fmt</span>(var_true, <span class="dv">2</span>),         <span class="st">"Не идентифицируется"</span>,     <span class="fu">fmt</span>(var_tau_ws, <span class="dv">2</span>),</span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Pr(tau_i &gt; 0)"</span>,       <span class="fu">fmt</span>(<span class="fu">mean</span>(tau_i <span class="sc">&gt;</span> <span class="dv">0</span>), <span class="dv">3</span>),  <span class="st">"Не идентифицируется"</span>,     <span class="fu">fmt</span>(<span class="fu">mean</span>(tau_ws_i <span class="sc">&gt;</span> <span class="dv">0</span>), <span class="dv">3</span>)</span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>  results_ws,</span>
-<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Within-subject дизайн идентифицирует Var[tau_i] и Pr(tau_i &gt; 0) — то, что BS не может"</span></span>
-<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">11</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Истинная модель: каждый имеет свой alpha_i и свой tau_i</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Y_{i,D=0} = alpha_i + shock0</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Y_{i,D=1} = alpha_i + tau_i + shock1</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># В WS дизайне мы видим оба для каждого i</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>alpha_i <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">20</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>tau_i   <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N, <span class="at">mean =</span> <span class="dv">20</span>, <span class="at">sd =</span> <span class="dv">10</span>)   <span class="co"># есть гетерогенность</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>Y_D0    <span class="ot">&lt;-</span> alpha_i <span class="sc">+</span> <span class="fu">rnorm</span>(N, <span class="at">sd =</span> <span class="dv">5</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>Y_D1    <span class="ot">&lt;-</span> alpha_i <span class="sc">+</span> tau_i <span class="sc">+</span> <span class="fu">rnorm</span>(N, <span class="at">sd =</span> <span class="dv">5</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Что увидит one-shot BS:</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co"># случайно делим пополам, один меряется при D=0, другой при D=1</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>D_i      <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>Y_obs_BS <span class="ot">&lt;-</span> <span class="fu">if_else</span>(D_i <span class="sc">==</span> <span class="dv">1</span>, Y_D1, Y_D0)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co"># BS-оценки: видим только один потенциальный исход для каждого i,</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co"># поэтому можем оценить только разность средних; Var[τ_i] принципиально недоступен</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>tau_bs_ate <span class="ot">&lt;-</span> <span class="fu">mean</span>(Y_obs_BS[D_i <span class="sc">==</span> <span class="dv">1</span>]) <span class="sc">-</span> <span class="fu">mean</span>(Y_obs_BS[D_i <span class="sc">==</span> <span class="dv">0</span>])</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Что увидит WS: оба исхода для каждого</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>tau_ws_i   <span class="ot">&lt;-</span> Y_D1 <span class="sc">-</span> Y_D0       <span class="co"># индивидуальные эффекты!</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>tau_ws_ate <span class="ot">&lt;-</span> <span class="fu">mean</span>(tau_ws_i)</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>var_tau_ws <span class="ot">&lt;-</span> <span class="fu">var</span>(tau_ws_i)</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Истинные значения</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>ate_true    <span class="ot">&lt;-</span> <span class="fu">mean</span>(tau_i)</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>var_true    <span class="ot">&lt;-</span> <span class="fu">var</span>(tau_i)</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Все значения приводим к строкам, чтобы в одной колонке могли соседствовать</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="co"># числа и пометки «Не идентифицируется»</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>fmt <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">digits =</span> <span class="dv">2</span>) <span class="fu">format</span>(<span class="fu">round</span>(x, digits), <span class="at">nsmall =</span> digits)</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>results_ws <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Величина,             <span class="sc">~</span><span class="st">`</span><span class="at">Истинное</span><span class="st">`</span>,           <span class="sc">~</span><span class="st">`</span><span class="at">Оценка BS one-shot</span><span class="st">`</span>,    <span class="sc">~</span><span class="st">`</span><span class="at">Оценка WS</span><span class="st">`</span>,</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>  <span class="st">"ATE = E[tau_i]"</span>,      <span class="fu">fmt</span>(ate_true, <span class="dv">2</span>),         <span class="fu">fmt</span>(tau_bs_ate, <span class="dv">2</span>),         <span class="fu">fmt</span>(tau_ws_ate, <span class="dv">2</span>),</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Var[tau_i]"</span>,          <span class="fu">fmt</span>(var_true, <span class="dv">2</span>),         <span class="st">"Не идентифицируется"</span>,     <span class="fu">fmt</span>(var_tau_ws, <span class="dv">2</span>),</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Pr(tau_i &gt; 0)"</span>,       <span class="fu">fmt</span>(<span class="fu">mean</span>(tau_i <span class="sc">&gt;</span> <span class="dv">0</span>), <span class="dv">3</span>),  <span class="st">"Не идентифицируется"</span>,     <span class="fu">fmt</span>(<span class="fu">mean</span>(tau_ws_i <span class="sc">&gt;</span> <span class="dv">0</span>), <span class="dv">3</span>)</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>  results_ws,</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Within-subject дизайн идентифицирует Var[tau_i] и Pr(tau_i &gt; 0) — то, что BS не может"</span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Within-subject дизайн идентифицирует Var[tau_i] и Pr(tau_i &gt; 0) — то, что BS не может</caption>
@@ -877,25 +972,25 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_ws <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">tau_i =</span> tau_ws_i</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_ws, <span class="fu">aes</span>(<span class="at">x =</span> tau_i)) <span class="sc">+</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">25</span>, <span class="at">fill =</span> <span class="st">"#1976D2"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.85</span>) <span class="sc">+</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(tau_ws_i), <span class="at">color =</span> <span class="st">"#D81B60"</span>,</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> <span class="fl">1.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fu">mean</span>(tau_ws_i) <span class="sc">+</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">13</span>,</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"Среднее: "</span>, <span class="fu">round</span>(<span class="fu">mean</span>(tau_ws_i), <span class="dv">1</span>)),</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"#D81B60"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Распределение индивидуальных эффектов τ_i (WS дизайн)"</span>,</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"Var[τ_i] ≈ "</span>, <span class="fu">round</span>(<span class="fu">var</span>(tau_ws_i), <span class="dv">1</span>),</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>                      <span class="st">", Pr(τ_i &gt; 0) = "</span>, <span class="fu">round</span>(<span class="fu">mean</span>(tau_ws_i <span class="sc">&gt;</span> <span class="dv">0</span>), <span class="dv">2</span>)),</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Индивидуальный эффект τ_i"</span>, <span class="at">y =</span> <span class="st">"Частота"</span></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_ws <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">tau_i =</span> tau_ws_i</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_ws, <span class="fu">aes</span>(<span class="at">x =</span> tau_i)) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">25</span>, <span class="at">fill =</span> <span class="st">"#1976D2"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.85</span>) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(tau_ws_i), <span class="at">color =</span> <span class="st">"#D81B60"</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> <span class="fl">1.2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fu">mean</span>(tau_ws_i) <span class="sc">+</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">13</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"Среднее: "</span>, <span class="fu">round</span>(<span class="fu">mean</span>(tau_ws_i), <span class="dv">1</span>)),</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"#D81B60"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Распределение индивидуальных эффектов τ_i (WS дизайн)"</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"Var[τ_i] ≈ "</span>, <span class="fu">round</span>(<span class="fu">var</span>(tau_ws_i), <span class="dv">1</span>),</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                      <span class="st">", Pr(τ_i &gt; 0) = "</span>, <span class="fu">round</span>(<span class="fu">mean</span>(tau_ws_i <span class="sc">&gt;</span> <span class="dv">0</span>), <span class="dv">2</span>)),</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Индивидуальный эффект τ_i"</span>, <span class="at">y =</span> <span class="st">"Частота"</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -963,45 +1058,45 @@ window.Quarto = {
 <p>Это самая важная концептуальная секция. На лекции мы говорили: <span class="math inline">\(\text{Var}[\tau_i]\)</span> зависит от <span class="math inline">\(\text{Cov}[Y(0), Y(1)]\)</span>, которое <strong>принципиально не идентифицируется</strong> в BS one-shot, потому что мы никогда не видим обе величины для одного и того же <span class="math inline">\(i\)</span>.</p>
 <p>Покажем это симуляцией: возьмём два мира с <em>одинаковыми</em> маргинальными распределениями <span class="math inline">\(Y(0)\)</span>, <span class="math inline">\(Y(1)\)</span> и одинаковым ATE, но разной ковариацией. В BS-данных они выглядят неразличимо. В WS-данных — диаметрально разные истории.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2025</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ate_true <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Маргинальные параметры (одинаковые в обоих мирах):</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>mu0 <span class="ot">&lt;-</span> <span class="dv">100</span>; sigma0 <span class="ot">&lt;-</span> <span class="dv">15</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>mu1 <span class="ot">&lt;-</span> mu0 <span class="sc">+</span> ate_true; sigma1 <span class="ot">&lt;-</span> <span class="dv">15</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Мир A: положительная корреляция (тем, у кого выше Y(0), выше и Y(1))</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># — это «гомогенный» мир: все реагируют примерно одинаково</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>Sigma_A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(sigma0<span class="sc">^</span><span class="dv">2</span>, <span class="fl">0.9</span> <span class="sc">*</span> sigma0 <span class="sc">*</span> sigma1,</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>                    <span class="fl">0.9</span> <span class="sc">*</span> sigma0 <span class="sc">*</span> sigma1, sigma1<span class="sc">^</span><span class="dv">2</span>), <span class="dv">2</span>, <span class="dv">2</span>)</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>world_A <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(MASS<span class="sc">::</span><span class="fu">mvrnorm</span>(N, <span class="at">mu =</span> <span class="fu">c</span>(mu0, mu1), <span class="at">Sigma =</span> Sigma_A))</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(world_A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Y0"</span>, <span class="st">"Y1"</span>)</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>world_A<span class="sc">$</span>мир <span class="ot">&lt;-</span> <span class="st">"A: высокая Cov[Y0,Y1]"</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Мир B: отрицательная корреляция (compensatory — тем, кому хуже без лечения,</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co"># лучше с лечением)</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>Sigma_B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(sigma0<span class="sc">^</span><span class="dv">2</span>, <span class="sc">-</span><span class="fl">0.7</span> <span class="sc">*</span> sigma0 <span class="sc">*</span> sigma1,</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>                    <span class="sc">-</span><span class="fl">0.7</span> <span class="sc">*</span> sigma0 <span class="sc">*</span> sigma1, sigma1<span class="sc">^</span><span class="dv">2</span>), <span class="dv">2</span>, <span class="dv">2</span>)</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>world_B <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(MASS<span class="sc">::</span><span class="fu">mvrnorm</span>(N, <span class="at">mu =</span> <span class="fu">c</span>(mu0, mu1), <span class="at">Sigma =</span> Sigma_B))</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(world_B) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Y0"</span>, <span class="st">"Y1"</span>)</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>world_B<span class="sc">$</span>мир <span class="ot">&lt;-</span> <span class="st">"B: отрицательная Cov[Y0,Y1]"</span></span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>worlds <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(world_A, world_B) <span class="sc">%&gt;%</span></span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tau_i =</span> Y1 <span class="sc">-</span> Y0)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2025</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>ate_true <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Маргинальные параметры (одинаковые в обоих мирах):</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>mu0 <span class="ot">&lt;-</span> <span class="dv">100</span>; sigma0 <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>mu1 <span class="ot">&lt;-</span> mu0 <span class="sc">+</span> ate_true; sigma1 <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Мир A: положительная корреляция (тем, у кого выше Y(0), выше и Y(1))</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># — это «гомогенный» мир: все реагируют примерно одинаково</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>Sigma_A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(sigma0<span class="sc">^</span><span class="dv">2</span>, <span class="fl">0.9</span> <span class="sc">*</span> sigma0 <span class="sc">*</span> sigma1,</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>                    <span class="fl">0.9</span> <span class="sc">*</span> sigma0 <span class="sc">*</span> sigma1, sigma1<span class="sc">^</span><span class="dv">2</span>), <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>world_A <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(MASS<span class="sc">::</span><span class="fu">mvrnorm</span>(N, <span class="at">mu =</span> <span class="fu">c</span>(mu0, mu1), <span class="at">Sigma =</span> Sigma_A))</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(world_A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Y0"</span>, <span class="st">"Y1"</span>)</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>world_A<span class="sc">$</span>мир <span class="ot">&lt;-</span> <span class="st">"A: высокая Cov[Y0,Y1]"</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Мир B: отрицательная корреляция (compensatory — тем, кому хуже без лечения,</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co"># лучше с лечением)</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>Sigma_B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(sigma0<span class="sc">^</span><span class="dv">2</span>, <span class="sc">-</span><span class="fl">0.7</span> <span class="sc">*</span> sigma0 <span class="sc">*</span> sigma1,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>                    <span class="sc">-</span><span class="fl">0.7</span> <span class="sc">*</span> sigma0 <span class="sc">*</span> sigma1, sigma1<span class="sc">^</span><span class="dv">2</span>), <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>world_B <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(MASS<span class="sc">::</span><span class="fu">mvrnorm</span>(N, <span class="at">mu =</span> <span class="fu">c</span>(mu0, mu1), <span class="at">Sigma =</span> Sigma_B))</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(world_B) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Y0"</span>, <span class="st">"Y1"</span>)</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>world_B<span class="sc">$</span>мир <span class="ot">&lt;-</span> <span class="st">"B: отрицательная Cov[Y0,Y1]"</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>worlds <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(world_A, world_B) <span class="sc">%&gt;%</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tau_i =</span> Y1 <span class="sc">-</span> Y0)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Маргинальные распределения — посмотрим, что они правда одинаковые</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>marginals <span class="ot">&lt;-</span> worlds <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(мир) <span class="sc">%&gt;%</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">E[Y(0)]</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(Y0), <span class="dv">2</span>),</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">E[Y(1)]</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(Y1), <span class="dv">2</span>),</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Var[Y(0)]</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">var</span>(Y0), <span class="dv">1</span>),</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Var[Y(1)]</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">var</span>(Y1), <span class="dv">1</span>),</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">ATE = E[tau]</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(Y1) <span class="sc">-</span> <span class="fu">mean</span>(Y0), <span class="dv">2</span>)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(marginals, <span class="at">caption =</span> <span class="st">"Маргинальные распределения и ATE — одинаковы в двух мирах"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Маргинальные распределения — посмотрим, что они правда одинаковые</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>marginals <span class="ot">&lt;-</span> worlds <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(мир) <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">E[Y(0)]</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(Y0), <span class="dv">2</span>),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">E[Y(1)]</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(Y1), <span class="dv">2</span>),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Var[Y(0)]</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">var</span>(Y0), <span class="dv">1</span>),</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Var[Y(1)]</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">var</span>(Y1), <span class="dv">1</span>),</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">ATE = E[tau]</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(Y1) <span class="sc">-</span> <span class="fu">mean</span>(Y0), <span class="dv">2</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(marginals, <span class="at">caption =</span> <span class="st">"Маргинальные распределения и ATE — одинаковы в двух мирах"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Маргинальные распределения и ATE — одинаковы в двух мирах</caption>
@@ -1043,15 +1138,15 @@ window.Quarto = {
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Совместная характеристика — диаметральная</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>joint <span class="ot">&lt;-</span> worlds <span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(мир) <span class="sc">%&gt;%</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Cov[Y(0), Y(1)]</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">cov</span>(Y0, Y1), <span class="dv">1</span>),</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Var[tau_i]</span><span class="st">`</span>      <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">var</span>(tau_i), <span class="dv">1</span>),</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Pr(tau_i &gt; 0)</span><span class="st">`</span>   <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(tau_i <span class="sc">&gt;</span> <span class="dv">0</span>), <span class="dv">3</span>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(joint, <span class="at">caption =</span> <span class="st">"А совместное распределение — совсем разное"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Совместная характеристика — диаметральная</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>joint <span class="ot">&lt;-</span> worlds <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(мир) <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Cov[Y(0), Y(1)]</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">cov</span>(Y0, Y1), <span class="dv">1</span>),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Var[tau_i]</span><span class="st">`</span>      <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">var</span>(tau_i), <span class="dv">1</span>),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Pr(tau_i &gt; 0)</span><span class="st">`</span>   <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(tau_i <span class="sc">&gt;</span> <span class="dv">0</span>), <span class="dv">3</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(joint, <span class="at">caption =</span> <span class="st">"А совместное распределение — совсем разное"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>А совместное распределение — совсем разное</caption>
@@ -1087,24 +1182,24 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_plot <span class="ot">&lt;-</span> worlds <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(Y0, Y1, tau_i), <span class="at">names_to =</span> <span class="st">"Переменная"</span>, <span class="at">values_to =</span> <span class="st">"Значение"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(Переменная <span class="ot">=</span> <span class="fu">factor</span>(Переменная,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Y0"</span>, <span class="st">"Y1"</span>, <span class="st">"tau_i"</span>),</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Y(0)"</span>, <span class="st">"Y(1)"</span>, <span class="st">"τ_i = Y(1) − Y(0)"</span>)))</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_plot, <span class="fu">aes</span>(<span class="at">x =</span> Значение, <span class="at">fill =</span> мир)) <span class="sc">+</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(мир <span class="sc">~</span> Переменная, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"A: высокая Cov[Y0,Y1]"</span>      <span class="ot">=</span> <span class="st">"#2196F3"</span>,</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"B: отрицательная Cov[Y0,Y1]"</span> <span class="ot">=</span> <span class="st">"#F44336"</span>)) <span class="sc">+</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Маргиналы Y(0), Y(1) одинаковы. Распределение τ_i — разное."</span>,</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"BS one-shot видит только колонки 1 и 2 (отдельно). Распределение τ_i недоступно."</span>,</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Частота"</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_plot <span class="ot">&lt;-</span> worlds <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(Y0, Y1, tau_i), <span class="at">names_to =</span> <span class="st">"Переменная"</span>, <span class="at">values_to =</span> <span class="st">"Значение"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(Переменная <span class="ot">=</span> <span class="fu">factor</span>(Переменная,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Y0"</span>, <span class="st">"Y1"</span>, <span class="st">"tau_i"</span>),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Y(0)"</span>, <span class="st">"Y(1)"</span>, <span class="st">"τ_i = Y(1) − Y(0)"</span>)))</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_plot, <span class="fu">aes</span>(<span class="at">x =</span> Значение, <span class="at">fill =</span> мир)) <span class="sc">+</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(мир <span class="sc">~</span> Переменная, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"A: высокая Cov[Y0,Y1]"</span>      <span class="ot">=</span> <span class="st">"#2196F3"</span>,</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"B: отрицательная Cov[Y0,Y1]"</span> <span class="ot">=</span> <span class="st">"#F44336"</span>)) <span class="sc">+</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title    =</span> <span class="st">"Маргиналы Y(0), Y(1) одинаковы. Распределение τ_i — разное."</span>,</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"BS one-shot видит только колонки 1 и 2 (отдельно). Распределение τ_i недоступно."</span>,</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Частота"</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1115,8 +1210,8 @@ window.Quarto = {
 </div>
 <p>Маргинальные распределения <span class="math inline">\(Y(0)\)</span> и <span class="math inline">\(Y(1)\)</span> — <strong>идентичны</strong> в двух мирах. ATE — одинаков. Но:</p>
 <ul>
-<li>В мире A (положительная ковариация, типичный «гомогенный» мир): все индивидуальные <span class="math inline">\(\tau_i \approx +20\)</span>, очень узкое распределение.</li>
-<li>В мире B (отрицательная ковариация, «compensatory»): <span class="math inline">\(\tau_i\)</span> варьируется от –5 до +50, и доля выигравших уже не близка к единице.</li>
+<li>В мире A (положительная ковариация, типичный «гомогенный» мир): индивидуальные <span class="math inline">\(\tau_i\)</span> сконцентрированы вокруг +20 (SD ≈ 7), почти все в выигрыше.</li>
+<li>В мире B (отрицательная ковариация, «compensatory»): <span class="math inline">\(\tau_i\)</span> разбросаны примерно от −35 до +75 (SD ≈ 28), и доля выигравших уже не близка к единице (≈ 0.77).</li>
 </ul>
 <p><strong>One-shot BS RCT увидит одинаковую картину в обоих мирах.</strong> WS дизайн — диаметрально разную.</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -1136,7 +1231,12 @@ window.Quarto = {
 <li>CATE-методами (causal forests видят гетерогенность по <span class="math inline">\(X\)</span>, но не по идиосинкратической части).</li>
 <li>Регрессией с ковариатами (контролируем то, что наблюдаем — а идиосинкратика по определению за пределами).</li>
 </ul>
-<p>Это <strong>решается</strong> добавлением структуры данных: - WS-дизайн (видим оба исхода для каждого <span class="math inline">\(i\)</span>). - Множественные replications того же субъекта в крос-овере. - Сильные параметрические допущения о форме связи <span class="math inline">\(Y(0)\)</span> и <span class="math inline">\(Y(1)\)</span> (rank invariance).</p>
+<p>Это <strong>решается</strong> добавлением структуры данных:</p>
+<ul>
+<li>WS-дизайн (видим оба исхода для каждого <span class="math inline">\(i\)</span>).</li>
+<li>Множественные повторения того же субъекта в кросс-овере.</li>
+<li>Сильные параметрические допущения о форме связи <span class="math inline">\(Y(0)\)</span> и <span class="math inline">\(Y(1)\)</span> (rank invariance).</li>
+</ul>
 </div>
 </div>
 <p><strong>Вопросы для размышления:</strong></p>
@@ -1245,7 +1345,7 @@ window.Quarto = {
 <li>Frison, L., &amp; Pocock, S. J. (1992). Repeated measures in clinical trials: analysis using mean summary statistics and its implications for design. <em>Statistics in Medicine</em>, 11(13), 1685–1704.</li>
 <li>Heckman, J. J., Smith, J., &amp; Clements, N. (1997). Making the most out of programme evaluations and social experiments: Accounting for heterogeneity in programme impacts. <em>Review of Economic Studies</em>, 64(4), 487–535.</li>
 <li>Holland, P. W. (1986). Statistics and causal inference. <em>JASA</em>, 81(396), 945–960.</li>
-<li>List, J. A. (2025). <em>The Voltage Effect of Field Experiments</em>, гл. 9–10.</li>
+<li>List, J. A. (2025). <em>Experimental Economics: Theory and Practice</em>. University of Chicago Press, гл. 9–10.</li>
 <li>McKenzie, D. (2012). Beyond baseline and follow-up: The case for more T in experiments. <em>Journal of Development Economics</em>, 99(2), 210–221.</li>
 <li>Wager, S., &amp; Athey, S. (2018). Estimation and inference of heterogeneous treatment effects using random forests. <em>JASA</em>, 113(523), 1228–1242.</li>
 </ul>

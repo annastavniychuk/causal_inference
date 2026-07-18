@@ -299,10 +299,10 @@ window.Quarto = {
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Горизонтальная линия: номинальный уровень 5%</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.05</span>, <span class="at">color =</span> <span class="st">"red"</span>,  <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Вертикальная линия: уже при 8 группах FWER перевалил за 5%</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Вертикальная линия: при 8 группах (28 сравнений) FWER уже около 76%</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">8</span>,    <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">8.3</span>, <span class="at">y =</span> <span class="fl">0.1</span>,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"g = 8: FWER &gt; 5%"</span>, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"g = 8: FWER ≈ 76%"</span>, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">2.2</span>, <span class="at">y =</span> <span class="fl">0.07</span>,</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"α = 5%"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
@@ -344,7 +344,7 @@ window.Quarto = {
 </div>
 </div>
 <blockquote class="blockquote">
-<p><strong>Вывод.</strong> Даже при <span class="math inline">\(g = 8\)</span> группах мы получаем 28 попарных сравнений, и FWER уже превышает 5%. При <span class="math inline">\(g = 20\)</span> (именно столько цветов в примере ниже) FWER стремится к 100%. Значит, хотя бы одна «ложная» значимая находка практически гарантирована — даже если никакого эффекта нет.</p>
+<p><strong>Вывод.</strong> FWER превышает номинальные 5% уже при двух тестах, а дальше растёт стремительно: при <span class="math inline">\(g = 3\)</span> группах (3 сравнения) он равен <span class="math inline">\(1 - 0.95^3 \approx 14\%\)</span>, при <span class="math inline">\(g = 8\)</span> (28 сравнений) — уже около 76%. При <span class="math inline">\(g = 20\)</span> (именно столько цветов в примере ниже) FWER практически равен 100%. Значит, хотя бы одна «ложная» значимая находка практически гарантирована — даже если никакого эффекта нет.</p>
 </blockquote>
 <hr>
 </section>
@@ -366,29 +366,34 @@ window.Quarto = {
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>acne_condition <span class="ot">&lt;-</span> <span class="fu">runif</span>(people)   <span class="co"># acne_condition ~ U(0,1)</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>eating <span class="ot">&lt;-</span> <span class="fu">sample</span>(</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"едят"</span>, <span class="st">"не едят"</span>),</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  people,</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">prob    =</span> <span class="fu">c</span>(p_eat_jelly_bean, <span class="dv">1</span> <span class="sc">-</span> p_eat_jelly_bean)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Собираем в датафрейм</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">acne_condition =</span> acne_condition,</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">eating         =</span> eating</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># ВАЖНО: для каждой случайной величины — свой seed.</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Если сбросить set.seed(1) повторно, eating будет построен из ТОГО ЖЕ</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># потока случайных чисел, что и acne_condition, — и «независимый» тритмент</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># окажется детерминированной функцией исхода (в группе «не едят» соберутся</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ровно те, у кого acne_condition &gt; 0.9).</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">15</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>eating <span class="ot">&lt;-</span> <span class="fu">sample</span>(</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"едят"</span>, <span class="st">"не едят"</span>),</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  people,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">prob    =</span> <span class="fu">c</span>(p_eat_jelly_bean, <span class="dv">1</span> <span class="sc">-</span> p_eat_jelly_bean)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Собираем в датафрейм</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">acne_condition =</span> acne_condition,</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">eating         =</span> eating</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  acne_condition  eating
 1      0.2655087    едят
 2      0.3721239    едят
-3      0.5728534    едят
-4      0.9082078 не едят
+3      0.5728534 не едят
+4      0.9082078    едят
 5      0.2016819    едят
-6      0.8983897    едят</code></pre>
+6      0.8983897 не едят</code></pre>
 </div>
 </div>
 </section>
@@ -429,17 +434,17 @@ window.Quarto = {
     Welch Two Sample t-test
 
 data:  acne_condition by eating
-t = -56.571, df = 993.62, p-value &lt; 2.2e-16
+t = -1.024, df = 146.29, p-value = 0.3075
 alternative hypothesis: true difference in means between group едят and group не едят is not equal to 0
 95 percent confidence interval:
- -0.5242963 -0.4891417
+ -0.08472563  0.02689275
 sample estimates:
    mean in group едят mean in group не едят 
-            0.4439526             0.9506716 </code></pre>
+            0.4963663             0.5252827 </code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
-<p>p-value высокое → не отвергаем H₀. Нет оснований считать, что желейные бобы вызывают акне.</p>
+<p>p-value заметно больше 0.05 → не отвергаем H₀. Нет оснований считать, что желейные бобы вызывают акне.</p>
 </blockquote>
 <hr>
 </section>
@@ -456,22 +461,23 @@ sample estimates:
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">colors</span>(), <span class="dv">20</span>)</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Присваиваем каждому испытуемому цвет желейных бобов</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>jelly_bean_color <span class="ot">&lt;-</span> <span class="fu">sample</span>(colors, people, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Те, кто не ест бобы, получают NA вместо цвета</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">jelly_bean_color =</span> <span class="fu">ifelse</span>(eating <span class="sc">==</span> <span class="st">"не едят"</span>, <span class="cn">NA</span>, jelly_bean_color))</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># (снова отдельный seed — по той же причине, что и выше)</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>jelly_bean_color <span class="ot">&lt;-</span> <span class="fu">sample</span>(colors, people, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Те, кто не ест бобы, получают NA вместо цвета</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">jelly_bean_color =</span> <span class="fu">ifelse</span>(eating <span class="sc">==</span> <span class="st">"не едят"</span>, <span class="cn">NA</span>, jelly_bean_color))</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  acne_condition  eating jelly_bean_color
-1      0.2655087    едят           grey38
-2      0.3721239    едят           grey46
-3      0.5728534    едят      dodgerblue1
-4      0.9082078 не едят             &lt;NA&gt;
-5      0.2016819    едят           grey69
-6      0.8983897    едят    darkseagreen3</code></pre>
+1      0.2655087    едят           grey69
+2      0.3721239    едят           wheat1
+3      0.5728534 не едят             &lt;NA&gt;
+4      0.9082078    едят           grey46
+5      0.2016819    едят         skyblue2
+6      0.8983897 не едят             &lt;NA&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -510,15 +516,15 @@ sample estimates:
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Проверяем первые три цвета вручную</span></span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"p-value для цвета 1:"</span>, <span class="fu">test_color</span>(colors[<span class="dv">1</span>]), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>p-value для цвета 1: 5.597485e-21 </code></pre>
+<pre><code>p-value для цвета 1: 0.322561 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"p-value для цвета 2:"</span>, <span class="fu">test_color</span>(colors[<span class="dv">2</span>]), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>p-value для цвета 2: 2.204699e-15 </code></pre>
+<pre><code>p-value для цвета 2: 0.9873128 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"p-value для цвета 3:"</span>, <span class="fu">test_color</span>(colors[<span class="dv">3</span>]), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>p-value для цвета 3: 6.215338e-16 </code></pre>
+<pre><code>p-value для цвета 3: 0.8682142 </code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
@@ -551,11 +557,12 @@ sample estimates:
 </div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Один цвет оказался «значимым» — но это случайность!</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"p-value для цвета 5 (</span><span class="sc">\"</span><span class="st">значимый</span><span class="sc">\"</span><span class="st">):"</span>, <span class="fu">test_color</span>(colors[<span class="dv">5</span>]), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"p-value для цвета 10 ("</span>, colors[<span class="dv">10</span>], <span class="st">"):"</span>, <span class="fu">test_color</span>(colors[<span class="dv">10</span>]), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>p-value для цвета 5 ("значимый"): 3.261665e-17 </code></pre>
+<pre><code>p-value для цвета 10 ( olivedrab1 ): 0.006691787 </code></pre>
 </div>
 </div>
+<p>Ирония в том, что «значимым» оказался именно <strong>зелёный</strong> цвет (olivedrab1) — ровно как в знаменитом комиксе <a href="https://xkcd.com/882/">xkcd «Significant»</a>, где после 20 тестов газеты выходят с заголовком «Зелёные желейные бобы вызывают акне!».</p>
 <hr>
 </section>
 </section>
@@ -572,20 +579,13 @@ sample estimates:
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ttest_data)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                      color         pval   bonferroni         holm           bh
-dodgerblue1     dodgerblue1 5.597485e-21 1.119497e-19 1.119497e-19 1.119497e-19
-orchid1             orchid1 2.204699e-15 4.409398e-14 1.322819e-14 2.939599e-15
-mediumpurple4 mediumpurple4 6.215338e-16 1.243068e-14 4.972271e-15 9.562059e-16
-grey38               grey38 1.170204e-18 2.340408e-17 1.872326e-17 4.680816e-18
-grey9                 grey9 3.261665e-17 6.523329e-16 3.951959e-16 7.248144e-17
-gray34               gray34 1.439034e-16 2.878068e-15 1.295131e-15 2.398390e-16
-                        by
-dodgerblue1   4.027659e-19
-orchid1       1.057591e-14
-mediumpurple4 3.440180e-15
-grey38        1.684036e-17
-grey9         2.607693e-16
-gray34        8.628784e-16</code></pre>
+<pre><code>                      color      pval bonferroni holm        bh by
+dodgerblue1     dodgerblue1 0.3225610          1    1 0.9873128  1
+orchid1             orchid1 0.9873128          1    1 0.9873128  1
+mediumpurple4 mediumpurple4 0.8682142          1    1 0.9873128  1
+grey38               grey38 0.4814851          1    1 0.9873128  1
+grey9                 grey9 0.8372664          1    1 0.9873128  1
+gray34               gray34 0.5976528          1    1 0.9873128  1</code></pre>
 </div>
 </div>
 </section>
@@ -636,18 +636,18 @@ gray34        8.628784e-16</code></pre>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 5
-       pval bonferroni     holm       bh       by
-      &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
- 1 5.60e-21   1.12e-19 1.12e-19 1.12e-19 4.03e-19
- 2 5.08e-20   1.02e-18 9.64e-19 3.17e-19 1.14e-18
- 3 5.11e-20   1.02e-18 9.64e-19 3.17e-19 1.14e-18
- 4 6.33e-20   1.27e-18 1.08e-18 3.17e-19 1.14e-18
- 5 1.17e-18   2.34e-17 1.87e-17 4.68e-18 1.68e-17
- 6 4.00e-18   8.01e-17 6.01e-17 1.29e-17 4.64e-17
- 7 4.51e-18   9.03e-17 6.32e-17 1.29e-17 4.64e-17
- 8 3.04e-17   6.08e-16 3.95e-16 7.25e-17 2.61e-16
- 9 3.26e-17   6.52e-16 3.95e-16 7.25e-17 2.61e-16
-10 5.61e-17   1.12e-15 6.17e-16 1.12e-16 4.04e-16</code></pre>
+      pval bonferroni  holm    bh    by
+     &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1 0.00669      0.134 0.134 0.134 0.482
+ 2 0.0883       1     1     0.883 1    
+ 3 0.246        1     1     0.987 1    
+ 4 0.277        1     1     0.987 1    
+ 5 0.304        1     1     0.987 1    
+ 6 0.323        1     1     0.987 1    
+ 7 0.376        1     1     0.987 1    
+ 8 0.437        1     1     0.987 1    
+ 9 0.481        1     1     0.987 1    
+10 0.592        1     1     0.987 1    </code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -688,26 +688,26 @@ gray34        8.628784e-16</code></pre>
 <pre><code># A tibble: 20 × 4
    jelly_bean_color     n W_stat   p_val
    &lt;chr&gt;            &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;
- 1 burlywood           42  0.909 0.00265
- 2 khaki               48  0.924 0.00417
- 3 mediumpurple4       43  0.925 0.00783
- 4 darkseagreen3       49  0.934 0.00838
- 5 grey38              45  0.935 0.0136 
- 6 skyblue2            44  0.938 0.0199 
- 7 grey16              50  0.945 0.0213 
- 8 gray34              48  0.943 0.0216 
- 9 slategray2          41  0.937 0.0242 
-10 olivedrab1          50  0.950 0.0345 
-11 navajowhite         37  0.936 0.0352 
-12 wheat1              48  0.953 0.0548 
-13 grey65              30  0.933 0.0576 
-14 grey9               46  0.953 0.0603 
-15 red2                50  0.960 0.0885 
-16 slateblue3          46  0.957 0.0890 
-17 orchid1             42  0.954 0.0936 
-18 grey69              34  0.953 0.153  
-19 grey46              44  0.962 0.161  
-20 dodgerblue1         53  0.969 0.190  </code></pre>
+ 1 slategray2          51  0.921 0.00229
+ 2 khaki               49  0.929 0.00552
+ 3 grey65              48  0.931 0.00717
+ 4 skyblue2            39  0.918 0.00743
+ 5 darkseagreen3       52  0.937 0.00839
+ 6 navajowhite         50  0.935 0.00859
+ 7 wheat1              57  0.946 0.0130 
+ 8 red2                47  0.938 0.0154 
+ 9 orchid1             43  0.939 0.0248 
+10 grey69              46  0.943 0.0256 
+11 grey38              49  0.949 0.0350 
+12 grey46              45  0.947 0.0375 
+13 burlywood           46  0.949 0.0411 
+14 grey16              33  0.936 0.0531 
+15 grey9               54  0.962 0.0814 
+16 olivedrab1          33  0.945 0.0939 
+17 mediumpurple4       27  0.938 0.108  
+18 slateblue3          33  0.949 0.128  
+19 dodgerblue1         44  0.965 0.196  
+20 gray34              39  0.975 0.513  </code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
@@ -744,8 +744,8 @@ gray34        8.628784e-16</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Levene's Test for Homogeneity of Variance (center = median)
        Df F value Pr(&gt;F)
-group  19  0.7174 0.8033
-      870               </code></pre>
+group  19  0.7607 0.7554
+      865               </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Тест Бартлетта: более мощный, но чувствителен к ненормальности</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(acne_condition <span class="sc">~</span> jelly_bean_color, <span class="at">data =</span> eating_data)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -754,7 +754,7 @@ group  19  0.7174 0.8033
     Bartlett test of homogeneity of variances
 
 data:  acne_condition by jelly_bean_color
-Bartlett's K-squared = 6.4383, df = 19, p-value = 0.9967</code></pre>
+Bartlett's K-squared = 6.7536, df = 19, p-value = 0.9954</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -772,8 +772,8 @@ Bartlett's K-squared = 6.4383, df = 19, p-value = 0.9967</code></pre>
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                  Df Sum Sq Mean Sq F value Pr(&gt;F)
-jelly_bean_color  19   1.04 0.05452   0.835  0.666
-Residuals        870  56.83 0.06532               </code></pre>
+jelly_bean_color  19   1.18 0.06188   0.737  0.782
+Residuals        865  72.60 0.08394               </code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
@@ -798,16 +798,16 @@ Residuals        870  56.83 0.06532               </code></pre>
 <tr class="odd">
 <td style="text-align: left;">jelly_bean_color</td>
 <td style="text-align: right;">19</td>
-<td style="text-align: right;">1.0359</td>
-<td style="text-align: right;">0.0545</td>
-<td style="text-align: right;">0.8347</td>
-<td style="text-align: right;">0.6659</td>
+<td style="text-align: right;">1.1758</td>
+<td style="text-align: right;">0.0619</td>
+<td style="text-align: right;">0.7373</td>
+<td style="text-align: right;">0.7818</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Residuals</td>
-<td style="text-align: right;">870</td>
-<td style="text-align: right;">56.8257</td>
-<td style="text-align: right;">0.0653</td>
+<td style="text-align: right;">865</td>
+<td style="text-align: right;">72.6049</td>
+<td style="text-align: right;">0.0839</td>
 <td style="text-align: right;">NA</td>
 <td style="text-align: right;">NA</td>
 </tr>
@@ -834,8 +834,8 @@ Residuals        870  56.83 0.06532               </code></pre>
 
 Response: acne_condition
                   Df Sum Sq  Mean Sq F value Pr(&gt;F)
-jelly_bean_color  19  1.036 0.054521  0.8347 0.6659
-Residuals        870 56.826 0.065317               </code></pre>
+jelly_bean_color  19  1.176 0.061885  0.7373 0.7818
+Residuals        865 72.605 0.083936               </code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -857,7 +857,7 @@ Residuals        870 56.826 0.065317               </code></pre>
     One-way analysis of means (not assuming equal variances)
 
 data:  acne_condition and jelly_bean_color
-F = 0.87091, num df = 19.00, denom df = 313.44, p-value = 0.6198</code></pre>
+F = 0.78849, num df = 19.00, denom df = 305.77, p-value = 0.7208</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -877,7 +877,7 @@ F = 0.87091, num df = 19.00, denom df = 313.44, p-value = 0.6198</code></pre>
     Kruskal-Wallis rank sum test
 
 data:  acne_condition by jelly_bean_color
-Kruskal-Wallis chi-squared = 16.056, df = 19, p-value = 0.6536</code></pre>
+Kruskal-Wallis chi-squared = 14.356, df = 19, p-value = 0.7626</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -928,84 +928,84 @@ Kruskal-Wallis chi-squared = 16.056, df = 19, p-value = 0.6536</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">slateblue3-grey38</td>
-<td style="text-align: right;">0.1541</td>
-<td style="text-align: right;">-0.0364</td>
-<td style="text-align: right;">0.3446</td>
-<td style="text-align: right;">0.3070</td>
-<td style="text-align: left;">slateblue3-grey38</td>
+<td style="text-align: left;">slategray2-olivedrab1</td>
+<td style="text-align: right;">0.1627</td>
+<td style="text-align: right;">-0.0674</td>
+<td style="text-align: right;">0.3928</td>
+<td style="text-align: right;">0.5732</td>
+<td style="text-align: left;">slategray2-olivedrab1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">slateblue3-grey65</td>
-<td style="text-align: right;">0.1372</td>
-<td style="text-align: right;">-0.0760</td>
-<td style="text-align: right;">0.3504</td>
-<td style="text-align: right;">0.7425</td>
-<td style="text-align: left;">slateblue3-grey65</td>
+<td style="text-align: left;">olivedrab1-grey9</td>
+<td style="text-align: right;">-0.1530</td>
+<td style="text-align: right;">-0.3806</td>
+<td style="text-align: right;">0.0745</td>
+<td style="text-align: right;">0.6683</td>
+<td style="text-align: left;">olivedrab1-grey9</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">slateblue3-grey16</td>
-<td style="text-align: right;">0.1140</td>
-<td style="text-align: right;">-0.0716</td>
-<td style="text-align: right;">0.2996</td>
-<td style="text-align: right;">0.8104</td>
-<td style="text-align: left;">slateblue3-grey16</td>
+<td style="text-align: left;">skyblue2-olivedrab1</td>
+<td style="text-align: right;">0.1598</td>
+<td style="text-align: right;">-0.0838</td>
+<td style="text-align: right;">0.4034</td>
+<td style="text-align: right;">0.7116</td>
+<td style="text-align: left;">skyblue2-olivedrab1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">wheat1-grey38</td>
-<td style="text-align: right;">0.1093</td>
-<td style="text-align: right;">-0.0792</td>
-<td style="text-align: right;">0.2978</td>
-<td style="text-align: right;">0.8756</td>
-<td style="text-align: left;">wheat1-grey38</td>
+<td style="text-align: left;">olivedrab1-burlywood</td>
+<td style="text-align: right;">-0.1490</td>
+<td style="text-align: right;">-0.3839</td>
+<td style="text-align: right;">0.0860</td>
+<td style="text-align: right;">0.7657</td>
+<td style="text-align: left;">olivedrab1-burlywood</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">slateblue3-grey69</td>
-<td style="text-align: right;">0.1180</td>
-<td style="text-align: right;">-0.0875</td>
-<td style="text-align: right;">0.3235</td>
-<td style="text-align: right;">0.8845</td>
-<td style="text-align: left;">slateblue3-grey69</td>
+<td style="text-align: left;">orchid1-olivedrab1</td>
+<td style="text-align: right;">0.1445</td>
+<td style="text-align: right;">-0.0938</td>
+<td style="text-align: right;">0.3829</td>
+<td style="text-align: right;">0.8261</td>
+<td style="text-align: left;">orchid1-olivedrab1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">grey38-gray34</td>
-<td style="text-align: right;">-0.1071</td>
-<td style="text-align: right;">-0.2956</td>
-<td style="text-align: right;">0.0815</td>
-<td style="text-align: right;">0.8943</td>
-<td style="text-align: left;">grey38-gray34</td>
+<td style="text-align: left;">olivedrab1-mediumpurple4</td>
+<td style="text-align: right;">-0.1538</td>
+<td style="text-align: right;">-0.4211</td>
+<td style="text-align: right;">0.1134</td>
+<td style="text-align: right;">0.8825</td>
+<td style="text-align: left;">olivedrab1-mediumpurple4</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">grey46-grey38</td>
-<td style="text-align: right;">0.1058</td>
-<td style="text-align: right;">-0.0868</td>
-<td style="text-align: right;">0.2984</td>
-<td style="text-align: right;">0.9203</td>
-<td style="text-align: left;">grey46-grey38</td>
+<td style="text-align: left;">olivedrab1-darkseagreen3</td>
+<td style="text-align: right;">-0.1295</td>
+<td style="text-align: right;">-0.3587</td>
+<td style="text-align: right;">0.0998</td>
+<td style="text-align: right;">0.8990</td>
+<td style="text-align: left;">olivedrab1-darkseagreen3</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">khaki-grey38</td>
-<td style="text-align: right;">0.1015</td>
-<td style="text-align: right;">-0.0871</td>
-<td style="text-align: right;">0.2900</td>
-<td style="text-align: right;">0.9332</td>
-<td style="text-align: left;">khaki-grey38</td>
+<td style="text-align: left;">olivedrab1-grey16</td>
+<td style="text-align: right;">-0.1428</td>
+<td style="text-align: right;">-0.3963</td>
+<td style="text-align: right;">0.1108</td>
+<td style="text-align: right;">0.9015</td>
+<td style="text-align: left;">olivedrab1-grey16</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">slateblue3-mediumpurple4</td>
-<td style="text-align: right;">0.1012</td>
-<td style="text-align: right;">-0.0915</td>
-<td style="text-align: right;">0.2939</td>
-<td style="text-align: right;">0.9466</td>
-<td style="text-align: left;">slateblue3-mediumpurple4</td>
+<td style="text-align: left;">red2-olivedrab1</td>
+<td style="text-align: right;">0.1267</td>
+<td style="text-align: right;">-0.1072</td>
+<td style="text-align: right;">0.3606</td>
+<td style="text-align: right;">0.9293</td>
+<td style="text-align: left;">red2-olivedrab1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">slateblue3-olivedrab1</td>
-<td style="text-align: right;">0.0947</td>
-<td style="text-align: right;">-0.0909</td>
-<td style="text-align: right;">0.2803</td>
-<td style="text-align: right;">0.9592</td>
-<td style="text-align: left;">slateblue3-olivedrab1</td>
+<td style="text-align: left;">slategray2-grey69</td>
+<td style="text-align: right;">0.1063</td>
+<td style="text-align: right;">-0.1031</td>
+<td style="text-align: right;">0.3157</td>
+<td style="text-align: right;">0.9613</td>
+<td style="text-align: left;">slategray2-grey69</td>
 </tr>
 </tbody>
 </table>
@@ -1024,7 +1024,7 @@ Kruskal-Wallis chi-squared = 16.056, df = 19, p-value = 0.6536</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
-<p>Если ни один ДИ не пересекает ноль — нет значимых попарных различий. Именно это мы и видим: все пары включают 0 в ДИ.</p>
+<p>Пара различается значимо, если её доверительный интервал <strong>не</strong> содержит ноль. Здесь каждый ДИ включает 0 — значимых попарных различий нет.</p>
 </blockquote>
 </section>
 <section id="тест-данна-пост-хок-после-краскелауоллиса-ранговый" class="level3" data-number="2.7.2">
@@ -1041,7 +1041,7 @@ Kruskal-Wallis chi-squared = 16.056, df = 19, p-value = 0.6536</code></pre>
 <span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">x     =</span> eating_data<span class="sc">$</span>acne_condition,</span>
 <span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">g     =</span> eating_data<span class="sc">$</span>jelly_bean_color,</span>
 <span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"bh"</span>,   <span class="co"># поправка Benjamini–Hochberg</span></span>
-<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">alph  =</span> <span class="fl">0.05</span>,</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">alpha  =</span> <span class="fl">0.05</span>,</span>
 <span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">kw    =</span> <span class="cn">TRUE</span>,    <span class="co"># вывести результат теста KW перед пост-хок</span></span>
 <span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="cn">TRUE</span></span>
 <span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1072,64 +1072,64 @@ Kruskal-Wallis chi-squared = 16.056, df = 19, p-value = 0.6536</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">grey38 - slateblue3</td>
-<td style="text-align: right;">-2.9153</td>
-<td style="text-align: right;">0.0018</td>
-<td style="text-align: right;">0.3376</td>
+<td style="text-align: left;">darkseagreen3 - olivedrab1</td>
+<td style="text-align: right;">2.0511</td>
+<td style="text-align: right;">0.0201</td>
+<td style="text-align: right;">0.4780</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">mediumpurple4 - slategray2</td>
-<td style="text-align: right;">-0.0349</td>
-<td style="text-align: right;">0.4861</td>
-<td style="text-align: right;">0.4887</td>
+<td style="text-align: left;">burlywood - grey9</td>
+<td style="text-align: right;">-0.0415</td>
+<td style="text-align: right;">0.4834</td>
+<td style="text-align: right;">0.4912</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">navajowhite - olivedrab1</td>
-<td style="text-align: right;">0.0358</td>
-<td style="text-align: right;">0.4857</td>
-<td style="text-align: right;">0.4909</td>
+<td style="text-align: left;">mediumpurple4 - skyblue2</td>
+<td style="text-align: right;">-0.0272</td>
+<td style="text-align: right;">0.4891</td>
+<td style="text-align: right;">0.4917</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">khaki - wheat1</td>
-<td style="text-align: right;">-0.1751</td>
-<td style="text-align: right;">0.4305</td>
-<td style="text-align: right;">0.4927</td>
+<td style="text-align: left;">dodgerblue1 - wheat1</td>
+<td style="text-align: right;">0.0309</td>
+<td style="text-align: right;">0.4877</td>
+<td style="text-align: right;">0.4929</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">darkseagreen3 - dodgerblue1</td>
-<td style="text-align: right;">0.0377</td>
-<td style="text-align: right;">0.4850</td>
-<td style="text-align: right;">0.4928</td>
+<td style="text-align: left;">dodgerblue1 - grey65</td>
+<td style="text-align: right;">-0.0422</td>
+<td style="text-align: right;">0.4832</td>
+<td style="text-align: right;">0.4936</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">dodgerblue1 - red2</td>
-<td style="text-align: right;">-0.1667</td>
-<td style="text-align: right;">0.4338</td>
-<td style="text-align: right;">0.4935</td>
+<td style="text-align: left;">grey16 - orchid1</td>
+<td style="text-align: right;">-0.0130</td>
+<td style="text-align: right;">0.4948</td>
+<td style="text-align: right;">0.4948</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">navajowhite - slategray2</td>
-<td style="text-align: right;">0.0743</td>
-<td style="text-align: right;">0.4704</td>
-<td style="text-align: right;">0.4938</td>
+<td style="text-align: left;">grey9 - mediumpurple4</td>
+<td style="text-align: right;">-0.0427</td>
+<td style="text-align: right;">0.4830</td>
+<td style="text-align: right;">0.4960</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">grey46 - red2</td>
-<td style="text-align: right;">0.5491</td>
-<td style="text-align: right;">0.2915</td>
-<td style="text-align: right;">0.4945</td>
+<td style="text-align: left;">burlywood - olivedrab1</td>
+<td style="text-align: right;">2.3087</td>
+<td style="text-align: right;">0.0105</td>
+<td style="text-align: right;">0.4978</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">grey16 - mediumpurple4</td>
-<td style="text-align: right;">-0.2580</td>
-<td style="text-align: right;">0.3982</td>
-<td style="text-align: right;">0.4945</td>
+<td style="text-align: left;">grey46 - slateblue3</td>
+<td style="text-align: right;">-0.0506</td>
+<td style="text-align: right;">0.4798</td>
+<td style="text-align: right;">0.4982</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">red2 - skyblue2</td>
-<td style="text-align: right;">0.1977</td>
-<td style="text-align: right;">0.4216</td>
-<td style="text-align: right;">0.4945</td>
+<td style="text-align: left;">slateblue3 - wheat1</td>
+<td style="text-align: right;">-0.0634</td>
+<td style="text-align: right;">0.4747</td>
+<td style="text-align: right;">0.4983</td>
 </tr>
 </tbody>
 </table>
