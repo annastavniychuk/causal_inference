@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -204,6 +224,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Продольные эксперименты, ESC и внутрисубъектные дизайны</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Литература</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -312,13 +338,13 @@ window.Quarto = {
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><strong>Философские истоки (XVIII–XIX вв.).</strong> Дэвид Юм заметил, что человек не наблюдает причинные связи непосредственно — лишь последовательности событий (Hume, 1748). Джон Стюарт Милль разработал методы согласия и различия, заложив основы логического анализа причинности (Mill, 1843).</li>
-<li><strong>Статистическая революция (XX в.).</strong> Ежи Нейман предложил концепцию потенциальных исходов — первую строгую количественную модель причинности (Neyman, 1923). Рональд Фишер обосновал рандомизированные контролируемые эксперименты (randomized controlled trials, RCT) как способ устранить систематические смещения (Fisher, 1935).</li>
-<li><strong>Экономика и квазиэксперименты (1970–1986).</strong> Орли Ашенфельтер применил метод разности разностей (difference-in-differences) к оценке программ занятости (Ashenfelter, 1978). Роберт ЛаЛонд показал, что оценки эффекта программы трудоустройства с помощью МНК систематически расходятся с экспериментальными (LaLonde, 1986) — это резко усилило интерес к экспериментальным и квазиэкспериментальным методам.</li>
-<li><strong>Инструментальные переменные и LATE (1990-е).</strong> Джошуа Ангрист использовал лотерею призывных номеров как инструмент для оценки эффекта военной службы на доходы (Angrist, 1990); Гвидо Имбенс и Дональд Рубин формализовали условия, при которых инструментальные переменные оценивают локальный средний эффект воздействия (local average treatment effect, LATE).</li>
+<li><strong>Философские истоки (XVIII–XIX вв.).</strong> Дэвид Юм заметил, что человек не наблюдает причинные связи непосредственно — лишь последовательности событий <span class="citation" data-cites="hume1748">(<a href="references.html#ref-hume1748" role="doc-biblioref">Hume 1748</a>)</span>. Джон Стюарт Милль разработал методы согласия и различия, заложив основы логического анализа причинности <span class="citation" data-cites="mill1843">(<a href="references.html#ref-mill1843" role="doc-biblioref">Mill 1843</a>)</span>.</li>
+<li><strong>Статистическая революция (XX в.).</strong> Ежи Нейман предложил концепцию потенциальных исходов — первую строгую количественную модель причинности <span class="citation" data-cites="neyman1923">(<a href="references.html#ref-neyman1923" role="doc-biblioref">Neyman 1923</a>)</span>. Рональд Фишер обосновал рандомизированные контролируемые эксперименты (randomized controlled trials, RCT) как способ устранить систематические смещения <span class="citation" data-cites="fisher1935">(<a href="references.html#ref-fisher1935" role="doc-biblioref">Fisher 1935</a>)</span>.</li>
+<li><strong>Экономика и квазиэксперименты (1970–1986).</strong> Орли Ашенфельтер применил метод разности разностей (difference-in-differences) к оценке программ занятости <span class="citation" data-cites="ashenfelter1978">(<a href="references.html#ref-ashenfelter1978" role="doc-biblioref">Ashenfelter 1978</a>)</span>. Роберт ЛаЛонд показал, что оценки эффекта программы трудоустройства с помощью МНК систематически расходятся с экспериментальными <span class="citation" data-cites="lalonde1986">(<a href="references.html#ref-lalonde1986" role="doc-biblioref">LaLonde 1986</a>)</span> — это резко усилило интерес к экспериментальным и квазиэкспериментальным методам.</li>
+<li><strong>Инструментальные переменные и LATE (1990-е).</strong> Джошуа Ангрист использовал лотерею призывных номеров как инструмент для оценки эффекта военной службы на доходы <span class="citation" data-cites="angrist1990">(<a href="references.html#ref-angrist1990" role="doc-biblioref">Angrist 1990</a>)</span>; Гвидо Имбенс и Дональд Рубин формализовали условия, при которых инструментальные переменные оценивают локальный средний эффект воздействия (local average treatment effect, LATE) <span class="citation" data-cites="imbens1997">(<a href="references.html#ref-imbens1997" role="doc-biblioref">Imbens и Rubin 1997</a>)</span>.</li>
 <li><strong>Современный этап.</strong> Сложные экспериментальные дизайны, машинное обучение, доказательная политика (evidence-based policy).</li>
 </ol>
-<p>Этот сдвиг в эмпирической экономике получил название <strong>революции достоверности</strong> (credibility revolution): доля статей NBER с обоснованной причинной идентификацией выросла с 4% в 1990 г. до 28% в 2020 г. (Garg, Fetzer, 2024).</p>
+<p>Этот сдвиг в эмпирической экономике получил название <strong>революции достоверности</strong> (credibility revolution): доля статей NBER с обоснованной причинной идентификацией выросла с 4% в 1990 г. до 28% в 2020 г. <span class="citation" data-cites="garg2024">(<a href="references.html#ref-garg2024" role="doc-biblioref">Garg и Fetzer 2025</a>)</span>.</p>
 </div>
 </div>
 </div>
@@ -353,7 +379,7 @@ T_i =
 </div>
 </div>
 </div>
-<p>Это и есть <strong>фундаментальная проблема причинного вывода</strong> (fundamental problem of causal inference; Holland, 1986): невозможно наблюдать одну и ту же единицу в двух состояниях мира одновременно. По сути это <strong>проблема пропущенных данных</strong> (missing data problem) — нам не хватает ровно половины таблицы, причём той половины, которую физически невозможно собрать.</p>
+<p>Это и есть <strong>фундаментальная проблема причинного вывода</strong> (fundamental problem of causal inference) <span class="citation" data-cites="holland1986">(<a href="references.html#ref-holland1986" role="doc-biblioref">Holland 1986</a>)</span>: невозможно наблюдать одну и ту же единицу в двух состояниях мира одновременно. По сути это <strong>проблема пропущенных данных</strong> (missing data problem) — нам не хватает ровно половины таблицы, причём той половины, которую физически невозможно собрать.</p>
 <p>Из этой формулировки следуют два важных вывода.</p>
 <p>Во-первых, раз индивидуальный эффект <span class="math inline">\(\tau_i\)</span> недоступен, приходится сравнивать <em>разные</em> единицы между собой — и всё качество такого сравнения определяется <strong>механизмом назначения</strong> (assignment mechanism): правилом, по которому одни единицы оказались под воздействием, а другие нет. В контролируемом эксперименте исследователь сам задаёт этот механизм <em>ex ante</em> — и потому точно знает, какие данные наблюдаются, а какие пропущены. Квазиэкспериментальные методы, напротив, пытаются <em>ex post</em> восстановить эндогенный механизм назначения, который исследователь не контролировал.</p>
 <p>Во-вторых, раз распределение индивидуальных эффектов недоступно, будем довольствоваться <strong>средними</strong> величинами.</p>
@@ -603,7 +629,7 @@ T_i =
 <p>Продолжим сценарий с микрокредитованием, но теперь сделаем его более реалистичным: в реальном мире предприниматели <strong>сами решают</strong>, подавать ли заявку на кредит. Те, кто активнее, образованнее или уже имеет хорошие показатели — идут охотнее.</p>
 <p>Это порождает <strong>смещение из-за самоотбора (selection bias)</strong>: если мы просто сравним «взявших кредит» и «не взявших», наша оценка будет завышена — не потому что кредит так хорош, а потому что в программу пошли изначально более сильные предприниматели.</p>
 <p>Насколько велика эта проблема и что с ней делает рандомизация?</p>
-<p>Формально, наивная оценка раскладывается как (Mixtape, Cunningham, 2021):</p>
+<p>Формально, наивная оценка раскладывается как <span class="citation" data-cites="cunningham2021">(<a href="references.html#ref-cunningham2021" role="doc-biblioref">Cunningham 2021</a>)</span>:</p>
 <p><span class="math display">\[
 \underbrace{\mathbb{E}[Y_1|T=1] - \mathbb{E}[Y_0|T=0]}_{\text{наивная оценка}}
 = \underbrace{\mathbb{E}[Y_1] - \mathbb{E}[Y_0]}_{\text{ATE}}
@@ -1202,7 +1228,7 @@ T_i =
 </section>
 <section id="две-главные-экспериментальные-проблемы" class="level2" data-number="1.9">
 <h2 data-number="1.9" class="anchored" data-anchor-id="две-главные-экспериментальные-проблемы"><span class="header-section-number">1.9</span> Две главные экспериментальные проблемы</h2>
-<p>Джон Лист формулирует программу экспериментальной экономики в виде двух больших задач (List, 2025).</p>
+<p>Джон Лист формулирует программу экспериментальной экономики в виде двух больших задач <span class="citation" data-cites="list2025experimental">(<a href="references.html#ref-list2025experimental" role="doc-biblioref">List 2026</a>)</span>.</p>
 <p><strong>Экспериментальная проблема 1</strong> (Experimental Problem 1, EP1): этически ответственным образом (1) количественно измерять экономические фундаментальные основы (quantifying economic fundamentals) — предпочтения, убеждения, ограничения агентов; (2) измерять эффекты воздействия (measuring treatment effects) — то, что называют «эффектами причин» (effects of causes); и (3) идентифицировать ключевые механизмы — <strong>медиаторы</strong> (mediators, <em>почему</em> работает) и <strong>модераторы</strong> (moderators, <em>для кого</em> работает), то есть «причины эффектов» (causes of effects). Первые две части — территория внутренней валидности; третья — мост к следующей проблеме.</p>
 <p><strong>Экспериментальная проблема 2</strong> (Experimental Problem 2, EP2): прогнозировать, переносится ли причинный эффект из среды эксперимента в другие среды — пространственно, временно́, масштабно и популяционно дифференцированные. Внешняя валидность — частный случай EP2; сама EP2 шире, поскольку включает и <strong>вертикальное масштабирование</strong> (vertical scaling).</p>
 <p>Различают два направления масштабирования:</p>
@@ -1214,7 +1240,7 @@ T_i =
 </section>
 <section id="типология-экспериментов-harrisonlist" class="level2" data-number="1.10">
 <h2 data-number="1.10" class="anchored" data-anchor-id="типология-экспериментов-harrisonlist"><span class="header-section-number">1.10</span> Типология экспериментов Harrison–List</h2>
-<p>Классификация экспериментов (Harrison, List, 2004) строится на четырёх бинарных признаках:</p>
+<p>Классификация экспериментов <span class="citation" data-cites="harrison2004">(<a href="references.html#ref-harrison2004" role="doc-biblioref">Harrison и List 2004</a>)</span> строится на четырёх бинарных признаках:</p>
 <ul>
 <li><span class="math inline">\(S\)</span> — <strong>тип популяции</strong> (population): <span class="math inline">\(S = 0\)</span> — стандартная «удобная» выборка (обычно студенты); <span class="math inline">\(S = 1\)</span> — целевая популяция, о которой мы хотим делать выводы (фермеры, предприниматели, чиновники). Поведение студентов может систематически отличаться от поведения целевой группы.</li>
 <li><span class="math inline">\(E\)</span> — <strong>среда</strong> (environment): <span class="math inline">\(E = 0\)</span> — искусственная лабораторная среда с навязанными правилами и абстрактными товарами; <span class="math inline">\(E = 1\)</span> — естественная среда, привычная обстановка и реальные блага. Искусственность среды угрожает конструктной валидности.</li>
@@ -1360,17 +1386,67 @@ T_i =
 <section id="что-почитать" class="level2" data-number="1.12">
 <h2 data-number="1.12" class="anchored" data-anchor-id="что-почитать"><span class="header-section-number">1.12</span> Что почитать</h2>
 <ul>
-<li>List, J. A. (2025). <em>Experimental Economics: Theory and Practice</em>. University of Chicago Press. — гл. 1–3 (введение, устройство экономических экспериментов, внутренняя валидность).</li>
-<li>Cunningham, S. (2021). <em>Causal Inference: The Mixtape</em>. Yale University Press. — гл. 4 (Potential Outcomes Causal Model): <a href="https://mixtape.scunning.com">mixtape.scunning.com</a>.</li>
-<li>Huntington-Klein, N. (2021). <em>The Effect: An Introduction to Research Design and Causality</em>: <a href="https://theeffectbook.net">theeffectbook.net</a>.</li>
-<li>Facure, M. <em>Causal Inference for the Brave and True</em>. — гл. 1 (Introduction to Causality).</li>
-<li>Neal, B. (2020). <em>Introduction to Causal Inference</em>. — гл. 1–2 (Motivation, Potential Outcomes).</li>
-<li>Harrison, G. W., &amp; List, J. A. (2004). Field Experiments. <em>Journal of Economic Literature</em>, 42(4), 1009–1055.</li>
-<li>Holland, P. W. (1986). Statistics and Causal Inference. <em>JASA</em>, 81(396), 945–960.</li>
+<li><span class="citation" data-cites="list2025experimental">List (<a href="references.html#ref-list2025experimental" role="doc-biblioref">2026</a>)</span> — гл. 1–3: введение, устройство экономических экспериментов, внутренняя валидность.</li>
+<li><span class="citation" data-cites="cunningham2021">Cunningham (<a href="references.html#ref-cunningham2021" role="doc-biblioref">2021</a>)</span> — гл. 4 (Potential Outcomes Causal Model).</li>
+<li><span class="citation" data-cites="huntingtonklein2021">Huntington-Klein (<a href="references.html#ref-huntingtonklein2021" role="doc-biblioref">2021</a>)</span> — современное введение в дизайн исследований и причинность.</li>
+<li><span class="citation" data-cites="facure2022">Facure (<a href="references.html#ref-facure2022" role="doc-biblioref">2022</a>)</span> — гл. 1 (Introduction to Causality).</li>
+<li><span class="citation" data-cites="neal2020">Neal (<a href="references.html#ref-neal2020" role="doc-biblioref">2020</a>)</span> — гл. 1–2 (Motivation, Potential Outcomes).</li>
+<li><span class="citation" data-cites="harrison2004">Harrison и List (<a href="references.html#ref-harrison2004" role="doc-biblioref">2004</a>)</span> — каноническая классификация полевых экспериментов.</li>
+<li><span class="citation" data-cites="holland1986">Holland (<a href="references.html#ref-holland1986" role="doc-biblioref">1986</a>)</span> — классическая статья о статистике и причинном выводе.</li>
 </ul>
 <hr>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-angrist1990" class="csl-entry" role="listitem">
+Angrist, Joshua D. 1990. <span>«Lifetime Earnings and the <span>V</span>ietnam Era Draft Lottery: Evidence from Social Security Administrative Records»</span>. <em>American Economic Review</em> 80 (3): 313–36.
+</div>
+<div id="ref-ashenfelter1978" class="csl-entry" role="listitem">
+Ashenfelter, Orley. 1978. <span>«Estimating the Effect of Training Programs on Earnings»</span>. <em>Review of Economics and Statistics</em> 60 (1): 47–57.
+</div>
+<div id="ref-cunningham2021" class="csl-entry" role="listitem">
+Cunningham, Scott. 2021. <em>Causal Inference: The Mixtape</em>. New Haven: Yale University Press. <a href="https://mixtape.scunning.com">https://mixtape.scunning.com</a>.
+</div>
+<div id="ref-facure2022" class="csl-entry" role="listitem">
+Facure, Matheus. 2022. <em>Causal Inference for the Brave and True</em>. <a href="https://matheusfacure.github.io/python-causality-handbook/">https://matheusfacure.github.io/python-causality-handbook/</a>.
+</div>
+<div id="ref-fisher1935" class="csl-entry" role="listitem">
+Fisher, Ronald A. 1935. <em>The Design of Experiments</em>. Edinburgh: Oliver; Boyd.
+</div>
+<div id="ref-garg2024" class="csl-entry" role="listitem">
+Garg, Prashant, и Thiemo Fetzer. 2025. <span>«Causal Claims in Economics»</span>.
+</div>
+<div id="ref-harrison2004" class="csl-entry" role="listitem">
+Harrison, Glenn W., и John A. List. 2004. <span>«Field Experiments»</span>. <em>Journal of Economic Literature</em> 42 (4): 1009–55.
+</div>
+<div id="ref-holland1986" class="csl-entry" role="listitem">
+Holland, Paul W. 1986. <span>«Statistics and Causal Inference»</span>. <em>Journal of the American Statistical Association</em> 81 (396): 945–60.
+</div>
+<div id="ref-hume1748" class="csl-entry" role="listitem">
+Hume, David. 1748. <em>An Enquiry Concerning Human Understanding</em>. London: A. Millar.
+</div>
+<div id="ref-huntingtonklein2021" class="csl-entry" role="listitem">
+Huntington-Klein, Nick. 2021. <em>The Effect: An Introduction to Research Design and Causality</em>. Chapman; Hall/CRC. <a href="https://theeffectbook.net">https://theeffectbook.net</a>.
+</div>
+<div id="ref-imbens1997" class="csl-entry" role="listitem">
+Imbens, Guido W., и Donald B. Rubin. 1997. <span>«Estimating Outcome Distributions for Compliers in Instrumental Variables Models»</span>. <em>Review of Economic Studies</em> 64 (4): 555–74.
+</div>
+<div id="ref-lalonde1986" class="csl-entry" role="listitem">
+LaLonde, Robert J. 1986. <span>«Evaluating the Econometric Evaluations of Training Programs with Experimental Data»</span>. <em>American Economic Review</em> 76 (4): 604–20.
+</div>
+<div id="ref-list2025experimental" class="csl-entry" role="listitem">
+List, John A. 2026. <em>Experimental Economics: Theory and Practice</em>. Chicago: University of Chicago Press.
+</div>
+<div id="ref-mill1843" class="csl-entry" role="listitem">
+Mill, John Stuart. 1843. <em>A System of Logic, Ratiocinative and Inductive</em>. London: John W. Parker.
+</div>
+<div id="ref-neal2020" class="csl-entry" role="listitem">
+Neal, Brady. 2020. <span>«Introduction to Causal Inference from a Machine Learning Perspective»</span>. <a href="https://www.bradyneal.com/causal-inference-course">https://www.bradyneal.com/causal-inference-course</a>.
+</div>
+<div id="ref-neyman1923" class="csl-entry" role="listitem">
+Neyman, Jerzy. 1923. <span>«On the Application of Probability Theory to Agricultural Experiments. <span>E</span>ssay on Principles. <span>S</span>ection 9»</span>. <em>Statistical Science</em> 5 (4): 465–72.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

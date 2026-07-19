@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -202,6 +222,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Продольные эксперименты, ESC и внутрисубъектные дизайны</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Литература</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -313,8 +339,8 @@ window.Quarto = {
 <thead>
 <tr class="header">
 <th></th>
-<th>Потенциальные исходы (Neyman, 1923; Rubin, 1974)</th>
-<th>DAG (Pearl, 1988, 1995)</th>
+<th>Потенциальные исходы <span class="citation" data-cites="neyman1923 rubin1974">(<a href="references.html#ref-neyman1923" role="doc-biblioref">Neyman 1923</a>; <a href="references.html#ref-rubin1974" role="doc-biblioref">Rubin 1974</a>)</span></th>
+<th>DAG <span class="citation" data-cites="pearl1988 pearl1995">(<a href="references.html#ref-pearl1988" role="doc-biblioref">Pearl 1988</a>, <a href="references.html#ref-pearl1995" role="doc-biblioref">1995</a>)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -335,7 +361,7 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p>Языки эквивалентны (каждому DAG соответствует семейство PO-моделей и наоборот — Richardson, Robins, 2013) и взаимодополняющие: экономистам в задачах с функциональными ограничениями удобнее потенциальные исходы, в больших системах с десятками переменных — DAG (Imbens, 2020).</p>
+<p>Языки эквивалентны (каждому DAG соответствует семейство PO-моделей и наоборот — <span class="citation" data-cites="richardson2013">Richardson и Robins (<a href="references.html#ref-richardson2013" role="doc-biblioref">2013</a>)</span>) и взаимодополняющие: экономистам в задачах с функциональными ограничениями удобнее потенциальные исходы, в больших системах с десятками переменных — DAG <span class="citation" data-cites="imbens2020">(<a href="references.html#ref-imbens2020" role="doc-biblioref">Imbens 2020</a>)</span>.</p>
 </div>
 </div>
 </div>
@@ -351,7 +377,7 @@ window.Quarto = {
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Отдельное направление — <strong>поиск причинной структуры</strong> (causal discovery). Алгоритмы опираются на разные сигналы: условные независимости (PC, FCI), правдоподобие перебираемых графов (GES, NOTEARS), асимметрию формы связи (LiNGAM, ANM). Главное ограничение: данные часто не различают графы с одинаковыми корреляциями (при линейной связи <span class="math inline">\(X \to Y\)</span> и <span class="math inline">\(X \leftarrow Y\)</span> неотличимы), а алгоритмы требуют отсутствия скрытых конфаундеров и больших выборок — в экономических данных это редко выполняется вместе. На практике causal discovery — вспомогательный инструмент для генерации гипотез, не замена экспертному знанию. В этом курсе мы остаёмся в парадигме «DAG приносит исследователь». Обзоры: Glymour, Zhang, Spirtes (2019); Vowels, Camgoz, Bowden (2022).</p>
+<p>Отдельное направление — <strong>поиск причинной структуры</strong> (causal discovery). Алгоритмы опираются на разные сигналы: условные независимости (PC, FCI), правдоподобие перебираемых графов (GES, NOTEARS), асимметрию формы связи (LiNGAM, ANM). Главное ограничение: данные часто не различают графы с одинаковыми корреляциями (при линейной связи <span class="math inline">\(X \to Y\)</span> и <span class="math inline">\(X \leftarrow Y\)</span> неотличимы), а алгоритмы требуют отсутствия скрытых конфаундеров и больших выборок — в экономических данных это редко выполняется вместе. На практике causal discovery — вспомогательный инструмент для генерации гипотез, не замена экспертному знанию. В этом курсе мы остаёмся в парадигме «DAG приносит исследователь». Обзоры: <span class="citation" data-cites="glymour2019">Glymour, Zhang, и Spirtes (<a href="references.html#ref-glymour2019" role="doc-biblioref">2019</a>)</span> и <span class="citation" data-cites="vowels2022">Vowels, Camgoz, и Bowden (<a href="references.html#ref-vowels2022" role="doc-biblioref">2022</a>)</span>.</p>
 </div>
 </div>
 </div>
@@ -364,7 +390,7 @@ window.Quarto = {
 <li><strong>Медиатор</strong> (mediator): <span class="math inline">\(T \to X \to Y\)</span> — переносит часть эффекта. Пример: образование <span class="math inline">\(\to\)</span> тип работы <span class="math inline">\(\to\)</span> доход.</li>
 <li><strong>Коллайдер</strong> (collider, общее следствие): <span class="math inline">\(T \to X \leftarrow Y\)</span>. Пример: курение <span class="math inline">\(\to\)</span> диагноз <span class="math inline">\(\leftarrow\)</span> ослабленный иммунитет.</li>
 </ul>
-<p>Когда путь «передаёт» зависимость, а когда нет, определяет критерий <strong>d-разделения</strong> (d-separation; Pearl, 1988). Путь считается <strong>заблокированным</strong> (blocked / d-separated), если выполнено хотя бы одно из условий:</p>
+<p>Когда путь «передаёт» зависимость, а когда нет, определяет критерий <strong>d-разделения</strong> (d-separation) <span class="citation" data-cites="pearl1988">(<a href="references.html#ref-pearl1988" role="doc-biblioref">Pearl 1988</a>)</span>. Путь считается <strong>заблокированным</strong> (blocked / d-separated), если выполнено хотя бы одно из условий:</p>
 <ol type="1">
 <li>на пути есть промежуточная вершина — <em>не</em> коллайдер (то есть звено цепи <span class="math inline">\(T \to X \to Y\)</span> или вилка <span class="math inline">\(T \leftarrow X \to Y\)</span>), и исследователь <strong>контролирует</strong> эту переменную;</li>
 <li>на пути есть вершина-коллайдер (<span class="math inline">\(T \to X \leftarrow Y\)</span>), и на неё (и её потомков) <strong>не</strong> контролируют.</li>
@@ -404,18 +430,18 @@ window.Quarto = {
 </section>
 <section id="критерии-идентификации" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="критерии-идентификации"><span class="header-section-number">3.3</span> Критерии идентификации</h2>
-<p><strong>Back-door критерий</strong> (Pearl, 1995) — базовый случай. Back-door путь — путь из <span class="math inline">\(T\)</span> в <span class="math inline">\(Y\)</span>, начинающийся стрелкой <em>в</em> <span class="math inline">\(T\)</span> (то есть <span class="math inline">\(T \leftarrow \dots\)</span>). Множество <span class="math inline">\(Z\)</span> удовлетворяет критерию, если: (1) ни один элемент <span class="math inline">\(Z\)</span> не является потомком <span class="math inline">\(T\)</span>; (2) <span class="math inline">\(Z\)</span> блокирует все back-door пути из <span class="math inline">\(T\)</span> в <span class="math inline">\(Y\)</span>. Тогда внутри каждой «клетки» с фиксированным <span class="math inline">\(Z\)</span> назначение <span class="math inline">\(T\)</span> устроено «как в эксперименте», и сравнение исходов по <span class="math inline">\(T\)</span> имеет причинную интерпретацию.</p>
-<p><strong>Front-door критерий</strong> (Pearl, 1995) — запасной выход, когда back-door закрыть нельзя из-за <em>ненаблюдаемого</em> конфаундера <span class="math inline">\(U\)</span>. Пусть весь эффект <span class="math inline">\(T \to Y\)</span> идёт через наблюдаемый медиатор <span class="math inline">\(M\)</span>. Критерий требует: (1) <span class="math inline">\(M\)</span> перехватывает все направленные пути из <span class="math inline">\(T\)</span> в <span class="math inline">\(Y\)</span> (нет прямого пути в обход <span class="math inline">\(M\)</span>); (2) нет открытых back-door путей из <span class="math inline">\(T\)</span> в <span class="math inline">\(M\)</span>; (3) все back-door пути из <span class="math inline">\(M\)</span> в <span class="math inline">\(Y\)</span> блокируются контролем на <span class="math inline">\(T\)</span>. Идея: оценить, как <span class="math inline">\(T\)</span> сдвигает <span class="math inline">\(M\)</span>, затем — как <span class="math inline">\(M\)</span> сдвигает <span class="math inline">\(Y\)</span>, и перемножить. В простейшей линейной версии это две регрессии: <span class="math inline">\(M = \alpha_0 + \alpha_1 T\)</span> и <span class="math inline">\(Y = \beta_0 + \beta_1 M + \beta_2 T\)</span>, и общий эффект равен <span class="math inline">\(\tau = \alpha_1 \beta_1\)</span>. Плата — гораздо более сильные структурные предположения о механизме. Практическое правило: сначала проверяем back-door; если он заведомо нарушен латентными факторами и есть хороший кандидат-медиатор — проверяем front-door; если не работает ничего — нужен другой дизайн (эксперимент, инструмент).</p>
+<p><strong>Back-door критерий</strong> <span class="citation" data-cites="pearl1995">(<a href="references.html#ref-pearl1995" role="doc-biblioref">Pearl 1995</a>)</span> — базовый случай. Back-door путь — путь из <span class="math inline">\(T\)</span> в <span class="math inline">\(Y\)</span>, начинающийся стрелкой <em>в</em> <span class="math inline">\(T\)</span> (то есть <span class="math inline">\(T \leftarrow \dots\)</span>). Множество <span class="math inline">\(Z\)</span> удовлетворяет критерию, если: (1) ни один элемент <span class="math inline">\(Z\)</span> не является потомком <span class="math inline">\(T\)</span>; (2) <span class="math inline">\(Z\)</span> блокирует все back-door пути из <span class="math inline">\(T\)</span> в <span class="math inline">\(Y\)</span>. Тогда внутри каждой «клетки» с фиксированным <span class="math inline">\(Z\)</span> назначение <span class="math inline">\(T\)</span> устроено «как в эксперименте», и сравнение исходов по <span class="math inline">\(T\)</span> имеет причинную интерпретацию.</p>
+<p><strong>Front-door критерий</strong> <span class="citation" data-cites="pearl1995">(<a href="references.html#ref-pearl1995" role="doc-biblioref">Pearl 1995</a>)</span> — запасной выход, когда back-door закрыть нельзя из-за <em>ненаблюдаемого</em> конфаундера <span class="math inline">\(U\)</span>. Пусть весь эффект <span class="math inline">\(T \to Y\)</span> идёт через наблюдаемый медиатор <span class="math inline">\(M\)</span>. Критерий требует: (1) <span class="math inline">\(M\)</span> перехватывает все направленные пути из <span class="math inline">\(T\)</span> в <span class="math inline">\(Y\)</span> (нет прямого пути в обход <span class="math inline">\(M\)</span>); (2) нет открытых back-door путей из <span class="math inline">\(T\)</span> в <span class="math inline">\(M\)</span>; (3) все back-door пути из <span class="math inline">\(M\)</span> в <span class="math inline">\(Y\)</span> блокируются контролем на <span class="math inline">\(T\)</span>. Идея: оценить, как <span class="math inline">\(T\)</span> сдвигает <span class="math inline">\(M\)</span>, затем — как <span class="math inline">\(M\)</span> сдвигает <span class="math inline">\(Y\)</span>, и перемножить. В простейшей линейной версии это две регрессии: <span class="math inline">\(M = \alpha_0 + \alpha_1 T\)</span> и <span class="math inline">\(Y = \beta_0 + \beta_1 M + \beta_2 T\)</span>, и общий эффект равен <span class="math inline">\(\tau = \alpha_1 \beta_1\)</span>. Плата — гораздо более сильные структурные предположения о механизме. Практическое правило: сначала проверяем back-door; если он заведомо нарушен латентными факторами и есть хороший кандидат-медиатор — проверяем front-door; если не работает ничего — нужен другой дизайн (эксперимент, инструмент).</p>
 <p><strong>Критерий поправки</strong> (adjustment criterion) — общий язык выбора допустимых контролей. Множество <span class="math inline">\(X\)</span> ему удовлетворяет, если (1) <span class="math inline">\(X\)</span> блокирует все некаузальные пути между <span class="math inline">\(T\)</span> и <span class="math inline">\(Y\)</span> и (2) ни одна переменная из <span class="math inline">\(X\)</span> не лежит на каузальном пути <span class="math inline">\(T \to \dots \to Y\)</span> и не является потомком вершины такого пути. Тогда эффект непараметрически идентифицируем.</p>
 <p>Валидных множеств обычно несколько, поэтому различают:</p>
 <ul>
 <li><strong>минимальное множество поправки</strong> (minimal adjustment set) — валидное множество, из которого нельзя убрать ни одной переменной без открытия какого-нибудь back-door пути;</li>
-<li><strong>оптимальное по дисперсии множество</strong> (variance-optimal adjustment set; Henckel, Perković, Maathuis, 2022) — среди валидных множеств выбирается то, что даёт минимальную асимптотическую дисперсию оценки. Интуиция: полезно контролировать предикторы <span class="math inline">\(Y\)</span> (падает дисперсия ошибки), вредно — «чистые» предикторы <span class="math inline">\(T\)</span>: они съедают вариацию воздействия, из которой идентифицируется эффект, и раздувают стандартную ошибку (<span class="math inline">\(\operatorname{Var}(\hat\beta_T) \propto \sigma^2_u / \operatorname{Var}(T \mid Z)\)</span>).</li>
+<li><strong>оптимальное по дисперсии множество</strong> (variance-optimal adjustment set) <span class="citation" data-cites="henckel2022">(<a href="references.html#ref-henckel2022" role="doc-biblioref">Henckel, Perković, и Maathuis 2022</a>)</span> — среди валидных множеств выбирается то, что даёт минимальную асимптотическую дисперсию оценки. Интуиция: полезно контролировать предикторы <span class="math inline">\(Y\)</span> (падает дисперсия ошибки), вредно — «чистые» предикторы <span class="math inline">\(T\)</span>: они съедают вариацию воздействия, из которой идентифицируется эффект, и раздувают стандартную ошибку (<span class="math inline">\(\operatorname{Var}(\hat\beta_T) \propto \sigma^2_u / \operatorname{Var}(T \mid Z)\)</span>).</li>
 </ul>
 </section>
 <section id="хорошие-и-плохие-контроли" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="хорошие-и-плохие-контроли"><span class="header-section-number">3.4</span> Хорошие и плохие контроли</h2>
-<p><strong>Плохой контроль</strong> (bad control) — переменная, включение которой в модель <em>создаёт</em> смещение вместо того, чтобы убирать его. Таксономия Cinelli, Forney, Pearl (2022) насчитывает шесть архетипов:</p>
+<p><strong>Плохой контроль</strong> (bad control) — переменная, включение которой в модель <em>создаёт</em> смещение вместо того, чтобы убирать его. Таксономия <span class="citation" data-cites="cinelli2022">Cinelli, Forney, и Pearl (<a href="references.html#ref-cinelli2022" role="doc-biblioref">2022</a>)</span> насчитывает шесть архетипов:</p>
 <ol type="1">
 <li><strong>хороший контроль</strong> — классический конфаундер (вилка <span class="math inline">\(Z \to T\)</span>, <span class="math inline">\(Z \to Y\)</span>): контролировать;</li>
 <li><strong>M-bias</strong> — <span class="math inline">\(Z\)</span> является коллайдером на back-door пути: контроль <em>открывает</em> путь;</li>
@@ -719,7 +745,7 @@ $open
 <h2 data-number="3.9" class="anchored" data-anchor-id="часть-4.-модерация-для-кого-прогулы-вреднее"><span class="header-section-number">3.9</span> Часть 4. Модерация: для кого прогулы вреднее?</h2>
 <section id="иерархия-эффектов" class="level3" data-number="3.9.1">
 <h3 data-number="3.9.1" class="anchored" data-anchor-id="иерархия-эффектов"><span class="header-section-number">3.9.1</span> Иерархия эффектов</h3>
-<p>ATE — это агрегат, и агрегация скрывает <strong>гетерогенность</strong>: средний эффект может быть положительным при том, что у половины популяции он отрицателен; программа с нулевым средним эффектом может радикально помогать одной подгруппе и вредить другой. Рекомендации для регулятора без оценки гетерогенности невозможны. Формально выстраивается иерархия (Imbens, Rubin, 2015):</p>
+<p>ATE — это агрегат, и агрегация скрывает <strong>гетерогенность</strong>: средний эффект может быть положительным при том, что у половины популяции он отрицателен; программа с нулевым средним эффектом может радикально помогать одной подгруппе и вредить другой. Рекомендации для регулятора без оценки гетерогенности невозможны. Формально выстраивается иерархия <span class="citation" data-cites="imbens2015">(<a href="references.html#ref-imbens2015" role="doc-biblioref">Imbens и Rubin 2015</a>)</span>:</p>
 <ul>
 <li><strong>ITE</strong> (individual treatment effect) — индивидуальный эффект <span class="math inline">\(\tau_i = Y_i(1) - Y_i(0)\)</span>; не идентифицируется без сильных параметрических предположений;</li>
 <li><strong>CATE</strong> (conditional average treatment effect) — условный средний эффект <span class="math inline">\(\tau(x) = \mathbb{E}[Y(1) - Y(0) \mid X = x]\)</span>; идентифицируется при <strong>неконфаундированности</strong> (unconfoundedness) <span class="math inline">\(\{Y(0), Y(1)\} \perp T \mid X\)</span> и <strong>перекрытии</strong> (overlap) <span class="math inline">\(0 &lt; \Pr(T = 1 \mid X) &lt; 1\)</span>;</li>
@@ -727,14 +753,14 @@ $open
 <li><strong>ATE</strong> — глобальное среднее <span class="math inline">\(\tau = \mathbb{E}[\tau(X)]\)</span>.</li>
 </ul>
 <p>Иерархия: <span class="math inline">\(ITE \Rightarrow CATE \Rightarrow GATE \Rightarrow ATE\)</span>; CATE — самая богатая из идентифицируемых величин.</p>
-<p>Простейшая оценка CATE — линейная регрессия со <strong>взаимодействиями</strong> (interactions): <span class="math inline">\(Y_i = \beta_0 + \beta_1 T_i + \gamma' X_i + \delta'(T_i \cdot X_i) + \varepsilon_i\)</span>, откуда <span class="math inline">\(\hat\tau(x) = \hat\beta_1 + \hat\delta' x\)</span>. Плюсы: прозрачность, стандартные ошибки, простая интерпретация. Минусы: линейность и в <span class="math inline">\(X\)</span>, и во взаимодействиях; при большой размерности <span class="math inline">\(X\)</span> — проклятие размерности и соблазн перебора спецификаций. Непараметрическая альтернатива — <strong>причинный лес</strong> (causal forest; Wager, Athey, 2018): модификация случайного леса, оптимизирующая не предсказание <span class="math inline">\(Y\)</span>, а гетерогенность <span class="math inline">\(\tau(x)\)</span>; выдаёт функцию <span class="math inline">\(\hat\tau(x)\)</span> с доверительными интервалами, важность переменных и <strong>наилучшую линейную проекцию</strong> (best linear projection, BLP) CATE на выбранные ковариаты.</p>
+<p>Простейшая оценка CATE — линейная регрессия со <strong>взаимодействиями</strong> (interactions): <span class="math inline">\(Y_i = \beta_0 + \beta_1 T_i + \gamma' X_i + \delta'(T_i \cdot X_i) + \varepsilon_i\)</span>, откуда <span class="math inline">\(\hat\tau(x) = \hat\beta_1 + \hat\delta' x\)</span>. Плюсы: прозрачность, стандартные ошибки, простая интерпретация. Минусы: линейность и в <span class="math inline">\(X\)</span>, и во взаимодействиях; при большой размерности <span class="math inline">\(X\)</span> — проклятие размерности и соблазн перебора спецификаций. Непараметрическая альтернатива — <strong>причинный лес</strong> (causal forest) <span class="citation" data-cites="wager2018">(<a href="references.html#ref-wager2018" role="doc-biblioref">Wager и Athey 2018</a>)</span>: модификация случайного леса, оптимизирующая не предсказание <span class="math inline">\(Y\)</span>, а гетерогенность <span class="math inline">\(\tau(x)\)</span>; выдаёт функцию <span class="math inline">\(\hat\tau(x)\)</span> с доверительными интервалами, важность переменных и <strong>наилучшую линейную проекцию</strong> (best linear projection, BLP) CATE на выбранные ковариаты.</p>
 </section>
 <section id="описательная-и-причинная-модерация" class="level3" data-number="3.9.2">
 <h3 data-number="3.9.2" class="anchored" data-anchor-id="описательная-и-причинная-модерация"><span class="header-section-number">3.9.2</span> Описательная и причинная модерация</h3>
 <p>Прежде чем оценивать, важно понять, <strong>какой из двух вопросов</strong> мы задаём:</p>
 <ul>
 <li><strong>Описательная модерация</strong> — «в каких подгруппах эффект больше?» Ответ — <span class="math inline">\(\tau(x)\)</span> как функция <span class="math inline">\(x\)</span>. Это описание вариации эффекта по характеристикам.</li>
-<li><strong>Причинная модерация</strong> (List, 2025) — «если бы мы <em>принудительно изменили</em> модератор с <span class="math inline">\(x'\)</span> на <span class="math inline">\(x''\)</span>, изменился бы эффект <span class="math inline">\(T\)</span>?» Ответ — <strong>ATME</strong> (average treatment moderation effect):</li>
+<li><strong>Причинная модерация</strong> <span class="citation" data-cites="list2025experimental">(<a href="references.html#ref-list2025experimental" role="doc-biblioref">List 2026</a>)</span> — «если бы мы <em>принудительно изменили</em> модератор с <span class="math inline">\(x'\)</span> на <span class="math inline">\(x''\)</span>, изменился бы эффект <span class="math inline">\(T\)</span>?» Ответ — <strong>ATME</strong> (average treatment moderation effect):</li>
 </ul>
 <p><span class="math display">\[\tau_{\text{mod}}(x'', x') = \mathbb{E}\big[\underbrace{\{Y_i(1, x'') - Y_i(0, x'')\}}_{\text{эффект } T \text{ при } X^M = x''} - \underbrace{\{Y_i(1, x') - Y_i(0, x')\}}_{\text{эффект } T \text{ при } X^M = x'}\big].\]</span></p>
 <p>Это «причинный эффект на причинный эффект» (causal-on-causal). Пример различия: эффект образовательного ваучера выше у детей образованных родителей — описательный факт. Но <em>изменение образования родителей</em> — другая интервенция, и её влияние на отдачу от ваучера требует отдельных допущений. Для идентификации ATME нужны четыре условия: (1) модифицированная SUTVA — исходы <span class="math inline">\(Y_i(t, x^M)\)</span> корректно определены; (2) <strong>предшествование ковариат</strong> (covariate precedence) — модератор зафиксирован до назначения воздействия; (3) <strong>условная независимость модератора</strong> <span class="math inline">\(\{Y(t, x^M)\} \perp X^M \mid W\)</span> для набора претритментных ковариат <span class="math inline">\(W\)</span>; (4) <strong>общая поддержка</strong> (common support) <span class="math inline">\(0 &lt; \Pr(X^M = x^M \mid W) &lt; 1\)</span>. Без условия (3) разность <span class="math inline">\(\hat\tau(x'') - \hat\tau(x')\)</span> описывает лишь корреляцию модератора с эффектом.</p>
@@ -886,7 +912,7 @@ $open
 <li><strong>экстенсивная граница</strong> (extensive margin) — переключить человека из «не делает» в «делает»: <span class="math inline">\(Y(0) = 0,\ Y(1) &gt; 0\)</span>;</li>
 <li><strong>интенсивная граница</strong> (intensive margin) — изменить, <em>сколько</em> делает тот, кто и так делал бы.</li>
 </ul>
-<p>Это не два вида эффекта, а эффекты <strong>на двух разных латентных группах</strong>. Обозначим <span class="math inline">\(D_i = \mathbb{1}\{Y_i &gt; 0\}\)</span>; пара потенциальных состояний <span class="math inline">\((D_i(0), D_i(1))\)</span> задаёт <strong>латентный тип</strong> единицы — это конструкция <strong>принципиальной стратификации</strong> (principal stratification; Frangakis, Rubin, 2002):</p>
+<p>Это не два вида эффекта, а эффекты <strong>на двух разных латентных группах</strong>. Обозначим <span class="math inline">\(D_i = \mathbb{1}\{Y_i &gt; 0\}\)</span>; пара потенциальных состояний <span class="math inline">\((D_i(0), D_i(1))\)</span> задаёт <strong>латентный тип</strong> единицы — это конструкция <strong>принципиальной стратификации</strong> (principal stratification) <span class="citation" data-cites="frangakis2002">(<a href="references.html#ref-frangakis2002" role="doc-biblioref">Frangakis и Rubin 2002</a>)</span>:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -927,11 +953,11 @@ $open
 <p>Что делать (кратко — подробный практикум будет отдельной главой):</p>
 <ul>
 <li><strong>экстенсивный эффект</strong> оценивается прямо и «бесплатно»: это ATE на наблюдаемом бинарном исходе <span class="math inline">\(D_i\)</span> (линейная вероятностная модель или пробит);</li>
-<li><strong>интенсивный эффект</strong> — через <strong>границы Ли</strong> (Lee bounds; Lee, 2009): доля always-payers в группе воздействия оценивается как <span class="math inline">\(\hat\pi = \hat q/\hat p\)</span> (где <span class="math inline">\(\hat p, \hat q\)</span> — доли <span class="math inline">\(Y&gt;0\)</span> в группах), затем распределение «делающих» в группе воздействия обрезается сверху и снизу на долю switchers — получаются нижняя и верхняя границы эффекта для always-payers. Единственное допущение — монотонность; плата — интервал вместо точки;</li>
+<li><strong>интенсивный эффект</strong> — через <strong>границы Ли</strong> (Lee bounds) <span class="citation" data-cites="lee2009">(<a href="references.html#ref-lee2009" role="doc-biblioref">Lee 2009</a>)</span>: доля always-payers в группе воздействия оценивается как <span class="math inline">\(\hat\pi = \hat q/\hat p\)</span> (где <span class="math inline">\(\hat p, \hat q\)</span> — доли <span class="math inline">\(Y&gt;0\)</span> в группах), затем распределение «делающих» в группе воздействия обрезается сверху и снизу на долю switchers — получаются нижняя и верхняя границы эффекта для always-payers. Единственное допущение — монотонность; плата — интервал вместо точки;</li>
 <li><strong>two-part model</strong> использует тождество <span class="math inline">\(\mathbb{E}[Y] = \Pr(Y &gt; 0) \cdot \mathbb{E}[Y \mid Y &gt; 0]\)</span> и оценивает две части раздельными регрессиями — точечные оценки, но более сильные допущения;</li>
-<li><strong>Tobit</strong> (Tobin, 1958) трактует нули как цензурирование латентной переменной $Y^* $ и одним параметром управляет обеими границами; разложение Макдональда–Моффитта (McDonald, Moffitt, 1980) делит полный эффект на экстенсивный и интенсивный вклады. Жёсткие требования к нормальности и единому механизму делают его скорее ориентиром для сравнения, чем основным методом.</li>
+<li><strong>Tobit</strong> <span class="citation" data-cites="tobin1958">(<a href="references.html#ref-tobin1958" role="doc-biblioref">Tobin 1958</a>)</span> трактует нули как цензурирование латентной переменной $Y^* $ и одним параметром управляет обеими границами; разложение Макдональда–Моффитта <span class="citation" data-cites="mcdonald1980">(<a href="references.html#ref-mcdonald1980" role="doc-biblioref">McDonald и Moffitt 1980</a>)</span> делит полный эффект на экстенсивный и интенсивный вклады. Жёсткие требования к нормальности и единому механизму делают его скорее ориентиром для сравнения, чем основным методом.</li>
 </ul>
-<p>Классическая иллюстрация — List, Pernaudet, Suskind (2021): программа обучения родителей «включила» в развивающие занятия с ребёнком ≈ 24% родителей (экстенсивный канал), но почти не изменила интенсивность у тех, кто занимался и так. Наивная OLS показала бы положительный средний эффект, скрыв, что он целиком экстенсивный, — а для масштабирования программы это принципиально разные выводы.</p>
+<p>Классическая иллюстрация — <span class="citation" data-cites="list2021parental">List, Pernaudet, и Suskind (<a href="references.html#ref-list2021parental" role="doc-biblioref">2021</a>)</span>: программа обучения родителей «включила» в развивающие занятия с ребёнком ≈ 24% родителей (экстенсивный канал), но почти не изменила интенсивность у тех, кто занимался и так. Наивная OLS показала бы положительный средний эффект, скрыв, что он целиком экстенсивный, — а для масштабирования программы это принципиально разные выводы.</p>
 <hr>
 </section>
 <section id="часть-5.-медиация-через-какие-каналы-работают-прогулы" class="level2" data-number="3.11">
@@ -961,7 +987,7 @@ $open
 </section>
 <section id="допущения" class="level3" data-number="3.11.3">
 <h3 data-number="3.11.3" class="anchored" data-anchor-id="допущения"><span class="header-section-number">3.11.3</span> Допущения</h3>
-<p>Идентификацию обеспечивает <strong>последовательная игнорируемость</strong> (sequential ignorability; Imai, Keele, Yamamoto, 2010) — два условия при претритментных ковариатах <span class="math inline">\(X\)</span>:</p>
+<p>Идентификацию обеспечивает <strong>последовательная игнорируемость</strong> (sequential ignorability) <span class="citation" data-cites="imai2010identification">(<a href="references.html#ref-imai2010identification" role="doc-biblioref">Imai, Keele, и Yamamoto 2010</a>)</span> — два условия при претритментных ковариатах <span class="math inline">\(X\)</span>:</p>
 <ul>
 <li><strong>Допущение 1</strong> (<span class="math inline">\(T\)</span> как бы рандомизирован): <span class="math inline">\(\{Y(t', m), M(t)\} \perp T \mid X\)</span> — нет ненаблюдаемых конфаундеров ни для <span class="math inline">\(T \leftrightarrow Y\)</span>, ни для <span class="math inline">\(T \leftrightarrow M\)</span>;</li>
 <li><strong>Допущение 2</strong> (<span class="math inline">\(M\)</span> как бы рандомизирован при данном <span class="math inline">\(T\)</span>): <span class="math inline">\(Y(t', m) \perp M(t) \mid T = t, X\)</span> — после фиксации <span class="math inline">\(T\)</span> и <span class="math inline">\(X\)</span> медиатор «как бы случаен» относительно исхода, то есть нет ненаблюдаемых конфаундеров <span class="math inline">\(M \leftrightarrow Y\)</span>.</li>
@@ -975,7 +1001,7 @@ $open
 <p><span class="math display">\[M_i = \alpha_M + a\,T_i + \gamma_M' X_i + \varepsilon_{M,i} \qquad \text{(M-уравнение)},\]</span> <span class="math display">\[Y_i = \alpha_Y + c'\,T_i + b\,M_i + d\,(T_i \cdot M_i) + \gamma_Y' X_i + \varepsilon_{Y,i} \qquad \text{(Y-уравнение)},\]</span></p>
 <p>где <span class="math inline">\(\hat a\)</span> — эффект <span class="math inline">\(T\)</span> на медиатор (стрелка <span class="math inline">\(T \to M\)</span>), <span class="math inline">\(\hat b\)</span> — эффект медиатора на исход при <span class="math inline">\(T = 0\)</span>, <span class="math inline">\(\hat c'\)</span> — прямой эффект, <span class="math inline">\(\hat d\)</span> — взаимодействие (эффект медиатора может зависеть от воздействия). Тогда</p>
 <p><span class="math display">\[\widehat{\text{ACME}}(t) = \hat a \cdot (\hat b + \hat d \cdot t), \qquad \widehat{\text{ADE}}(t) = \hat c' + \hat d \cdot \widehat{\mathbb{E}}[M(t)].\]</span></p>
-<p>При <span class="math inline">\(\hat d = 0\)</span> получается классический <strong>метод произведения коэффициентов</strong> <span class="math inline">\(\widehat{\text{ACME}} = \hat a \hat b\)</span> (Baron, Kenny, 1986); при <span class="math inline">\(\hat d \neq 0\)</span> ACME и ADE зависят от уровня воздействия, при котором они вычисляются. Доверительные интервалы строят бутстрапом (<code>boot = TRUE</code> в <code>mediate()</code>), а не тестом Собеля — у последнего низкая мощность.</p>
+<p>При <span class="math inline">\(\hat d = 0\)</span> получается классический <strong>метод произведения коэффициентов</strong> <span class="math inline">\(\widehat{\text{ACME}} = \hat a \hat b\)</span> <span class="citation" data-cites="baron1986">(<a href="references.html#ref-baron1986" role="doc-biblioref">Baron и Kenny 1986</a>)</span>; при <span class="math inline">\(\hat d \neq 0\)</span> ACME и ADE зависят от уровня воздействия, при котором они вычисляются. Доверительные интервалы строят бутстрапом (<code>boot = TRUE</code> в <code>mediate()</code>), а не тестом Собеля — у последнего низкая мощность.</p>
 </section>
 <section id="две-регрессии" class="level3" data-number="3.11.5">
 <h3 data-number="3.11.5" class="anchored" data-anchor-id="две-регрессии"><span class="header-section-number">3.11.5</span> Две регрессии</h3>
@@ -1138,20 +1164,88 @@ R^2_M~R^2_Y~ at which ACME = 0: 0.0236 </code></pre>
 <section id="что-почитать" class="level2" data-number="3.13">
 <h2 data-number="3.13" class="anchored" data-anchor-id="что-почитать"><span class="header-section-number">3.13</span> Что почитать</h2>
 <ul>
-<li>List, J. A. (2025). <em>Experimental Economics: Theory and Practice</em>. University of Chicago Press. — гл. 7 (Heterogeneity and Causal Moderation), гл. 8 (Mediation: Exploring Relevant Mechanisms).</li>
-<li>Pearl, J. (2009). <em>Causality: Models, Reasoning, and Inference</em> (2nd ed.). Cambridge University Press.</li>
-<li>Cinelli, C., Forney, A., &amp; Pearl, J. (2022). A crash course in good and bad controls. <em>Sociological Methods &amp; Research</em>.</li>
-<li>Imbens, G. (2020). Potential outcome and directed acyclic graph approaches to causality. <em>Journal of Economic Literature</em>, 58(4).</li>
-<li>Imai, K., Keele, L., &amp; Yamamoto, T. (2010). Identification, inference and sensitivity analysis for causal mediation effects. <em>Statistical Science</em>, 25(1), 51–71.</li>
-<li>Imai, K., Keele, L., Tingley, D., &amp; Yamamoto, T. (2011). Unpacking the black box of causality. <em>American Political Science Review</em>, 105(4), 765–789.</li>
-<li>Baron, R. M., &amp; Kenny, D. A. (1986). The moderator–mediator variable distinction. <em>JPSP</em>, 51, 1173–1182.</li>
-<li>Wager, S., &amp; Athey, S. (2018). Estimation and inference of heterogeneous treatment effects using random forests. <em>JASA</em>, 113(523).</li>
-<li>Henckel, L., Perković, E., &amp; Maathuis, M. (2022). Graphical criteria for efficient covariate adjustment. <em>JRSS B</em>.</li>
-<li>Lee, D. S. (2009). Training, wages, and sample selection: Estimating sharp bounds on treatment effects. <em>Review of Economic Studies</em>, 76(3).</li>
-<li>Frangakis, C. E., &amp; Rubin, D. B. (2002). Principal stratification in causal inference. <em>Biometrics</em>, 58(1).</li>
+<li><span class="citation" data-cites="list2025experimental">List (<a href="references.html#ref-list2025experimental" role="doc-biblioref">2026</a>)</span> — гл. 7 (Heterogeneity and Causal Moderation), гл. 8 (Mediation: Exploring Relevant Mechanisms).</li>
+<li><span class="citation" data-cites="pearl2009">Pearl (<a href="references.html#ref-pearl2009" role="doc-biblioref">2009</a>)</span> — фундаментальная монография о причинности.</li>
+<li><span class="citation" data-cites="cinelli2022">Cinelli, Forney, и Pearl (<a href="references.html#ref-cinelli2022" role="doc-biblioref">2022</a>)</span> — краткий курс хороших и плохих контролей.</li>
+<li><span class="citation" data-cites="imbens2020">Imbens (<a href="references.html#ref-imbens2020" role="doc-biblioref">2020</a>)</span> — сравнение подходов потенциальных исходов и DAG для экономистов.</li>
+<li><span class="citation" data-cites="imai2010identification">Imai, Keele, и Yamamoto (<a href="references.html#ref-imai2010identification" role="doc-biblioref">2010</a>)</span> — идентификация и sensitivity-анализ медиационных эффектов.</li>
+<li><span class="citation" data-cites="imai2011">Imai и др. (<a href="references.html#ref-imai2011" role="doc-biblioref">2011</a>)</span> — «распаковка чёрного ящика причинности».</li>
+<li><span class="citation" data-cites="baron1986">Baron и Kenny (<a href="references.html#ref-baron1986" role="doc-biblioref">1986</a>)</span> — классика различения модератора и медиатора.</li>
+<li><span class="citation" data-cites="wager2018">Wager и Athey (<a href="references.html#ref-wager2018" role="doc-biblioref">2018</a>)</span> — причинные леса.</li>
+<li><span class="citation" data-cites="henckel2022">Henckel, Perković, и Maathuis (<a href="references.html#ref-henckel2022" role="doc-biblioref">2022</a>)</span> — графические критерии эффективной поправки.</li>
+<li><span class="citation" data-cites="lee2009">Lee (<a href="references.html#ref-lee2009" role="doc-biblioref">2009</a>)</span> — границы при селекции.</li>
+<li><span class="citation" data-cites="frangakis2002">Frangakis и Rubin (<a href="references.html#ref-frangakis2002" role="doc-biblioref">2002</a>)</span> — принципиальная стратификация.</li>
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-baron1986" class="csl-entry" role="listitem">
+Baron, Reuben M., и David A. Kenny. 1986. <span>«The Moderator–Mediator Variable Distinction in Social Psychological Research: Conceptual, Strategic, and Statistical Considerations»</span>. <em>Journal of Personality and Social Psychology</em> 51 (6): 1173–82.
+</div>
+<div id="ref-cinelli2022" class="csl-entry" role="listitem">
+Cinelli, Carlos, Andrew Forney, и Judea Pearl. 2022. <span>«A Crash Course in Good and Bad Controls»</span>. <em>Sociological Methods &amp; Research</em>. <a href="https://doi.org/10.1177/00491241221099552">https://doi.org/10.1177/00491241221099552</a>.
+</div>
+<div id="ref-frangakis2002" class="csl-entry" role="listitem">
+Frangakis, Constantine E., и Donald B. Rubin. 2002. <span>«Principal Stratification in Causal Inference»</span>. <em>Biometrics</em> 58 (1): 21–29.
+</div>
+<div id="ref-glymour2019" class="csl-entry" role="listitem">
+Glymour, Clark, Kun Zhang, и Peter Spirtes. 2019. <span>«Review of Causal Discovery Methods Based on Graphical Models»</span>. <em>Frontiers in Genetics</em> 10: 524.
+</div>
+<div id="ref-henckel2022" class="csl-entry" role="listitem">
+Henckel, Leonard, Emilija Perković, и Marloes H. Maathuis. 2022. <span>«Graphical Criteria for Efficient Total Effect Estimation via Adjustment in Causal Linear Models»</span>. <em>Journal of the Royal Statistical Society. Series B</em> 84 (2): 579–99.
+</div>
+<div id="ref-imai2011" class="csl-entry" role="listitem">
+Imai, Kosuke, Luke Keele, Dustin Tingley, и Teppei Yamamoto. 2011. <span>«Unpacking the Black Box of Causality: Learning about Causal Mechanisms from Experimental and Observational Studies»</span>. <em>American Political Science Review</em> 105 (4): 765–89.
+</div>
+<div id="ref-imai2010identification" class="csl-entry" role="listitem">
+Imai, Kosuke, Luke Keele, и Teppei Yamamoto. 2010. <span>«Identification, Inference and Sensitivity Analysis for Causal Mediation Effects»</span>. <em>Statistical Science</em> 25 (1): 51–71.
+</div>
+<div id="ref-imbens2020" class="csl-entry" role="listitem">
+Imbens, Guido W. 2020. <span>«Potential Outcome and Directed Acyclic Graph Approaches to Causality: Relevance for Empirical Practice in Economics»</span>. <em>Journal of Economic Literature</em> 58 (4): 1129–79.
+</div>
+<div id="ref-imbens2015" class="csl-entry" role="listitem">
+Imbens, Guido W., и Donald B. Rubin. 2015. <em>Causal Inference for Statistics, Social, and Biomedical Sciences: An Introduction</em>. Cambridge: Cambridge University Press.
+</div>
+<div id="ref-lee2009" class="csl-entry" role="listitem">
+Lee, David S. 2009. <span>«Training, Wages, and Sample Selection: Estimating Sharp Bounds on Treatment Effects»</span>. <em>Review of Economic Studies</em> 76 (3): 1071–1102.
+</div>
+<div id="ref-list2025experimental" class="csl-entry" role="listitem">
+List, John A. 2026. <em>Experimental Economics: Theory and Practice</em>. Chicago: University of Chicago Press.
+</div>
+<div id="ref-list2021parental" class="csl-entry" role="listitem">
+List, John A., Julie Pernaudet, и Dana L. Suskind. 2021. <span>«Shifting Parental Beliefs about Child Development to Foster Parental Investments and Improve School Readiness Outcomes»</span>. <em>Nature Communications</em> 12: 5765.
+</div>
+<div id="ref-mcdonald1980" class="csl-entry" role="listitem">
+McDonald, John F., и Robert A. Moffitt. 1980. <span>«The Uses of <span>T</span>obit Analysis»</span>. <em>Review of Economics and Statistics</em> 62 (2): 318–21.
+</div>
+<div id="ref-neyman1923" class="csl-entry" role="listitem">
+Neyman, Jerzy. 1923. <span>«On the Application of Probability Theory to Agricultural Experiments. <span>E</span>ssay on Principles. <span>S</span>ection 9»</span>. <em>Statistical Science</em> 5 (4): 465–72.
+</div>
+<div id="ref-pearl1988" class="csl-entry" role="listitem">
+Pearl, Judea. 1988. <em>Probabilistic Reasoning in Intelligent Systems: Networks of Plausible Inference</em>. San Mateo, CA: Morgan Kaufmann.
+</div>
+<div id="ref-pearl1995" class="csl-entry" role="listitem">
+———. 1995. <span>«Causal Diagrams for Empirical Research»</span>. <em>Biometrika</em> 82 (4): 669–88.
+</div>
+<div id="ref-pearl2009" class="csl-entry" role="listitem">
+———. 2009. <em>Causality: Models, Reasoning, and Inference</em>. 2-я изд. Cambridge: Cambridge University Press.
+</div>
+<div id="ref-richardson2013" class="csl-entry" role="listitem">
+Richardson, Thomas S., и James M. Robins. 2013. <span>«Single World Intervention Graphs (<span>SWIG</span>s): A Unification of the Counterfactual and Graphical Approaches to Causality»</span>. Working Paper 128. Center for the Statistics; the Social Sciences, University of Washington.
+</div>
+<div id="ref-rubin1974" class="csl-entry" role="listitem">
+Rubin, Donald B. 1974. <span>«Estimating Causal Effects of Treatments in Randomized and Nonrandomized Studies»</span>. <em>Journal of Educational Psychology</em> 66 (5): 688–701.
+</div>
+<div id="ref-tobin1958" class="csl-entry" role="listitem">
+Tobin, James. 1958. <span>«Estimation of Relationships for Limited Dependent Variables»</span>. <em>Econometrica</em> 26 (1): 24–36.
+</div>
+<div id="ref-vowels2022" class="csl-entry" role="listitem">
+Vowels, Matthew J., Necati Cihan Camgoz, и Richard Bowden. 2022. <span>«D’ya Like <span>DAG</span>s? <span>A</span> Survey on Structure Learning and Causal Discovery»</span>. <em>ACM Computing Surveys</em> 55 (4): 1–36.
+</div>
+<div id="ref-wager2018" class="csl-entry" role="listitem">
+Wager, Stefan, и Susan Athey. 2018. <span>«Estimation and Inference of Heterogeneous Treatment Effects Using Random Forests»</span>. <em>Journal of the American Statistical Association</em> 113 (523): 1228–42.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

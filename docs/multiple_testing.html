@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -202,6 +222,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Продольные эксперименты, ESC и внутрисубъектные дизайны</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Литература</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -331,7 +357,7 @@ window.Quarto = {
 <section id="какой-должна-быть-научная-гипотеза" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="какой-должна-быть-научная-гипотеза"><span class="header-section-number">2.2</span> Какой должна быть научная гипотеза?</h2>
 <p>Гипотеза в научном исследовании — не «догадка», а чёткое утверждение о мире, из которого следуют наблюдаемые эмпирические следствия. К ней предъявляются два требования.</p>
-<p><strong>Фальсифицируемость</strong> (falsifiability) — критерий Поппера: научной является гипотеза, для которой можно указать наблюдение или результат эксперимента, <em>несовместимый</em> с ней (Popper, 2005). Универсальные утверждения нельзя окончательно доказать набором подтверждений, но можно опровергнуть контрпримером — поэтому научная проверка это поиск рискованных тестов, а не удобных подтверждений.</p>
+<p><strong>Фальсифицируемость</strong> (falsifiability) — критерий Поппера: научной является гипотеза, для которой можно указать наблюдение или результат эксперимента, <em>несовместимый</em> с ней <span class="citation" data-cites="popper2005">(<a href="references.html#ref-popper2005" role="doc-biblioref">Popper 2005</a>)</span>. Универсальные утверждения нельзя окончательно доказать набором подтверждений, но можно опровергнуть контрпримером — поэтому научная проверка это поиск рискованных тестов, а не удобных подтверждений.</p>
 <p><strong>Операционализируемость</strong> (operationalizability): ключевые понятия должны переводиться в измеримые переменные, а ожидаемый эффект — в проверяемое сравнение. Должно быть ясно, кто получает воздействие, что является исходом, с чем идёт сравнение и какой знак эффекта ожидается.</p>
 <p>Сравните: «<em>цифровизация влияет на экономику</em>» (неясно, что такое цифровизация, не указан исход, неясен знак, невозможно понять, что её опровергнет) — и «<em>после внедрения онлайн-платформы закупок средняя цена контрактов в учреждениях с платформой снижается относительно сопоставимых учреждений без неё</em>» (есть воздействие, измеримый исход, направление, сравнение и очевидный дизайн проверки).</p>
 <p>Правильная последовательность работы: (1) содержательная гипотеза → (2) измеримые переменные и дизайн → (3) статистические <span class="math inline">\(H_0\)</span> и <span class="math inline">\(H_1\)</span> → (4) уровень значимости <span class="math inline">\(\alpha\)</span> и тест → (5) <strong>и только потом</strong> данные. Если гипотеза формулируется <em>после</em> просмотра данных, возрастает риск трёх родственных болезней:</p>
@@ -344,7 +370,7 @@ window.Quarto = {
 </section>
 <section id="почему-множественное-тестирование-проблема" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="почему-множественное-тестирование-проблема"><span class="header-section-number">2.3</span> Почему множественное тестирование — проблема?</h2>
-<p>Исследовательский вопрос часто требует не одной, а многих проверок. В экономических экспериментах выделяют шесть типовых источников множественности (List, Shaikh, Xu, 2019):</p>
+<p>Исследовательский вопрос часто требует не одной, а многих проверок. В экономических экспериментах выделяют шесть типовых источников множественности <span class="citation" data-cites="list2019">(<a href="references.html#ref-list2019" role="doc-biblioref">List, Shaikh, и Xu 2019</a>)</span>:</p>
 <ol type="1">
 <li><strong>несколько исходов</strong> (multiple outcomes): программа обучения влияет на зарплату, занятость и производительность — три исхода;</li>
 <li><strong>гетерогенность по подгруппам</strong> (subgroup analysis): эффект отдельно для мужчин и женщин, бедных и богатых, города и села;</li>
@@ -472,7 +498,7 @@ window.Quarto = {
 </ul>
 <p><span class="math display">\[\text{FWER} = \Pr(V \geq 1).\]</span></p>
 <ul>
-<li><strong>Доля ложных открытий</strong> (false discovery rate, FDR; Benjamini, Hochberg, 1995) — <em>ожидаемая доля</em> ложноположительных результатов среди всех отвергнутых гипотез:</li>
+<li><strong>Доля ложных открытий</strong> (false discovery rate, FDR) <span class="citation" data-cites="benjamini1995">(<a href="references.html#ref-benjamini1995" role="doc-biblioref">Benjamini и Hochberg 1995</a>)</span> — <em>ожидаемая доля</em> ложноположительных результатов среди всех отвергнутых гипотез:</li>
 </ul>
 <p><span class="math display">\[\text{FDR} = \mathbb{E}\!\left[\frac{V}{\max(R, 1)}\right].\]</span></p>
 <p>FWER жёстче: он требует, чтобы ложных находок не было <em>вовсе</em>. FDR мягче: он допускает ложные отклонения, но контролирует их долю — если при контроле FDR на уровне <span class="math inline">\(q = 0.10\)</span> отвергнута тысяча гипотез, среди них в среднем не более сотни ложных. Полезный факт: когда все <span class="math inline">\(H_0\)</span> истинны (<span class="math inline">\(m_0 = m\)</span>), FDR совпадает с FWER; при наличии настоящих эффектов FDR &lt; FWER, поэтому FDR-процедуры мощнее.</p>
@@ -748,11 +774,11 @@ sample estimates:
 <p>Разберём четыре стандартные процедуры. Сквозной пример: три теста дали p-значения <span class="math inline">\(0.001\)</span>, <span class="math inline">\(0.01\)</span> и <span class="math inline">\(0.04\)</span>; уровень значимости <span class="math inline">\(\alpha = 0.05\)</span>.</p>
 <p><strong>Поправка Бонферрони</strong> (Bonferroni correction) — контролирует FWER. Каждое p-значение сравнивается не с <span class="math inline">\(\alpha\)</span>, а с <span class="math inline">\(\alpha/m\)</span>, где <span class="math inline">\(m\)</span> — число гипотез. Эквивалентно (так реализовано в R): умножаем каждое p-значение на <span class="math inline">\(m\)</span> и сравниваем с <span class="math inline">\(\alpha\)</span>; если после умножения получилось больше единицы — берём единицу. В примере порог равен <span class="math inline">\(0.05/3 \approx 0.017\)</span>: первые две гипотезы отвергаются, третья (<span class="math inline">\(0.04 &gt; 0.017\)</span>) — нет.</p>
 <p>Гарантия следует из неравенства Буля–Бонферрони: вероятность хотя бы одного ложного отклонения не превышает суммы вероятностей по всем тестам, <span class="math inline">\(m \cdot \alpha/m = \alpha\)</span>. Обратите внимание: неравенство верно при <em>любой</em> зависимости тестов — за эту универсальность платим консервативностью. Главная слабость метода — быстро тающая мощность: при 10 гипотезах порог уже <span class="math inline">\(0.005\)</span>, при 100 — <span class="math inline">\(0.0005\)</span>; при большом числе гипотез Бонферрони лучше не использовать.</p>
-<p><strong>Нисходящая процедура Хольма</strong> (Holm step-down procedure) — тоже контролирует FWER, но всегда не менее мощна, чем Бонферрони. Алгоритм: упорядочиваем p-значения по возрастанию <span class="math inline">\(p_{(1)} \leq p_{(2)} \leq \dots \leq p_{(m)}\)</span> и двигаемся сверху вниз, сравнивая <span class="math inline">\(p_{(i)}\)</span> с порогом <span class="math inline">\(\alpha/(m - i + 1)\)</span>: первое значение — с <span class="math inline">\(\alpha/m\)</span>, второе — с <span class="math inline">\(\alpha/(m-1)\)</span> и так далее. Как только условие впервые нарушено, процедура останавливается, и все оставшиеся гипотезы не отвергаются. Эквивалентная коррекция p-значений: <span class="math inline">\(p_{(i)}^{\text{adj}} = p_{(i)} \cdot (m - i + 1)\)</span> (с монотонизацией). Интуиция: самое маленькое p-значение проверяется по строгому бонферрониевскому порогу, но каждое следующее — по всё более мягкому, ведь часть гипотез уже отвергнута.</p>
+<p><strong>Нисходящая процедура Хольма</strong> (Holm step-down procedure) <span class="citation" data-cites="holm1979">(<a href="references.html#ref-holm1979" role="doc-biblioref">Holm 1979</a>)</span> — тоже контролирует FWER, но всегда не менее мощна, чем Бонферрони. Алгоритм: упорядочиваем p-значения по возрастанию <span class="math inline">\(p_{(1)} \leq p_{(2)} \leq \dots \leq p_{(m)}\)</span> и двигаемся сверху вниз, сравнивая <span class="math inline">\(p_{(i)}\)</span> с порогом <span class="math inline">\(\alpha/(m - i + 1)\)</span>: первое значение — с <span class="math inline">\(\alpha/m\)</span>, второе — с <span class="math inline">\(\alpha/(m-1)\)</span> и так далее. Как только условие впервые нарушено, процедура останавливается, и все оставшиеся гипотезы не отвергаются. Эквивалентная коррекция p-значений: <span class="math inline">\(p_{(i)}^{\text{adj}} = p_{(i)} \cdot (m - i + 1)\)</span> (с монотонизацией). Интуиция: самое маленькое p-значение проверяется по строгому бонферрониевскому порогу, но каждое следующее — по всё более мягкому, ведь часть гипотез уже отвергнута.</p>
 <p><strong>Восходящая процедура Бенджамини–Хохберга</strong> (Benjamini–Hochberg step-up procedure, BH) — контролирует FDR. Упорядочиваем p-значения по возрастанию и находим <em>максимальный</em> индекс <span class="math inline">\(k\)</span>, для которого</p>
 <p><span class="math display">\[p_{(k)} \leq \frac{k}{m} \, q,\]</span></p>
 <p>где <span class="math inline">\(q\)</span> — целевой уровень FDR; отвергаем все гипотезы с индексами <span class="math inline">\(1, \dots, k\)</span>. Скорректированные значения <span class="math inline">\(p_{(i)}^{\text{adj}} = p_{(i)} \cdot m / i\)</span> принято называть <strong>q-значениями</strong> (q-values): отвергнув все гипотезы с <span class="math inline">\(q \le 0.05\)</span>, мы ожидаем среди отвергнутых не более 5% ложных. Классический результат BH доказан для независимых тестов (и некоторых видов положительной зависимости).</p>
-<p><strong>Процедура Бенджамини–Йекутиели</strong> (Benjamini–Yekutieli, BY) — модификация BH, сохраняющая контроль FDR при <em>произвольной</em> зависимости тестов. Отличие — поправочная константа <span class="math inline">\(c_m = \sum_{i=1}^{m} 1/i\)</span>: порог становится <span class="math inline">\(p_{(k)} \leq \frac{k}{m \, c_m} q\)</span>. Плата за универсальность — заметная потеря мощности (при <span class="math inline">\(m = 20\)</span> константа <span class="math inline">\(c_m \approx 3.6\)</span>).</p>
+<p><strong>Процедура Бенджамини–Йекутиели</strong> (Benjamini–Yekutieli, BY) <span class="citation" data-cites="benjamini2001">(<a href="references.html#ref-benjamini2001" role="doc-biblioref">Benjamini и Yekutieli 2001</a>)</span> — модификация BH, сохраняющая контроль FDR при <em>произвольной</em> зависимости тестов. Отличие — поправочная константа <span class="math inline">\(c_m = \sum_{i=1}^{m} 1/i\)</span>: порог становится <span class="math inline">\(p_{(k)} \leq \frac{k}{m \, c_m} q\)</span>. Плата за универсальность — заметная потеря мощности (при <span class="math inline">\(m = 20\)</span> константа <span class="math inline">\(c_m \approx 3.6\)</span>).</p>
 <section id="методы-коррекции" class="level3" data-number="2.7.1">
 <h3 data-number="2.7.1" class="anchored" data-anchor-id="методы-коррекции"><span class="header-section-number">2.7.1</span> 3.1 Методы коррекции</h3>
 <div class="cell" data-layout-align="center">
@@ -1155,9 +1181,9 @@ Kruskal-Wallis chi-squared = 14.356, df = 19, p-value = 0.7626</code></pre>
 </tr>
 </tbody>
 </table>
-<p>Исторически первый метод — <strong>Fisher LSD</strong> (Fisher, 1935): обычные попарные t-тесты с общей оценкой дисперсии MSW из ANOVA. Он прост и мощен, но при <span class="math inline">\(g &gt; 3\)</span> почти не контролирует FWER, поэтому годится лишь для трёх групп со значимой ANOVA, небольших наборов заранее запланированных контрастов или разведочного анализа.</p>
-<p><strong>Как устроен Tukey HSD</strong> (Tukey, 1953). Идея: подобрать <em>одно общее</em> пороговое расстояние между средними, при котором вероятность хотя бы одной ложной «значимой» пары среди всех <span class="math inline">\(g(g-1)/2\)</span> не превышает <span class="math inline">\(\alpha\)</span>. Опорная величина — нормированный <strong>размах</strong> выборочных средних <span class="math inline">\(q = (\max_i \bar y_{i\cdot} - \min_i \bar y_{i\cdot})/\sqrt{\text{MSW}/n}\)</span>: при верной <span class="math inline">\(H_0\)</span> он имеет <strong>распределение стьюдентизированного размаха</strong> (studentized range distribution). Для каждой пары <span class="math inline">\((i, j)\)</span> считается её нормированная разность, и пара признаётся «честно значимо» различающейся, если та превышает квантиль <span class="math inline">\(q_{\alpha,\,g,\,N-g}\)</span>. Побочный бонус — <strong>одновременные доверительные интервалы</strong> (simultaneous confidence intervals) <span class="math inline">\((\bar y_{i\cdot} - \bar y_{j\cdot}) \pm \text{HSD}_{ij}\)</span>, накрывающие все истинные разности сразу с вероятностью <span class="math inline">\(1 - \alpha\)</span>. Практические оговорки: метод предполагает примерно равные дисперсии; для несбалансированных дизайнов используется модификация Тьюки–Крамера (Tukey–Kramer); при сильной гетероскедастичности — тест Геймса–Хауэлла (Games–Howell).</p>
-<p><strong>Метод Даннета</strong> (Dunnett, 1955) решает более узкую задачу: сравнить <span class="math inline">\(g - 1\)</span> рукавов с <em>одной контрольной группой</em>, не сравнивая рукава между собой. Тестов становится <span class="math inline">\(g - 1\)</span> вместо <span class="math inline">\(g(g-1)/2\)</span>, критическое значение (из многомерного t-распределения, multivariate t) — меньше тьюкиевского, а мощность — выше. Для RCT с несколькими рукавами и вопросом «какие из них лучше контроля?» это метод выбора; в R — <code>multcomp::glht(model, linfct = mcp(group = "Dunnett"))</code>.</p>
+<p>Исторически первый метод — <strong>Fisher LSD</strong> <span class="citation" data-cites="fisher1935">(<a href="references.html#ref-fisher1935" role="doc-biblioref">Fisher 1935</a>)</span>: обычные попарные t-тесты с общей оценкой дисперсии MSW из ANOVA. Он прост и мощен, но при <span class="math inline">\(g &gt; 3\)</span> почти не контролирует FWER, поэтому годится лишь для трёх групп со значимой ANOVA, небольших наборов заранее запланированных контрастов или разведочного анализа.</p>
+<p><strong>Как устроен Tukey HSD</strong> <span class="citation" data-cites="tukey1953">(<a href="references.html#ref-tukey1953" role="doc-biblioref">Tukey 1953</a>)</span>. Идея: подобрать <em>одно общее</em> пороговое расстояние между средними, при котором вероятность хотя бы одной ложной «значимой» пары среди всех <span class="math inline">\(g(g-1)/2\)</span> не превышает <span class="math inline">\(\alpha\)</span>. Опорная величина — нормированный <strong>размах</strong> выборочных средних <span class="math inline">\(q = (\max_i \bar y_{i\cdot} - \min_i \bar y_{i\cdot})/\sqrt{\text{MSW}/n}\)</span>: при верной <span class="math inline">\(H_0\)</span> он имеет <strong>распределение стьюдентизированного размаха</strong> (studentized range distribution). Для каждой пары <span class="math inline">\((i, j)\)</span> считается её нормированная разность, и пара признаётся «честно значимо» различающейся, если та превышает квантиль <span class="math inline">\(q_{\alpha,\,g,\,N-g}\)</span>. Побочный бонус — <strong>одновременные доверительные интервалы</strong> (simultaneous confidence intervals) <span class="math inline">\((\bar y_{i\cdot} - \bar y_{j\cdot}) \pm \text{HSD}_{ij}\)</span>, накрывающие все истинные разности сразу с вероятностью <span class="math inline">\(1 - \alpha\)</span>. Практические оговорки: метод предполагает примерно равные дисперсии; для несбалансированных дизайнов используется модификация Тьюки–Крамера (Tukey–Kramer); при сильной гетероскедастичности — тест Геймса–Хауэлла (Games–Howell).</p>
+<p><strong>Метод Даннета</strong> <span class="citation" data-cites="dunnett1955">(<a href="references.html#ref-dunnett1955" role="doc-biblioref">Dunnett 1955</a>)</span> решает более узкую задачу: сравнить <span class="math inline">\(g - 1\)</span> рукавов с <em>одной контрольной группой</em>, не сравнивая рукава между собой. Тестов становится <span class="math inline">\(g - 1\)</span> вместо <span class="math inline">\(g(g-1)/2\)</span>, критическое значение (из многомерного t-распределения, multivariate t) — меньше тьюкиевского, а мощность — выше. Для RCT с несколькими рукавами и вопросом «какие из них лучше контроля?» это метод выбора; в R — <code>multcomp::glht(model, linfct = mcp(group = "Dunnett"))</code>.</p>
 <section id="tukey-hsd-все-попарные-сравнения-контроль-fwer" class="level3" data-number="2.10.1">
 <h3 data-number="2.10.1" class="anchored" data-anchor-id="tukey-hsd-все-попарные-сравнения-контроль-fwer"><span class="header-section-number">2.10.1</span> 6.1 Tukey HSD (все попарные сравнения, контроль FWER)</h3>
 <div class="cell" data-layout-align="center">
@@ -1299,7 +1325,7 @@ Kruskal-Wallis chi-squared = 14.356, df = 19, p-value = 0.7626</code></pre>
 </section>
 <section id="тест-данна-пост-хок-после-краскелауоллиса-ранговый" class="level3" data-number="2.10.2">
 <h3 data-number="2.10.2" class="anchored" data-anchor-id="тест-данна-пост-хок-после-краскелауоллиса-ранговый"><span class="header-section-number">2.10.2</span> 6.2 Тест Данна (пост-хок после Краскела–Уоллиса, ранговый)</h3>
-<p><strong>Тест Данна</strong> (Dunn, 1961, 1964) — непараметрический аналог попарных сравнений: все <span class="math inline">\(N\)</span> наблюдений ранжируются совместно, для каждой пары групп сравниваются средние ранги, а полученные p-значения затем корректируются (чаще всего методом Хольма; Бонферрони — консервативнее; BH — если целью выбран FDR). Уместен, когда нарушена нормальность или гомоскедастичность, данные порядковые, выборки малы или засорены выбросами — и, как правило, применяется после значимого теста Краскела–Уоллиса.</p>
+<p><strong>Тест Данна</strong> <span class="citation" data-cites="dunn1961 dunn1964">(<a href="references.html#ref-dunn1961" role="doc-biblioref">Dunn 1961</a>, <a href="references.html#ref-dunn1964" role="doc-biblioref">1964</a>)</span> — непараметрический аналог попарных сравнений: все <span class="math inline">\(N\)</span> наблюдений ранжируются совместно, для каждой пары групп сравниваются средние ранги, а полученные p-значения затем корректируются (чаще всего методом Хольма; Бонферрони — консервативнее; BH — если целью выбран FDR). Уместен, когда нарушена нормальность или гомоскедастичность, данные порядковые, выборки малы или засорены выбросами — и, как правило, применяется после значимого теста Краскела–Уоллиса.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Тест Данна — непараметрический аналог Tukey HSD.</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Используется после значимого Краскела–Уоллиса, когда нормальность нарушена.</span></span>
@@ -1412,14 +1438,14 @@ Kruskal-Wallis chi-squared = 14.356, df = 19, p-value = 0.7626</code></pre>
 <section id="часть-vii.-современные-методы-учёт-зависимости-тестов" class="level2" data-number="2.11">
 <h2 data-number="2.11" class="anchored" data-anchor-id="часть-vii.-современные-методы-учёт-зависимости-тестов"><span class="header-section-number">2.11</span> Часть VII. Современные методы: учёт зависимости тестов</h2>
 <p>У классических поправок есть общий изъян: Бонферрони и Хольм построены под «худший случай» произвольной зависимости и потому просто делят <span class="math inline">\(\alpha\)</span> на число тестов. Но в реальном эксперименте тесты обычно <strong>сильно зависимы</strong>: одни и те же участники, коррелированные исходы, общие ковариаты. FWER в такой ситуации и так не взлетает до теоретического максимума — а мощность классические методы режут по полной.</p>
-<p><strong>List, Shaikh, Xu (2019)</strong> предлагают процедуру, которая использует эту зависимость вместо того, чтобы её игнорировать. Идея (на базе подхода Романо–Вольфа, Romano–Wolf step-down):</p>
+<p><strong><span class="citation" data-cites="list2019">List, Shaikh, и Xu (<a href="references.html#ref-list2019" role="doc-biblioref">2019</a>)</span></strong> предлагают процедуру, которая использует эту зависимость вместо того, чтобы её игнорировать. Идея (на базе подхода Романо–Вольфа, Romano–Wolf step-down <span class="citation" data-cites="romano2005">(<a href="references.html#ref-romano2005" role="doc-biblioref">Romano и Wolf 2005</a>)</span>):</p>
 <ol type="1">
 <li>для каждой гипотезы считается обычная тестовая статистика (например, t-статистика для ATE);</li>
 <li>назначения в группы многократно перемешиваются (<strong>перестановочный бутстрап</strong>, permutation bootstrap), и при каждой перестановке пересчитываются <em>все</em> статистики сразу — так оценивается их совместное распределение с реальной структурой корреляций;</li>
 <li>применяется нисходящая процедура: p-значения сортируются, и на каждом шаге критическое значение обновляется с учётом только ещё не отвергнутых гипотез.</li>
 </ol>
 <p>Результат: FWER по-прежнему <span class="math inline">\(\leq \alpha\)</span>, но ложных <em>неотвержений</em> заметно меньше, чем у Бонферрони и Хольма — порог подстроен под фактическую, а не наихудшую зависимость. Процедура покрывает сразу три источника множественности: несколько исходов, несколько рукавов, подгруппы.</p>
-<p><strong>List, Shaikh, Vayalinkal (2023)</strong> добавляют к той же конструкции регрессионную поправку на претритментные ковариаты (в духе Лина): вместо простых разностей средних тестируются стьюдентизированные ATE из регрессии с ковариатами. Дисперсия оценок падает, мощность растёт, а контроль FWER сохраняется асимптотически. Знать устройство этих процедур в деталях для нашего курса не требуется — важно понимать идею и то, что в серьёзном эксперименте с множеством исходов и рукавов сегодня ожидают именно такого подхода, а не тотального Бонферрони.</p>
+<p><strong><span class="citation" data-cites="list2023">List, Shaikh, и Vayalinkal (<a href="references.html#ref-list2023" role="doc-biblioref">2023</a>)</span></strong> добавляют к той же конструкции регрессионную поправку на претритментные ковариаты (в духе Лина): вместо простых разностей средних тестируются стьюдентизированные ATE из регрессии с ковариатами. Дисперсия оценок падает, мощность растёт, а контроль FWER сохраняется асимптотически. Знать устройство этих процедур в деталях для нашего курса не требуется — важно понимать идею и то, что в серьёзном эксперименте с множеством исходов и рукавов сегодня ожидают именно такого подхода, а не тотального Бонферрони.</p>
 <hr>
 </section>
 <section id="сводка-как-выбирать-тест" class="level2" data-number="2.12">
@@ -1461,15 +1487,56 @@ Kruskal-Wallis chi-squared = 14.356, df = 19, p-value = 0.7626</code></pre>
 <section id="что-почитать" class="level2" data-number="2.13">
 <h2 data-number="2.13" class="anchored" data-anchor-id="что-почитать"><span class="header-section-number">2.13</span> Что почитать</h2>
 <ul>
-<li>List, J. A. (2025). <em>Experimental Economics: Theory and Practice</em>. University of Chicago Press. — гл. 4 (Statistical Conclusion Validity).</li>
-<li>List, J. A., Shaikh, A. M., &amp; Xu, Y. (2019). Multiple hypothesis testing in experimental economics. <em>Experimental Economics</em>, 22(4), 773–793.</li>
-<li>Benjamini, Y., &amp; Hochberg, Y. (1995). Controlling the false discovery rate. <em>Journal of the Royal Statistical Society B</em>, 57(1), 289–300.</li>
+<li><span class="citation" data-cites="list2025experimental">List (<a href="references.html#ref-list2025experimental" role="doc-biblioref">2026</a>)</span> — гл. 4 (Statistical Conclusion Validity).</li>
+<li><span class="citation" data-cites="list2019">List, Shaikh, и Xu (<a href="references.html#ref-list2019" role="doc-biblioref">2019</a>)</span> — множественное тестирование в экономических экспериментах.</li>
+<li><span class="citation" data-cites="benjamini1995">Benjamini и Hochberg (<a href="references.html#ref-benjamini1995" role="doc-biblioref">1995</a>)</span> — статья, введшая FDR.</li>
 <li>Мастицкий, С. (2013). Цикл заметок о множественных проверках гипотез: <a href="https://r-analytics.blogspot.com/2013/10/blog-post.html">r-analytics.blogspot.com</a> — Бонферрони и Хольм, критерий Тьюки, методы Беньямини–Хохберга и Беньямини–Йекутили, пакет <code>multcomp</code>.</li>
 <li>Убогоева, Е. (2023). Поправки на множественное тестирование: <a href="https://ubogoeva.github.io/R4Analytics/posts/multiple_testing.html">ubogoeva.github.io/R4Analytics</a>.</li>
 <li>Пономарев, А. (2023). Проблема множественного тестирования на практике: <a href="https://habr.com/ru/articles/772940/">habr.com/ru/articles/772940</a>.</li>
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-benjamini1995" class="csl-entry" role="listitem">
+Benjamini, Yoav, и Yosef Hochberg. 1995. <span>«Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing»</span>. <em>Journal of the Royal Statistical Society. Series B</em> 57 (1): 289–300.
+</div>
+<div id="ref-benjamini2001" class="csl-entry" role="listitem">
+Benjamini, Yoav, и Daniel Yekutieli. 2001. <span>«The Control of the False Discovery Rate in Multiple Testing under Dependency»</span>. <em>Annals of Statistics</em> 29 (4): 1165–88.
+</div>
+<div id="ref-dunn1961" class="csl-entry" role="listitem">
+Dunn, Olive Jean. 1961. <span>«Multiple Comparisons among Means»</span>. <em>Journal of the American Statistical Association</em> 56 (293): 52–64.
+</div>
+<div id="ref-dunn1964" class="csl-entry" role="listitem">
+———. 1964. <span>«Multiple Comparisons Using Rank Sums»</span>. <em>Technometrics</em> 6 (3): 241–52.
+</div>
+<div id="ref-dunnett1955" class="csl-entry" role="listitem">
+Dunnett, Charles W. 1955. <span>«A Multiple Comparison Procedure for Comparing Several Treatments with a Control»</span>. <em>Journal of the American Statistical Association</em> 50 (272): 1096–1121.
+</div>
+<div id="ref-fisher1935" class="csl-entry" role="listitem">
+Fisher, Ronald A. 1935. <em>The Design of Experiments</em>. Edinburgh: Oliver; Boyd.
+</div>
+<div id="ref-holm1979" class="csl-entry" role="listitem">
+Holm, Sture. 1979. <span>«A Simple Sequentially Rejective Multiple Test Procedure»</span>. <em>Scandinavian Journal of Statistics</em> 6 (2): 65–70.
+</div>
+<div id="ref-list2025experimental" class="csl-entry" role="listitem">
+List, John A. 2026. <em>Experimental Economics: Theory and Practice</em>. Chicago: University of Chicago Press.
+</div>
+<div id="ref-list2023" class="csl-entry" role="listitem">
+List, John A., Azeem M. Shaikh, и Atom Vayalinkal. 2023. <span>«Multiple Testing with Covariate Adjustment in Experimental Economics»</span>. <em>Journal of Applied Econometrics</em> 38 (6): 920–39.
+</div>
+<div id="ref-list2019" class="csl-entry" role="listitem">
+List, John A., Azeem M. Shaikh, и Yang Xu. 2019. <span>«Multiple Hypothesis Testing in Experimental Economics»</span>. <em>Experimental Economics</em> 22 (4): 773–93.
+</div>
+<div id="ref-popper2005" class="csl-entry" role="listitem">
+Popper, Karl. 2005. <em>The Logic of Scientific Discovery</em>. London: Routledge.
+</div>
+<div id="ref-romano2005" class="csl-entry" role="listitem">
+Romano, Joseph P., и Michael Wolf. 2005. <span>«Stepwise Multiple Testing as Formalized Data Snooping»</span>. <em>Econometrica</em> 73 (4): 1237–82.
+</div>
+<div id="ref-tukey1953" class="csl-entry" role="listitem">
+Tukey, John W. 1953. <span>«The Problem of Multiple Comparisons»</span>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

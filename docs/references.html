@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Анна Ставнийчук">
 
-<title>Causal Inference</title>
+<title>Литература – Causal Inference</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -31,7 +49,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./longitudinal_within.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Предисловие</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">Литература</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -111,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Предисловие</span></a>
   </div>
 </li>
@@ -141,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="./references.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Литература</span></a>
   </div>
 </li>
@@ -150,40 +168,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Содержание</h2>
-   
-  <ul>
-  <li><a href="#предисловие" id="toc-предисловие" class="nav-link active" data-scroll-target="#предисловие">Предисловие</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/annastavniychuk/causal_inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Сообщить о проблеме</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Causal Inference</h1>
+<h1 class="title">Литература</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Автор</div>
-    <div class="quarto-title-meta-contents">
-             <p>Анна Ставнийчук </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Дата публикации</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">1 мая 2026 г.</p>
-    </div>
-  </div>
   
     
   </div>
@@ -193,52 +193,411 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="предисловие" class="level1 unnumbered">
-<h1 class="unnumbered">Предисловие</h1>
-<p>Эта страница является сборником материалов к практическим занятиям по курсу “Экспериментальные методы в общественных науках”, проводимых в магистратуре экономического факультета МГУ имени М.В. Ломоносова</p>
-<p>В тексте встречаются вспомогательные блоки двух типов:</p>
-<ol type="1">
-<li>В зеленых блоках расположена дополнительная (и иногда техническая) информация, пропуск которой не является критическим для понимания материала, однако эта информация может быть полезна, если вы хотите овладеть прикладным навыком оценки эффекта.</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-abadie2018" class="csl-entry" role="listitem">
+Abadie, Alberto, Matthew M. Chingos, and Martin R. West. 2018.
+<span>“Endogenous Stratification in Randomized Experiments.”</span>
+<em>Review of Economics and Statistics</em> 100 (4): 567–80.
 </div>
-<div class="callout-title-container flex-fill">
-Блок с дополнительной информацией
+<div id="ref-andreoni1988" class="csl-entry" role="listitem">
+Andreoni, James. 1988. <span>“Why Free Ride? <span>S</span>trategies and
+Learning in Public Goods Experiments.”</span> <em>Journal of Public
+Economics</em> 37 (3): 291–304.
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+<div id="ref-angrist1990" class="csl-entry" role="listitem">
+Angrist, Joshua D. 1990. <span>“Lifetime Earnings and the
+<span>V</span>ietnam Era Draft Lottery: Evidence from Social Security
+Administrative Records.”</span> <em>American Economic Review</em> 80
+(3): 313–36.
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<div id="ref-ashenfelter1978" class="csl-entry" role="listitem">
+Ashenfelter, Orley. 1978. <span>“Estimating the Effect of Training
+Programs on Earnings.”</span> <em>Review of Economics and
+Statistics</em> 60 (1): 47–57.
+</div>
+<div id="ref-athey2025esc" class="csl-entry" role="listitem">
+Athey, Susan, Raj Chetty, and Guido W. Imbens. 2025. <span>“The
+Experimental Selection Correction Estimator: Using Experiments to Remove
+Biases in Observational Estimates.”</span> NBER Working Paper 33817.
+National Bureau of Economic Research.
+</div>
+<div id="ref-athey2019surrogate" class="csl-entry" role="listitem">
+Athey, Susan, Raj Chetty, Guido W. Imbens, and Hyunseung Kang. 2019.
+<span>“The Surrogate Index: Combining Short-Term Proxies to Estimate
+Long-Term Treatment Effects More Rapidly and Precisely.”</span> NBER
+Working Paper 26463. National Bureau of Economic Research.
+</div>
+<div id="ref-atheyimbens2006" class="csl-entry" role="listitem">
+Athey, Susan, and Guido W. Imbens. 2006. <span>“Identification and
+Inference in Nonlinear Difference-in-Differences Models.”</span>
+<em>Econometrica</em> 74 (2): 431–97.
+</div>
+<div id="ref-atheyimbens2016" class="csl-entry" role="listitem">
+———. 2016. <span>“Recursive Partitioning for Heterogeneous Causal
+Effects.”</span> <em>Proceedings of the National Academy of
+Sciences</em> 113 (27): 7353–60.
+</div>
+<div id="ref-baron1986" class="csl-entry" role="listitem">
+Baron, Reuben M., and David A. Kenny. 1986. <span>“The
+Moderator–Mediator Variable Distinction in Social Psychological
+Research: Conceptual, Strategic, and Statistical Considerations.”</span>
+<em>Journal of Personality and Social Psychology</em> 51 (6): 1173–82.
+</div>
+<div id="ref-barter2007" class="csl-entry" role="listitem">
+Barter, Philip J., Mark Caulfield, Mats Eriksson, et al. 2007.
+<span>“Effects of Torcetrapib in Patients at High Risk for Coronary
+Events.”</span> <em>New England Journal of Medicine</em> 357 (21):
+2109–22.
+</div>
+<div id="ref-bellemare2016" class="csl-entry" role="listitem">
+Bellemare, Charles, Luc Bissonnette, and Sabine Kröger. 2016.
+<span>“Simulating Power of Economic Experiments: The <span class="nocase">powerBBK</span> Package.”</span> <em>Journal of the
+Economic Science Association</em> 2 (2): 157–68.
+</div>
+<div id="ref-benjamini1995" class="csl-entry" role="listitem">
+Benjamini, Yoav, and Yosef Hochberg. 1995. <span>“Controlling the False
+Discovery Rate: A Practical and Powerful Approach to Multiple
+Testing.”</span> <em>Journal of the Royal Statistical Society. Series
+B</em> 57 (1): 289–300.
+</div>
+<div id="ref-benjamini2001" class="csl-entry" role="listitem">
+Benjamini, Yoav, and Daniel Yekutieli. 2001. <span>“The Control of the
+False Discovery Rate in Multiple Testing Under Dependency.”</span>
+<em>Annals of Statistics</em> 29 (4): 1165–88.
+</div>
+<div id="ref-blumenstock2018" class="csl-entry" role="listitem">
+Blumenstock, Joshua, Michael Callen, and Tarek Ghani. 2018. <span>“Why
+Do Defaults Affect Behavior? <span>E</span>xperimental Evidence from
+<span>A</span>fghanistan.”</span> <em>American Economic Review</em> 108
+(10): 2868–2901.
+</div>
+<div id="ref-borusyak2024" class="csl-entry" role="listitem">
+Borusyak, Kirill, Xavier Jaravel, and Jann Spiess. 2024.
+<span>“Revisiting Event-Study Designs: Robust and Efficient
+Estimation.”</span> <em>Review of Economic Studies</em> 91 (6): 3253–85.
+</div>
+<div id="ref-callaway2021" class="csl-entry" role="listitem">
+Callaway, Brantly, and Pedro H. C. Sant’Anna. 2021.
+<span>“Difference-in-Differences with Multiple Time Periods.”</span>
+<em>Journal of Econometrics</em> 225 (2): 200–230.
+</div>
+<div id="ref-dechaisemartin2020" class="csl-entry" role="listitem">
+Chaisemartin, Clément de, and Xavier D’Haultfœuille. 2020.
+<span>“Two-Way Fixed Effects Estimators with Heterogeneous Treatment
+Effects.”</span> <em>American Economic Review</em> 110 (9): 2964–96.
+</div>
+<div id="ref-charness2012" class="csl-entry" role="listitem">
+Charness, Gary, Uri Gneezy, and Michael A. Kuhn. 2012.
+<span>“Experimental Methods: Between-Subject and Within-Subject
+Design.”</span> <em>Journal of Economic Behavior &amp; Organization</em>
+81 (1): 1–8.
+</div>
+<div id="ref-cinelli2022" class="csl-entry" role="listitem">
+Cinelli, Carlos, Andrew Forney, and Judea Pearl. 2022. <span>“A Crash
+Course in Good and Bad Controls.”</span> <em>Sociological Methods &amp;
+Research</em>. <a href="https://doi.org/10.1177/00491241221099552">https://doi.org/10.1177/00491241221099552</a>.
+</div>
+<div id="ref-cunningham2021" class="csl-entry" role="listitem">
+Cunningham, Scott. 2021. <em>Causal Inference: The Mixtape</em>. New
+Haven: Yale University Press. <a href="https://mixtape.scunning.com">https://mixtape.scunning.com</a>.
+</div>
+<div id="ref-deng2013" class="csl-entry" role="listitem">
+Deng, Alex, Ya Xu, Ron Kohavi, and Toby Walker. 2013. <span>“Improving
+the Sensitivity of Online Controlled Experiments by Utilizing
+Pre-Experiment Data.”</span> In <em>Proceedings of the Sixth ACM
+International Conference on Web Search and Data Mining (WSDM)</em>,
+123–32.
+</div>
+<div id="ref-djebbari2008" class="csl-entry" role="listitem">
+Djebbari, Habiba, and Jeffrey Smith. 2008. <span>“Heterogeneous Impacts
+in <span>PROGRESA</span>.”</span> <em>Journal of Econometrics</em> 145
+(1–2): 64–80.
+</div>
+<div id="ref-dunn1961" class="csl-entry" role="listitem">
+Dunn, Olive Jean. 1961. <span>“Multiple Comparisons Among Means.”</span>
+<em>Journal of the American Statistical Association</em> 56 (293):
+52–64.
+</div>
+<div id="ref-dunn1964" class="csl-entry" role="listitem">
+———. 1964. <span>“Multiple Comparisons Using Rank Sums.”</span>
+<em>Technometrics</em> 6 (3): 241–52.
+</div>
+<div id="ref-dunnett1955" class="csl-entry" role="listitem">
+Dunnett, Charles W. 1955. <span>“A Multiple Comparison Procedure for
+Comparing Several Treatments with a Control.”</span> <em>Journal of the
+American Statistical Association</em> 50 (272): 1096–1121.
+</div>
+<div id="ref-facure2022" class="csl-entry" role="listitem">
+Facure, Matheus. 2022. <em>Causal Inference for the Brave and True</em>.
+<a href="https://matheusfacure.github.io/python-causality-handbook/">https://matheusfacure.github.io/python-causality-handbook/</a>.
+</div>
+<div id="ref-fisher1935" class="csl-entry" role="listitem">
+Fisher, Ronald A. 1935. <em>The Design of Experiments</em>. Edinburgh:
+Oliver; Boyd.
+</div>
+<div id="ref-frangakis2002" class="csl-entry" role="listitem">
+Frangakis, Constantine E., and Donald B. Rubin. 2002. <span>“Principal
+Stratification in Causal Inference.”</span> <em>Biometrics</em> 58 (1):
+21–29.
+</div>
+<div id="ref-frison1992" class="csl-entry" role="listitem">
+Frison, Lars, and Stuart J. Pocock. 1992. <span>“Repeated Measures in
+Clinical Trials: Analysis Using Mean Summary Statistics and Its
+Implications for Design.”</span> <em>Statistics in Medicine</em> 11
+(13): 1685–1704.
+</div>
+<div id="ref-garg2024" class="csl-entry" role="listitem">
+Garg, Prashant, and Thiemo Fetzer. 2025. <span>“Causal Claims in
+Economics.”</span>
+</div>
+<div id="ref-glymour2019" class="csl-entry" role="listitem">
+Glymour, Clark, Kun Zhang, and Peter Spirtes. 2019. <span>“Review of
+Causal Discovery Methods Based on Graphical Models.”</span>
+<em>Frontiers in Genetics</em> 10: 524.
+</div>
+<div id="ref-gneezy2005" class="csl-entry" role="listitem">
+Gneezy, Uri. 2005. <span>“Deception: The Role of Consequences.”</span>
+<em>American Economic Review</em> 95 (1): 384–94.
+</div>
+<div id="ref-goodmanbacon2021" class="csl-entry" role="listitem">
+Goodman-Bacon, Andrew. 2021. <span>“Difference-in-Differences with
+Variation in Treatment Timing.”</span> <em>Journal of Econometrics</em>
+225 (2): 254–77.
+</div>
+<div id="ref-harrison2004" class="csl-entry" role="listitem">
+Harrison, Glenn W., and John A. List. 2004. <span>“Field
+Experiments.”</span> <em>Journal of Economic Literature</em> 42 (4):
+1009–55.
+</div>
+<div id="ref-heckman1979" class="csl-entry" role="listitem">
+Heckman, James J. 1979. <span>“Sample Selection Bias as a Specification
+Error.”</span> <em>Econometrica</em> 47 (1): 153–61.
+</div>
+<div id="ref-heckman2014" class="csl-entry" role="listitem">
+Heckman, James J., and Tim Kautz. 2013. <span>“Fostering and Measuring
+Skills: Interventions That Improve Character and Cognition.”</span> NBER
+Working Paper 19656. National Bureau of Economic Research.
+</div>
+<div id="ref-heckman1997" class="csl-entry" role="listitem">
+Heckman, James J., Jeffrey Smith, and Nancy Clements. 1997.
+<span>“Making the Most Out of Programme Evaluations and Social
+Experiments: Accounting for Heterogeneity in Programme Impacts.”</span>
+<em>Review of Economic Studies</em> 64 (4): 487–535.
+</div>
+<div id="ref-henckel2022" class="csl-entry" role="listitem">
+Henckel, Leonard, Emilija Perković, and Marloes H. Maathuis. 2022.
+<span>“Graphical Criteria for Efficient Total Effect Estimation via
+Adjustment in Causal Linear Models.”</span> <em>Journal of the Royal
+Statistical Society. Series B</em> 84 (2): 579–99.
+</div>
+<div id="ref-holland1986" class="csl-entry" role="listitem">
+Holland, Paul W. 1986. <span>“Statistics and Causal Inference.”</span>
+<em>Journal of the American Statistical Association</em> 81 (396):
+945–60.
+</div>
+<div id="ref-holm1979" class="csl-entry" role="listitem">
+Holm, Sture. 1979. <span>“A Simple Sequentially Rejective Multiple Test
+Procedure.”</span> <em>Scandinavian Journal of Statistics</em> 6 (2):
+65–70.
+</div>
+<div id="ref-hume1748" class="csl-entry" role="listitem">
+Hume, David. 1748. <em>An Enquiry Concerning Human Understanding</em>.
+London: A. Millar.
+</div>
+<div id="ref-huntingtonklein2021" class="csl-entry" role="listitem">
+Huntington-Klein, Nick. 2021. <em>The Effect: An Introduction to
+Research Design and Causality</em>. Chapman; Hall/CRC. <a href="https://theeffectbook.net">https://theeffectbook.net</a>.
+</div>
+<div id="ref-imai2011" class="csl-entry" role="listitem">
+Imai, Kosuke, Luke Keele, Dustin Tingley, and Teppei Yamamoto. 2011.
+<span>“Unpacking the Black Box of Causality: Learning about Causal
+Mechanisms from Experimental and Observational Studies.”</span>
+<em>American Political Science Review</em> 105 (4): 765–89.
+</div>
+<div id="ref-imai2010identification" class="csl-entry" role="listitem">
+Imai, Kosuke, Luke Keele, and Teppei Yamamoto. 2010.
+<span>“Identification, Inference and Sensitivity Analysis for Causal
+Mediation Effects.”</span> <em>Statistical Science</em> 25 (1): 51–71.
+</div>
+<div id="ref-imbens2020" class="csl-entry" role="listitem">
+Imbens, Guido W. 2020. <span>“Potential Outcome and Directed Acyclic
+Graph Approaches to Causality: Relevance for Empirical Practice in
+Economics.”</span> <em>Journal of Economic Literature</em> 58 (4):
+1129–79.
+</div>
+<div id="ref-imbensnewey2009" class="csl-entry" role="listitem">
+Imbens, Guido W., and Whitney K. Newey. 2009. <span>“Identification and
+Estimation of Triangular Simultaneous Equations Models Without
+Additivity.”</span> <em>Econometrica</em> 77 (5): 1481–1512.
+</div>
+<div id="ref-imbens1997" class="csl-entry" role="listitem">
+Imbens, Guido W., and Donald B. Rubin. 1997. <span>“Estimating Outcome
+Distributions for Compliers in Instrumental Variables Models.”</span>
+<em>Review of Economic Studies</em> 64 (4): 555–74.
+</div>
+<div id="ref-imbens2015" class="csl-entry" role="listitem">
+———. 2015. <em>Causal Inference for Statistics, Social, and Biomedical
+Sciences: An Introduction</em>. Cambridge: Cambridge University Press.
+</div>
+<div id="ref-lalonde1986" class="csl-entry" role="listitem">
+LaLonde, Robert J. 1986. <span>“Evaluating the Econometric Evaluations
+of Training Programs with Experimental Data.”</span> <em>American
+Economic Review</em> 76 (4): 604–20.
+</div>
+<div id="ref-lee2009" class="csl-entry" role="listitem">
+Lee, David S. 2009. <span>“Training, Wages, and Sample Selection:
+Estimating Sharp Bounds on Treatment Effects.”</span> <em>Review of
+Economic Studies</em> 76 (3): 1071–1102.
+</div>
+<div id="ref-levittlist2011" class="csl-entry" role="listitem">
+Levitt, Steven D., and John A. List. 2011. <span>“Was There Really a
+<span>H</span>awthorne Effect at the <span>H</span>awthorne Plant?
+<span>A</span>n Analysis of the Original Illumination
+Experiments.”</span> <em>American Economic Journal: Applied
+Economics</em> 3 (1): 224–38.
+</div>
+<div id="ref-list2004" class="csl-entry" role="listitem">
+List, John A. 2004. <span>“The Nature and Extent of Discrimination in
+the Marketplace: Evidence from the Field.”</span> <em>Quarterly Journal
+of Economics</em> 119 (1): 49–89.
+</div>
+<div id="ref-list2025optimally" class="csl-entry" role="listitem">
+———. 2025a. <span>“Optimally Imperfect: Designing Experiments for
+Inference.”</span>
+</div>
+<div id="ref-list2025within" class="csl-entry" role="listitem">
+———. 2025b. <span>“The Experimentalist Looks Within: Toward an
+Understanding of Within-Subject Experimental Designs.”</span> NBER
+Working Paper 33456. National Bureau of Economic Research.
+</div>
+<div id="ref-list2025experimental" class="csl-entry" role="listitem">
+———. 2026. <em>Experimental Economics: Theory and Practice</em>.
+Chicago: University of Chicago Press.
+</div>
+<div id="ref-list2021parental" class="csl-entry" role="listitem">
+List, John A., Julie Pernaudet, and Dana L. Suskind. 2021.
+<span>“Shifting Parental Beliefs about Child Development to Foster
+Parental Investments and Improve School Readiness Outcomes.”</span>
+<em>Nature Communications</em> 12: 5765.
+</div>
+<div id="ref-list2023" class="csl-entry" role="listitem">
+List, John A., Azeem M. Shaikh, and Atom Vayalinkal. 2023.
+<span>“Multiple Testing with Covariate Adjustment in Experimental
+Economics.”</span> <em>Journal of Applied Econometrics</em> 38 (6):
+920–39.
+</div>
+<div id="ref-list2019" class="csl-entry" role="listitem">
+List, John A., Azeem M. Shaikh, and Yang Xu. 2019. <span>“Multiple
+Hypothesis Testing in Experimental Economics.”</span> <em>Experimental
+Economics</em> 22 (4): 773–93.
+</div>
+<div id="ref-mcdonald1980" class="csl-entry" role="listitem">
+McDonald, John F., and Robert A. Moffitt. 1980. <span>“The Uses of
+<span>T</span>obit Analysis.”</span> <em>Review of Economics and
+Statistics</em> 62 (2): 318–21.
+</div>
+<div id="ref-mckenzie2012" class="csl-entry" role="listitem">
+McKenzie, David. 2012. <span>“Beyond Baseline and Follow-up: The Case
+for More <span>T</span> in Experiments.”</span> <em>Journal of
+Development Economics</em> 99 (2): 210–21.
+</div>
+<div id="ref-miguel2004" class="csl-entry" role="listitem">
+Miguel, Edward, and Michael Kremer. 2004. <span>“Worms: Identifying
+Impacts on Education and Health in the Presence of Treatment
+Externalities.”</span> <em>Econometrica</em> 72 (1): 159–217.
+</div>
+<div id="ref-mill1843" class="csl-entry" role="listitem">
+Mill, John Stuart. 1843. <em>A System of Logic, Ratiocinative and
+Inductive</em>. London: John W. Parker.
+</div>
+<div id="ref-neal2020" class="csl-entry" role="listitem">
+Neal, Brady. 2020. <span>“Introduction to Causal Inference from a
+Machine Learning Perspective.”</span> <a href="https://www.bradyneal.com/causal-inference-course">https://www.bradyneal.com/causal-inference-course</a>.
+</div>
+<div id="ref-neyman1923" class="csl-entry" role="listitem">
+Neyman, Jerzy. 1923. <span>“On the Application of Probability Theory to
+Agricultural Experiments. <span>E</span>ssay on Principles.
+<span>S</span>ection 9.”</span> <em>Statistical Science</em> 5 (4):
+465–72.
+</div>
+<div id="ref-pearl1988" class="csl-entry" role="listitem">
+Pearl, Judea. 1988. <em>Probabilistic Reasoning in Intelligent Systems:
+Networks of Plausible Inference</em>. San Mateo, CA: Morgan Kaufmann.
+</div>
+<div id="ref-pearl1995" class="csl-entry" role="listitem">
+———. 1995. <span>“Causal Diagrams for Empirical Research.”</span>
+<em>Biometrika</em> 82 (4): 669–88.
+</div>
+<div id="ref-pearl2009" class="csl-entry" role="listitem">
+———. 2009. <em>Causality: Models, Reasoning, and Inference</em>. 2nd ed.
+Cambridge: Cambridge University Press.
+</div>
+<div id="ref-popper2005" class="csl-entry" role="listitem">
+Popper, Karl. 2005. <em>The Logic of Scientific Discovery</em>. London:
+Routledge.
+</div>
+<div id="ref-prentice1989" class="csl-entry" role="listitem">
+Prentice, Ross L. 1989. <span>“Surrogate Endpoints in Clinical Trials:
+Definition and Operational Criteria.”</span> <em>Statistics in
+Medicine</em> 8 (4): 431–40.
+</div>
+<div id="ref-richardson2013" class="csl-entry" role="listitem">
+Richardson, Thomas S., and James M. Robins. 2013. <span>“Single World
+Intervention Graphs (<span>SWIG</span>s): A Unification of the
+Counterfactual and Graphical Approaches to Causality.”</span> Working
+Paper 128. Center for the Statistics; the Social Sciences, University of
+Washington.
+</div>
+<div id="ref-rodemeier2023" class="csl-entry" role="listitem">
+Rodemeier, Matthias. 2023. <span>“Willingness to Pay for Carbon
+Mitigation: Field Evidence from the Market for Carbon Offsets.”</span>
+</div>
+<div id="ref-romano2005" class="csl-entry" role="listitem">
+Romano, Joseph P., and Michael Wolf. 2005. <span>“Stepwise Multiple
+Testing as Formalized Data Snooping.”</span> <em>Econometrica</em> 73
+(4): 1237–82.
+</div>
+<div id="ref-rubin1974" class="csl-entry" role="listitem">
+Rubin, Donald B. 1974. <span>“Estimating Causal Effects of Treatments in
+Randomized and Nonrandomized Studies.”</span> <em>Journal of Educational
+Psychology</em> 66 (5): 688–701.
+</div>
+<div id="ref-solomon1949" class="csl-entry" role="listitem">
+Solomon, Richard L. 1949. <span>“An Extension of Control Group
+Design.”</span> <em>Psychological Bulletin</em> 46 (2): 137–50.
+</div>
+<div id="ref-sunabraham2021" class="csl-entry" role="listitem">
+Sun, Liyang, and Sarah Abraham. 2021. <span>“Estimating Dynamic
+Treatment Effects in Event Studies with Heterogeneous Treatment
+Effects.”</span> <em>Journal of Econometrics</em> 225 (2): 175–99.
+</div>
+<div id="ref-tobin1958" class="csl-entry" role="listitem">
+Tobin, James. 1958. <span>“Estimation of Relationships for Limited
+Dependent Variables.”</span> <em>Econometrica</em> 26 (1): 24–36.
+</div>
+<div id="ref-tukey1953" class="csl-entry" role="listitem">
+Tukey, John W. 1953. <span>“The Problem of Multiple Comparisons.”</span>
+</div>
+<div id="ref-vowels2022" class="csl-entry" role="listitem">
+Vowels, Matthew J., Necati Cihan Camgoz, and Richard Bowden. 2022.
+<span>“D’ya Like <span>DAG</span>s? <span>A</span> Survey on Structure
+Learning and Causal Discovery.”</span> <em>ACM Computing Surveys</em> 55
+(4): 1–36.
+</div>
+<div id="ref-wager2018" class="csl-entry" role="listitem">
+Wager, Stefan, and Susan Athey. 2018. <span>“Estimation and Inference of
+Heterogeneous Treatment Effects Using Random Forests.”</span>
+<em>Journal of the American Statistical Association</em> 113 (523):
+1228–42.
+</div>
+<div id="ref-xiong2023" class="csl-entry" role="listitem">
+Xiong, Ruoxuan, Susan Athey, Mohsen Bayati, and Guido W. Imbens. 2024.
+<span>“Optimal Experimental Design for Staggered Rollouts.”</span>
+<em>Management Science</em> 70 (8): 5317–36.
+</div>
+</div>
 
-</div>
-</div>
-</div>
-<ol start="2" type="1">
-<li>В синих блоках расположены ответы на вопросы для самопроверки</li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Блок с ответами на вопросы для самопроверки
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
 
-</div>
-</div>
-</div>
-<p><em>Данные материалы являются рабочей версией. Ошибки и неточности остаются на совести автора; если вы заметите опечатки или неточности, пожалуйста, напишите на электронную почту annastavnychuk@gmail.com</em></p>
-
-
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -663,11 +1022,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./longitudinal_within.html" class="pagination-link" aria-label="Продольные эксперименты, ESC и внутрисубъектные дизайны">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Продольные эксперименты, ESC и внутрисубъектные дизайны</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="Введение в эксперименты">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Введение в эксперименты</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -678,7 +1037,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/annastavniychuk/causal_inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Сообщить о проблеме</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/annastavniychuk/causal_inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Сообщить о проблеме</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
